@@ -1,0 +1,21 @@
+# precompiled python
+*.pyc
+
+# compiled object file
+*.o
+
+# roms
+*.gbc
+
+# rgbds extras
+*.map
+*.sym
+
+# save game files
+*.sgm
+*.sav
+*.sys
+
+# converted image/palette data
+*.1bpp
+*.2bpp
