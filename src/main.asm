@@ -1,5 +1,4 @@
-SECTION "bank0",ROM0[0]
-INCBIN "baserom.gbc",$0,$4000
+INCLUDE "home.asm"
 
 SECTION "bank1",ROMX,BANK[$1]
 INCBIN "baserom.gbc",$4000,$4000

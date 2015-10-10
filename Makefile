@@ -21,8 +21,8 @@ $(OBJS): $$*.asm $$($$*_dep)
 	rgbasm -i src/ -o $@ $<
 
 pokepuzzle.gbc: $(OBJS)
-	rgblink -n $*.sym -o $@ $^
-	rgbfix -v $@
+	rgblink -p 0xff -n $*.sym -o $@ $^
+	rgbfix -Cjv -k 01 -l 0x33 -m 0x1b -n 00 -p 06 -r 03 -t POKEMONPC -i BPNE $@
 
 clean:
 	rm -f pokepuzzle.gbc $(OBJS) *.sym
