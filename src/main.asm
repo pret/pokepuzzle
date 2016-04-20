@@ -1,3 +1,5 @@
+INCLUDE "constants.asm"
+
 INCLUDE "home.asm"
 
 SECTION "bank1",ROMX,BANK[$1]
@@ -94,7 +96,11 @@ SECTION "bank1F",ROMX,BANK[$1F]
 INCBIN "baserom.gbc",$7C000,$7E21D - $7C000
 
 SECTION "bank20",ROMX,BANK[$20]
-INCBIN "baserom.gbc",$80000,$8371E - $80000
+INCBIN "baserom.gbc",$80000,$8190e - $80000
+
+INCLUDE "audio/song_pointers.asm"
+
+INCBIN "baserom.gbc",$81a31,$8371E - $81a31
 
 SECTION "bank21",ROMX,BANK[$21]
 INCBIN "baserom.gbc",$84000,$87A3F - $84000
@@ -103,10 +109,14 @@ SECTION "bank22",ROMX,BANK[$22]
 INCBIN "baserom.gbc",$88000,$896EA - $88000
 
 SECTION "bank23",ROMX,BANK[$23]
-INCBIN "baserom.gbc",$8C000,$8FF15 - $8C000
+INCBIN "baserom.gbc",$8C000,$8f689 - $8C000
+
+INCLUDE "audio/music/paneldepon3.asm"
 
 SECTION "bank24",ROMX,BANK[$24]
-INCBIN "baserom.gbc",$90000,$93E1D - $90000
+INCBIN "baserom.gbc",$90000,$91365 - $90000
+
+INCLUDE "audio/music/paneldepon1.asm"
 
 SECTION "bank25",ROMX,BANK[$25]
 INCBIN "baserom.gbc",$94000,$97EEE - $94000
@@ -277,19 +287,50 @@ SECTION "bank5C",ROMX,BANK[$5C]
 INCBIN "baserom.gbc",$170000,$170C98 - $170000
 
 SECTION "bank60",ROMX,BANK[$60]
-INCBIN "baserom.gbc",$180000,$181AE2 - $180000
+
+INCLUDE "audio/music/paneldepon2.asm"
 
 SECTION "bank61",ROMX,BANK[$61]
-INCBIN "baserom.gbc",$184000,$187CA9 - $184000
+
+INCLUDE "audio/music/none.asm"
+INCLUDE "audio/music/goldenrodgym.asm"
+INCLUDE "audio/music/unusedsong2.asm"
+INCLUDE "audio/music/unusedsong1.asm"
+INCLUDE "audio/music/azaleaandblackthorngym.asm"
+INCLUDE "audio/music/violetandolivinegym.asm"
+INCLUDE "audio/music/mainmenu.asm"
+INCLUDE "audio/music/travellingtothegyms.asm"
+INCLUDE "audio/music/roundcleared.asm"
 
 SECTION "bank62",ROMX,BANK[$62]
-INCBIN "baserom.gbc",$188000,$18BBAE - $188000
+
+INCLUDE "audio/music/mahoganygym.asm"
+INCLUDE "audio/music/gymvictory.asm"
+INCLUDE "audio/music/ecruteakandcianwoodgym.asm"
+INCLUDE "audio/music/elitefour.asm"
+INCLUDE "audio/music/lance.asm"
+INCLUDE "audio/music/gameover.asm"
+INCLUDE "audio/music/intro.asm"
 
 SECTION "bank63",ROMX,BANK[$63]
-INCBIN "baserom.gbc",$18C000,$18FC9A - $18C000
+
+INCLUDE "audio/music/titlescreen.asm"
+INCLUDE "audio/music/herecomestheelitefour.asm"
+INCLUDE "audio/music/cleffaandigglybuffstheme.asm"
+INCLUDE "audio/music/elekidandmagbystheme.asm"
+INCLUDE "audio/music/elitefourdanger.asm"
+INCLUDE "audio/music/herecomeslance.asm"
+INCLUDE "audio/music/gymbattledanger.asm"
+INCLUDE "audio/music/secrettrainervictory.asm"
+INCLUDE "audio/music/secrettrainer.asm"
 
 SECTION "bank64",ROMX,BANK[$64]
-INCBIN "baserom.gbc",$190000,$192640 - $190000
+
+INCLUDE "audio/music/mainmenucopy.asm"
+INCLUDE "audio/music/credits.asm"
+INCLUDE "audio/music/lancedanger.asm"
+INCLUDE "audio/music/unusedsong3.asm"
+INCLUDE "audio/music/lineclearvictory.asm"
 
 SECTION "bank66",ROMX,BANK[$66]
 INCBIN "baserom.gbc",$198000,$198CCF - $198000
