@@ -22,7 +22,7 @@ $(OBJS): $$*.asm $$($$*_dep)
 	rgbasm -E -i src/ -o $@ $<
 
 pokepuzzle.gbc: $(OBJS)
-	rgblink -p 0xff -n $*.sym -m $*.map -o $@ $^
+	rgblink -p 0xff -n $*.sym -m $*.map -O baserom.gbc -o $@ $^
 	rgbfix -Cjv -k 01 -l 0x33 -m 0x1b -n 00 -p 0xff -r 03 -t POKEMONPC -i BPNE $@
 
 clean:
