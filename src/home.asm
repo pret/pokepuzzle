@@ -45,8 +45,8 @@ SECTION "romheader",ROM0[$100]
 
 ; manually declare part of the rom header
 ; because rgblink mistakenly pads these with FF
-SECTION "gbc only",ROM0[$143]
-	db $c0
+SECTION "title padding",ROM0[$13d]
+	db $00, $00
 
 SECTION "sgb flag",ROM0[$146]
 	db $00
