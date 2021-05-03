@@ -1,10 +1,12 @@
 INCLUDE "constants.asm"
+INCLUDE "wram.asm"
+INCLUDE "hram.asm"
 
 INCLUDE "home.asm"
 
-SECTION "Song Pointers", ROMX[$590e], BANK[$20]
+SECTION "Audio Engine", ROMX[$4000], BANK[$20]
 
-INCLUDE "audio/song_pointers.asm"
+INCLUDE "audio/engine.asm"
 
 SECTION "Panel de Pon 3", ROMX[$7689], BANK[$23]
 

@@ -19,7 +19,7 @@ compare: baserom.gbc pokepuzzle.gbc
 $(OBJS): $$*.asm $$($$*_dep)
 	@python $(EXTRAS)/gfx.py 2bpp $(2bppq)
 	@python $(EXTRAS)/gfx.py 1bpp $(1bppq)
-	rgbasm -E -i src/ -o $@ $<
+	rgbasm -E -L -i src/ -o $@ $<
 
 pokepuzzle.gbc: $(OBJS)
 	rgblink -p 0xff -n $*.sym -m $*.map -O baserom.gbc -o $@ $^
