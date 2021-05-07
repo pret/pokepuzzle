@@ -5,24 +5,24 @@ Music_LanceDanger: ; 1913f3 (64:53f3)
 	dw Music_LanceDanger_Ch4
 
 Music_LanceDanger_Ch1: ; 1913fb (64:53fb)
-	musicda 119
-	musice6 115
-	musicdd
+	volume 119
+	volume_envelope 115
+	stereo_panning_both
 	musicd6 20
 	musicd7 0
-	musicde
+	duty_cycle_12_5
 	musice3 2
 	musicd8 221
-	musicec Music_LanceDanger_branch_19141b
+	song_call Music_LanceDanger_branch_19141b
 Music_LanceDanger_branch_19140c: ; 19140c (64:540c)
-	musicec Music_LanceDanger_branch_191463
-	musicec Music_LanceDanger_branch_1914e7
-	musicec Music_LanceDanger_branch_191566
-	musicec Music_LanceDanger_branch_19160b
-	musice7 Music_LanceDanger_branch_19140c
+	song_call Music_LanceDanger_branch_191463
+	song_call Music_LanceDanger_branch_1914e7
+	song_call Music_LanceDanger_branch_191566
+	song_call Music_LanceDanger_branch_19160b
+	song_jump Music_LanceDanger_branch_19140c
 
 Music_LanceDanger_branch_19141b: ; 19141b (64:541b)
-	musicde
+	duty_cycle_12_5
 	musicd8 38
 	music01 48
 	musicd2
@@ -92,7 +92,7 @@ Music_LanceDanger_branch_19141b: ; 19141b (64:541b)
 	music8a 166
 	music01 3
 	music8a 164
-	musiced
+	song_ret
 
 Music_LanceDanger_branch_191463: ; 191463 (64:5463)
 	music01 6
@@ -224,7 +224,7 @@ Music_LanceDanger_branch_191463: ; 191463 (64:5463)
 	music8a 163
 	music01 12
 	music8a 162
-	musiced
+	song_ret
 
 Music_LanceDanger_branch_1914e7: ; 1914e7 (64:54e7)
 	music01 6
@@ -351,7 +351,7 @@ Music_LanceDanger_branch_1914e7: ; 1914e7 (64:54e7)
 	music8a 163
 	music01 12
 	music8a 162
-	musiced
+	song_ret
 
 Music_LanceDanger_branch_191566: ; 191566 (64:5566)
 	music01 6
@@ -518,7 +518,7 @@ Music_LanceDanger_branch_191566: ; 191566 (64:5566)
 	music8a 197
 	music01 2
 	music8a 203
-	musiced
+	song_ret
 
 Music_LanceDanger_branch_19160b: ; 19160b (64:560b)
 	musicd8 120
@@ -612,28 +612,28 @@ Music_LanceDanger_branch_19160b: ; 19160b (64:560b)
 	music8a 171
 	music01 12
 	music8a 169
-	musiced
+	song_ret
 
 Music_LanceDanger_Ch2: ; 191669 (64:5669)
-	musicda 119
-	musice6 115
-	musicdd
+	volume 119
+	volume_envelope 115
+	stereo_panning_both
 	musicd4 55
 	musice3 2
 	musicd4 55
-	musicec Music_LanceDanger_branch_191686
+	song_call Music_LanceDanger_branch_191686
 Music_LanceDanger_branch_191677: ; 191677 (64:5677)
-	musicec Music_LanceDanger_branch_19174d
-	musicec Music_LanceDanger_branch_191924
-	musicec Music_LanceDanger_branch_19198b
-	musicec Music_LanceDanger_branch_1919fe
-	musice7 Music_LanceDanger_branch_191677
+	song_call Music_LanceDanger_branch_19174d
+	song_call Music_LanceDanger_branch_191924
+	song_call Music_LanceDanger_branch_19198b
+	song_call Music_LanceDanger_branch_1919fe
+	song_jump Music_LanceDanger_branch_191677
 
 Music_LanceDanger_branch_191686: ; 191686 (64:5686)
-	musice0
+	duty_cycle_50
 	musicd8 207
 	musicd7 244
-	musicde
+	duty_cycle_12_5
 	musicd8 39
 	music01 3
 	music8a 183
@@ -794,7 +794,7 @@ Music_LanceDanger_branch_191686: ; 191686 (64:5686)
 	music8a 174
 	music01 3
 	music8a 172
-	musiced
+	song_ret
 
 Music_LanceDanger_branch_19174d: ; 19174d (64:574d)
 	musicd8 236
@@ -971,7 +971,7 @@ Music_LanceDanger_branch_19174d: ; 19174d (64:574d)
 	music8a 150
 	music01 1
 	musicd2
-	musice0
+	duty_cycle_50
 	musicd7 0
 	musicd8 176
 	music01 2
@@ -999,7 +999,7 @@ Music_LanceDanger_branch_19174d: ; 19174d (64:574d)
 	musicd4 55
 	music01 12
 	music8a 160
-	musicde
+	duty_cycle_12_5
 	musicd7 0
 	musicd8 236
 	music01 6
@@ -1175,7 +1175,7 @@ Music_LanceDanger_branch_19174d: ; 19174d (64:574d)
 	music01 1
 	musicd2
 	musicd7 0
-	musice0
+	duty_cycle_50
 	musicd8 180
 	music01 6
 	music8a 157
@@ -1187,10 +1187,10 @@ Music_LanceDanger_branch_19174d: ; 19174d (64:574d)
 	music8a 163
 	music01 12
 	music8a 162
-	musiced
+	song_ret
 
 Music_LanceDanger_branch_191924: ; 191924 (64:5924)
-	musice0
+	duty_cycle_50
 	musicd7 0
 	musice3 0
 	musicd8 165
@@ -1278,10 +1278,10 @@ Music_LanceDanger_branch_191924: ; 191924 (64:5924)
 	musicd4 55
 	music01 12
 	music8a 162
-	musiced
+	song_ret
 
 Music_LanceDanger_branch_19198b: ; 19198b (64:598b)
-	musicde
+	duty_cycle_12_5
 	musicd7 0
 	musice3 0
 	musicd8 48
@@ -1300,7 +1300,7 @@ Music_LanceDanger_branch_19198b: ; 19198b (64:598b)
 	music01 3
 	musicd2
 	music8a 192
-	musicde
+	duty_cycle_12_5
 	musicd8 240
 	music01 3
 	music8a 185
@@ -1332,7 +1332,7 @@ Music_LanceDanger_branch_19198b: ; 19198b (64:598b)
 	music8a 161
 	music01 3
 	music8a 156
-	musicde
+	duty_cycle_12_5
 	musicd7 0
 	musice3 0
 	musicd8 165
@@ -1351,7 +1351,7 @@ Music_LanceDanger_branch_19198b: ; 19198b (64:598b)
 	music01 3
 	musicd2
 	music8a 161
-	musicde
+	duty_cycle_12_5
 	musicd8 240
 	music01 3
 	music8a 168
@@ -1383,10 +1383,10 @@ Music_LanceDanger_branch_19198b: ; 19198b (64:598b)
 	music8a 197
 	music01 3
 	music8a 203
-	musiced
+	song_ret
 
 Music_LanceDanger_branch_1919fe: ; 1919fe (64:59fe)
-	musice0
+	duty_cycle_50
 	musicd8 165
 	music01 18
 	music8a 185
@@ -1467,7 +1467,7 @@ Music_LanceDanger_branch_1919fe: ; 1919fe (64:59fe)
 	music8a 190
 	music01 6
 	music8a 192
-	musicde
+	duty_cycle_12_5
 	musicd8 209
 	music01 3
 	music8a 188
@@ -1541,23 +1541,23 @@ Music_LanceDanger_branch_1919fe: ; 1919fe (64:59fe)
 	musicd8 165
 	music01 12
 	music8a 174
-	musiced
+	song_ret
 
 Music_LanceDanger_Ch3: ; 191aac (64:5aac)
-	musicdd
+	stereo_panning_both
 	musicd8 27
 	musicd7 12
 	musicd4 55
-	musicec Music_LanceDanger_branch_191ac5
+	song_call Music_LanceDanger_branch_191ac5
 Music_LanceDanger_branch_191ab6: ; 191ab6 (64:5ab6)
-	musicec Music_LanceDanger_branch_191b16
-	musicec Music_LanceDanger_branch_191c40
-	musicec Music_LanceDanger_branch_191db2
-	musicec Music_LanceDanger_branch_191f83
-	musice7 Music_LanceDanger_branch_191ab6
+	song_call Music_LanceDanger_branch_191b16
+	song_call Music_LanceDanger_branch_191c40
+	song_call Music_LanceDanger_branch_191db2
+	song_call Music_LanceDanger_branch_191f83
+	song_jump Music_LanceDanger_branch_191ab6
 
 Music_LanceDanger_branch_191ac5: ; 191ac5 (64:5ac5)
-	musice2 61
+	wave 61
 	musicd8 27
 	music01 6
 	music8a 142
@@ -1627,10 +1627,10 @@ Music_LanceDanger_branch_191ac5: ; 191ac5 (64:5ac5)
 	music8a 145
 	music01 6
 	music8a 147
-	musiced
+	song_ret
 
 Music_LanceDanger_branch_191b16: ; 191b16 (64:5b16)
-	musice2 63
+	wave 63
 	music01 6
 	music8a 161
 	music01 2
@@ -1926,13 +1926,13 @@ Music_LanceDanger_branch_191b16: ; 191b16 (64:5b16)
 	music8a 158
 	music01 12
 	music8a 157
-	musiced
+	song_ret
 
 Music_LanceDanger_branch_191c40: ; 191c40 (64:5c40)
-	musice2 64
+	wave 64
 	music01 6
 	music8a 161
-	musice2 62
+	wave 62
 	music01 2
 	music8a 149
 	music01 1
@@ -1967,10 +1967,10 @@ Music_LanceDanger_branch_191c40: ; 191c40 (64:5c40)
 	music8a 149
 	music01 1
 	musicd2
-	musice2 64
+	wave 64
 	music01 6
 	music8a 162
-	musice2 62
+	wave 62
 	music01 2
 	music8a 150
 	music01 1
@@ -1979,7 +1979,7 @@ Music_LanceDanger_branch_191c40: ; 191c40 (64:5c40)
 	music8a 150
 	music01 1
 	musicd2
-	musice2 64
+	wave 64
 	music01 6
 	music8a 161
 	music01 2
@@ -2016,10 +2016,10 @@ Music_LanceDanger_branch_191c40: ; 191c40 (64:5c40)
 	music8a 149
 	music01 1
 	musicd2
-	musice2 64
+	wave 64
 	music01 6
 	music8a 160
-	musice2 62
+	wave 62
 	music01 2
 	music8a 148
 	music01 1
@@ -2028,10 +2028,10 @@ Music_LanceDanger_branch_191c40: ; 191c40 (64:5c40)
 	music8a 148
 	music01 1
 	musicd2
-	musice2 64
+	wave 64
 	music01 6
 	music8a 161
-	musice2 62
+	wave 62
 	music01 2
 	music8a 149
 	music01 1
@@ -2048,10 +2048,10 @@ Music_LanceDanger_branch_191c40: ; 191c40 (64:5c40)
 	music8a 149
 	music01 1
 	musicd2
-	musice2 64
+	wave 64
 	music01 6
 	music8a 161
-	musice2 62
+	wave 62
 	music01 2
 	music8a 149
 	music01 1
@@ -2068,10 +2068,10 @@ Music_LanceDanger_branch_191c40: ; 191c40 (64:5c40)
 	music8a 149
 	music01 1
 	musicd2
-	musice2 64
+	wave 64
 	music01 6
 	music8a 162
-	musice2 62
+	wave 62
 	music01 2
 	music8a 150
 	music01 1
@@ -2103,10 +2103,10 @@ Music_LanceDanger_branch_191c40: ; 191c40 (64:5c40)
 	music8a 157
 	music01 12
 	music8a 155
-	musice2 64
+	wave 64
 	music01 6
 	music8a 161
-	musice2 62
+	wave 62
 	music01 2
 	music8a 149
 	music01 1
@@ -2123,10 +2123,10 @@ Music_LanceDanger_branch_191c40: ; 191c40 (64:5c40)
 	music8a 149
 	music01 1
 	musicd2
-	musice2 64
+	wave 64
 	music01 6
 	music8a 161
-	musice2 62
+	wave 62
 	music01 2
 	music8a 149
 	music01 1
@@ -2143,10 +2143,10 @@ Music_LanceDanger_branch_191c40: ; 191c40 (64:5c40)
 	music8a 149
 	music01 1
 	musicd2
-	musice2 64
+	wave 64
 	music01 6
 	music8a 162
-	musice2 62
+	wave 62
 	music01 2
 	music8a 150
 	music01 1
@@ -2155,10 +2155,10 @@ Music_LanceDanger_branch_191c40: ; 191c40 (64:5c40)
 	music8a 150
 	music01 1
 	musicd2
-	musice2 64
+	wave 64
 	music01 6
 	music8a 161
-	musice2 62
+	wave 62
 	music01 2
 	music8a 149
 	music01 1
@@ -2175,10 +2175,10 @@ Music_LanceDanger_branch_191c40: ; 191c40 (64:5c40)
 	music8a 149
 	music01 1
 	musicd2
-	musice2 64
+	wave 64
 	music01 6
 	music8a 161
-	musice2 62
+	wave 62
 	music01 2
 	music8a 149
 	music01 1
@@ -2195,10 +2195,10 @@ Music_LanceDanger_branch_191c40: ; 191c40 (64:5c40)
 	music8a 149
 	music01 1
 	musicd2
-	musice2 64
+	wave 64
 	music01 6
 	music8a 160
-	musice2 62
+	wave 62
 	music01 2
 	music8a 148
 	music01 1
@@ -2207,10 +2207,10 @@ Music_LanceDanger_branch_191c40: ; 191c40 (64:5c40)
 	music8a 148
 	music01 1
 	musicd2
-	musice2 64
+	wave 64
 	music01 6
 	music8a 161
-	musice2 62
+	wave 62
 	music01 2
 	music8a 149
 	music01 1
@@ -2227,10 +2227,10 @@ Music_LanceDanger_branch_191c40: ; 191c40 (64:5c40)
 	music8a 149
 	music01 1
 	musicd2
-	musice2 64
+	wave 64
 	music01 6
 	music8a 161
-	musice2 62
+	wave 62
 	music01 2
 	music8a 149
 	music01 1
@@ -2247,10 +2247,10 @@ Music_LanceDanger_branch_191c40: ; 191c40 (64:5c40)
 	music8a 149
 	music01 1
 	musicd2
-	musice2 64
+	wave 64
 	music01 6
 	music8a 162
-	musice2 62
+	wave 62
 	music01 2
 	music8a 150
 	music01 1
@@ -2267,13 +2267,13 @@ Music_LanceDanger_branch_191c40: ; 191c40 (64:5c40)
 	music8a 158
 	music01 12
 	music8a 157
-	musiced
+	song_ret
 
 Music_LanceDanger_branch_191db2: ; 191db2 (64:5db2)
-	musice2 62
+	wave 62
 	music01 6
 	music8a 168
-	musice2 62
+	wave 62
 	music01 2
 	music8a 156
 	music01 1
@@ -2290,10 +2290,10 @@ Music_LanceDanger_branch_191db2: ; 191db2 (64:5db2)
 	music8a 156
 	music01 1
 	musicd2
-	musice2 62
+	wave 62
 	music01 6
 	music8a 168
-	musice2 62
+	wave 62
 	music01 2
 	music8a 156
 	music01 1
@@ -2310,10 +2310,10 @@ Music_LanceDanger_branch_191db2: ; 191db2 (64:5db2)
 	music8a 156
 	music01 1
 	musicd2
-	musice2 62
+	wave 62
 	music01 6
 	music8a 169
-	musice2 62
+	wave 62
 	music01 2
 	music8a 157
 	music01 1
@@ -2322,10 +2322,10 @@ Music_LanceDanger_branch_191db2: ; 191db2 (64:5db2)
 	music8a 157
 	music01 1
 	musicd2
-	musice2 62
+	wave 62
 	music01 6
 	music8a 168
-	musice2 62
+	wave 62
 	music01 2
 	music8a 156
 	music01 1
@@ -2342,10 +2342,10 @@ Music_LanceDanger_branch_191db2: ; 191db2 (64:5db2)
 	music8a 156
 	music01 1
 	musicd2
-	musice2 62
+	wave 62
 	music01 6
 	music8a 168
-	musice2 62
+	wave 62
 	music01 2
 	music8a 156
 	music01 1
@@ -2362,10 +2362,10 @@ Music_LanceDanger_branch_191db2: ; 191db2 (64:5db2)
 	music8a 156
 	music01 1
 	musicd2
-	musice2 62
+	wave 62
 	music01 6
 	music8a 167
-	musice2 62
+	wave 62
 	music01 2
 	music8a 155
 	music01 1
@@ -2374,10 +2374,10 @@ Music_LanceDanger_branch_191db2: ; 191db2 (64:5db2)
 	music8a 155
 	music01 1
 	musicd2
-	musice2 62
+	wave 62
 	music01 6
 	music8a 168
-	musice2 62
+	wave 62
 	music01 2
 	music8a 156
 	music01 1
@@ -2394,10 +2394,10 @@ Music_LanceDanger_branch_191db2: ; 191db2 (64:5db2)
 	music8a 156
 	music01 1
 	musicd2
-	musice2 62
+	wave 62
 	music01 6
 	music8a 168
-	musice2 62
+	wave 62
 	music01 2
 	music8a 156
 	music01 1
@@ -2414,10 +2414,10 @@ Music_LanceDanger_branch_191db2: ; 191db2 (64:5db2)
 	music8a 156
 	music01 1
 	musicd2
-	musice2 62
+	wave 62
 	music01 6
 	music8a 169
-	musice2 62
+	wave 62
 	music01 2
 	music8a 157
 	music01 1
@@ -2426,10 +2426,10 @@ Music_LanceDanger_branch_191db2: ; 191db2 (64:5db2)
 	music8a 157
 	music01 1
 	musicd2
-	musice2 62
+	wave 62
 	music01 6
 	music8a 168
-	musice2 62
+	wave 62
 	music01 2
 	music8a 156
 	music01 1
@@ -2446,10 +2446,10 @@ Music_LanceDanger_branch_191db2: ; 191db2 (64:5db2)
 	music8a 156
 	music01 1
 	musicd2
-	musice2 62
+	wave 62
 	music01 6
 	music8a 168
-	musice2 62
+	wave 62
 	music01 2
 	music8a 156
 	music01 1
@@ -2466,10 +2466,10 @@ Music_LanceDanger_branch_191db2: ; 191db2 (64:5db2)
 	music8a 156
 	music01 1
 	musicd2
-	musice2 62
+	wave 62
 	music01 6
 	music8a 167
-	musice2 62
+	wave 62
 	music01 2
 	music8a 155
 	music01 1
@@ -2478,10 +2478,10 @@ Music_LanceDanger_branch_191db2: ; 191db2 (64:5db2)
 	music8a 155
 	music01 1
 	musicd2
-	musice2 62
+	wave 62
 	music01 6
 	music8a 168
-	musice2 62
+	wave 62
 	music01 2
 	music8a 156
 	music01 1
@@ -2498,10 +2498,10 @@ Music_LanceDanger_branch_191db2: ; 191db2 (64:5db2)
 	music8a 156
 	music01 1
 	musicd2
-	musice2 62
+	wave 62
 	music01 6
 	music8a 168
-	musice2 62
+	wave 62
 	music01 2
 	music8a 156
 	music01 1
@@ -2518,10 +2518,10 @@ Music_LanceDanger_branch_191db2: ; 191db2 (64:5db2)
 	music8a 156
 	music01 1
 	musicd2
-	musice2 62
+	wave 62
 	music01 6
 	music8a 169
-	musice2 62
+	wave 62
 	music01 2
 	music8a 157
 	music01 1
@@ -2530,10 +2530,10 @@ Music_LanceDanger_branch_191db2: ; 191db2 (64:5db2)
 	music8a 157
 	music01 1
 	musicd2
-	musice2 62
+	wave 62
 	music01 6
 	music8a 168
-	musice2 62
+	wave 62
 	music01 2
 	music8a 156
 	music01 1
@@ -2550,10 +2550,10 @@ Music_LanceDanger_branch_191db2: ; 191db2 (64:5db2)
 	music8a 156
 	music01 1
 	musicd2
-	musice2 62
+	wave 62
 	music01 6
 	music8a 168
-	musice2 62
+	wave 62
 	music01 2
 	music8a 156
 	music01 1
@@ -2570,10 +2570,10 @@ Music_LanceDanger_branch_191db2: ; 191db2 (64:5db2)
 	music8a 156
 	music01 1
 	musicd2
-	musice2 62
+	wave 62
 	music01 6
 	music8a 167
-	musice2 62
+	wave 62
 	music01 2
 	music8a 155
 	music01 1
@@ -2582,10 +2582,10 @@ Music_LanceDanger_branch_191db2: ; 191db2 (64:5db2)
 	music8a 155
 	music01 1
 	musicd2
-	musice2 62
+	wave 62
 	music01 6
 	music8a 168
-	musice2 62
+	wave 62
 	music01 2
 	music8a 156
 	music01 1
@@ -2602,10 +2602,10 @@ Music_LanceDanger_branch_191db2: ; 191db2 (64:5db2)
 	music8a 156
 	music01 1
 	musicd2
-	musice2 62
+	wave 62
 	music01 6
 	music8a 168
-	musice2 62
+	wave 62
 	music01 2
 	music8a 156
 	music01 1
@@ -2622,10 +2622,10 @@ Music_LanceDanger_branch_191db2: ; 191db2 (64:5db2)
 	music8a 156
 	music01 1
 	musicd2
-	musice2 62
+	wave 62
 	music01 6
 	music8a 169
-	musice2 62
+	wave 62
 	music01 2
 	music8a 157
 	music01 1
@@ -2634,10 +2634,10 @@ Music_LanceDanger_branch_191db2: ; 191db2 (64:5db2)
 	music8a 157
 	music01 1
 	musicd2
-	musice2 62
+	wave 62
 	music01 6
 	music8a 168
-	musice2 62
+	wave 62
 	music01 2
 	music8a 156
 	music01 1
@@ -2654,10 +2654,10 @@ Music_LanceDanger_branch_191db2: ; 191db2 (64:5db2)
 	music8a 156
 	music01 1
 	musicd2
-	musice2 62
+	wave 62
 	music01 6
 	music8a 168
-	musice2 62
+	wave 62
 	music01 2
 	music8a 156
 	music01 1
@@ -2674,10 +2674,10 @@ Music_LanceDanger_branch_191db2: ; 191db2 (64:5db2)
 	music8a 156
 	music01 1
 	musicd2
-	musice2 62
+	wave 62
 	music01 6
 	music8a 167
-	musice2 62
+	wave 62
 	music01 2
 	music8a 155
 	music01 1
@@ -2686,7 +2686,7 @@ Music_LanceDanger_branch_191db2: ; 191db2 (64:5db2)
 	music8a 155
 	music01 1
 	musicd2
-	musiced
+	song_ret
 
 Music_LanceDanger_branch_191f83: ; 191f83 (64:5f83)
 	music01 3
@@ -2856,7 +2856,7 @@ Music_LanceDanger_branch_191f83: ; 191f83 (64:5f83)
 	music8a 159
 	music01 6
 	music8a 171
-	musice2 64
+	wave 64
 	musicd8 104
 	music01 3
 	music8a 176
@@ -2917,18 +2917,18 @@ Music_LanceDanger_branch_191f83: ; 191f83 (64:5f83)
 	musicd8 27
 	music01 11
 	music8a 162
-	musiced
+	song_ret
 
 Music_LanceDanger_Ch4: ; 19206b (64:606b)
-	musicdd
+	stereo_panning_both
 	musicd6 20
-	musicec Music_LanceDanger_branch_192080
+	song_call Music_LanceDanger_branch_192080
 Music_LanceDanger_branch_192071: ; 192071 (64:6071)
-	musicec Music_LanceDanger_branch_1920d1
-	musicec Music_LanceDanger_branch_192162
-	musicec Music_LanceDanger_branch_1921fb
-	musicec Music_LanceDanger_branch_19228c
-	musice7 Music_LanceDanger_branch_192071
+	song_call Music_LanceDanger_branch_1920d1
+	song_call Music_LanceDanger_branch_192162
+	song_call Music_LanceDanger_branch_1921fb
+	song_call Music_LanceDanger_branch_19228c
+	song_jump Music_LanceDanger_branch_192071
 
 Music_LanceDanger_branch_192080: ; 192080 (64:6080)
 	music01 6
@@ -3011,7 +3011,7 @@ Music_LanceDanger_branch_192080: ; 192080 (64:6080)
 	music6d 127
 	music01 3
 	music6d 127
-	musiced
+	song_ret
 
 Music_LanceDanger_branch_1920d1: ; 1920d1 (64:60d1)
 	music01 6
@@ -3158,7 +3158,7 @@ Music_LanceDanger_branch_1920d1: ; 1920d1 (64:60d1)
 	music6d 127
 	music01 3
 	music6d 127
-	musiced
+	song_ret
 
 Music_LanceDanger_branch_192162: ; 192162 (64:6162)
 	music01 6
@@ -3313,7 +3313,7 @@ Music_LanceDanger_branch_192162: ; 192162 (64:6162)
 	music6d 127
 	music01 3
 	music6d 127
-	musiced
+	song_ret
 
 Music_LanceDanger_branch_1921fb: ; 1921fb (64:61fb)
 	music01 6
@@ -3460,7 +3460,7 @@ Music_LanceDanger_branch_1921fb: ; 1921fb (64:61fb)
 	music6d 127
 	music01 3
 	music6d 127
-	musiced
+	song_ret
 
 Music_LanceDanger_branch_19228c: ; 19228c (64:628c)
 	music01 6
@@ -3635,4 +3635,4 @@ Music_LanceDanger_branch_19228c: ; 19228c (64:628c)
 	music6d 127
 	music01 3
 	music6d 127
-	musiced
+	song_ret

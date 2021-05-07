@@ -5,11 +5,11 @@ Music_PanelDePon1: ; 91365 (24:5365)
 	dw Music_PanelDePon1_Ch4
 
 Music_PanelDePon1_Ch1: ; 9136d (24:536d)
-	musicda 119
-	musice6 115
-	musicdd
+	volume 119
+	volume_envelope 115
+	stereo_panning_both
 	musicd6 19
-	musice0
+	duty_cycle_50
 	musicd7 7
 	musice3 7
 	musicd4 50
@@ -30,14 +30,14 @@ Music_PanelDePon1_Ch1: ; 9136d (24:536d)
 	musice3 2
 	musicd7 5
 	musicd8 97
-	musice0
+	duty_cycle_50
 	music01 24
 	music8a 169
 Music_PanelDePon1_branch_91394: ; 91394 (24:5394)
 	musicd7 249
 	musicd4 37
 	musicd8 78
-	musice0
+	duty_cycle_50
 	musicd7 5
 	music01 6
 	music8a 174
@@ -193,7 +193,7 @@ Music_PanelDePon1_branch_91394: ; 91394 (24:5394)
 	music01 9
 	musicd2
 	musicd8 45
-	musicde
+	duty_cycle_12_5
 	music01 3
 	music8a 181
 	music01 3
@@ -212,24 +212,24 @@ Music_PanelDePon1_branch_91394: ; 91394 (24:5394)
 	music8a 181
 	music01 6
 	music8a 186
-	musice7 Music_PanelDePon1_branch_91394
+	song_jump Music_PanelDePon1_branch_91394
 
 ; unreferenced ?
 Music_PanelDePon1_branch_91464: ; 9136d (24:536d)
 	musicd8 77
-	musice0
+	duty_cycle_50
 	music01 1
 	music8a 169
 	music8a 168
 	music8a 166
-	musiced
+	song_ret
 
 Music_PanelDePon1_Ch2: ; 9146c (24:546c)
-	musicda 119
-	musice6 115
-	musicdd
+	volume 119
+	volume_envelope 115
+	stereo_panning_both
 	musicd6 18
-	musice0
+	duty_cycle_50
 	musicd8 75
 	musicd7 7
 	musicd4 50
@@ -254,7 +254,7 @@ Music_PanelDePon1_Ch2: ; 9146c (24:546c)
 	music8a 169
 Music_PanelDePon1_branch_91490: ; 91490 (24:5490)
 	musicd7 249
-	musice1
+	duty_cycle_75
 	musicd5
 	musicd8 124
 	music01 3
@@ -385,13 +385,13 @@ Music_PanelDePon1_branch_91490: ; 91490 (24:5490)
 	musicd8 97
 	music01 24
 	music8a 181
-	musice7 Music_PanelDePon1_branch_91490
+	song_jump Music_PanelDePon1_branch_91490
 
 Music_PanelDePon1_Ch3: ; 9151a (24:551a)
-	musicdd
+	stereo_panning_both
 	musicd4 45
 	musicd8 109
-	musice2 34
+	wave 34
 	musicd7 17
 	music01 24
 	musicd2
@@ -546,10 +546,10 @@ Music_PanelDePon1_branch_91527: ; 91527 (24:5527)
 	music8a 149
 	music01 3
 	musicd2
-	musice7 Music_PanelDePon1_branch_91527
+	song_jump Music_PanelDePon1_branch_91527
 
 Music_PanelDePon1_Ch4: ; 915bf (24:55bf)
-	musicdd
+	stereo_panning_both
 	music01 3
 	music6d 126
 	music01 3
@@ -579,15 +579,15 @@ Music_PanelDePon1_Ch4: ; 915bf (24:55bf)
 	music01 3
 	music6d 126
 Music_PanelDePon1_branch_915dc: ; 915dc (24:55dc)
-	musicec Music_PanelDePon1_branch_915f7
-	musicec Music_PanelDePon1_branch_91629
-	musicec Music_PanelDePon1_branch_9160f
-	musicec Music_PanelDePon1_branch_91629
-	musicec Music_PanelDePon1_branch_9160f
-	musicec Music_PanelDePon1_branch_91629
-	musicec Music_PanelDePon1_branch_9160f
-	musicec Music_PanelDePon1_branch_91642
-	musice7 Music_PanelDePon1_branch_915dc
+	song_call Music_PanelDePon1_branch_915f7
+	song_call Music_PanelDePon1_branch_91629
+	song_call Music_PanelDePon1_branch_9160f
+	song_call Music_PanelDePon1_branch_91629
+	song_call Music_PanelDePon1_branch_9160f
+	song_call Music_PanelDePon1_branch_91629
+	song_call Music_PanelDePon1_branch_9160f
+	song_call Music_PanelDePon1_branch_91642
+	song_jump Music_PanelDePon1_branch_915dc
 
 Music_PanelDePon1_branch_915f7: ; 915f7 (24:55f7)
 	music01 6
@@ -613,7 +613,7 @@ Music_PanelDePon1_branch_915f7: ; 915f7 (24:55f7)
 	music6d 121
 	music6d 120
 	music6d 119
-	musiced
+	song_ret
 
 Music_PanelDePon1_branch_9160f: ; 9160f (24:560f)
 	music01 3
@@ -641,7 +641,7 @@ Music_PanelDePon1_branch_9160f: ; 9160f (24:560f)
 	music6d 121
 	music6d 120
 	music6d 119
-	musiced
+	song_ret
 
 Music_PanelDePon1_branch_91629: ; 91629 (24:5629)
 	music01 3
@@ -668,7 +668,7 @@ Music_PanelDePon1_branch_91629: ; 91629 (24:5629)
 	music6d 121
 	music6d 121
 	music6d 119
-	musiced
+	song_ret
 
 Music_PanelDePon1_branch_91642: ; 91642 (24:5642)
 	music01 3
@@ -699,4 +699,4 @@ Music_PanelDePon1_branch_91642: ; 91642 (24:5642)
 	music6d 126
 	music01 3
 	music6d 127
-	musiced
+	song_ret

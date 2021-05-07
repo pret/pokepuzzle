@@ -1,4 +1,4 @@
-music00: MACRO
+song_end: MACRO
     db $00
 ENDM
 
@@ -24,7 +24,7 @@ ENDM
 
 musicd4: MACRO
     db $d4
-    db \1
+    db \1 ; PointerTable_83401 ID
 ENDM
 
 musicd5: MACRO
@@ -43,7 +43,7 @@ ENDM
 
 musicd8: MACRO
     db $d8
-    db \1
+    db \1 ; PointerTable_82230 ID
 ENDM
 
 ; unused ?
@@ -51,44 +51,48 @@ musicd9: MACRO
     db $d9
 ENDM
 
-musicda: MACRO
+volume: MACRO
     db $da
     db \1
 ENDM
 
 ; unused ?
-musicdb: MACRO
+stereo_panning_right: MACRO
     db $db
 ENDM
 
 ; unused ?
-musicdc: MACRO
+stereo_panning_left: MACRO
     db $dc
 ENDM
 
-musicdd: MACRO
+stereo_panning_both: MACRO
     db $dd
 ENDM
 
-musicde: MACRO
+; duty cycle
+duty_cycle_12_5: MACRO
     db $de
 ENDM
 
-musicdf: MACRO
+; duty cycle
+duty_cycle_25: MACRO
     db $df
 ENDM
 
-musice0: MACRO
+; duty cycle
+duty_cycle_50: MACRO
     db $e0
 ENDM
 
-musice1: MACRO
+; duty cycle
+duty_cycle_75: MACRO
     db $e1
 ENDM
 
-musice2: MACRO
+wave: MACRO
     db $e2
-    db \1
+    db \1 ; DataTable_82f71 ID
 ENDM
 
 musice3: MACRO
@@ -108,22 +112,22 @@ musice5: MACRO
     db \1
 ENDM
 
-musice6: MACRO
+volume_envelope: MACRO
     db $e6
     db \1
 ENDM
 
-musice7: MACRO
+song_jump: MACRO
     db $e7
     dw \1
 ENDM
 
-musicec: MACRO
+song_call: MACRO
     db $ec
     dw \1
 ENDM
 
-musiced: MACRO
+song_ret: MACRO
     db $ed
 ENDM
 

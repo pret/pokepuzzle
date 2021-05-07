@@ -7,7 +7,7 @@ Music_PanelDePon2: ; 180000 (60:4000)
 Music_PanelDePon2_Ch1: ; 180008 (60:4008)
 	musicd6 21
 	musicd4 37
-	musice0
+	duty_cycle_50
 	musicd7 12
 	musicd8 114
 	music01 6
@@ -53,17 +53,17 @@ Music_PanelDePon2_Ch1: ; 180008 (60:4008)
 	music01 8
 	musicd2
 Music_PanelDePon2_branch_18003c: ; 18003c (60:403c)
-	musicec Music_PanelDePon2_branch_18004b
-	musicec Music_PanelDePon2_branch_18004b
-	musicec Music_PanelDePon2_branch_180077
-	musicec Music_PanelDePon2_branch_1800af
-	musice7 Music_PanelDePon2_branch_18003c
+	song_call Music_PanelDePon2_branch_18004b
+	song_call Music_PanelDePon2_branch_18004b
+	song_call Music_PanelDePon2_branch_180077
+	song_call Music_PanelDePon2_branch_1800af
+	song_jump Music_PanelDePon2_branch_18003c
 
 Music_PanelDePon2_branch_18004b: ; 18004b (60:404b)
 	musicd8 113
 	musicd7 0
 	musice3 0
-	musice0
+	duty_cycle_50
 	music01 18
 	music8a 179
 	music01 24
@@ -77,7 +77,7 @@ Music_PanelDePon2_branch_18004b: ; 18004b (60:404b)
 	music01 12
 	music8a 186
 	musicd7 12
-	musicde
+	duty_cycle_12_5
 	music01 6
 	music8a 179
 	music8a 183
@@ -98,10 +98,10 @@ Music_PanelDePon2_branch_18004b: ; 18004b (60:404b)
 	music01 6
 	music8a 181
 	music8a 179
-	musiced
+	song_ret
 
 Music_PanelDePon2_branch_180077: ; 180077 (60:4077)
-	musice0
+	duty_cycle_50
 	musicd8 118
 	musice3 0
 	music01 18
@@ -122,7 +122,7 @@ Music_PanelDePon2_branch_180077: ; 180077 (60:4077)
 	music01 48
 	musicd3
 	musicd7 12
-	musicde
+	duty_cycle_12_5
 	music01 6
 	music8a 171
 	music01 12
@@ -153,11 +153,11 @@ Music_PanelDePon2_branch_180077: ; 180077 (60:4077)
 	music8a 174
 	music01 18
 	music8a 174
-	musiced
+	song_ret
 
 Music_PanelDePon2_branch_1800af: ; 1800af (60:40af)
 	musicd7 0
-	musice0
+	duty_cycle_50
 	musice3 1
 	music01 6
 	music8a 167
@@ -378,14 +378,14 @@ Music_PanelDePon2_branch_1800af: ; 1800af (60:40af)
 	music8a 167
 	music01 12
 	music8a 167
-	musiced
+	song_ret
 
 Music_PanelDePon2_Ch2: ; 180191 (60:4191)
-	musice6 119
-	musicdd
+	volume_envelope 119
+	stereo_panning_both
 	musicd4 37
 	musicd6 21
-	musice0
+	duty_cycle_50
 	musicd8 114
 	musicd7 0
 	music01 48
@@ -402,7 +402,7 @@ Music_PanelDePon2_Ch2: ; 180191 (60:4191)
 	music8a 179
 	music01 24
 	musicd3
-	musice0
+	duty_cycle_50
 	musicd7 0
 	music01 6
 	music8a 179
@@ -415,7 +415,7 @@ Music_PanelDePon2_Ch2: ; 180191 (60:4191)
 	music01 8
 	musicd2
 Music_PanelDePon2_branch_1801ba: ; 1801ba (60:41ba)
-	musice0
+	duty_cycle_50
 	musicd7 12
 	musicd8 118
 	music01 6
@@ -476,7 +476,7 @@ Music_PanelDePon2_branch_1801ba: ; 1801ba (60:41ba)
 	music8a 166
 	music01 12
 	music8a 167
-	musicde
+	duty_cycle_12_5
 	music01 18
 	music8a 159
 	music01 18
@@ -520,14 +520,14 @@ Music_PanelDePon2_branch_1801ba: ; 1801ba (60:41ba)
 	music8a 157
 	music01 24
 	musicd3
-	musicdf
+	duty_cycle_25
 	musicd7 24
 	music01 6
 	music8a 167
 	music01 18
 	music8a 167
 	musicd7 12
-	musice0
+	duty_cycle_50
 	musicd8 118
 	music01 18
 	music8a 159
@@ -563,7 +563,7 @@ Music_PanelDePon2_branch_1801ba: ; 1801ba (60:41ba)
 	music8a 157
 	music01 24
 	music8a 155
-	musicde
+	duty_cycle_12_5
 	music01 6
 	music8a 172
 	music01 12
@@ -572,7 +572,7 @@ Music_PanelDePon2_branch_1801ba: ; 1801ba (60:41ba)
 	music8a 172
 	music01 48
 	music8a 171
-	musice0
+	duty_cycle_50
 	music01 18
 	music8a 155
 	music01 18
@@ -591,7 +591,7 @@ Music_PanelDePon2_branch_1801ba: ; 1801ba (60:41ba)
 	music8a 157
 	music01 24
 	musicd2
-	musicdf
+	duty_cycle_25
 	musicd7 12
 	music01 6
 	music8a 159
@@ -632,7 +632,7 @@ Music_PanelDePon2_branch_1801ba: ; 1801ba (60:41ba)
 	music01 18
 	music8a 162
 	musicd8 114
-	musice0
+	duty_cycle_50
 	musicd7 12
 	music01 18
 	music8a 155
@@ -666,7 +666,7 @@ Music_PanelDePon2_branch_1801ba: ; 1801ba (60:41ba)
 	music8a 159
 	music01 12
 	music8a 157
-	musicde
+	duty_cycle_12_5
 	music01 6
 	music8a 155
 	music8a 155
@@ -736,10 +736,10 @@ Music_PanelDePon2_branch_1801ba: ; 1801ba (60:41ba)
 	music8a 171
 	music01 12
 	music8a 171
-	musice7 Music_PanelDePon2_branch_1801ba
+	song_jump Music_PanelDePon2_branch_1801ba
 
 Music_PanelDePon2_Ch3: ; 180307 (60:4307)
-	musice2 25
+	wave 25
 	musicd8 20
 	musicd7 24
 	musice3 3
@@ -782,7 +782,7 @@ Music_PanelDePon2_Ch3: ; 180307 (60:4307)
 Music_PanelDePon2_branch_180333: ; 180333 (60:4333)
 	musice3 0
 	musicd7 12
-	musice2 15
+	wave 15
 	music01 6
 	music8a 155
 	musicd2
@@ -1160,10 +1160,10 @@ Music_PanelDePon2_branch_180333: ; 180333 (60:4333)
 	music8a 143
 	music8a 143
 	musicd2
-	musice7 Music_PanelDePon2_branch_180333
+	song_jump Music_PanelDePon2_branch_180333
 
 Music_PanelDePon2_Ch4: ; 1804b5 (60:44b5)
-	musicdd
+	stereo_panning_both
 	music01 6
 	music6d 119
 	music6d 123
@@ -1201,13 +1201,13 @@ Music_PanelDePon2_Ch4: ; 1804b5 (60:44b5)
 	music6d 126
 	music6d 127
 Music_PanelDePon2_branch_1804da: ; 1804da (60:44da)
-	musicec Music_PanelDePon2_branch_1804ef
-	musicec Music_PanelDePon2_branch_1804ef
-	musicec Music_PanelDePon2_branch_1804ef
-	musicec Music_PanelDePon2_branch_1804ef
-	musicec Music_PanelDePon2_branch_1804ef
-	musicec Music_PanelDePon2_branch_18053b
-	musice7 Music_PanelDePon2_branch_1804da
+	song_call Music_PanelDePon2_branch_1804ef
+	song_call Music_PanelDePon2_branch_1804ef
+	song_call Music_PanelDePon2_branch_1804ef
+	song_call Music_PanelDePon2_branch_1804ef
+	song_call Music_PanelDePon2_branch_1804ef
+	song_call Music_PanelDePon2_branch_18053b
+	song_jump Music_PanelDePon2_branch_1804da
 
 Music_PanelDePon2_branch_1804ef: ; 1804ef (60:44ef)
 	music01 6
@@ -1285,7 +1285,7 @@ Music_PanelDePon2_branch_1804ef: ; 1804ef (60:44ef)
 	music6d 127
 	music6d 126
 	music6d 127
-	musiced
+	song_ret
 
 Music_PanelDePon2_branch_18053b: ; 18053b (60:453b)
 	music01 6
@@ -1345,4 +1345,4 @@ Music_PanelDePon2_branch_18053b: ; 18053b (60:453b)
 	music6d 127
 	music6d 126
 	music6d 127
-	musiced
+	song_ret

@@ -5,12 +5,12 @@ Music_VioletAndOlivineGym: ; 186675 (61:6675)
 	dw Music_VioletAndOlivineGym_Ch4
 
 Music_VioletAndOlivineGym_Ch1: ; 18667d (61:667d)
-	musicda 119
-	musice6 115
-	musicdd
+	volume 119
+	volume_envelope 115
+	stereo_panning_both
 	musicd6 10
 	musicd7 0
-	musicde
+	duty_cycle_12_5
 	musice3 254
 	musicd4 55
 	musicd8 221
@@ -123,8 +123,8 @@ Music_VioletAndOlivineGym_Ch1: ; 18667d (61:667d)
 	music01 6
 	music8a 148
 Music_VioletAndOlivineGym_branch_1866fa: ; 1866fa (61:66fa)
-	musicec Music_VioletAndOlivineGym_branch_186700
-	musice7 Music_VioletAndOlivineGym_branch_1866fa
+	song_call Music_VioletAndOlivineGym_branch_186700
+	song_jump Music_VioletAndOlivineGym_branch_1866fa
 
 Music_VioletAndOlivineGym_branch_186700: ; 186700 (61:6700)
 	musicd8 207
@@ -535,14 +535,14 @@ Music_VioletAndOlivineGym_branch_186700: ; 186700 (61:6700)
 	music8a 165
 	music01 27
 	musicd2
-	musiced
+	song_ret
 
 Music_VioletAndOlivineGym_Ch2: ; 18689b (61:689b)
-	musicda 119
-	musice6 115
-	musicdd
+	volume 119
+	volume_envelope 115
+	stereo_panning_both
 	musicd7 0
-	musice0
+	duty_cycle_50
 	musicd4 55
 	musicd8 11
 	musicd8 178
@@ -652,12 +652,12 @@ Music_VioletAndOlivineGym_Ch2: ; 18689b (61:689b)
 	music01 3
 	musicd2
 Music_VioletAndOlivineGym_branch_18691e: ; 18691e (61:691e)
-	musicec Music_VioletAndOlivineGym_branch_186924
-	musice7 Music_VioletAndOlivineGym_branch_18691e
+	song_call Music_VioletAndOlivineGym_branch_186924
+	song_jump Music_VioletAndOlivineGym_branch_18691e
 
 Music_VioletAndOlivineGym_branch_186924: ; 186924 (61:6924)
 	musicd8 42
-	musicde
+	duty_cycle_12_5
 	music01 6
 	musicd2
 	music01 1
@@ -720,7 +720,7 @@ Music_VioletAndOlivineGym_branch_186924: ; 186924 (61:6924)
 	music01 3
 	music8a 177
 	musicd8 206
-	musicde
+	duty_cycle_12_5
 	musicd4 58
 	music01 6
 	music8a 178
@@ -741,7 +741,7 @@ Music_VioletAndOlivineGym_branch_186924: ; 186924 (61:6924)
 	music01 12
 	musicd2
 	musicd8 178
-	musice0
+	duty_cycle_50
 	musicd7 0
 	music01 3
 	music8a 165
@@ -821,7 +821,7 @@ Music_VioletAndOlivineGym_branch_186924: ; 186924 (61:6924)
 	music01 4
 	musicd2
 	musicd8 42
-	musicde
+	duty_cycle_12_5
 	music01 6
 	musicd2
 	music01 1
@@ -895,7 +895,7 @@ Music_VioletAndOlivineGym_branch_186924: ; 186924 (61:6924)
 	music01 21
 	musicd2
 	musicd8 178
-	musice0
+	duty_cycle_50
 	music01 3
 	music8a 165
 	music01 3
@@ -961,7 +961,7 @@ Music_VioletAndOlivineGym_branch_186924: ; 186924 (61:6924)
 	music01 12
 	music8a 165
 	musicd8 206
-	musice0
+	duty_cycle_50
 	musicd7 12
 	music01 3
 	music8a 173
@@ -986,7 +986,7 @@ Music_VioletAndOlivineGym_branch_186924: ; 186924 (61:6924)
 	music01 3
 	musicd2
 	musicd8 178
-	musice0
+	duty_cycle_50
 	musicd7 0
 	music8a 161
 	music01 3
@@ -1079,7 +1079,7 @@ Music_VioletAndOlivineGym_branch_186924: ; 186924 (61:6924)
 	music01 3
 	musicd2
 	musicd8 42
-	musicde
+	duty_cycle_12_5
 	music01 6
 	musicd2
 	music01 1
@@ -1152,12 +1152,12 @@ Music_VioletAndOlivineGym_branch_186924: ; 186924 (61:6924)
 	music8a 173
 	music01 27
 	musicd2
-	musiced
+	song_ret
 
 Music_VioletAndOlivineGym_Ch3: ; 186b2c (61:6b2c)
-	musicdd
+	stereo_panning_both
 	musicd8 27
-	musice2 62
+	wave 62
 	music01 6
 	musicd2
 	music01 2
@@ -1212,7 +1212,7 @@ Music_VioletAndOlivineGym_Ch3: ; 186b2c (61:6b2c)
 	music8a 160
 	music01 13
 	musicd2
-	musice2 4
+	wave 4
 	musicd8 103
 	musice3 2
 	musicd7 24
@@ -1231,11 +1231,11 @@ Music_VioletAndOlivineGym_Ch3: ; 186b2c (61:6b2c)
 	music01 6
 	music8a 148
 Music_VioletAndOlivineGym_branch_186b7d: ; 186b7d (61:6b7d)
-	musicec Music_VioletAndOlivineGym_branch_186b83
-	musice7 Music_VioletAndOlivineGym_branch_186b7d
+	song_call Music_VioletAndOlivineGym_branch_186b83
+	song_jump Music_VioletAndOlivineGym_branch_186b7d
 
 Music_VioletAndOlivineGym_branch_186b83: ; 186b83 (61:6b83)
-	musice2 62
+	wave 62
 	musicd8 27
 	musice3 0
 	musicd7 0
@@ -1294,7 +1294,7 @@ Music_VioletAndOlivineGym_branch_186b83: ; 186b83 (61:6b83)
 	music01 4
 	musicd2
 	musicd7 12
-	musice2 68
+	wave 68
 	musicd4 58
 	music01 6
 	music8a 175
@@ -1326,7 +1326,7 @@ Music_VioletAndOlivineGym_branch_186b83: ; 186b83 (61:6b83)
 	music01 18
 	musicd2
 	musicd7 12
-	musice2 65
+	wave 65
 	musicd8 27
 	music01 6
 	music8a 149
@@ -1714,14 +1714,14 @@ Music_VioletAndOlivineGym_branch_186b83: ; 186b83 (61:6b83)
 	musicd2
 	music01 6
 	music8a 144
-	musiced
+	song_ret
 
 Music_VioletAndOlivineGym_Ch4: ; 186d6f (61:6d6f)
-	musicdd
-	musicec Music_VioletAndOlivineGym_branch_186d79
+	stereo_panning_both
+	song_call Music_VioletAndOlivineGym_branch_186d79
 Music_VioletAndOlivineGym_branch_186d73: ; 186d73 (61:6d73)
-	musicec Music_VioletAndOlivineGym_branch_186d82
-	musice7 Music_VioletAndOlivineGym_branch_186d73
+	song_call Music_VioletAndOlivineGym_branch_186d82
+	song_jump Music_VioletAndOlivineGym_branch_186d73
 
 Music_VioletAndOlivineGym_branch_186d79: ; 186d79 (61:6d79)
 	music01 48
@@ -1732,7 +1732,7 @@ Music_VioletAndOlivineGym_branch_186d79: ; 186d79 (61:6d79)
 	musicd2
 	music01 48
 	musicd2
-	musiced
+	song_ret
 
 Music_VioletAndOlivineGym_branch_186d82: ; 186d82 (61:6d82)
 	music01 2
@@ -2130,7 +2130,7 @@ Music_VioletAndOlivineGym_branch_186d82: ; 186d82 (61:6d82)
 	music6d 119
 	music01 1
 	musicd2
-	musiced
+	song_ret
 
 ; unreferenced ?
 Music_VioletAndOlivineGym_branch_186f0e: ; 186d6f (61:6d6f)
@@ -2202,4 +2202,4 @@ Music_VioletAndOlivineGym_branch_186f0e: ; 186d6f (61:6d6f)
 	music6d 127
 	music01 3
 	music6d 127
-	musiced
+	song_ret

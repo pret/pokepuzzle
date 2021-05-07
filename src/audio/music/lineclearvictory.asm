@@ -5,13 +5,13 @@ Music_LineClearVictory: ; 192564 (64:6564)
 	dw Music_LineClearVictory_Ch4
 
 Music_LineClearVictory_Ch1: ; 19256c (64:656c)
-	musicda 119
-	musice6 115
-	musicdd
+	volume 119
+	volume_envelope 115
+	stereo_panning_both
 	musicd6 23
 	musicd7 0
 	musicd4 55
-	musicde
+	duty_cycle_12_5
 	musicd4 56
 	musicd8 179
 	music01 3
@@ -64,15 +64,15 @@ Music_LineClearVictory_Ch1: ; 19256c (64:656c)
 	music8a 161
 	music01 1
 	musicd2
-	music00
+	song_end
 
 Music_LineClearVictory_Ch2: ; 1925b1 (64:65b1)
-	musicda 119
-	musice6 115
-	musicdd
+	volume 119
+	volume_envelope 115
+	stereo_panning_both
 	musicd8 162
 	musicd4 49
-	musice0
+	duty_cycle_50
 	music01 2
 	musicd2
 	music01 3
@@ -107,14 +107,14 @@ Music_LineClearVictory_Ch2: ; 1925b1 (64:65b1)
 	musicd2
 	music01 1
 	musicd2
-	music00
+	song_end
 
 Music_LineClearVictory_Ch3: ; 1925e0 (64:65e0)
-	musicdd
+	stereo_panning_both
 	musice3 0
 	musicd4 49
 	musicd8 109
-	musice2 34
+	wave 34
 	music01 3
 	music8a 173
 	music01 9
@@ -135,7 +135,7 @@ Music_LineClearVictory_Ch3: ; 1925e0 (64:65e0)
 	music8a 185
 	music01 1
 	musicd2
-	music00
+	song_end
 
 Music_LineClearVictory_Ch4: ; 1925fe (64:65fe)
 	music01 3
@@ -203,4 +203,4 @@ Music_LineClearVictory_Ch4: ; 1925fe (64:65fe)
 	music6d 127
 	music01 1
 	musicd2
-	music00
+	song_end

@@ -5,16 +5,16 @@ Music_UnusedSong3: ; 192339 (64:6339)
 	dw $0000
 
 Music_UnusedSong3_Ch1: ; 192341 (64:6341)
-	musicda 119
-	musice6 115
-	musicdd
+	volume 119
+	volume_envelope 115
+	stereo_panning_both
 	musicd6 9
-	musicde
+	duty_cycle_12_5
 	musicd7 0
 	musicd4 55
 Music_UnusedSong3_branch_19234d: ; 19234d (64:634d)
-	musicec Music_UnusedSong3_branch_192358
-	musice7 Music_UnusedSong3_branch_19234d
+	song_call Music_UnusedSong3_branch_192358
+	song_jump Music_UnusedSong3_branch_19234d
 
 ; unreferenced ?
 Music_UnusedSong3_branch_192353: ; 192341 (64:6341)
@@ -22,7 +22,7 @@ Music_UnusedSong3_branch_192353: ; 192341 (64:6341)
 	musicd2
 	music01 48
 	musicd2
-	musiced
+	song_ret
 
 Music_UnusedSong3_branch_192358: ; 192358 (64:6358)
 	musice3 1
@@ -220,24 +220,24 @@ Music_UnusedSong3_branch_192358: ; 192358 (64:6358)
 	music8a 195
 	music01 12
 	music8a 193
-	musiced
+	song_ret
 
 Music_UnusedSong3_Ch2: ; 192430 (64:6430)
-	musicda 119
-	musice6 115
-	musicdd
+	volume 119
+	volume_envelope 115
+	stereo_panning_both
 	musicd6 9
 	musicd7 244
 	musice3 0
 Music_UnusedSong3_branch_19243b: ; 19243b (64:643b)
-	musicec Music_UnusedSong3_branch_19245d
-	musice7 Music_UnusedSong3_branch_19243b
+	song_call Music_UnusedSong3_branch_19245d
+	song_jump Music_UnusedSong3_branch_19243b
 
 ; unreferenced ?
 Music_UnusedSong3_branch_192441: ; 192430 (64:6430)
 	music01 1
 	musicd2
-	musicde
+	duty_cycle_12_5
 	music01 1
 	music8a 197
 	music01 5
@@ -262,12 +262,12 @@ Music_UnusedSong3_branch_192441: ; 192430 (64:6430)
 	music8a 198
 	music01 3
 	musicd2
-	musiced
+	song_ret
 
 Music_UnusedSong3_branch_19245d: ; 19245d (64:645d)
 	musicd8 43
 	musicd4 55
-	musicde
+	duty_cycle_12_5
 	musicd7 0
 	music01 12
 	musicd2
@@ -343,13 +343,13 @@ Music_UnusedSong3_branch_19245d: ; 19245d (64:645d)
 	music8a 193
 	music01 12
 	music8a 193
-	musiced
+	song_ret
 
 Music_UnusedSong3_Ch3: ; 1924af (64:64af)
-	musicdd
+	stereo_panning_both
 Music_UnusedSong3_branch_1924b0: ; 1924b0 (64:64b0)
-	musicec Music_UnusedSong3_branch_1924d1
-	musice7 Music_UnusedSong3_branch_1924b0
+	song_call Music_UnusedSong3_branch_1924d1
+	song_jump Music_UnusedSong3_branch_1924b0
 
 ; unreferenced ?
 Music_UnusedSong3_branch_1924b6: ; 1924af (64:64af)
@@ -378,11 +378,11 @@ Music_UnusedSong3_branch_1924b6: ; 1924af (64:64af)
 	music8a 198
 	music01 3
 	musicd2
-	musiced
+	song_ret
 
 Music_UnusedSong3_branch_1924d1: ; 1924d1 (64:64d1)
 	musicd7 0
-	musice2 8
+	wave 8
 	musicd8 102
 	music01 2
 	music8a 173
@@ -518,12 +518,12 @@ Music_UnusedSong3_branch_1924d1: ; 1924d1 (64:64d1)
 	music8a 181
 	music01 6
 	music8a 176
-	musiced
+	song_ret
 
 ; unreferenced ?
 Music_UnusedSong3_branch_19255e: ; 1924af (64:64af)
-	musicdd
+	stereo_panning_both
 Music_UnusedSong3_branch_19255f: ; 19255f (64:655f)
 	musicd2
 	music01 48
-	musice7 Music_UnusedSong3_branch_19255f
+	song_jump Music_UnusedSong3_branch_19255f

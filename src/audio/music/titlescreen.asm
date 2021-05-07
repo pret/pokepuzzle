@@ -5,20 +5,20 @@ Music_TitleScreen: ; 18c000 (63:4000)
 	dw Music_TitleScreen_Ch4
 
 Music_TitleScreen_Ch1: ; 18c008 (63:4008)
-	musicda 119
-	musice6 115
-	musicdd
-	musice1
+	volume 119
+	volume_envelope 115
+	stereo_panning_both
+	duty_cycle_75
 	musicd4 55
-	musicde
+	duty_cycle_12_5
 	musicd4 55
 	musicd6 13
 	musice3 1
-	musicec Music_TitleScreen_branch_18c022
+	song_call Music_TitleScreen_branch_18c022
 Music_TitleScreen_branch_18c01a: ; 18c01a (63:401a)
 	musice3 0
-	musicec Music_TitleScreen_branch_18c10e
-	musice7 Music_TitleScreen_branch_18c01a
+	song_call Music_TitleScreen_branch_18c10e
+	song_jump Music_TitleScreen_branch_18c01a
 
 Music_TitleScreen_branch_18c022: ; 18c022 (63:4022)
 	musicd5
@@ -164,7 +164,7 @@ Music_TitleScreen_branch_18c022: ; 18c022 (63:4022)
 	musicd8 203
 	music01 1
 	music8a 193
-	musice0
+	duty_cycle_50
 	musicd4 52
 	musicd8 224
 	music01 6
@@ -203,10 +203,10 @@ Music_TitleScreen_branch_18c022: ; 18c022 (63:4022)
 	musicd5
 	music01 1
 	musicd2
-	musiced
+	song_ret
 
 Music_TitleScreen_branch_18c10e: ; 18c10e (63:410e)
-	musicde
+	duty_cycle_12_5
 	musicd4 55
 	musicd8 36
 	music01 3
@@ -313,7 +313,7 @@ Music_TitleScreen_branch_18c10e: ; 18c10e (63:410e)
 	music8a 164
 	music01 3
 	music8a 169
-	musice0
+	duty_cycle_50
 	musicd4 52
 	musicd8 224
 	music01 3
@@ -325,7 +325,7 @@ Music_TitleScreen_branch_18c10e: ; 18c10e (63:410e)
 	musicd8 219
 	music01 3
 	music8a 152
-	musicde
+	duty_cycle_12_5
 	musicd4 55
 	musicd8 36
 	music8a 157
@@ -431,7 +431,7 @@ Music_TitleScreen_branch_18c10e: ; 18c10e (63:410e)
 	music8a 164
 	music01 3
 	music8a 169
-	musice0
+	duty_cycle_50
 	musicd4 52
 	musicd8 224
 	music01 3
@@ -442,7 +442,7 @@ Music_TitleScreen_branch_18c10e: ; 18c10e (63:410e)
 	music8a 159
 	music01 3
 	music8a 155
-	musicde
+	duty_cycle_12_5
 	musicd4 55
 	musicd8 36
 	music8a 157
@@ -584,7 +584,7 @@ Music_TitleScreen_branch_18c10e: ; 18c10e (63:410e)
 	music8a 193
 	music01 3
 	musicd2
-	musice0
+	duty_cycle_50
 	musicd4 52
 	musicd8 224
 	music01 3
@@ -596,24 +596,24 @@ Music_TitleScreen_branch_18c10e: ; 18c10e (63:410e)
 	musicd8 219
 	music01 3
 	music8a 155
-	musiced
+	song_ret
 
 Music_TitleScreen_Ch2: ; 18c2a3 (63:42a3)
-	musicda 119
-	musice6 115
-	musicdd
-	musice1
+	volume 119
+	volume_envelope 115
+	stereo_panning_both
+	duty_cycle_75
 	musicd8 39
-	musicec Music_TitleScreen_branch_18c2b4
+	song_call Music_TitleScreen_branch_18c2b4
 Music_TitleScreen_branch_18c2ae: ; 18c2ae (63:42ae)
-	musicec Music_TitleScreen_branch_18c41e
-	musice7 Music_TitleScreen_branch_18c2ae
+	song_call Music_TitleScreen_branch_18c41e
+	song_jump Music_TitleScreen_branch_18c2ae
 
 Music_TitleScreen_branch_18c2b4: ; 18c2b4 (63:42b4)
 	music01 6
 	musicd2
 	musicd8 202
-	musicde
+	duty_cycle_12_5
 	music01 1
 	music8a 176
 	musicd8 201
@@ -882,10 +882,10 @@ Music_TitleScreen_branch_18c2b4: ; 18c2b4 (63:42b4)
 	musicd8 203
 	music01 1
 	music8a 181
-	musiced
+	song_ret
 
 Music_TitleScreen_branch_18c41e: ; 18c41e (63:441e)
-	musice0
+	duty_cycle_50
 	music01 12
 	musicd2
 	musicd4 59
@@ -1104,64 +1104,55 @@ Music_TitleScreen_branch_18c41e: ; 18c41e (63:441e)
 	music8a 197
 	music01 3
 	musicd2
-	musiced
+	song_ret
 
 Music_TitleScreen_Ch3: ; 18c51b (63:451b)
-	musicdd
+	stereo_panning_both
 	musicd8 27
-	musice2 7
+	wave 7
 	musicd8 104
 	musicd7 24
-	musicec Music_TitleScreen_branch_18c52d
+	song_call Music_TitleScreen_branch_18c52d
 Music_TitleScreen_branch_18c527: ; 18c527 (63:4527)
-	musicec Music_TitleScreen_branch_18c580
-	musice7 Music_TitleScreen_branch_18c527
+	song_call Music_TitleScreen_branch_18c580
+	song_jump Music_TitleScreen_branch_18c527
 
 Music_TitleScreen_branch_18c52d: ; 18c52d (63:452d)
 	music01 3
 	music8a 152
 	music01 3
 	music8a 157
-	musice2 71
+	wave 71
 	music01 3
 	music8a 161
 	music01 3
 	music8a 162
-	musice2 70
+	wave 70
 	music01 3
 	music8a 152
 	music01 3
 	music8a 157
-	musice2 69
+	wave 69
 	music01 3
 	music8a 161
 	music01 3
 	music8a 162
-	musice2 68
+	wave 68
 	music01 3
 	music8a 152
 	music01 3
 	music8a 157
-	musice2 67
+	wave 67
 	music01 3
 	music8a 161
 	music01 3
 	music8a 162
-	musice2 66
+	wave 66
 	music01 3
 	music8a 152
 	music01 3
 	music8a 157
-	musice2 65
-	music01 3
-	music8a 161
-	music01 3
-	music8a 162
-	music01 3
-	music8a 152
-	music01 3
-	music8a 157
-	musice2 64
+	wave 65
 	music01 3
 	music8a 161
 	music01 3
@@ -1170,6 +1161,7 @@ Music_TitleScreen_branch_18c52d: ; 18c52d (63:452d)
 	music8a 152
 	music01 3
 	music8a 157
+	wave 64
 	music01 3
 	music8a 161
 	music01 3
@@ -1180,7 +1172,15 @@ Music_TitleScreen_branch_18c52d: ; 18c52d (63:452d)
 	music8a 157
 	music01 3
 	music8a 161
-	musice2 63
+	music01 3
+	music8a 162
+	music01 3
+	music8a 152
+	music01 3
+	music8a 157
+	music01 3
+	music8a 161
+	wave 63
 	music01 3
 	music8a 162
 	music01 3
@@ -1191,13 +1191,13 @@ Music_TitleScreen_branch_18c52d: ; 18c52d (63:452d)
 	music8a 161
 	music01 3
 	music8a 162
-	musiced
+	song_ret
 
 Music_TitleScreen_branch_18c580: ; 18c580 (63:4580)
 	musice3 0
 	musicd7 12
 	musicd8 27
-	musice2 62
+	wave 62
 	music01 3
 	music8a 145
 	music01 3
@@ -1326,7 +1326,7 @@ Music_TitleScreen_branch_18c580: ; 18c580 (63:4580)
 	music8a 150
 	music01 6
 	musicd2
-	musice2 7
+	wave 7
 	musicd8 104
 	music01 3
 	music8a 169
@@ -1355,7 +1355,7 @@ Music_TitleScreen_branch_18c580: ; 18c580 (63:4580)
 	music8a 164
 	music01 3
 	musicd2
-	musice2 62
+	wave 62
 	musicd8 27
 	music01 6
 	music8a 150
@@ -1428,7 +1428,7 @@ Music_TitleScreen_branch_18c580: ; 18c580 (63:4580)
 	music8a 157
 	music01 3
 	musicd2
-	musice2 7
+	wave 7
 	musicd8 104
 	music8a 171
 	music01 3
@@ -1535,14 +1535,14 @@ Music_TitleScreen_branch_18c580: ; 18c580 (63:4580)
 	music8a 183
 	music01 3
 	musicd2
-	musiced
+	song_ret
 
 Music_TitleScreen_Ch4: ; 18c6e0 (63:46e0)
-	musicdd
-	musicec Music_TitleScreen_branch_18c6ea
+	stereo_panning_both
+	song_call Music_TitleScreen_branch_18c6ea
 Music_TitleScreen_branch_18c6e4: ; 18c6e4 (63:46e4)
-	musicec Music_TitleScreen_branch_18c716
-	musice7 Music_TitleScreen_branch_18c6e4
+	song_call Music_TitleScreen_branch_18c716
+	song_jump Music_TitleScreen_branch_18c6e4
 
 Music_TitleScreen_branch_18c6ea: ; 18c6ea (63:46ea)
 	music01 3
@@ -1588,7 +1588,7 @@ Music_TitleScreen_branch_18c6ea: ; 18c6ea (63:46ea)
 	music6d 127
 	music01 3
 	music6d 127
-	musiced
+	song_ret
 
 Music_TitleScreen_branch_18c716: ; 18c716 (63:4716)
 	music01 3
@@ -2039,4 +2039,4 @@ Music_TitleScreen_branch_18c716: ; 18c716 (63:4716)
 	music6d 112
 	music01 3
 	music6d 127
-	musiced
+	song_ret

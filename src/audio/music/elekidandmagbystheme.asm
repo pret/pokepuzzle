@@ -5,21 +5,21 @@ Music_ElekidAndMagbysTheme: ; 18d4d9 (63:54d9)
 	dw Music_ElekidAndMagbysTheme_Ch4
 
 Music_ElekidAndMagbysTheme_Ch1: ; 18d4e1 (63:54e1)
-	musicda 119
-	musice6 115
-	musicdd
-	musice1
+	volume 119
+	volume_envelope 115
+	stereo_panning_both
+	duty_cycle_75
 	musicd4 55
-	musicde
+	duty_cycle_12_5
 	musicd4 55
 	musicd6 15
 	music01 12
 	musicd2
 Music_ElekidAndMagbysTheme_branch_18d4f0: ; 18d4f0 (63:54f0)
-	musicec Music_ElekidAndMagbysTheme_branch_18d4fc
-	musicec Music_ElekidAndMagbysTheme_branch_18d564
-	musicec Music_ElekidAndMagbysTheme_branch_18d5b7
-	musice7 Music_ElekidAndMagbysTheme_branch_18d4f0
+	song_call Music_ElekidAndMagbysTheme_branch_18d4fc
+	song_call Music_ElekidAndMagbysTheme_branch_18d564
+	song_call Music_ElekidAndMagbysTheme_branch_18d5b7
+	song_jump Music_ElekidAndMagbysTheme_branch_18d4f0
 
 Music_ElekidAndMagbysTheme_branch_18d4fc: ; 18d4fc (63:54fc)
 	music01 48
@@ -120,7 +120,7 @@ Music_ElekidAndMagbysTheme_branch_18d4fc: ; 18d4fc (63:54fc)
 	music8a 176
 	music01 24
 	musicd2
-	musiced
+	song_ret
 
 Music_ElekidAndMagbysTheme_branch_18d564: ; 18d564 (63:5564)
 	musice3 2
@@ -204,7 +204,7 @@ Music_ElekidAndMagbysTheme_branch_18d564: ; 18d564 (63:5564)
 	musicd2
 	music01 48
 	musicd2
-	musiced
+	song_ret
 
 Music_ElekidAndMagbysTheme_branch_18d5b7: ; 18d5b7 (63:55b7)
 	music01 3
@@ -367,26 +367,26 @@ Music_ElekidAndMagbysTheme_branch_18d5b7: ; 18d5b7 (63:55b7)
 	music8a 176
 	music01 24
 	musicd2
-	musiced
+	song_ret
 
 Music_ElekidAndMagbysTheme_Ch2: ; 18d658 (63:5658)
-	musicda 119
-	musice6 115
-	musicdd
-	musice0
+	volume 119
+	volume_envelope 115
+	stereo_panning_both
+	duty_cycle_50
 	musicd4 55
 	musicd8 164
 	music01 12
 	musicd2
 Music_ElekidAndMagbysTheme_branch_18d664: ; 18d664 (63:5664)
-	musicec Music_ElekidAndMagbysTheme_branch_18d670
-	musicec Music_ElekidAndMagbysTheme_branch_18d748
-	musicec Music_ElekidAndMagbysTheme_branch_18d7e6
-	musice7 Music_ElekidAndMagbysTheme_branch_18d664
+	song_call Music_ElekidAndMagbysTheme_branch_18d670
+	song_call Music_ElekidAndMagbysTheme_branch_18d748
+	song_call Music_ElekidAndMagbysTheme_branch_18d7e6
+	song_jump Music_ElekidAndMagbysTheme_branch_18d664
 
 Music_ElekidAndMagbysTheme_branch_18d670: ; 18d670 (63:5670)
 	musicd8 211
-	musicde
+	duty_cycle_12_5
 	music01 12
 	musicd2
 	music01 3
@@ -399,7 +399,7 @@ Music_ElekidAndMagbysTheme_branch_18d670: ; 18d670 (63:5670)
 	music01 24
 	musicd2
 	musicd8 162
-	musice0
+	duty_cycle_50
 	music01 3
 	music8a 167
 	music01 9
@@ -448,7 +448,7 @@ Music_ElekidAndMagbysTheme_branch_18d670: ; 18d670 (63:5670)
 	musicd2
 	musicd4 55
 	musicd8 210
-	musicde
+	duty_cycle_12_5
 	music01 3
 	music8a 177
 	music01 3
@@ -479,7 +479,7 @@ Music_ElekidAndMagbysTheme_branch_18d670: ; 18d670 (63:5670)
 	musicd2
 	musicd8 164
 	musicd4 59
-	musicde
+	duty_cycle_12_5
 	music8a 177
 	music01 3
 	musicd2
@@ -518,7 +518,7 @@ Music_ElekidAndMagbysTheme_branch_18d670: ; 18d670 (63:5670)
 	musicd2
 	musicd8 162
 	musicd4 55
-	musice0
+	duty_cycle_50
 	music01 6
 	music8a 152
 	music01 3
@@ -553,7 +553,7 @@ Music_ElekidAndMagbysTheme_branch_18d670: ; 18d670 (63:5670)
 	music01 3
 	musicd3
 	musicd8 209
-	musicde
+	duty_cycle_12_5
 	music8a 187
 	musicd8 206
 	music01 3
@@ -575,11 +575,11 @@ Music_ElekidAndMagbysTheme_branch_18d670: ; 18d670 (63:5670)
 	music8a 148
 	music01 3
 	music8a 143
-	musiced
+	song_ret
 
 Music_ElekidAndMagbysTheme_branch_18d748: ; 18d748 (63:5748)
 	musicd8 163
-	musice0
+	duty_cycle_50
 	music01 3
 	music8a 167
 	music01 9
@@ -629,7 +629,7 @@ Music_ElekidAndMagbysTheme_branch_18d748: ; 18d748 (63:5748)
 	musicd2
 	musicd4 55
 	musicd8 209
-	musicde
+	duty_cycle_12_5
 	music01 3
 	music8a 177
 	music01 3
@@ -660,7 +660,7 @@ Music_ElekidAndMagbysTheme_branch_18d748: ; 18d748 (63:5748)
 	musicd2
 	musicd8 164
 	musicd4 59
-	musicde
+	duty_cycle_12_5
 	music8a 177
 	music01 3
 	musicd2
@@ -723,7 +723,7 @@ Music_ElekidAndMagbysTheme_branch_18d748: ; 18d748 (63:5748)
 	music8a 184
 	music01 33
 	musicd2
-	musiced
+	song_ret
 
 Music_ElekidAndMagbysTheme_branch_18d7e6: ; 18d7e6 (63:57e6)
 	music01 3
@@ -789,7 +789,7 @@ Music_ElekidAndMagbysTheme_branch_18d7e6: ; 18d7e6 (63:57e6)
 	musicd2
 	music01 18
 	music8a 184
-	musice0
+	duty_cycle_50
 	musicd8 177
 	music01 3
 	music8a 191
@@ -917,20 +917,20 @@ Music_ElekidAndMagbysTheme_branch_18d7e6: ; 18d7e6 (63:57e6)
 	musicd3
 	music01 6
 	musicd2
-	musiced
+	song_ret
 
 Music_ElekidAndMagbysTheme_Ch3: ; 18d8ab (63:58ab)
-	musicdd
+	stereo_panning_both
 	musicd8 27
 	musicd7 0
-	musice2 61
+	wave 61
 	music01 12
 	musicd2
 Music_ElekidAndMagbysTheme_branch_18d8b4: ; 18d8b4 (63:58b4)
-	musicec Music_ElekidAndMagbysTheme_branch_18d8c0
-	musicec Music_ElekidAndMagbysTheme_branch_18d96c
-	musicec Music_ElekidAndMagbysTheme_branch_18d9ff
-	musice7 Music_ElekidAndMagbysTheme_branch_18d8b4
+	song_call Music_ElekidAndMagbysTheme_branch_18d8c0
+	song_call Music_ElekidAndMagbysTheme_branch_18d96c
+	song_call Music_ElekidAndMagbysTheme_branch_18d9ff
+	song_jump Music_ElekidAndMagbysTheme_branch_18d8b4
 
 Music_ElekidAndMagbysTheme_branch_18d8c0: ; 18d8c0 (63:58c0)
 	musicd4 59
@@ -1101,7 +1101,7 @@ Music_ElekidAndMagbysTheme_branch_18d8c0: ; 18d8c0 (63:58c0)
 	music8a 155
 	music01 3
 	musicd2
-	musiced
+	song_ret
 
 Music_ElekidAndMagbysTheme_branch_18d96c: ; 18d96c (63:596c)
 	music01 3
@@ -1250,10 +1250,10 @@ Music_ElekidAndMagbysTheme_branch_18d96c: ; 18d96c (63:596c)
 	music8a 160
 	music01 33
 	musicd2
-	musiced
+	song_ret
 
 Music_ElekidAndMagbysTheme_branch_18d9ff: ; 18d9ff (63:59ff)
-	musice2 7
+	wave 7
 	musicd8 104
 	musicd7 12
 	music01 3
@@ -1419,7 +1419,7 @@ Music_ElekidAndMagbysTheme_branch_18d9ff: ; 18d9ff (63:59ff)
 	music01 48
 	musicd2
 	musicd8 27
-	musice2 61
+	wave 61
 	musicd7 0
 	music01 3
 	music8a 160
@@ -1464,10 +1464,10 @@ Music_ElekidAndMagbysTheme_branch_18d9ff: ; 18d9ff (63:59ff)
 	music8a 160
 	music01 45
 	musicd2
-	musiced
+	song_ret
 
 Music_ElekidAndMagbysTheme_Ch4: ; 18dad9 (63:5ad9)
-	musicdd
+	stereo_panning_both
 	music01 3
 	music6d 126
 	music01 3
@@ -1477,10 +1477,10 @@ Music_ElekidAndMagbysTheme_Ch4: ; 18dad9 (63:5ad9)
 	music01 3
 	music6d 127
 Music_ElekidAndMagbysTheme_branch_18dae2: ; 18dae2 (63:5ae2)
-	musicec Music_ElekidAndMagbysTheme_branch_18daee
-	musicec Music_ElekidAndMagbysTheme_branch_18dc0d
-	musicec Music_ElekidAndMagbysTheme_branch_18dd0b
-	musice7 Music_ElekidAndMagbysTheme_branch_18dae2
+	song_call Music_ElekidAndMagbysTheme_branch_18daee
+	song_call Music_ElekidAndMagbysTheme_branch_18dc0d
+	song_call Music_ElekidAndMagbysTheme_branch_18dd0b
+	song_jump Music_ElekidAndMagbysTheme_branch_18dae2
 
 Music_ElekidAndMagbysTheme_branch_18daee: ; 18daee (63:5aee)
 	music01 3
@@ -1769,7 +1769,7 @@ Music_ElekidAndMagbysTheme_branch_18daee: ; 18daee (63:5aee)
 	music6d 121
 	music01 3
 	musicd3
-	musiced
+	song_ret
 
 Music_ElekidAndMagbysTheme_branch_18dc0d: ; 18dc0d (63:5c0d)
 	music01 3
@@ -2025,7 +2025,7 @@ Music_ElekidAndMagbysTheme_branch_18dc0d: ; 18dc0d (63:5c0d)
 	music6d 127
 	music01 3
 	music6d 127
-	musiced
+	song_ret
 
 Music_ElekidAndMagbysTheme_branch_18dd0b: ; 18dd0b (63:5d0b)
 	music01 12
@@ -2234,4 +2234,4 @@ Music_ElekidAndMagbysTheme_branch_18dd0b: ; 18dd0b (63:5d0b)
 	music6d 126
 	music01 21
 	musicd2
-	musiced
+	song_ret

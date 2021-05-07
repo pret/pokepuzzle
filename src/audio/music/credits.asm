@@ -5,23 +5,23 @@ Music_Credits: ; 1906ba (64:46ba)
 	dw Music_Credits_Ch4
 
 Music_Credits_Ch1: ; 1906c2 (64:46c2)
-	musicda 119
-	musice6 115
-	musicdd
+	volume 119
+	volume_envelope 115
+	stereo_panning_both
 	musicd6 8
-	musice0
+	duty_cycle_50
 	musice3 0
 	musicd7 0
 Music_Credits_branch_1906ce: ; 1906ce (64:46ce)
-	musicec Music_Credits_branch_1906e0
-	musicec Music_Credits_branch_190716
-	musicec Music_Credits_branch_19074e
-	musicec Music_Credits_branch_19079d
-	musicec Music_Credits_branch_1907fe
-	musice7 Music_Credits_branch_1906ce
+	song_call Music_Credits_branch_1906e0
+	song_call Music_Credits_branch_190716
+	song_call Music_Credits_branch_19074e
+	song_call Music_Credits_branch_19079d
+	song_call Music_Credits_branch_1907fe
+	song_jump Music_Credits_branch_1906ce
 
 Music_Credits_branch_1906e0: ; 1906e0 (64:46e0)
-	musice0
+	duty_cycle_50
 	musicd8 49
 	music01 45
 	music8a 145
@@ -68,11 +68,11 @@ Music_Credits_branch_1906e0: ; 1906e0 (64:46e0)
 	music8a 152
 	music01 30
 	music8a 157
-	musiced
+	song_ret
 
 Music_Credits_branch_190716: ; 190716 (64:4716)
 	musicd7 0
-	musice0
+	duty_cycle_50
 	musicd8 241
 	music01 42
 	music8a 145
@@ -124,7 +124,7 @@ Music_Credits_branch_190716: ; 190716 (64:4716)
 	music8a 145
 	music01 6
 	music8a 152
-	musiced
+	song_ret
 
 Music_Credits_branch_19074e: ; 19074e (64:474e)
 	music01 12
@@ -204,7 +204,7 @@ Music_Credits_branch_19074e: ; 19074e (64:474e)
 	music8a 157
 	music01 30
 	music8a 164
-	musiced
+	song_ret
 
 Music_Credits_branch_19079d: ; 19079d (64:479d)
 	musicd8 241
@@ -302,7 +302,7 @@ Music_Credits_branch_19079d: ; 19079d (64:479d)
 	musicd2
 	music01 15
 	music8a 145
-	musiced
+	song_ret
 
 Music_Credits_branch_1907fe: ; 1907fe (64:47fe)
 	music01 6
@@ -401,24 +401,24 @@ Music_Credits_branch_1907fe: ; 1907fe (64:47fe)
 	musicd2
 	music01 15
 	music8a 145
-	musiced
+	song_ret
 
 Music_Credits_Ch2: ; 19085f (64:485f)
-	musicda 119
-	musice6 115
-	musicdd
-	musice0
+	volume 119
+	volume_envelope 115
+	stereo_panning_both
+	duty_cycle_50
 	musice3 0
-	musicde
+	duty_cycle_12_5
 	musicd5
 Music_Credits_branch_190869: ; 190869 (64:4869)
-	musicec Music_Credits_branch_19087d
+	song_call Music_Credits_branch_19087d
 	musicd4 55
-	musicec Music_Credits_branch_1908b8
-	musicec Music_Credits_branch_1909ae
-	musicec Music_Credits_branch_190aa3
-	musicec Music_Credits_branch_190baf
-	musice7 Music_Credits_branch_190869
+	song_call Music_Credits_branch_1908b8
+	song_call Music_Credits_branch_1909ae
+	song_call Music_Credits_branch_190aa3
+	song_call Music_Credits_branch_190baf
+	song_jump Music_Credits_branch_190869
 
 Music_Credits_branch_19087d: ; 19087d (64:487d)
 	musicd7 0
@@ -473,10 +473,10 @@ Music_Credits_branch_19087d: ; 19087d (64:487d)
 	music8a 183
 	music01 3
 	musicd3
-	musiced
+	song_ret
 
 Music_Credits_branch_1908b8: ; 1908b8 (64:48b8)
-	musicde
+	duty_cycle_12_5
 	musicd8 38
 	music01 6
 	music8a 164
@@ -715,7 +715,7 @@ Music_Credits_branch_1908b8: ; 1908b8 (64:48b8)
 	music8a 192
 	music01 3
 	music8a 193
-	musiced
+	song_ret
 
 Music_Credits_branch_1909ae: ; 1909ae (64:49ae)
 	musicd8 39
@@ -956,10 +956,10 @@ Music_Credits_branch_1909ae: ; 1909ae (64:49ae)
 	music8a 192
 	music01 3
 	music8a 193
-	musiced
+	song_ret
 
 Music_Credits_branch_190aa3: ; 190aa3 (64:4aa3)
-	musicde
+	duty_cycle_12_5
 	musicd8 39
 	music01 3
 	music8a 169
@@ -1219,7 +1219,7 @@ Music_Credits_branch_190aa3: ; 190aa3 (64:4aa3)
 	music8a 193
 	music01 3
 	music8a 186
-	musiced
+	song_ret
 
 Music_Credits_branch_190baf: ; 190baf (64:4baf)
 	music01 3
@@ -1445,25 +1445,25 @@ Music_Credits_branch_190baf: ; 190baf (64:4baf)
 	music8a 181
 	music01 3
 	music8a 174
-	musiced
+	song_ret
 
 Music_Credits_Ch3: ; 190c8f (64:4c8f)
 	musice3 0
 Music_Credits_branch_190c91: ; 190c91 (64:4c91)
 	musicd7 12
 	musicd8 101
-	musice2 30
-	musicec Music_Credits_branch_190cb3
+	wave 30
+	song_call Music_Credits_branch_190cb3
 	musicd7 12
-	musice2 29
+	wave 29
 	musicd8 27
-	musicec Music_Credits_branch_190d74
-	musicec Music_Credits_branch_190df4
+	song_call Music_Credits_branch_190d74
+	song_call Music_Credits_branch_190df4
 	musicd7 244
-	musice2 9
-	musicec Music_Credits_branch_190e74
-	musicec Music_Credits_branch_190ee2
-	musice7 Music_Credits_branch_190c91
+	wave 9
+	song_call Music_Credits_branch_190e74
+	song_call Music_Credits_branch_190ee2
+	song_jump Music_Credits_branch_190c91
 
 Music_Credits_branch_190cb3: ; 190cb3 (64:4cb3)
 	music01 6
@@ -1658,7 +1658,7 @@ Music_Credits_branch_190cb3: ; 190cb3 (64:4cb3)
 	music8a 188
 	music01 3
 	music8a 171
-	musiced
+	song_ret
 
 Music_Credits_branch_190d74: ; 190d74 (64:4d74)
 	music01 12
@@ -1788,7 +1788,7 @@ Music_Credits_branch_190d74: ; 190d74 (64:4d74)
 	music8a 193
 	music01 3
 	musicd2
-	musiced
+	song_ret
 
 Music_Credits_branch_190df4: ; 190df4 (64:4df4)
 	music01 12
@@ -1918,7 +1918,7 @@ Music_Credits_branch_190df4: ; 190df4 (64:4df4)
 	music8a 193
 	music01 3
 	musicd2
-	musiced
+	song_ret
 
 Music_Credits_branch_190e74: ; 190e74 (64:4e74)
 	music01 36
@@ -2030,7 +2030,7 @@ Music_Credits_branch_190e74: ; 190e74 (64:4e74)
 	music8a 181
 	music01 3
 	musicd2
-	musiced
+	song_ret
 
 Music_Credits_branch_190ee2: ; 190ee2 (64:4ee2)
 	music01 3
@@ -2203,30 +2203,30 @@ Music_Credits_branch_190ee2: ; 190ee2 (64:4ee2)
 	music8a 193
 	music01 3
 	musicd2
-	musiced
+	song_ret
 
 Music_Credits_Ch4: ; 190f8d (64:4f8d)
-	musicdd
+	stereo_panning_both
 	musicd6 8
 Music_Credits_branch_190f90: ; 190f90 (64:4f90)
-	musicec Music_Credits_branch_190fb7
-	musicec Music_Credits_branch_190fb7
-	musicec Music_Credits_branch_190fb7
-	musicec Music_Credits_branch_190fb7
-	musicec Music_Credits_branch_190fb7
-	musicec Music_Credits_branch_190fb7
-	musicec Music_Credits_branch_190fb7
-	musicec Music_Credits_branch_190fb7
-	musicec Music_Credits_branch_19105b
-	musicec Music_Credits_branch_1910ee
-	musicec Music_Credits_branch_1911ed
-	musicec Music_Credits_branch_1912ee
-	musice7 Music_Credits_branch_190f90
+	song_call Music_Credits_branch_190fb7
+	song_call Music_Credits_branch_190fb7
+	song_call Music_Credits_branch_190fb7
+	song_call Music_Credits_branch_190fb7
+	song_call Music_Credits_branch_190fb7
+	song_call Music_Credits_branch_190fb7
+	song_call Music_Credits_branch_190fb7
+	song_call Music_Credits_branch_190fb7
+	song_call Music_Credits_branch_19105b
+	song_call Music_Credits_branch_1910ee
+	song_call Music_Credits_branch_1911ed
+	song_call Music_Credits_branch_1912ee
+	song_jump Music_Credits_branch_190f90
 
 Music_Credits_branch_190fb7: ; 190fb7 (64:4fb7)
 	music01 48
 	musicd2
-	musiced
+	song_ret
 
 ; unreferenced ?
 Music_Credits_branch_190fba: ; 190f8d (64:4f8d)
@@ -2390,7 +2390,7 @@ Music_Credits_branch_190fba: ; 190f8d (64:4f8d)
 	music6d 119
 	music01 3
 	music6d 121
-	musiced
+	song_ret
 
 Music_Credits_branch_19105b: ; 19105b (64:505b)
 	music01 3
@@ -2539,7 +2539,7 @@ Music_Credits_branch_19105b: ; 19105b (64:505b)
 	music6d 126
 	music01 3
 	music6d 127
-	musiced
+	song_ret
 
 Music_Credits_branch_1910ee: ; 1910ee (64:50ee)
 	music01 3
@@ -2796,7 +2796,7 @@ Music_Credits_branch_1910ee: ; 1910ee (64:50ee)
 	music6d 126
 	music01 3
 	music6d 126
-	musiced
+	song_ret
 
 Music_Credits_branch_1911ed: ; 1911ed (64:51ed)
 	music01 3
@@ -3055,7 +3055,7 @@ Music_Credits_branch_1911ed: ; 1911ed (64:51ed)
 	music6d 126
 	music01 3
 	music6d 124
-	musiced
+	song_ret
 
 Music_Credits_branch_1912ee: ; 1912ee (64:52ee)
 	music01 3
@@ -3318,4 +3318,4 @@ Music_Credits_branch_1912ee: ; 1912ee (64:52ee)
 	music6d 126
 	music01 3
 	music6d 126
-	musiced
+	song_ret

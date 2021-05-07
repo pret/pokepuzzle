@@ -5,12 +5,12 @@ Music_GoldenrodGym: ; 18400c (61:400c)
 	dw Music_GoldenrodGym_Ch4
 
 Music_GoldenrodGym_Ch1: ; 184014 (61:4014)
-	musicda 119
-	musice6 115
-	musicdd
+	volume 119
+	volume_envelope 115
+	stereo_panning_both
 	musicd6 14
 	musicd7 0
-	musice0
+	duty_cycle_50
 	musice3 2
 	musicd4 55
 	musicd8 221
@@ -60,8 +60,8 @@ Music_GoldenrodGym_Ch1: ; 184014 (61:4014)
 	music01 3
 	music8a 158
 Music_GoldenrodGym_branch_184051: ; 184051 (61:4051)
-	musicec Music_GoldenrodGym_branch_184057
-	musice7 Music_GoldenrodGym_branch_184051
+	song_call Music_GoldenrodGym_branch_184057
+	song_jump Music_GoldenrodGym_branch_184051
 
 Music_GoldenrodGym_branch_184057: ; 184057 (61:4057)
 	music01 48
@@ -455,15 +455,15 @@ Music_GoldenrodGym_branch_184057: ; 184057 (61:4057)
 	musicd2
 	music01 48
 	musicd2
-	musiced
+	song_ret
 
 Music_GoldenrodGym_Ch2: ; 1841df (61:41df)
-	musicda 119
-	musice6 115
-	musicdd
+	volume 119
+	volume_envelope 115
+	stereo_panning_both
 	musicd6 14
 	musicd7 0
-	musice0
+	duty_cycle_50
 	musicd4 55
 	musicd8 161
 	music01 48
@@ -537,8 +537,8 @@ Music_GoldenrodGym_Ch2: ; 1841df (61:41df)
 	music01 48
 	musicd2
 Music_GoldenrodGym_branch_18423e: ; 18423e (61:423e)
-	musicec Music_GoldenrodGym_branch_184244
-	musice7 Music_GoldenrodGym_branch_18423e
+	song_call Music_GoldenrodGym_branch_184244
+	song_jump Music_GoldenrodGym_branch_18423e
 
 Music_GoldenrodGym_branch_184244: ; 184244 (61:4244)
 	musicd8 165
@@ -683,7 +683,7 @@ Music_GoldenrodGym_branch_184244: ; 184244 (61:4244)
 	music8a 187
 	musicd4 56
 	musicd8 209
-	musice1
+	duty_cycle_75
 	music01 3
 	music8a 182
 	music01 3
@@ -693,22 +693,22 @@ Music_GoldenrodGym_branch_184244: ; 184244 (61:4244)
 	music01 6
 	musicd2
 	musicd8 164
-	musice0
+	duty_cycle_50
 	music01 9
 	music8a 191
 	music01 3
 	musicd2
 	musicd8 209
-	musice1
+	duty_cycle_75
 	music8a 182
 	music01 3
 	music8a 186
 	musicd8 164
-	musice0
+	duty_cycle_50
 	music01 3
 	music8a 187
 	musicd8 209
-	musice1
+	duty_cycle_75
 	music01 3
 	music8a 182
 	music01 3
@@ -716,11 +716,11 @@ Music_GoldenrodGym_branch_184244: ; 184244 (61:4244)
 	music01 3
 	music8a 163
 	musicd8 165
-	musice0
+	duty_cycle_50
 	music01 3
 	music8a 186
 	musicd8 209
-	musice1
+	duty_cycle_75
 	music01 3
 	music8a 182
 	music01 3
@@ -730,11 +730,11 @@ Music_GoldenrodGym_branch_184244: ; 184244 (61:4244)
 	music01 6
 	musicd2
 	musicd8 165
-	musice0
+	duty_cycle_50
 	music01 9
 	music8a 189
 	musicd8 207
-	musice1
+	duty_cycle_75
 	music01 3
 	music8a 165
 	music01 3
@@ -742,21 +742,21 @@ Music_GoldenrodGym_branch_184244: ; 184244 (61:4244)
 	music01 3
 	music8a 174
 	musicd8 165
-	musice0
+	duty_cycle_50
 	music01 6
 	music8a 186
 	music01 6
 	musicd2
 	musicd8 165
-	musice0
+	duty_cycle_50
 	music01 3
 	music8a 184
 	musicd8 207
-	musice1
+	duty_cycle_75
 	music01 3
 	music8a 179
 	musicd8 207
-	musice1
+	duty_cycle_75
 	music01 3
 	music8a 172
 	music01 3
@@ -766,11 +766,11 @@ Music_GoldenrodGym_branch_184244: ; 184244 (61:4244)
 	music01 3
 	music8a 172
 	musicd8 165
-	musice0
+	duty_cycle_50
 	music01 9
 	music8a 187
 	musicd8 207
-	musice1
+	duty_cycle_75
 	music01 3
 	music8a 160
 	music01 3
@@ -778,7 +778,7 @@ Music_GoldenrodGym_branch_184244: ; 184244 (61:4244)
 	music01 3
 	music8a 172
 	musicd8 165
-	musice0
+	duty_cycle_50
 	music01 6
 	music8a 184
 	music01 6
@@ -883,7 +883,7 @@ Music_GoldenrodGym_branch_184244: ; 184244 (61:4244)
 	music01 3
 	music8a 170
 	musicd8 207
-	musice1
+	duty_cycle_75
 	music01 3
 	music8a 151
 	musicd8 204
@@ -932,7 +932,7 @@ Music_GoldenrodGym_branch_184244: ; 184244 (61:4244)
 	music01 3
 	music8a 163
 	musicd8 58
-	musice0
+	duty_cycle_50
 	music01 12
 	musicd2
 	musicd4 58
@@ -947,7 +947,7 @@ Music_GoldenrodGym_branch_184244: ; 184244 (61:4244)
 	music01 3
 	music8a 170
 	musicd8 209
-	musice1
+	duty_cycle_75
 	musicd8 208
 	music01 3
 	music8a 151
@@ -997,7 +997,7 @@ Music_GoldenrodGym_branch_184244: ; 184244 (61:4244)
 	music01 3
 	music8a 163
 	musicd8 58
-	musice0
+	duty_cycle_50
 	musicd4 58
 	music01 30
 	music8a 171
@@ -1010,7 +1010,7 @@ Music_GoldenrodGym_branch_184244: ; 184244 (61:4244)
 	music01 3
 	music8a 173
 	musicd8 209
-	musice1
+	duty_cycle_75
 	music01 3
 	music8a 154
 	musicd8 206
@@ -1059,7 +1059,7 @@ Music_GoldenrodGym_branch_184244: ; 184244 (61:4244)
 	music01 3
 	music8a 178
 	musicd8 58
-	musice0
+	duty_cycle_50
 	music01 12
 	musicd2
 	music01 9
@@ -1127,81 +1127,81 @@ Music_GoldenrodGym_branch_184244: ; 184244 (61:4244)
 	music8a 151
 	music01 3
 	music8a 163
-	musiced
+	song_ret
 
 Music_GoldenrodGym_Ch3: ; 1844f6 (61:44f6)
-	musicdd
+	stereo_panning_both
 	musicd4 35
 	musicd7 0
-	musice2 63
+	wave 63
 	musicd8 101
 	music01 48
 	musicd2
 	music01 6
 	musicd2
-	musice2 59
+	wave 59
 	music01 3
 	music8a 158
 	music01 9
 	musicd2
 	musicd4 55
-	musice2 66
+	wave 66
 	music01 3
 	music8a 158
 	music01 9
 	musicd2
-	musice2 66
+	wave 66
 	music01 3
 	music8a 158
 	music01 9
 	musicd2
-	musice2 63
+	wave 63
 	music01 3
 	music8a 158
 	music01 3
 	musicd2
 	music01 6
 	musicd2
-	musice2 63
+	wave 63
 	music01 3
 	music8a 158
 	music01 9
 	musicd2
 	musicd4 55
-	musice2 66
+	wave 66
 	music01 3
 	music8a 158
 	music01 9
 	musicd2
-	musice2 66
+	wave 66
 	music01 3
 	music8a 158
 	music01 9
 	musicd2
-	musice2 63
+	wave 63
 	music01 3
 	music8a 158
 	music01 3
 	musicd2
 	music01 6
 	musicd2
-	musice2 59
+	wave 59
 	music01 3
 	music8a 158
 	music01 9
 	musicd2
 	musicd4 55
-	musice2 64
+	wave 64
 	music01 3
 	music8a 158
 	music01 9
 	musicd2
-	musice2 64
+	wave 64
 	music01 3
 	music8a 158
 	music01 9
 	musicd2
-	musice2 61
+	wave 61
 	music01 3
 	music8a 158
 	music01 3
@@ -1209,393 +1209,393 @@ Music_GoldenrodGym_Ch3: ; 1844f6 (61:44f6)
 	music01 48
 	musicd2
 Music_GoldenrodGym_branch_184557: ; 184557 (61:4557)
-	musicec Music_GoldenrodGym_branch_18455d
-	musice7 Music_GoldenrodGym_branch_184557
+	song_call Music_GoldenrodGym_branch_18455d
+	song_jump Music_GoldenrodGym_branch_184557
 
 Music_GoldenrodGym_branch_18455d: ; 18455d (61:455d)
 	musicd4 55
-	musice2 63
+	wave 63
 	music01 3
 	music8a 151
-	musice2 65
+	wave 65
 	music01 3
 	music8a 163
-	musice2 63
+	wave 63
 	music01 3
 	music8a 175
-	musice2 65
+	wave 65
 	music01 3
 	music8a 163
-	musice2 63
+	wave 63
 	music01 3
 	music8a 151
-	musice2 65
+	wave 65
 	music01 3
 	music8a 163
-	musice2 63
+	wave 63
 	music01 3
 	music8a 163
-	musice2 65
+	wave 65
 	music01 3
 	music8a 175
-	musice2 63
+	wave 63
 	music01 3
 	music8a 151
-	musice2 65
+	wave 65
 	music01 3
 	music8a 174
-	musice2 63
+	wave 63
 	music01 3
 	music8a 162
-	musice2 65
+	wave 65
 	music01 3
 	music8a 151
-	musice2 63
+	wave 63
 	music01 3
 	music8a 162
-	musice2 65
+	wave 65
 	music01 3
 	music8a 151
-	musice2 63
+	wave 63
 	music01 3
 	music8a 174
-	musice2 65
+	wave 65
 	music01 3
 	music8a 162
-	musice2 63
+	wave 63
 	music01 3
 	music8a 148
-	musice2 65
+	wave 65
 	music01 3
 	music8a 160
-	musice2 63
+	wave 63
 	music01 3
 	music8a 172
-	musice2 65
+	wave 65
 	music01 3
 	music8a 160
-	musice2 63
+	wave 63
 	music01 3
 	music8a 148
-	musice2 65
+	wave 65
 	music01 3
 	music8a 160
-	musice2 63
+	wave 63
 	music01 3
 	music8a 160
-	musice2 65
+	wave 65
 	music01 3
 	music8a 172
-	musice2 63
+	wave 63
 	music01 3
 	music8a 158
-	musice2 65
+	wave 65
 	music01 3
 	music8a 158
-	musice2 63
+	wave 63
 	music01 3
 	music8a 170
-	musice2 65
+	wave 65
 	music01 3
 	music8a 158
-	musice2 63
+	wave 63
 	music01 3
 	music8a 170
-	musice2 65
+	wave 65
 	music01 3
 	music8a 153
-	musice2 63
+	wave 63
 	music01 3
 	music8a 158
-	musice2 65
+	wave 65
 	music01 3
 	music8a 170
-	musice2 63
+	wave 63
 	music01 3
 	music8a 156
-	musice2 65
+	wave 65
 	music01 3
 	music8a 156
-	musice2 63
+	wave 63
 	music01 3
 	music8a 168
-	musice2 65
+	wave 65
 	music01 3
 	music8a 156
-	musice2 63
+	wave 63
 	music01 3
 	music8a 168
-	musice2 65
+	wave 65
 	music01 3
 	music8a 156
-	musice2 63
+	wave 63
 	music01 3
 	music8a 156
-	musice2 65
+	wave 65
 	music01 3
 	music8a 168
-	musice2 63
+	wave 63
 	music01 3
 	music8a 153
-	musice2 65
+	wave 65
 	music01 3
 	music8a 165
-	musice2 63
+	wave 63
 	music01 3
 	music8a 153
-	musice2 65
+	wave 65
 	music01 3
 	music8a 148
-	musice2 63
+	wave 63
 	music01 3
 	music8a 153
-	musice2 65
+	wave 65
 	music01 3
 	music8a 153
-	musice2 63
+	wave 63
 	music01 3
 	music8a 165
-	musice2 65
+	wave 65
 	music01 3
 	music8a 153
-	musice2 63
+	wave 63
 	music01 3
 	music8a 153
-	musice2 65
+	wave 65
 	music01 3
 	music8a 158
-	musice2 63
+	wave 63
 	music01 3
 	music8a 170
-	musice2 65
+	wave 65
 	music01 3
 	music8a 158
-	musice2 63
+	wave 63
 	music01 3
 	music8a 153
-	musice2 65
+	wave 65
 	music01 3
 	music8a 158
-	musice2 63
+	wave 63
 	music01 3
 	music8a 158
-	musice2 65
+	wave 65
 	music01 3
 	music8a 170
-	musice2 63
+	wave 63
 	music01 3
 	music8a 158
-	musice2 65
+	wave 65
 	music01 3
 	music8a 170
-	musice2 63
+	wave 63
 	music01 3
 	music8a 158
-	musice2 65
+	wave 65
 	music01 3
 	music8a 170
-	musice2 63
+	wave 63
 	music01 3
 	music8a 170
-	musice2 65
+	wave 65
 	music01 3
 	music8a 153
-	musice2 63
+	wave 63
 	music01 3
 	music8a 158
-	musice2 65
+	wave 65
 	music01 3
 	music8a 170
-	musice2 63
+	wave 63
 	music01 3
 	music8a 151
-	musice2 65
+	wave 65
 	music01 3
 	music8a 163
-	musice2 63
+	wave 63
 	music01 3
 	music8a 175
-	musice2 65
+	wave 65
 	music01 3
 	music8a 163
-	musice2 63
+	wave 63
 	music01 3
 	music8a 151
-	musice2 65
+	wave 65
 	music01 3
 	music8a 163
-	musice2 63
+	wave 63
 	music01 3
 	music8a 163
-	musice2 65
+	wave 65
 	music01 3
 	music8a 175
-	musice2 63
+	wave 63
 	music01 3
 	music8a 151
-	musice2 65
+	wave 65
 	music01 3
 	music8a 174
-	musice2 63
+	wave 63
 	music01 3
 	music8a 162
-	musice2 65
+	wave 65
 	music01 3
 	music8a 151
-	musice2 63
+	wave 63
 	music01 3
 	music8a 162
-	musice2 65
+	wave 65
 	music01 3
 	music8a 151
-	musice2 63
+	wave 63
 	music01 3
 	music8a 174
-	musice2 65
+	wave 65
 	music01 3
 	music8a 162
-	musice2 63
+	wave 63
 	music01 3
 	music8a 148
-	musice2 65
+	wave 65
 	music01 3
 	music8a 160
-	musice2 63
+	wave 63
 	music01 3
 	music8a 172
-	musice2 65
+	wave 65
 	music01 3
 	music8a 160
-	musice2 63
+	wave 63
 	music01 3
 	music8a 148
-	musice2 65
+	wave 65
 	music01 3
 	music8a 160
-	musice2 63
+	wave 63
 	music01 3
 	music8a 160
-	musice2 65
+	wave 65
 	music01 3
 	music8a 172
-	musice2 63
+	wave 63
 	music01 3
 	music8a 158
-	musice2 65
+	wave 65
 	music01 3
 	music8a 158
-	musice2 63
+	wave 63
 	music01 3
 	music8a 170
-	musice2 65
+	wave 65
 	music01 3
 	music8a 158
-	musice2 63
+	wave 63
 	music01 3
 	music8a 170
-	musice2 65
+	wave 65
 	music01 3
 	music8a 153
-	musice2 63
+	wave 63
 	music01 3
 	music8a 158
-	musice2 65
+	wave 65
 	music01 3
 	music8a 170
-	musice2 63
+	wave 63
 	music01 3
 	music8a 156
-	musice2 65
+	wave 65
 	music01 3
 	music8a 156
-	musice2 63
+	wave 63
 	music01 3
 	music8a 168
-	musice2 65
+	wave 65
 	music01 3
 	music8a 156
-	musice2 63
+	wave 63
 	music01 3
 	music8a 163
-	musice2 65
+	wave 65
 	music01 3
 	music8a 156
-	musice2 63
+	wave 63
 	music01 3
 	music8a 156
-	musice2 65
+	wave 65
 	music01 3
 	music8a 168
-	musice2 63
+	wave 63
 	music01 3
 	music8a 153
-	musice2 65
+	wave 65
 	music01 3
 	music8a 165
-	musice2 63
+	wave 63
 	music01 3
 	music8a 153
-	musice2 65
+	wave 65
 	music01 3
 	music8a 153
-	musice2 63
+	wave 63
 	music01 3
 	music8a 165
-	musice2 65
+	wave 65
 	music01 3
 	music8a 153
-	musice2 63
+	wave 63
 	music01 3
 	music8a 153
-	musice2 65
+	wave 65
 	music01 3
 	music8a 165
-	musice2 63
+	wave 63
 	music01 3
 	music8a 170
-	musice2 65
+	wave 65
 	music01 3
 	music8a 170
-	musice2 63
+	wave 63
 	music01 3
 	music8a 158
-	musice2 65
+	wave 65
 	music01 3
 	music8a 170
-	musice2 63
+	wave 63
 	music01 3
 	music8a 170
-	musice2 65
+	wave 65
 	music01 3
 	music8a 158
-	musice2 63
+	wave 63
 	music01 3
 	music8a 170
-	musice2 65
+	wave 65
 	music01 3
 	music8a 158
-	musice2 63
+	wave 63
 	music01 3
 	music8a 158
-	musice2 65
+	wave 65
 	music01 3
 	music8a 158
-	musice2 63
+	wave 63
 	music01 3
 	music8a 153
-	musice2 65
+	wave 65
 	music01 3
 	music8a 158
-	musice2 63
+	wave 63
 	music01 3
 	music8a 158
-	musice2 65
+	wave 65
 	music01 3
 	music8a 153
-	musice2 63
+	wave 63
 	music01 3
 	music8a 158
-	musice2 65
+	wave 65
 	music01 3
 	music8a 170
 	music01 3
@@ -1674,52 +1674,52 @@ Music_GoldenrodGym_branch_18455d: ; 18455d (61:455d)
 	music8a 160
 	music01 3
 	music8a 172
-	musice2 63
+	wave 63
 	music01 3
 	music8a 153
-	musice2 65
+	wave 65
 	music01 3
 	music8a 158
-	musice2 63
+	wave 63
 	music01 3
 	music8a 170
-	musice2 65
+	wave 65
 	music01 3
 	music8a 158
-	musice2 63
+	wave 63
 	music01 3
 	music8a 153
-	musice2 65
+	wave 65
 	music01 3
 	music8a 158
-	musice2 63
+	wave 63
 	music01 3
 	music8a 158
-	musice2 65
+	wave 65
 	music01 3
 	music8a 170
-	musice2 63
+	wave 63
 	music01 3
 	music8a 158
-	musice2 65
+	wave 65
 	music01 3
 	music8a 158
-	musice2 63
+	wave 63
 	music01 3
 	music8a 170
-	musice2 65
+	wave 65
 	music01 3
 	music8a 158
-	musice2 63
+	wave 63
 	music01 3
 	music8a 170
-	musice2 65
+	wave 65
 	music01 3
 	music8a 158
-	musice2 63
+	wave 63
 	music01 3
 	music8a 158
-	musice2 65
+	wave 65
 	music01 3
 	music8a 170
 	music01 3
@@ -1754,197 +1754,197 @@ Music_GoldenrodGym_branch_18455d: ; 18455d (61:455d)
 	music8a 163
 	music01 3
 	music8a 170
-	musice2 63
+	wave 63
 	music01 3
 	music8a 162
-	musice2 65
+	wave 65
 	music01 3
 	music8a 162
-	musice2 63
+	wave 63
 	music01 3
 	music8a 151
-	musice2 65
+	wave 65
 	music01 3
 	music8a 162
-	musice2 63
+	wave 63
 	music01 3
 	music8a 162
-	musice2 65
+	wave 65
 	music01 3
 	music8a 157
-	musice2 63
+	wave 63
 	music01 3
 	music8a 162
-	musice2 65
+	wave 65
 	music01 3
 	music8a 162
-	musice2 63
+	wave 63
 	music01 3
 	music8a 151
-	musice2 65
+	wave 65
 	music01 3
 	music8a 162
-	musice2 63
+	wave 63
 	music01 3
 	music8a 174
-	musice2 65
+	wave 65
 	music01 3
 	music8a 162
-	musice2 63
+	wave 63
 	music01 3
 	music8a 162
-	musice2 65
+	wave 65
 	music01 3
 	music8a 151
-	musice2 63
+	wave 63
 	music01 3
 	music8a 162
-	musice2 65
+	wave 65
 	music01 3
 	music8a 162
-	musice2 63
+	wave 63
 	music01 3
 	music8a 160
-	musice2 65
+	wave 65
 	music01 3
 	music8a 160
-	musice2 63
+	wave 63
 	music01 3
 	music8a 155
-	musice2 65
+	wave 65
 	music01 3
 	music8a 160
-	musice2 63
+	wave 63
 	music01 3
 	music8a 172
-	musice2 65
+	wave 65
 	music01 3
 	music8a 160
-	musice2 63
+	wave 63
 	music01 3
 	music8a 155
-	musice2 65
+	wave 65
 	music01 3
 	music8a 160
-	musice2 63
+	wave 63
 	music01 3
 	music8a 156
-	musice2 65
+	wave 65
 	music01 3
 	music8a 168
-	musice2 63
+	wave 63
 	music01 3
 	music8a 156
-	musice2 65
+	wave 65
 	music01 3
 	music8a 168
-	musice2 63
+	wave 63
 	music01 3
 	music8a 168
-	musice2 65
+	wave 65
 	music01 3
 	music8a 156
-	musice2 63
+	wave 63
 	music01 3
 	music8a 168
-	musice2 65
+	wave 65
 	music01 3
 	music8a 168
-	musice2 63
+	wave 63
 	music01 3
 	music8a 170
-	musice2 65
+	wave 65
 	music01 3
 	music8a 170
-	musice2 63
+	wave 63
 	music01 3
 	music8a 158
-	musice2 65
+	wave 65
 	music01 3
 	music8a 170
-	musice2 63
+	wave 63
 	music01 3
 	music8a 158
-	musice2 65
+	wave 65
 	music01 3
 	music8a 170
-	musice2 63
+	wave 63
 	music01 3
 	music8a 158
-	musice2 65
+	wave 65
 	music01 3
 	music8a 158
-	musice2 63
+	wave 63
 	music01 3
 	music8a 153
-	musice2 65
+	wave 65
 	music01 3
 	music8a 158
-	musice2 63
+	wave 63
 	music01 3
 	musicd2
-	musice2 65
+	wave 65
 	music8a 158
-	musice2 63
+	wave 63
 	music01 3
 	music8a 158
-	musice2 65
+	wave 65
 	music01 3
 	music8a 170
-	musice2 63
+	wave 63
 	music01 3
 	music8a 158
-	musice2 65
+	wave 65
 	music01 3
 	music8a 158
-	musice2 63
+	wave 63
 	music01 6
 	musicd2
-	musice2 65
+	wave 65
 	music01 3
 	music8a 158
-	musice2 63
+	wave 63
 	music01 9
 	musicd2
-	musice2 65
+	wave 65
 	music01 3
 	music8a 158
-	musice2 63
+	wave 63
 	music01 9
 	musicd2
-	musice2 65
+	wave 65
 	music01 3
 	music8a 158
-	musice2 63
+	wave 63
 	music01 9
 	musicd2
-	musice2 65
+	wave 65
 	music01 3
 	music8a 165
 	music01 3
 	music8a 158
-	musice2 63
+	wave 63
 	music01 6
 	musicd2
-	musice2 65
+	wave 65
 	music01 9
 	music8a 151
-	musice2 63
+	wave 63
 	music01 3
 	musicd2
-	musice2 65
+	wave 65
 	music01 9
 	music8a 151
-	musice2 63
+	wave 63
 	music01 3
 	musicd2
-	musice2 65
+	wave 65
 	music01 9
 	music8a 151
-	musice2 63
+	wave 63
 	music01 3
 	musicd2
-	musice2 65
+	wave 65
 	music01 6
 	music8a 151
 	music01 3
@@ -2084,10 +2084,10 @@ Music_GoldenrodGym_branch_18455d: ; 18455d (61:455d)
 	music8a 151
 	music01 45
 	musicd2
-	musiced
+	song_ret
 
 Music_GoldenrodGym_Ch4: ; 184996 (61:4996)
-	musicdd
+	stereo_panning_both
 	music01 3
 	music6d 120
 	music01 3
@@ -2976,4 +2976,4 @@ Music_GoldenrodGym_branch_184a24: ; 184a24 (61:4a24)
 	musicd2
 	music01 48
 	musicd2
-	musice7 Music_GoldenrodGym_branch_184a24
+	song_jump Music_GoldenrodGym_branch_184a24

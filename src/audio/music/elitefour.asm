@@ -5,25 +5,25 @@ Music_EliteFour: ; 18961d (62:561d)
 	dw Music_EliteFour_Ch4
 
 Music_EliteFour_Ch1: ; 189625 (62:5625)
-	musicda 119
-	musice6 115
-	musicdd
+	volume 119
+	volume_envelope 115
+	stereo_panning_both
 	musicd6 15
 	musicd7 3
-	musice1
+	duty_cycle_75
 	musice3 2
 	musicd4 55
 	musicd7 247
-	musicec Music_EliteFour_branch_189645
+	song_call Music_EliteFour_branch_189645
 Music_EliteFour_branch_189638: ; 189638 (62:5638)
 	musicd7 0
-	musicec Music_EliteFour_branch_189673
+	song_call Music_EliteFour_branch_189673
 	musicd7 3
-	musicec Music_EliteFour_branch_1896cc
-	musice7 Music_EliteFour_branch_189638
+	song_call Music_EliteFour_branch_1896cc
+	song_jump Music_EliteFour_branch_189638
 
 Music_EliteFour_branch_189645: ; 189645 (62:5645)
-	musicde
+	duty_cycle_12_5
 	musicd4 55
 	musice3 2
 	musicd8 203
@@ -58,10 +58,10 @@ Music_EliteFour_branch_189645: ; 189645 (62:5645)
 	musicd8 223
 	music01 6
 	music8a 156
-	musiced
+	song_ret
 
 Music_EliteFour_branch_189673: ; 189673 (62:5673)
-	musicde
+	duty_cycle_12_5
 	musicd8 119
 	music01 48
 	musicd2
@@ -111,7 +111,7 @@ Music_EliteFour_branch_189673: ; 189673 (62:5673)
 	music8a 187
 	music01 6
 	musicd2
-	musiced
+	song_ret
 
 ; unreferenced ?
 Music_EliteFour_branch_1896a7: ; 189625 (62:5625)
@@ -150,7 +150,7 @@ Music_EliteFour_branch_1896a7: ; 189625 (62:5625)
 	music8a 187
 	music01 6
 	musicd2
-	musiced
+	song_ret
 
 Music_EliteFour_branch_1896cc: ; 1896cc (62:56cc)
 	musicd8 221
@@ -202,7 +202,7 @@ Music_EliteFour_branch_1896cc: ; 1896cc (62:56cc)
 	music8a 176
 	music01 9
 	musicd2
-	musice1
+	duty_cycle_75
 	musicd8 199
 	music01 4
 	music8a 149
@@ -244,7 +244,7 @@ Music_EliteFour_branch_1896cc: ; 1896cc (62:56cc)
 	musicd8 166
 	music01 2
 	music8a 182
-	musice0
+	duty_cycle_50
 	musicd8 119
 	music01 24
 	musicd2
@@ -288,29 +288,29 @@ Music_EliteFour_branch_1896cc: ; 1896cc (62:56cc)
 	music8a 161
 	music01 12
 	musicd2
-	musiced
+	song_ret
 
 Music_EliteFour_Ch2: ; 18975f (62:575f)
-	musicda 119
-	musice6 115
-	musicdd
+	volume 119
+	volume_envelope 115
+	stereo_panning_both
 	musicd6 15
 	musicd4 55
 	musicd7 247
-	musicec Music_EliteFour_branch_189784
+	song_call Music_EliteFour_branch_189784
 Music_EliteFour_branch_18976d: ; 18976d (62:576d)
 	musicd7 0
-	musicec Music_EliteFour_branch_1897ac
+	song_call Music_EliteFour_branch_1897ac
 	musicd7 247
-	musicec Music_EliteFour_branch_18980f
+	song_call Music_EliteFour_branch_18980f
 	musicd7 3
-	musicec Music_EliteFour_branch_189899
+	song_call Music_EliteFour_branch_189899
 	musicd7 247
-	musicec Music_EliteFour_branch_1898cc
-	musice7 Music_EliteFour_branch_18976d
+	song_call Music_EliteFour_branch_1898cc
+	song_jump Music_EliteFour_branch_18976d
 
 Music_EliteFour_branch_189784: ; 189784 (62:5784)
-	musice0
+	duty_cycle_50
 	musicd4 55
 	musicd8 35
 	music01 3
@@ -346,10 +346,10 @@ Music_EliteFour_branch_189784: ; 189784 (62:5784)
 	music01 3
 	music8a 184
 	musicd7 3
-	musiced
+	song_ret
 
 Music_EliteFour_branch_1897ac: ; 1897ac (62:57ac)
-	musicde
+	duty_cycle_12_5
 	musicd8 48
 	music01 18
 	music8a 154
@@ -403,7 +403,7 @@ Music_EliteFour_branch_1897ac: ; 1897ac (62:57ac)
 	music8a 190
 	music01 6
 	musicd2
-	musiced
+	song_ret
 
 ; unreferenced ?
 Music_EliteFour_branch_1897e4: ; 18975f (62:575f)
@@ -445,7 +445,7 @@ Music_EliteFour_branch_1897e4: ; 18975f (62:575f)
 	music8a 184
 	music01 6
 	musicd2
-	musiced
+	song_ret
 
 Music_EliteFour_branch_18980f: ; 18980f (62:580f)
 	musicd8 196
@@ -559,7 +559,7 @@ Music_EliteFour_branch_18980f: ; 18980f (62:580f)
 	music8a 155
 	music01 3
 	musicd2
-	musiced
+	song_ret
 
 Music_EliteFour_branch_189899: ; 189899 (62:5899)
 	musicd8 196
@@ -603,7 +603,7 @@ Music_EliteFour_branch_189899: ; 189899 (62:5899)
 	musicd8 162
 	music01 3
 	music8a 182
-	musiced
+	song_ret
 
 Music_EliteFour_branch_1898cc: ; 1898cc (62:58cc)
 	music01 24
@@ -657,23 +657,23 @@ Music_EliteFour_branch_1898cc: ; 1898cc (62:58cc)
 	music8a 165
 	music01 12
 	musicd2
-	musiced
+	song_ret
 
 Music_EliteFour_Ch3: ; 189907 (62:5907)
-	musicdd
+	stereo_panning_both
 	musicd4 55
 	musicd7 3
-	musicec Music_EliteFour_branch_189919
+	song_call Music_EliteFour_branch_189919
 Music_EliteFour_branch_18990f: ; 18990f (62:590f)
 	musicd8 104
 	musicd7 3
-	musicec Music_EliteFour_branch_189946
-	musice7 Music_EliteFour_branch_18990f
+	song_call Music_EliteFour_branch_189946
+	song_jump Music_EliteFour_branch_18990f
 
 Music_EliteFour_branch_189919: ; 189919 (62:5919)
-	musice2 66
+	wave 66
 	musicd8 27
-	musice2 69
+	wave 69
 	music01 3
 	music8a 172
 	music01 3
@@ -684,7 +684,7 @@ Music_EliteFour_branch_189919: ; 189919 (62:5919)
 	music8a 171
 	music01 3
 	music8a 172
-	musice2 68
+	wave 68
 	music01 3
 	music8a 171
 	music01 3
@@ -693,7 +693,7 @@ Music_EliteFour_branch_189919: ; 189919 (62:5919)
 	music8a 171
 	music01 3
 	music8a 172
-	musice2 67
+	wave 67
 	music01 3
 	music8a 171
 	music01 3
@@ -702,17 +702,17 @@ Music_EliteFour_branch_189919: ; 189919 (62:5919)
 	music8a 171
 	music01 3
 	music8a 172
-	musice2 66
+	wave 66
 	music01 3
 	music8a 171
 	music01 3
 	music8a 170
 	music01 3
 	music8a 171
-	musiced
+	song_ret
 
 Music_EliteFour_branch_189946: ; 189946 (62:5946)
-	musice2 9
+	wave 9
 	musicd8 104
 	music01 3
 	music8a 151
@@ -908,7 +908,7 @@ Music_EliteFour_branch_189946: ; 189946 (62:5946)
 	music01 3
 	musicd2
 	musicd8 27
-	musice2 66
+	wave 66
 	musicd7 15
 	music01 3
 	music8a 166
@@ -961,76 +961,76 @@ Music_EliteFour_branch_189946: ; 189946 (62:5946)
 	music01 48
 	musicd2
 	musicd8 109
-	musice2 67
+	wave 67
 	music01 48
 	music8a 151
 	music01 12
 	musicd3
 	music01 3
 	music8a 151
-	musice2 68
+	wave 68
 	music01 3
 	music8a 151
-	musice2 69
+	wave 69
 	music01 3
 	music8a 151
-	musice2 70
+	wave 70
 	music01 3
 	music8a 151
-	musice2 66
+	wave 66
 	musicd8 27
 	music01 12
 	music8a 158
 	music01 12
 	musicd2
 	musicd8 109
-	musice2 67
+	wave 67
 	music01 48
 	music8a 151
 	music01 12
 	musicd3
 	music01 3
 	music8a 151
-	musice2 68
+	wave 68
 	music01 3
 	music8a 151
-	musice2 69
+	wave 69
 	music01 3
 	music8a 151
-	musice2 70
+	wave 70
 	music01 3
 	music8a 151
 	musicd8 27
-	musice2 67
+	wave 67
 	music01 12
 	music8a 158
 	music01 12
 	musicd2
 	musicd8 109
-	musice2 68
+	wave 68
 	music01 48
 	music8a 151
 	music01 12
 	musicd3
-	musice2 67
+	wave 67
 	music01 3
 	music8a 151
-	musice2 68
+	wave 68
 	music01 3
 	music8a 151
-	musice2 69
+	wave 69
 	music01 3
 	music8a 151
-	musice2 70
+	wave 70
 	music01 3
 	music8a 151
 	musicd8 27
-	musice2 66
+	wave 66
 	music01 12
 	music8a 158
 	music01 12
 	musicd2
-	musice2 67
+	wave 67
 	musicd8 109
 	music01 48
 	music8a 151
@@ -1038,17 +1038,17 @@ Music_EliteFour_branch_189946: ; 189946 (62:5946)
 	musicd3
 	music01 3
 	music8a 151
-	musice2 68
+	wave 68
 	music01 3
 	music8a 151
-	musice2 69
+	wave 69
 	music01 3
 	music8a 151
-	musice2 70
+	wave 70
 	music01 3
 	music8a 151
 	musicd8 27
-	musice2 67
+	wave 67
 	music01 12
 	music8a 158
 	music01 3
@@ -1059,7 +1059,7 @@ Music_EliteFour_branch_189946: ; 189946 (62:5946)
 	music8a 151
 	music01 3
 	music8a 146
-	musice2 62
+	wave 62
 	music01 6
 	music8a 139
 	music01 6
@@ -1101,14 +1101,14 @@ Music_EliteFour_branch_189946: ; 189946 (62:5946)
 	music8a 139
 	music01 6
 	musicd2
-	musiced
+	song_ret
 
 Music_EliteFour_Ch4: ; 189aef (62:5aef)
-	musicdd
-	musicec Music_EliteFour_branch_189af9
+	stereo_panning_both
+	song_call Music_EliteFour_branch_189af9
 Music_EliteFour_branch_189af3: ; 189af3 (62:5af3)
-	musicec Music_EliteFour_branch_189b15
-	musice7 Music_EliteFour_branch_189af3
+	song_call Music_EliteFour_branch_189b15
+	song_jump Music_EliteFour_branch_189af3
 
 Music_EliteFour_branch_189af9: ; 189af9 (62:5af9)
 	music01 3
@@ -1138,7 +1138,7 @@ Music_EliteFour_branch_189af9: ; 189af9 (62:5af9)
 	music8a 142
 	music01 3
 	musicd3
-	musiced
+	song_ret
 
 Music_EliteFour_branch_189b15: ; 189b15 (62:5b15)
 	music01 3
@@ -1762,4 +1762,4 @@ Music_EliteFour_branch_189b15: ; 189b15 (62:5b15)
 	music6d 127
 	music01 3
 	music6d 127
-	musiced
+	song_ret

@@ -5,15 +5,15 @@ Music_GymVictory: ; 188be2 (62:4be2)
 	dw $0000
 
 Music_GymVictory_Ch1: ; 188bea (62:4bea)
-	musicda 119
-	musice6 115
-	musicdd
+	volume 119
+	volume_envelope 115
+	stereo_panning_both
 	musicd6 14
 	musicd7 0
-	musice0
+	duty_cycle_50
 	musicd4 55
 	musicd8 132
-	musice0
+	duty_cycle_50
 	musicd4 55
 	musicd8 209
 	music01 3
@@ -80,16 +80,16 @@ Music_GymVictory_Ch1: ; 188bea (62:4bea)
 	musicd8 233
 	music01 8
 	music8a 195
-	music00
+	song_end
 
 Music_GymVictory_Ch2: ; 188c44 (62:4c44)
-	musicda 119
-	musice6 115
-	musicdd
+	volume 119
+	volume_envelope 115
+	stereo_panning_both
 	musicd4 55
 	musicd8 129
 	musicd4 55
-	musice0
+	duty_cycle_50
 	musice3 2
 	music01 2
 	music8a 169
@@ -155,12 +155,12 @@ Music_GymVictory_Ch2: ; 188c44 (62:4c44)
 	musice3 255
 	music01 24
 	music8a 183
-	music00
+	song_end
 
 Music_GymVictory_Ch3: ; 188c97 (62:4c97)
-	musicdd
+	stereo_panning_both
 	musice3 1
-	musice2 60
+	wave 60
 	music01 3
 	musicd2
 	musicd8 103
@@ -225,5 +225,5 @@ Music_GymVictory_Ch3: ; 188c97 (62:4c97)
 	musicd2
 	music01 16
 	musicd2
-	music00
-	music00
+	song_end
+	song_end

@@ -5,13 +5,13 @@ Music_SecretTrainerVictory: ; 18f986 (63:7986)
 	dw $0000
 
 Music_SecretTrainerVictory_Ch1: ; 18f98e (63:798e)
-	musicda 119
-	musice6 115
-	musicdd
+	volume 119
+	volume_envelope 115
+	stereo_panning_both
 	musicd6 30
 	musicd7 0
 	musicd4 55
-	musicde
+	duty_cycle_12_5
 	musicd4 55
 	musicd8 180
 	music01 6
@@ -66,7 +66,7 @@ Music_SecretTrainerVictory_Ch1: ; 18f98e (63:798e)
 	musicd2
 	music01 1
 	musicd2
-	music00
+	song_end
 
 ; unreferenced ?
 Music_SecretTrainerVictory_branch_18f9d3: ; 18f98e (63:798e)
@@ -117,17 +117,17 @@ Music_SecretTrainerVictory_branch_18f9d3: ; 18f98e (63:798e)
 	musicd3
 	music01 1
 	musicd2
-	music00
+	song_end
 
 Music_SecretTrainerVictory_Ch2: ; 18fa03 (63:7a03)
-	musicda 119
-	musice6 115
-	musicdd
+	volume 119
+	volume_envelope 115
+	stereo_panning_both
 	musicd6 30
 	musicd4 49
 	musicd8 162
 	musicd4 49
-	musicde
+	duty_cycle_12_5
 	music01 2
 	musicd2
 	music01 4
@@ -235,15 +235,15 @@ Music_SecretTrainerVictory_Ch2: ; 18fa03 (63:7a03)
 	musicd3
 	music01 1
 	musicd2
-	music00
+	song_end
 
 Music_SecretTrainerVictory_Ch3: ; 18fa83 (63:7a83)
-	musicdd
+	stereo_panning_both
 	musicd6 30
 	musice3 0
 	musicd4 49
 	musicd8 109
-	musice2 34
+	wave 34
 	music01 6
 	music8a 182
 	music01 12
@@ -323,5 +323,5 @@ Music_SecretTrainerVictory_Ch3: ; 18fa83 (63:7a83)
 	musicd3
 	music01 1
 	musicd2
-	music00
-	music00
+	song_end
+	song_end

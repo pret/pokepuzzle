@@ -5,23 +5,23 @@ Music_TravellingToTheGyms: ; 1875fd (61:75fd)
 	dw $0000
 
 Music_TravellingToTheGyms_Ch1: ; 187605 (61:7605)
-	musicda 119
-	musice6 115
-	musicdd
+	volume 119
+	volume_envelope 115
+	stereo_panning_both
 	musicd6 19
 	musicd7 0
-	musice1
+	duty_cycle_75
 	musice3 2
 	musicd4 55
 	musicd8 221
 	music01 12
 	musicd2
 Music_TravellingToTheGyms_branch_187617: ; 187617 (61:7617)
-	musicec Music_TravellingToTheGyms_branch_18761d
-	musice7 Music_TravellingToTheGyms_branch_187617
+	song_call Music_TravellingToTheGyms_branch_18761d
+	song_jump Music_TravellingToTheGyms_branch_187617
 
 Music_TravellingToTheGyms_branch_18761d: ; 18761d (61:761d)
-	musicde
+	duty_cycle_12_5
 	musicd4 55
 	musicd8 35
 	music01 12
@@ -211,14 +211,14 @@ Music_TravellingToTheGyms_branch_18761d: ; 18761d (61:761d)
 	music8a 176
 	music01 24
 	musicd2
-	musiced
+	song_ret
 
 Music_TravellingToTheGyms_Ch2: ; 1876de (61:76de)
-	musicda 119
-	musice6 115
-	musicdd
+	volume 119
+	volume_envelope 115
+	stereo_panning_both
 	musicd7 0
-	musice0
+	duty_cycle_50
 	musicd6 19
 	musicd4 55
 	musicd8 31
@@ -228,8 +228,8 @@ Music_TravellingToTheGyms_Ch2: ; 1876de (61:76de)
 	music01 6
 	music8a 174
 Music_TravellingToTheGyms_branch_1876f2: ; 1876f2 (61:76f2)
-	musicec Music_TravellingToTheGyms_branch_1876f8
-	musice7 Music_TravellingToTheGyms_branch_1876f2
+	song_call Music_TravellingToTheGyms_branch_1876f8
+	song_jump Music_TravellingToTheGyms_branch_1876f2
 
 Music_TravellingToTheGyms_branch_1876f8: ; 1876f8 (61:76f8)
 	music01 6
@@ -375,9 +375,9 @@ Music_TravellingToTheGyms_branch_1876f8: ; 1876f8 (61:76f8)
 	music8a 179
 	music01 6
 	musicd2
-	musicde
+	duty_cycle_12_5
 	musicd8 206
-	musice1
+	duty_cycle_75
 	musicd8 31
 	music01 12
 	music8a 203
@@ -387,9 +387,9 @@ Music_TravellingToTheGyms_branch_1876f8: ; 1876f8 (61:76f8)
 	music8a 200
 	music01 12
 	musicd3
-	musicde
+	duty_cycle_12_5
 	musicd8 206
-	musice1
+	duty_cycle_75
 	musicd8 31
 	music01 12
 	music8a 196
@@ -407,7 +407,7 @@ Music_TravellingToTheGyms_branch_1876f8: ; 1876f8 (61:76f8)
 	music8a 193
 	music01 6
 	musicd3
-	musice0
+	duty_cycle_50
 	musicd8 31
 	music8a 174
 	music01 3
@@ -478,10 +478,10 @@ Music_TravellingToTheGyms_branch_1876f8: ; 1876f8 (61:76f8)
 	music8a 172
 	music01 6
 	music8a 174
-	musiced
+	song_ret
 
 Music_TravellingToTheGyms_Ch3: ; 187802 (61:7802)
-	musicdd
+	stereo_panning_both
 	musice3 0
 	musicd8 104
 	musicd4 56
@@ -489,9 +489,9 @@ Music_TravellingToTheGyms_Ch3: ; 187802 (61:7802)
 	musicd2
 Music_TravellingToTheGyms_branch_18780b: ; 18780b (61:780b)
 	musicd7 12
-	musice2 59
-	musicec Music_TravellingToTheGyms_branch_187817
-	musice7 Music_TravellingToTheGyms_branch_18780b
+	wave 59
+	song_call Music_TravellingToTheGyms_branch_187817
+	song_jump Music_TravellingToTheGyms_branch_18780b
 
 ; unreferenced ?
 Music_TravellingToTheGyms_branch_187815: ; 187802 (61:7802)
@@ -784,11 +784,11 @@ Music_TravellingToTheGyms_branch_187817: ; 187817 (61:7817)
 	musicd2
 	music01 12
 	music8a 143
-	musiced
+	song_ret
 
 ; unreferenced ?
 Music_TravellingToTheGyms_branch_187936: ; 187802 (61:7802)
-	musicdd
+	stereo_panning_both
 	music01 12
 	musicd2
 Music_TravellingToTheGyms_branch_187939: ; 187939 (61:7939)
@@ -796,4 +796,4 @@ Music_TravellingToTheGyms_branch_187939: ; 187939 (61:7939)
 	music6d 120
 	music01 6
 	music6d 122
-	musice7 Music_TravellingToTheGyms_branch_187939
+	song_jump Music_TravellingToTheGyms_branch_187939

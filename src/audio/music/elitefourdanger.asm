@@ -5,24 +5,24 @@ Music_EliteFourDanger: ; 18ddda (63:5dda)
 	dw Music_EliteFourDanger_Ch4
 
 Music_EliteFourDanger_Ch1: ; 18dde2 (63:5de2)
-	musicda 119
-	musice6 115
-	musicdd
+	volume 119
+	volume_envelope 115
+	stereo_panning_both
 	musicd6 19
 	musice3 2
 	musicd4 55
 	musicd4 55
 	musicd8 36
-	musicec Music_EliteFourDanger_branch_18deca
+	song_call Music_EliteFourDanger_branch_18deca
 Music_EliteFourDanger_branch_18ddf4: ; 18ddf4 (63:5df4)
 	musicd7 0
 	musicd4 55
-	musicec Music_EliteFourDanger_branch_18defc
-	musicec Music_EliteFourDanger_branch_18de09
+	song_call Music_EliteFourDanger_branch_18defc
+	song_call Music_EliteFourDanger_branch_18de09
 	musice3 2
-	musicec Music_EliteFourDanger_branch_18e000
-	musicec Music_EliteFourDanger_branch_18e027
-	musice7 Music_EliteFourDanger_branch_18ddf4
+	song_call Music_EliteFourDanger_branch_18e000
+	song_call Music_EliteFourDanger_branch_18e027
+	song_jump Music_EliteFourDanger_branch_18ddf4
 
 Music_EliteFourDanger_branch_18de09: ; 18de09 (63:5e09)
 	music01 6
@@ -185,10 +185,10 @@ Music_EliteFourDanger_branch_18de09: ; 18de09 (63:5e09)
 	musicd8 36
 	music01 3
 	music8a 172
-	musiced
+	song_ret
 
 Music_EliteFourDanger_branch_18deca: ; 18deca (63:5eca)
-	musicde
+	duty_cycle_12_5
 	musicd8 119
 	musicd4 59
 	music01 18
@@ -209,11 +209,11 @@ Music_EliteFourDanger_branch_18deca: ; 18deca (63:5eca)
 	musicd4 61
 	music01 6
 	music8a 159
-	musiced
+	song_ret
 
 ; unreferenced ?
 Music_EliteFourDanger_branch_18dee4: ; 18dde2 (63:5de2)
-	musicde
+	duty_cycle_12_5
 	musicd8 119
 	musice3 3
 	music01 18
@@ -234,10 +234,10 @@ Music_EliteFourDanger_branch_18dee4: ; 18dde2 (63:5de2)
 	music8a 170
 	music01 3
 	music8a 171
-	musiced
+	song_ret
 
 Music_EliteFourDanger_branch_18defc: ; 18defc (63:5efc)
-	musicde
+	duty_cycle_12_5
 	musicd8 118
 	musice3 2
 	music01 24
@@ -294,7 +294,7 @@ Music_EliteFourDanger_branch_18defc: ; 18defc (63:5efc)
 	music8a 175
 	music01 3
 	musicd3
-	musice1
+	duty_cycle_75
 	musicd8 36
 	musicd4 59
 	music01 6
@@ -312,7 +312,7 @@ Music_EliteFourDanger_branch_18defc: ; 18defc (63:5efc)
 	musicd2
 	music01 12
 	music8a 179
-	musiced
+	song_ret
 
 ; unreferenced ?
 Music_EliteFourDanger_branch_18df4d: ; 18dde2 (63:5de2)
@@ -461,7 +461,7 @@ Music_EliteFourDanger_branch_18df4d: ; 18dde2 (63:5de2)
 	musicd8 36
 	music01 3
 	music8a 172
-	musiced
+	song_ret
 
 Music_EliteFourDanger_branch_18e000: ; 18e000 (63:6000)
 	musicd8 118
@@ -501,7 +501,7 @@ Music_EliteFourDanger_branch_18e000: ; 18e000 (63:6000)
 	music8a 172
 	music01 3
 	musicd3
-	musiced
+	song_ret
 
 Music_EliteFourDanger_branch_18e027: ; 18e027 (63:6027)
 	musicd8 118
@@ -568,36 +568,36 @@ Music_EliteFourDanger_branch_18e027: ; 18e027 (63:6027)
 	music8a 182
 	music01 24
 	music8a 181
-	musiced
+	song_ret
 
 Music_EliteFourDanger_Ch2: ; 18e069 (63:6069)
-	musicda 119
-	musice6 115
-	musicdd
+	volume 119
+	volume_envelope 115
+	stereo_panning_both
 	musicd4 55
-	musice0
+	duty_cycle_50
 	musicd4 55
-	musicde
+	duty_cycle_12_5
 	musicd4 55
 	musicd8 161
-	musicec Music_EliteFourDanger_branch_18e15c
+	song_call Music_EliteFourDanger_branch_18e15c
 Music_EliteFourDanger_branch_18e07b: ; 18e07b (63:607b)
-	musicec Music_EliteFourDanger_branch_18e1a7
-	musicec Music_EliteFourDanger_branch_18e08a
-	musicec Music_EliteFourDanger_branch_18e299
-	musicec Music_EliteFourDanger_branch_18e2c0
-	musice7 Music_EliteFourDanger_branch_18e07b
+	song_call Music_EliteFourDanger_branch_18e1a7
+	song_call Music_EliteFourDanger_branch_18e08a
+	song_call Music_EliteFourDanger_branch_18e299
+	song_call Music_EliteFourDanger_branch_18e2c0
+	song_jump Music_EliteFourDanger_branch_18e07b
 
 Music_EliteFourDanger_branch_18e08a: ; 18e08a (63:608a)
 	musicd8 52
-	musice0
+	duty_cycle_50
 	music01 18
 	music8a 162
 	music01 18
 	music8a 160
 	music01 12
 	music8a 162
-	musice0
+	duty_cycle_50
 	musicd8 178
 	musicd4 59
 	music01 9
@@ -613,7 +613,7 @@ Music_EliteFourDanger_branch_18e08a: ; 18e08a (63:608a)
 	music8a 172
 	music01 6
 	music8a 174
-	musice0
+	duty_cycle_50
 	musicd8 52
 	music01 18
 	music8a 160
@@ -622,7 +622,7 @@ Music_EliteFourDanger_branch_18e08a: ; 18e08a (63:608a)
 	music01 12
 	music8a 160
 	musicd8 178
-	musice0
+	duty_cycle_50
 	musicd4 59
 	music01 9
 	music8a 187
@@ -638,7 +638,7 @@ Music_EliteFourDanger_branch_18e08a: ; 18e08a (63:608a)
 	music01 6
 	music8a 186
 	musicd8 52
-	musice0
+	duty_cycle_50
 	music01 45
 	music8a 174
 	music01 3
@@ -691,7 +691,7 @@ Music_EliteFourDanger_branch_18e08a: ; 18e08a (63:608a)
 	musicd8 209
 	music01 3
 	music8a 178
-	musiced
+	song_ret
 
 ; unreferenced ?
 Music_EliteFourDanger_branch_18e10a: ; 18e069 (63:6069)
@@ -760,7 +760,7 @@ Music_EliteFourDanger_branch_18e10a: ; 18e069 (63:6069)
 	music8a 171
 	music01 3
 	music8a 170
-	musice0
+	duty_cycle_50
 	musicd4 55
 	musicd8 52
 	musicd7 0
@@ -768,10 +768,10 @@ Music_EliteFourDanger_branch_18e10a: ; 18e069 (63:6069)
 	music8a 170
 	music01 3
 	music8a 171
-	musiced
+	song_ret
 
 Music_EliteFourDanger_branch_18e15c: ; 18e15c (63:615c)
-	musicde
+	duty_cycle_12_5
 	musicd4 55
 	musicd8 39
 	music01 3
@@ -834,17 +834,17 @@ Music_EliteFourDanger_branch_18e15c: ; 18e15c (63:615c)
 	music8a 183
 	music01 3
 	music8a 195
-	musice0
+	duty_cycle_50
 	musicd4 55
 	musicd8 52
 	music01 3
 	music8a 170
 	music01 3
 	music8a 171
-	musiced
+	song_ret
 
 Music_EliteFourDanger_branch_18e1a7: ; 18e1a7 (63:61a7)
-	musice0
+	duty_cycle_50
 	musicd4 55
 	musicd8 52
 	music01 24
@@ -901,7 +901,7 @@ Music_EliteFourDanger_branch_18e1a7: ; 18e1a7 (63:61a7)
 	music8a 175
 	music01 3
 	musicd3
-	musicde
+	duty_cycle_12_5
 	musicd8 162
 	musicd4 59
 	music01 6
@@ -920,12 +920,12 @@ Music_EliteFourDanger_branch_18e1a7: ; 18e1a7 (63:61a7)
 	musicd8 52
 	music01 12
 	music8a 179
-	musiced
+	song_ret
 
 ; unreferenced ?
 Music_EliteFourDanger_branch_18e1fa: ; 18e069 (63:6069)
 	musicd8 52
-	musice0
+	duty_cycle_50
 	music01 18
 	music8a 162
 	music01 18
@@ -949,7 +949,7 @@ Music_EliteFourDanger_branch_18e1fa: ; 18e069 (63:6069)
 	music8a 162
 	music01 12
 	music8a 163
-	musicde
+	duty_cycle_12_5
 	musicd8 210
 	music01 3
 	music8a 162
@@ -1046,7 +1046,7 @@ Music_EliteFourDanger_branch_18e1fa: ; 18e069 (63:6069)
 	musicd8 209
 	music01 3
 	music8a 166
-	musiced
+	song_ret
 
 Music_EliteFourDanger_branch_18e299: ; 18e299 (63:6299)
 	musicd8 52
@@ -1086,7 +1086,7 @@ Music_EliteFourDanger_branch_18e299: ; 18e299 (63:6299)
 	music8a 178
 	music01 3
 	musicd3
-	musiced
+	song_ret
 
 Music_EliteFourDanger_branch_18e2c0: ; 18e2c0 (63:62c0)
 	musicd8 52
@@ -1170,7 +1170,7 @@ Music_EliteFourDanger_branch_18e2c0: ; 18e2c0 (63:62c0)
 	music8a 189
 	music01 18
 	music8a 188
-	musice0
+	duty_cycle_50
 	musicd4 55
 	musicd8 52
 	musicd7 0
@@ -1178,22 +1178,22 @@ Music_EliteFourDanger_branch_18e2c0: ; 18e2c0 (63:62c0)
 	music8a 170
 	music01 3
 	music8a 171
-	musiced
+	song_ret
 
 Music_EliteFourDanger_Ch3: ; 18e320 (63:6320)
-	musicdd
+	stereo_panning_both
 	musicd7 12
 	musicd4 55
 	musicd8 27
-	musice2 67
-	musicec Music_EliteFourDanger_branch_18e3c6
+	wave 67
+	song_call Music_EliteFourDanger_branch_18e3c6
 Music_EliteFourDanger_branch_18e32c: ; 18e32c (63:632c)
 	musicd7 12
-	musicec Music_EliteFourDanger_branch_18e426
-	musicec Music_EliteFourDanger_branch_18e33d
-	musicec Music_EliteFourDanger_branch_18e5c6
-	musicec Music_EliteFourDanger_branch_18e651
-	musice7 Music_EliteFourDanger_branch_18e32c
+	song_call Music_EliteFourDanger_branch_18e426
+	song_call Music_EliteFourDanger_branch_18e33d
+	song_call Music_EliteFourDanger_branch_18e5c6
+	song_call Music_EliteFourDanger_branch_18e651
+	song_jump Music_EliteFourDanger_branch_18e32c
 
 Music_EliteFourDanger_branch_18e33d: ; 18e33d (63:633d)
 	music01 6
@@ -1332,7 +1332,7 @@ Music_EliteFourDanger_branch_18e33d: ; 18e33d (63:633d)
 	music8a 157
 	music01 6
 	music8a 162
-	musiced
+	song_ret
 
 Music_EliteFourDanger_branch_18e3c6: ; 18e3c6 (63:63c6)
 	musicd7 244
@@ -1402,11 +1402,11 @@ Music_EliteFourDanger_branch_18e3c6: ; 18e3c6 (63:63c6)
 	music8a 170
 	music01 3
 	music8a 171
-	musiced
+	song_ret
 
 ; unreferenced ?
 Music_EliteFourDanger_branch_18e40d: ; 18e320 (63:6320)
-	musice2 64
+	wave 64
 	musicd4 59
 	music01 18
 	music8a 144
@@ -1426,11 +1426,11 @@ Music_EliteFourDanger_branch_18e40d: ; 18e320 (63:6320)
 	musicd4 61
 	music01 6
 	music8a 147
-	musiced
+	song_ret
 
 Music_EliteFourDanger_branch_18e426: ; 18e426 (63:6426)
 	musicd4 55
-	musice2 63
+	wave 63
 	music01 2
 	music8a 152
 	music01 1
@@ -1665,7 +1665,7 @@ Music_EliteFourDanger_branch_18e426: ; 18e426 (63:6426)
 	music8a 159
 	music01 6
 	music8a 158
-	musiced
+	song_ret
 
 ; unreferenced ?
 Music_EliteFourDanger_branch_18e515: ; 18e320 (63:6320)
@@ -1839,7 +1839,7 @@ Music_EliteFourDanger_branch_18e515: ; 18e320 (63:6320)
 	music8a 157
 	music01 6
 	music8a 162
-	musiced
+	song_ret
 
 Music_EliteFourDanger_branch_18e5c6: ; 18e5c6 (63:65c6)
 	music01 12
@@ -1974,7 +1974,7 @@ Music_EliteFourDanger_branch_18e5c6: ; 18e5c6 (63:65c6)
 	music8a 169
 	music01 6
 	music8a 162
-	musiced
+	song_ret
 
 Music_EliteFourDanger_branch_18e651: ; 18e651 (63:6651)
 	music01 2
@@ -2214,17 +2214,17 @@ Music_EliteFourDanger_branch_18e651: ; 18e651 (63:6651)
 	music8a 152
 	music01 3
 	musicd3
-	musiced
+	song_ret
 
 Music_EliteFourDanger_Ch4: ; 18e740 (63:6740)
-	musicdd
-	musicec Music_EliteFourDanger_branch_18e812
+	stereo_panning_both
+	song_call Music_EliteFourDanger_branch_18e812
 Music_EliteFourDanger_branch_18e744: ; 18e744 (63:6744)
-	musicec Music_EliteFourDanger_branch_18e843
-	musicec Music_EliteFourDanger_branch_18e753
-	musicec Music_EliteFourDanger_branch_18e9e1
-	musicec Music_EliteFourDanger_branch_18eae2
-	musice7 Music_EliteFourDanger_branch_18e744
+	song_call Music_EliteFourDanger_branch_18e843
+	song_call Music_EliteFourDanger_branch_18e753
+	song_call Music_EliteFourDanger_branch_18e9e1
+	song_call Music_EliteFourDanger_branch_18eae2
+	song_jump Music_EliteFourDanger_branch_18e744
 
 Music_EliteFourDanger_branch_18e753: ; 18e753 (63:6753)
 	music01 6
@@ -2417,7 +2417,7 @@ Music_EliteFourDanger_branch_18e753: ; 18e753 (63:6753)
 	music6d 112
 	music01 3
 	music6d 120
-	musiced
+	song_ret
 
 Music_EliteFourDanger_branch_18e812: ; 18e812 (63:6812)
 	music01 6
@@ -2468,7 +2468,7 @@ Music_EliteFourDanger_branch_18e812: ; 18e812 (63:6812)
 	music6d 127
 	music01 3
 	music6d 127
-	musiced
+	song_ret
 
 Music_EliteFourDanger_branch_18e843: ; 18e843 (63:6843)
 	music01 3
@@ -2725,7 +2725,7 @@ Music_EliteFourDanger_branch_18e843: ; 18e843 (63:6843)
 	music6d 112
 	music01 3
 	music6d 120
-	musiced
+	song_ret
 
 ; unreferenced ?
 Music_EliteFourDanger_branch_18e942: ; 18e740 (63:6740)
@@ -2887,7 +2887,7 @@ Music_EliteFourDanger_branch_18e942: ; 18e740 (63:6740)
 	music6d 127
 	music01 3
 	music6d 127
-	musiced
+	song_ret
 
 Music_EliteFourDanger_branch_18e9e1: ; 18e9e1 (63:69e1)
 	music01 3
@@ -3146,7 +3146,7 @@ Music_EliteFourDanger_branch_18e9e1: ; 18e9e1 (63:69e1)
 	music6d 127
 	music01 3
 	music6d 127
-	musiced
+	song_ret
 
 Music_EliteFourDanger_branch_18eae2: ; 18eae2 (63:6ae2)
 	music01 6
@@ -3386,4 +3386,4 @@ Music_EliteFourDanger_branch_18eae2: ; 18eae2 (63:6ae2)
 	music6d 126
 	music01 3
 	music6d 126
-	musiced
+	song_ret
