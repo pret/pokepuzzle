@@ -1,14 +1,229 @@
-Music_GymVictory:: ; 188be2 (62:4be2)
+Music_GymVictory: ; 188be2 (62:4be2)
 	dw Music_GymVictory_Ch1
 	dw Music_GymVictory_Ch2
 	dw Music_GymVictory_Ch3
 	dw $0000
 
-Music_GymVictory_Ch1:: ; 188bea (62:4bea)
-	INCBIN "baserom.gbc",$188bea,$188c44 - $188bea
+Music_GymVictory_Ch1: ; 188bea (62:4bea)
+	musicda 119
+	musice6 115
+	musicdd
+	musicd6 14
+	musicd7 0
+	musice0
+	musicd4 55
+	musicd8 132
+	musice0
+	musicd4 55
+	musicd8 209
+	music01 3
+	music8a 181
+	musicd8 206
+	music01 3
+	music8a 177
+	music01 3
+	music8a 176
+	music01 3
+	music8a 174
+	music01 3
+	music8a 169
+	music01 3
+	music8a 165
+	music01 3
+	music8a 164
+	musicd8 207
+	music01 3
+	music8a 162
+	music01 3
+	music8a 183
+	music01 3
+	music8a 181
+	music01 3
+	music8a 177
+	musicd8 209
+	music01 3
+	music8a 174
+	music01 4
+	music8a 184
+	music01 4
+	music8a 181
+	music01 4
+	music8a 177
+	musicd8 131
+	music01 4
+	music8a 174
+	music01 4
+	music8a 155
+	music01 4
+	music8a 162
+	music01 4
+	music8a 169
+	music01 4
+	music8a 171
+	music01 5
+	music8a 174
+	music01 4
+	music8a 177
+	music01 4
+	music8a 181
+	music01 4
+	music8a 183
+	music01 4
+	music8a 186
+	music01 4
+	music8a 189
+	music01 4
+	music8a 193
+	musicd8 129
+	music01 12
+	music8a 195
+	musicd8 233
+	music01 8
+	music8a 195
+	music00
 
-Music_GymVictory_Ch2:: ; 188c44 (62:4c44)
-	INCBIN "baserom.gbc",$188c44,$188c97 - $188c44
+Music_GymVictory_Ch2: ; 188c44 (62:4c44)
+	musicda 119
+	musice6 115
+	musicdd
+	musicd4 55
+	musicd8 129
+	musicd4 55
+	musice0
+	musice3 2
+	music01 2
+	music8a 169
+	music01 3
+	music8a 165
+	music01 3
+	music8a 164
+	music01 3
+	music8a 162
+	music01 3
+	music8a 157
+	music01 3
+	music8a 153
+	music01 1
+	musicd2
+	music01 3
+	music8a 152
+	music01 3
+	music8a 151
+	music01 3
+	music8a 171
+	music01 3
+	music8a 169
+	music01 3
+	music8a 165
+	music01 3
+	music8a 162
+	music01 1
+	musicd2
+	music01 4
+	music8a 172
+	music01 4
+	music8a 169
+	music01 4
+	music8a 165
+	musicd8 226
+	music01 4
+	music8a 162
+	music01 4
+	music8a 143
+	music01 4
+	music8a 151
+	music01 4
+	music8a 157
+	music01 4
+	music8a 159
+	music01 4
+	music8a 162
+	musicd8 227
+	music01 4
+	music8a 165
+	music01 4
+	music8a 169
+	music01 4
+	music8a 171
+	music01 4
+	music8a 174
+	music01 4
+	music8a 177
+	music01 4
+	music8a 181
+	musicd8 242
+	musice3 255
+	music01 24
+	music8a 183
+	music00
 
-Music_GymVictory_Ch3:: ; 188c97 (62:4c97)
-	INCBIN "baserom.gbc",$188c97,$188ce0 - $188c97
+Music_GymVictory_Ch3: ; 188c97 (62:4c97)
+	musicdd
+	musice3 1
+	musice2 60
+	music01 3
+	musicd2
+	musicd8 103
+	music01 3
+	music8a 181
+	music01 3
+	music8a 177
+	music01 3
+	music8a 176
+	music01 3
+	music8a 174
+	music01 3
+	music8a 169
+	music01 3
+	music8a 165
+	music01 3
+	music8a 164
+	music01 3
+	music8a 162
+	music01 3
+	music8a 183
+	music01 3
+	music8a 181
+	music01 3
+	music8a 177
+	music01 3
+	music8a 174
+	musicd8 104
+	music01 4
+	music8a 184
+	music01 4
+	music8a 181
+	music01 4
+	music8a 177
+	music01 4
+	music8a 174
+	music01 4
+	music8a 155
+	music01 4
+	music8a 162
+	music01 4
+	music8a 169
+	music01 4
+	music8a 171
+	music01 4
+	music8a 174
+	music01 4
+	music8a 177
+	music01 4
+	music8a 181
+	music01 4
+	music8a 183
+	music01 4
+	music8a 186
+	music01 4
+	music8a 189
+	music01 4
+	music8a 193
+	music01 8
+	music8a 195
+	music01 1
+	musicd2
+	music01 16
+	musicd2
+	music00
+	music00

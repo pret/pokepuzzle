@@ -4,6 +4,6 @@ SECTION "High RAM", HRAM[$ff80]
 
 hROMBank:: ds 1 ; ffa3
 
-    ds $1a
+	ds $1a
 
 hffbe:: ds 1 ; ffbe
