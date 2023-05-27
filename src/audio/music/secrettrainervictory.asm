@@ -5,8 +5,8 @@ Music_SecretTrainerVictory: ; 18f986 (63:7986)
 	dw $0000
 
 Music_SecretTrainerVictory_Ch1: ; 18f98e (63:798e)
-	volume 119
-	volume_envelope 115
+	volume 7, 7
+	volume_envelope 7, 3
 	stereo_panning_both
 	musicd6 30
 	musicd7 0
@@ -14,227 +14,227 @@ Music_SecretTrainerVictory_Ch1: ; 18f98e (63:798e)
 	duty_cycle_12_5
 	musicd4 55
 	musicd8 180
-	music01 6
-	music8a 175
-	music01 12
-	musicd2
-	music01 6
-	music8a 175
-	music01 12
-	musicd2
-	music01 6
-	music8a 166
-	music01 6
-	musicd2
-	music01 6
-	musicd2
-	music01 6
-	music8a 175
-	music01 6
-	music8a 171
-	music01 6
-	music8a 175
-	music01 24
-	musicd2
-	music01 12
-	musicd2
-	music01 36
-	music8a 182
-	music01 6
-	music8a 171
-	music01 6
-	musicd2
-	music01 3
-	music8a 171
-	music01 3
-	musicd2
-	music01 6
-	music8a 171
-	music01 6
-	music8a 173
-	music01 6
-	music8a 175
-	music01 12
-	music8a 182
-	music01 48
-	musicd3
-	music01 12
-	musicd3
-	music01 36
-	musicd2
-	music01 48
-	musicd2
-	music01 1
-	musicd2
+	note_length 6
+	note_pitch C#, 3
+	note_length 12
+	rest
+	note_length 6
+	note_pitch C#, 3
+	note_length 12
+	rest
+	note_length 6
+	note_pitch E_, 2
+	note_length 6
+	rest
+	note_length 6
+	rest
+	note_length 6
+	note_pitch C#, 3
+	note_length 6
+	note_pitch A_, 2
+	note_length 6
+	note_pitch C#, 3
+	note_length 24
+	rest
+	note_length 12
+	rest
+	note_length 36
+	note_pitch G#, 3
+	note_length 6
+	note_pitch A_, 2
+	note_length 6
+	rest
+	note_length 3
+	note_pitch A_, 2
+	note_length 3
+	rest
+	note_length 6
+	note_pitch A_, 2
+	note_length 6
+	note_pitch B_, 2
+	note_length 6
+	note_pitch C#, 3
+	note_length 12
+	note_pitch G#, 3
+	note_length 48
+	continue_note
+	note_length 12
+	continue_note
+	note_length 36
+	rest
+	note_length 48
+	rest
+	note_length 1
+	rest
 	song_end
 
 ; unreferenced ?
-Music_SecretTrainerVictory_branch_18f9d3: ; 18f98e (63:798e)
-	music01 6
-	music8a 175
-	music01 12
-	musicd2
-	music01 6
-	music8a 175
-	music01 12
-	musicd2
-	music01 6
-	music8a 166
-	music01 6
-	musicd2
-	music01 6
-	musicd2
-	music01 6
-	music8a 175
-	music01 6
-	music8a 171
-	music01 6
-	music8a 175
-	music01 24
-	musicd2
-	music01 12
-	musicd2
-	music8a 182
-	music01 6
-	music8a 171
-	music01 6
-	musicd2
-	music01 3
-	music8a 171
-	music01 3
-	musicd2
-	music01 6
-	music8a 171
-	music01 6
-	music8a 173
-	music01 6
-	music8a 175
-	music01 12
-	music8a 182
-	music01 48
-	musicd3
-	music01 12
-	musicd3
-	music01 1
-	musicd2
+Music_SecretTrainerVictory_branch_18f9d3: ; 18f9d3 (63:79d3)
+	note_length 6
+	note_pitch C#, 3
+	note_length 12
+	rest
+	note_length 6
+	note_pitch C#, 3
+	note_length 12
+	rest
+	note_length 6
+	note_pitch E_, 2
+	note_length 6
+	rest
+	note_length 6
+	rest
+	note_length 6
+	note_pitch C#, 3
+	note_length 6
+	note_pitch A_, 2
+	note_length 6
+	note_pitch C#, 3
+	note_length 24
+	rest
+	note_length 12
+	rest
+	note_pitch G#, 3
+	note_length 6
+	note_pitch A_, 2
+	note_length 6
+	rest
+	note_length 3
+	note_pitch A_, 2
+	note_length 3
+	rest
+	note_length 6
+	note_pitch A_, 2
+	note_length 6
+	note_pitch B_, 2
+	note_length 6
+	note_pitch C#, 3
+	note_length 12
+	note_pitch G#, 3
+	note_length 48
+	continue_note
+	note_length 12
+	continue_note
+	note_length 1
+	rest
 	song_end
 
 Music_SecretTrainerVictory_Ch2: ; 18fa03 (63:7a03)
-	volume 119
-	volume_envelope 115
+	volume 7, 7
+	volume_envelope 7, 3
 	stereo_panning_both
 	musicd6 30
 	musicd4 49
 	musicd8 162
 	musicd4 49
 	duty_cycle_12_5
-	music01 2
-	musicd2
-	music01 4
-	music8a 171
-	music01 12
-	musicd2
+	note_length 2
+	rest
+	note_length 4
+	note_pitch A_, 2
+	note_length 12
+	rest
 	musicd8 164
-	music01 6
-	music8a 171
-	music01 12
-	musicd2
+	note_length 6
+	note_pitch A_, 2
+	note_length 12
+	rest
 	musicd8 165
-	music01 6
-	music8a 162
-	music01 6
-	musicd2
-	music01 6
-	musicd2
+	note_length 6
+	note_pitch C_, 2
+	note_length 6
+	rest
+	note_length 6
+	rest
 	musicd8 164
-	music01 5
-	music8a 161
-	music01 1
-	musicd2
-	music01 5
-	music8a 168
-	music01 1
-	musicd2
-	music01 5
-	music8a 161
-	music01 1
-	musicd2
-	music01 5
-	music8a 166
-	music01 1
-	musicd2
-	music01 5
-	music8a 170
-	music01 1
-	musicd2
-	music01 5
-	music8a 173
-	music01 1
-	musicd2
-	music01 5
-	music8a 178
-	music01 1
-	musicd2
-	music01 5
-	music8a 173
-	music01 1
-	musicd2
-	music01 5
-	music8a 178
-	music01 1
-	musicd2
-	music01 5
-	music8a 154
-	music01 1
-	musicd2
-	music01 5
-	music8a 158
-	music01 1
-	musicd2
-	music01 5
-	music8a 161
-	music01 1
-	musicd2
-	music01 6
-	music8a 166
-	music01 6
-	music8a 170
-	music01 6
-	music8a 173
-	music01 5
-	music8a 166
-	music01 1
-	musicd2
-	music01 4
-	musicd2
-	music01 2
-	musicd2
+	note_length 5
+	note_pitch B_, 1
+	note_length 1
+	rest
+	note_length 5
+	note_pitch F#, 2
+	note_length 1
+	rest
+	note_length 5
+	note_pitch B_, 1
+	note_length 1
+	rest
+	note_length 5
+	note_pitch E_, 2
+	note_length 1
+	rest
+	note_length 5
+	note_pitch G#, 2
+	note_length 1
+	rest
+	note_length 5
+	note_pitch B_, 2
+	note_length 1
+	rest
+	note_length 5
+	note_pitch E_, 3
+	note_length 1
+	rest
+	note_length 5
+	note_pitch B_, 2
+	note_length 1
+	rest
+	note_length 5
+	note_pitch E_, 3
+	note_length 1
+	rest
+	note_length 5
+	note_pitch E_, 1
+	note_length 1
+	rest
+	note_length 5
+	note_pitch G#, 1
+	note_length 1
+	rest
+	note_length 5
+	note_pitch B_, 1
+	note_length 1
+	rest
+	note_length 6
+	note_pitch E_, 2
+	note_length 6
+	note_pitch G#, 2
+	note_length 6
+	note_pitch B_, 2
+	note_length 5
+	note_pitch E_, 2
+	note_length 1
+	rest
+	note_length 4
+	rest
+	note_length 2
+	rest
 	musicd8 163
-	music01 2
-	music8a 166
-	music01 4
-	musicd2
-	music8a 166
-	music01 3
-	musicd2
+	note_length 2
+	note_pitch E_, 2
+	note_length 4
+	rest
+	note_pitch E_, 2
+	note_length 3
+	rest
 	musicd8 162
-	music01 2
-	music8a 166
-	music01 4
-	musicd2
-	music01 2
-	music8a 166
-	music01 4
-	musicd2
+	note_length 2
+	note_pitch E_, 2
+	note_length 4
+	rest
+	note_length 2
+	note_pitch E_, 2
+	note_length 4
+	rest
 	musicd8 163
-	music01 12
-	music8a 166
-	music01 48
-	musicd3
-	music01 12
-	musicd3
-	music01 1
-	musicd2
+	note_length 12
+	note_pitch E_, 2
+	note_length 48
+	continue_note
+	note_length 12
+	continue_note
+	note_length 1
+	rest
 	song_end
 
 Music_SecretTrainerVictory_Ch3: ; 18fa83 (63:7a83)
@@ -244,84 +244,84 @@ Music_SecretTrainerVictory_Ch3: ; 18fa83 (63:7a83)
 	musicd4 49
 	musicd8 109
 	wave 34
-	music01 6
-	music8a 182
-	music01 12
-	musicd2
-	music01 6
-	music8a 178
-	music01 12
-	musicd2
-	music01 6
-	music8a 173
-	music01 6
-	musicd2
-	music01 6
-	musicd2
-	music01 5
-	music8a 183
-	music01 1
-	musicd2
-	music01 5
-	music8a 177
-	music01 1
-	musicd2
-	music01 5
-	music8a 183
-	music01 1
-	musicd2
-	music01 5
-	music8a 182
-	music01 1
-	musicd2
-	music01 5
-	music8a 178
-	music01 1
-	musicd2
-	music01 5
-	music8a 182
-	music01 1
-	musicd2
-	music01 5
-	music8a 185
-	music01 1
-	musicd2
-	music01 5
-	music8a 182
-	music01 1
-	musicd2
-	music01 5
-	music8a 185
-	music01 1
-	musicd2
-	music01 36
-	music8a 190
-	music01 6
-	music8a 180
-	music01 6
-	musicd2
-	music01 2
-	music8a 180
-	music01 1
-	musicd2
-	music01 3
-	musicd2
-	music01 6
-	music8a 180
-	music01 6
-	music8a 182
-	music01 6
-	music8a 183
+	note_length 6
+	note_pitch G#, 3
+	note_length 12
+	rest
+	note_length 6
+	note_pitch E_, 3
+	note_length 12
+	rest
+	note_length 6
+	note_pitch B_, 2
+	note_length 6
+	rest
+	note_length 6
+	rest
+	note_length 5
+	note_pitch A_, 3
+	note_length 1
+	rest
+	note_length 5
+	note_pitch D#, 3
+	note_length 1
+	rest
+	note_length 5
+	note_pitch A_, 3
+	note_length 1
+	rest
+	note_length 5
+	note_pitch G#, 3
+	note_length 1
+	rest
+	note_length 5
+	note_pitch E_, 3
+	note_length 1
+	rest
+	note_length 5
+	note_pitch G#, 3
+	note_length 1
+	rest
+	note_length 5
+	note_pitch B_, 3
+	note_length 1
+	rest
+	note_length 5
+	note_pitch G#, 3
+	note_length 1
+	rest
+	note_length 5
+	note_pitch B_, 3
+	note_length 1
+	rest
+	note_length 36
+	note_pitch E_, 4
+	note_length 6
+	note_pitch F#, 3
+	note_length 6
+	rest
+	note_length 2
+	note_pitch F#, 3
+	note_length 1
+	rest
+	note_length 3
+	rest
+	note_length 6
+	note_pitch F#, 3
+	note_length 6
+	note_pitch G#, 3
+	note_length 6
+	note_pitch A_, 3
 	musicd4 58
-	music01 12
-	music8a 185
-	music01 48
-	musicd3
-	music01 6
-	musicd3
-	music01 6
-	musicd3
-	music01 1
-	musicd2
+	note_length 12
+	note_pitch B_, 3
+	note_length 48
+	continue_note
+	note_length 6
+	continue_note
+	note_length 6
+	continue_note
+	note_length 1
+	rest
 	song_end
 	song_end

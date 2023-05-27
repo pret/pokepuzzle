@@ -1,222 +1,260 @@
-song_end: MACRO
-    db $00
+C_ EQU 0
+C# EQU 1
+D_ EQU 2
+D# EQU 3
+E_ EQU 4
+F_ EQU 5
+F# EQU 6
+G_ EQU 7
+G# EQU 8
+A_ EQU 9
+A# EQU 10
+B_ EQU 11
+
+MACRO song_end
+	db $00
 ENDM
 
-music01: MACRO
-    db \1
+; note length
+; \1: length, 1 to 48 in practice, 1 to 108 is valid
+MACRO note_length
+assert 1 <= \1 && \1 <= 108
+	db \1
 ENDM
 
-music6d: MACRO
-    db \1
+; noise channel only
+; \1: noise ID, 0 to 22
+MACRO noise
+assert 0 <= \1 && \1 <= 22
+	db \1 + $6d ; PointerTable_81a3f ID
 ENDM
 
-music8a: MACRO
-    db \1
+; pitch
+; \1: pitch, C_ to B_
+; \2: octave, 0 to 5
+; TODO: why is this sometimes used on channel 4?
+MACRO note_pitch
+assert C_ <= \1 && \1 <= B_
+assert 0 <= \2 && \2 <= 5
+	db (\2 * 12 + \1) + $8a
 ENDM
 
-musicd2: MACRO
-    db $d2
+; rest
+MACRO rest
+	db $d2
 ENDM
 
-musicd3: MACRO
-    db $d3
+; continue note
+MACRO continue_note
+	db $d3
 ENDM
 
-musicd4: MACRO
-    db $d4
-    db \1 ; PointerTable_83401 ID
+; pitch sweep?
+MACRO musicd4
+	db $d4
+	db \1 ; PointerTable_83401 ID
 ENDM
 
-musicd5: MACRO
-    db $d5
+; clear pitch sweep?
+MACRO musicd5
+	db $d5
 ENDM
 
-musicd6: MACRO
-    db $d6
-    db \1
+; global tempo, big is fast
+; \1: tempo, 5 to 30 in practice
+MACRO musicd6
+	db $d6
+	db \1
 ENDM
 
-musicd7: MACRO
-    db $d7
-    db \1
+; pitch offset?
+MACRO musicd7
+	db $d7
+	db \1
 ENDM
 
-musicd8: MACRO
-    db $d8
-    db \1 ; PointerTable_82230 ID
+; fade?
+MACRO musicd8
+	db $d8
+	db \1 ; PointerTable_82230 ID
 ENDM
 
 ; unused ?
-musicd9: MACRO
-    db $d9
+MACRO musicd9
+	db $d9
 ENDM
 
-volume: MACRO
-    db $da
-    db \1
-ENDM
-
-; unused ?
-stereo_panning_right: MACRO
-    db $db
+MACRO volume
+	db $da
+	db (\1 << 4) | \2
 ENDM
 
 ; unused ?
-stereo_panning_left: MACRO
-    db $dc
+MACRO stereo_panning_right
+	db $db
 ENDM
 
-stereo_panning_both: MACRO
-    db $dd
+; unused ?
+MACRO stereo_panning_left
+	db $dc
+ENDM
+
+MACRO stereo_panning_both
+	db $dd
 ENDM
 
 ; duty cycle
-duty_cycle_12_5: MACRO
-    db $de
+MACRO duty_cycle_12_5
+	db $de
 ENDM
 
 ; duty cycle
-duty_cycle_25: MACRO
-    db $df
+MACRO duty_cycle_25
+	db $df
 ENDM
 
 ; duty cycle
-duty_cycle_50: MACRO
-    db $e0
+MACRO duty_cycle_50
+	db $e0
 ENDM
 
 ; duty cycle
-duty_cycle_75: MACRO
-    db $e1
+MACRO duty_cycle_75
+	db $e1
 ENDM
 
-wave: MACRO
-    db $e2
-    db \1 ; DataTable_82f71 ID
+MACRO wave
+	db $e2
+	db \1 ; DataTable_82f71 ID
 ENDM
 
-musice3: MACRO
-    db $e3
-    db \1
-ENDM
-
-; unused ?
-musice4: MACRO
-    db $e4
-    db \1
+; frequency offset
+MACRO musice3
+	db $e3
+	db \1
 ENDM
 
 ; unused ?
-musice5: MACRO
-    db $e5
-    db \1
-ENDM
-
-volume_envelope: MACRO
-    db $e6
-    db \1
-ENDM
-
-song_jump: MACRO
-    db $e7
-    dw \1
-ENDM
-
-song_call: MACRO
-    db $ec
-    dw \1
-ENDM
-
-song_ret: MACRO
-    db $ed
+MACRO musice4
+	db $e4
+	db \1
 ENDM
 
 ; unused ?
-musicee: MACRO
-    db $ee
+MACRO musice5
+	db $e5
+	db \1
+ENDM
+
+MACRO volume_envelope
+	db $e6
+	IF \2 < 0
+		db (\1 << 4) | (%1000 | (\2 * -1))
+	ELSE
+		db (\1 << 4) | \2
+	ENDC
+ENDM
+
+MACRO song_jump
+	db $e7
+	dw \1
+ENDM
+
+MACRO song_call
+	db $ec
+	dw \1
+ENDM
+
+MACRO song_ret
+	db $ed
 ENDM
 
 ; unused ?
-musicef: MACRO
-    db $ef
+MACRO musicee
+	db $ee
 ENDM
 
 ; unused ?
-musicf0: MACRO
-    db $f0
+MACRO musicef
+	db $ef
 ENDM
 
 ; unused ?
-musicf1: MACRO
-    db $f1
+MACRO musicf0
+	db $f0
 ENDM
 
 ; unused ?
-musicf2: MACRO
-    db $f2
+MACRO musicf1
+	db $f1
 ENDM
 
 ; unused ?
-musicf3: MACRO
-    db $f3
+MACRO musicf2
+	db $f2
 ENDM
 
 ; unused ?
-musicf4: MACRO
-    db $f4
+MACRO musicf3
+	db $f3
 ENDM
 
 ; unused ?
-musicf5: MACRO
-    db $f5
+MACRO musicf4
+	db $f4
 ENDM
 
 ; unused ?
-musicf6: MACRO
-    db $f6
+MACRO musicf5
+	db $f5
 ENDM
 
 ; unused ?
-musicf7: MACRO
-    db $f7
+MACRO musicf6
+	db $f6
 ENDM
 
 ; unused ?
-musicf8: MACRO
-    db $f8
-ENDM
-
-musicf9: MACRO
-    db $f9
+MACRO musicf7
+	db $f7
 ENDM
 
 ; unused ?
-musicfa: MACRO
-    db $fa
+MACRO musicf8
+	db $f8
+ENDM
+
+MACRO musicf9
+	db $f9
 ENDM
 
 ; unused ?
-musicfb: MACRO
-    db $fb
+MACRO musicfa
+	db $fa
 ENDM
 
 ; unused ?
-musicfc: MACRO
-    db $fc
+MACRO musicfb
+	db $fb
 ENDM
 
 ; unused ?
-musicfd: MACRO
-    db $fd
+MACRO musicfc
+	db $fc
 ENDM
 
 ; unused ?
-musicfe: MACRO
-    db $fe
+MACRO musicfd
+	db $fd
 ENDM
 
 ; unused ?
-musicff: MACRO
-    db $ff
-    db \1
+MACRO musicfe
+	db $fe
+ENDM
+
+; unused ?
+MACRO musicff
+	db $ff
+	db \1
 ENDM

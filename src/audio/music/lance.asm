@@ -5,8 +5,8 @@ Music_Lance: ; 189d83 (62:5d83)
 	dw Music_Lance_Ch4
 
 Music_Lance_Ch1: ; 189d8b (62:5d8b)
-	volume 119
-	volume_envelope 115
+	volume 7, 7
+	volume_envelope 7, 3
 	stereo_panning_both
 	musicd6 15
 	musicd7 0
@@ -15,8 +15,8 @@ Music_Lance_Ch1: ; 189d8b (62:5d8b)
 	musicd4 55
 	duty_cycle_12_5
 	musicd4 55
-	music01 12
-	musicd2
+	note_length 12
+	rest
 Music_Lance_branch_189d9e: ; 189d9e (62:5d9e)
 	musicd8 180
 	song_call Music_Lance_branch_189dc1
@@ -31,510 +31,510 @@ Music_Lance_branch_189d9e: ; 189d9e (62:5d9e)
 	song_jump Music_Lance_branch_189d9e
 
 Music_Lance_branch_189dbe: ; 189dbe (62:5dbe)
-	music01 48
-	musicd2
+	note_length 48
+	rest
 	song_ret
 
 Music_Lance_branch_189dc1: ; 189dc1 (62:5dc1)
-	music01 6
-	music8a 172
-	music01 3
-	musicd2
-	music8a 165
-	music01 3
-	musicd2
-	music8a 167
-	music01 3
-	music8a 166
-	music01 3
-	music8a 173
-	music01 3
-	music8a 168
-	music01 3
-	music8a 172
-	music01 3
-	music8a 167
-	music01 3
-	music8a 171
-	music01 3
-	music8a 166
-	music01 3
-	music8a 170
-	music01 3
-	music8a 165
-	music01 3
-	music8a 169
-	music01 12
-	music8a 168
-	music01 12
-	music8a 173
+	note_length 6
+	note_pitch A#, 2
+	note_length 3
+	rest
+	note_pitch D#, 2
+	note_length 3
+	rest
+	note_pitch F_, 2
+	note_length 3
+	note_pitch E_, 2
+	note_length 3
+	note_pitch B_, 2
+	note_length 3
+	note_pitch F#, 2
+	note_length 3
+	note_pitch A#, 2
+	note_length 3
+	note_pitch F_, 2
+	note_length 3
+	note_pitch A_, 2
+	note_length 3
+	note_pitch E_, 2
+	note_length 3
+	note_pitch G#, 2
+	note_length 3
+	note_pitch D#, 2
+	note_length 3
+	note_pitch G_, 2
+	note_length 12
+	note_pitch F#, 2
+	note_length 12
+	note_pitch B_, 2
 	musicd8 207
-	music01 2
-	music8a 166
-	music01 1
-	musicd2
-	music01 2
-	music8a 166
-	music01 1
-	musicd2
+	note_length 2
+	note_pitch E_, 2
+	note_length 1
+	rest
+	note_length 2
+	note_pitch E_, 2
+	note_length 1
+	rest
 	musicd8 180
-	music01 6
-	music8a 170
+	note_length 6
+	note_pitch G#, 2
 	musicd8 207
-	music01 2
-	music8a 166
-	music01 1
-	musicd2
-	music01 2
-	music8a 166
-	music01 1
-	musicd2
+	note_length 2
+	note_pitch E_, 2
+	note_length 1
+	rest
+	note_length 2
+	note_pitch E_, 2
+	note_length 1
+	rest
 	musicd8 180
-	music01 6
-	music8a 172
+	note_length 6
+	note_pitch A#, 2
 	musicd8 207
-	music01 2
-	music8a 160
-	music01 1
-	musicd2
-	music01 2
-	music8a 160
-	music01 1
-	musicd2
-	music01 12
-	musicd2
+	note_length 2
+	note_pitch A#, 1
+	note_length 1
+	rest
+	note_length 2
+	note_pitch A#, 1
+	note_length 1
+	rest
+	note_length 12
+	rest
 	musicd8 206
-	music01 2
-	music8a 160
-	music01 1
-	musicd2
-	music01 3
-	musicd2
+	note_length 2
+	note_pitch A#, 1
+	note_length 1
+	rest
+	note_length 3
+	rest
 	musicd8 180
-	music8a 153
-	music01 3
-	music8a 154
-	music01 3
-	music8a 153
-	music01 3
-	music8a 154
-	music01 3
-	music8a 153
-	music01 3
-	music8a 164
-	music01 3
-	music8a 163
-	music01 3
-	music8a 162
+	note_pitch D#, 1
+	note_length 3
+	note_pitch E_, 1
+	note_length 3
+	note_pitch D#, 1
+	note_length 3
+	note_pitch E_, 1
+	note_length 3
+	note_pitch D#, 1
+	note_length 3
+	note_pitch D_, 2
+	note_length 3
+	note_pitch C#, 2
+	note_length 3
+	note_pitch C_, 2
 	musicd8 207
-	music01 2
-	music8a 160
-	music01 1
-	musicd2
-	music01 2
-	music8a 160
-	music01 1
-	musicd2
-	music01 12
-	musicd2
-	music01 2
-	music8a 160
-	music01 1
-	musicd2
-	music01 9
-	musicd2
+	note_length 2
+	note_pitch A#, 1
+	note_length 1
+	rest
+	note_length 2
+	note_pitch A#, 1
+	note_length 1
+	rest
+	note_length 12
+	rest
+	note_length 2
+	note_pitch A#, 1
+	note_length 1
+	rest
+	note_length 9
+	rest
 	musicd8 180
-	music01 6
-	music8a 160
-	music01 6
-	music8a 163
-	music01 6
-	music8a 165
-	music01 6
-	music8a 172
-	music01 3
-	musicd2
-	music8a 165
-	music01 3
-	musicd2
-	music8a 167
-	music01 3
-	music8a 166
-	music01 3
-	music8a 173
-	music01 3
-	music8a 168
-	music01 3
-	music8a 172
-	music01 3
-	music8a 167
-	music01 3
-	music8a 171
-	music01 3
-	music8a 166
-	music01 3
-	music8a 170
-	music01 3
-	music8a 165
-	music01 3
-	music8a 169
-	music01 12
-	music8a 173
-	music01 12
-	music8a 177
-	music01 12
-	music8a 173
-	music01 3
-	music8a 185
-	music01 3
-	music8a 166
-	music01 3
-	music8a 161
-	music01 3
-	music8a 154
-	music01 2
-	music8a 160
-	music01 1
-	musicd2
-	music01 2
-	music8a 160
-	music01 1
-	musicd2
-	music01 12
-	musicd2
-	music01 2
-	music8a 160
-	music01 1
-	musicd2
-	music01 3
-	musicd2
-	music8a 153
-	music01 3
-	music8a 154
-	music01 3
-	music8a 153
-	music01 3
-	music8a 154
-	music01 3
-	music8a 153
-	music01 3
-	music8a 164
-	music01 3
-	music8a 163
-	music01 3
-	music8a 162
-	music01 2
-	music8a 160
-	music01 1
-	musicd2
-	music01 2
-	music8a 160
-	music01 1
-	musicd2
-	music01 6
-	musicd2
-	music01 2
-	music8a 160
-	music01 1
-	musicd2
-	music01 3
-	musicd2
-	music8a 160
-	music01 2
-	music8a 160
-	music01 1
-	musicd2
-	music01 6
-	musicd2
-	music8a 160
-	music01 6
-	music8a 163
-	music01 6
-	music8a 165
+	note_length 6
+	note_pitch A#, 1
+	note_length 6
+	note_pitch C#, 2
+	note_length 6
+	note_pitch D#, 2
+	note_length 6
+	note_pitch A#, 2
+	note_length 3
+	rest
+	note_pitch D#, 2
+	note_length 3
+	rest
+	note_pitch F_, 2
+	note_length 3
+	note_pitch E_, 2
+	note_length 3
+	note_pitch B_, 2
+	note_length 3
+	note_pitch F#, 2
+	note_length 3
+	note_pitch A#, 2
+	note_length 3
+	note_pitch F_, 2
+	note_length 3
+	note_pitch A_, 2
+	note_length 3
+	note_pitch E_, 2
+	note_length 3
+	note_pitch G#, 2
+	note_length 3
+	note_pitch D#, 2
+	note_length 3
+	note_pitch G_, 2
+	note_length 12
+	note_pitch B_, 2
+	note_length 12
+	note_pitch D#, 3
+	note_length 12
+	note_pitch B_, 2
+	note_length 3
+	note_pitch B_, 3
+	note_length 3
+	note_pitch E_, 2
+	note_length 3
+	note_pitch B_, 1
+	note_length 3
+	note_pitch E_, 1
+	note_length 2
+	note_pitch A#, 1
+	note_length 1
+	rest
+	note_length 2
+	note_pitch A#, 1
+	note_length 1
+	rest
+	note_length 12
+	rest
+	note_length 2
+	note_pitch A#, 1
+	note_length 1
+	rest
+	note_length 3
+	rest
+	note_pitch D#, 1
+	note_length 3
+	note_pitch E_, 1
+	note_length 3
+	note_pitch D#, 1
+	note_length 3
+	note_pitch E_, 1
+	note_length 3
+	note_pitch D#, 1
+	note_length 3
+	note_pitch D_, 2
+	note_length 3
+	note_pitch C#, 2
+	note_length 3
+	note_pitch C_, 2
+	note_length 2
+	note_pitch A#, 1
+	note_length 1
+	rest
+	note_length 2
+	note_pitch A#, 1
+	note_length 1
+	rest
+	note_length 6
+	rest
+	note_length 2
+	note_pitch A#, 1
+	note_length 1
+	rest
+	note_length 3
+	rest
+	note_pitch A#, 1
+	note_length 2
+	note_pitch A#, 1
+	note_length 1
+	rest
+	note_length 6
+	rest
+	note_pitch A#, 1
+	note_length 6
+	note_pitch C#, 2
+	note_length 6
+	note_pitch D#, 2
 	song_ret
 
 Music_Lance_branch_189ea2: ; 189ea2 (62:5ea2)
-	music01 15
-	music8a 167
-	music01 3
-	musicd2
-	music01 15
-	music8a 168
-	music01 3
-	musicd2
-	music01 12
-	music8a 169
-	music01 3
-	musicd3
-	music01 3
-	musicd2
-	music01 24
-	music8a 170
-	music01 6
-	musicd2
-	music8a 171
-	music01 6
-	musicd2
-	music01 48
-	musicd2
-	music01 48
-	musicd2
-	music01 15
-	music8a 169
-	music01 3
-	musicd2
-	music01 15
-	music8a 170
-	music01 3
-	musicd2
-	music01 12
-	music8a 171
-	music01 3
-	musicd3
-	music01 3
-	musicd2
-	music01 24
-	music8a 172
-	music01 6
-	musicd2
-	music8a 173
-	music01 6
-	musicd2
-	music01 6
-	musicd2
-	music01 12
-	music8a 174
-	music01 6
-	musicd2
-	music01 12
-	music8a 175
-	music01 12
-	musicd2
+	note_length 15
+	note_pitch F_, 2
+	note_length 3
+	rest
+	note_length 15
+	note_pitch F#, 2
+	note_length 3
+	rest
+	note_length 12
+	note_pitch G_, 2
+	note_length 3
+	continue_note
+	note_length 3
+	rest
+	note_length 24
+	note_pitch G#, 2
+	note_length 6
+	rest
+	note_pitch A_, 2
+	note_length 6
+	rest
+	note_length 48
+	rest
+	note_length 48
+	rest
+	note_length 15
+	note_pitch G_, 2
+	note_length 3
+	rest
+	note_length 15
+	note_pitch G#, 2
+	note_length 3
+	rest
+	note_length 12
+	note_pitch A_, 2
+	note_length 3
+	continue_note
+	note_length 3
+	rest
+	note_length 24
+	note_pitch A#, 2
+	note_length 6
+	rest
+	note_pitch B_, 2
+	note_length 6
+	rest
+	note_length 6
+	rest
+	note_length 12
+	note_pitch C_, 3
+	note_length 6
+	rest
+	note_length 12
+	note_pitch C#, 3
+	note_length 12
+	rest
 	musicd8 221
-	music01 3
-	music8a 169
-	music01 3
-	music8a 172
-	music01 3
-	music8a 169
-	music01 3
-	music8a 172
-	music01 3
-	music8a 169
-	music01 3
-	music8a 172
-	music01 3
-	music8a 169
-	music01 3
-	music8a 172
-	music01 3
-	music8a 169
-	music01 3
-	music8a 172
-	music01 3
-	music8a 169
-	music01 3
-	music8a 172
-	music01 3
-	music8a 169
-	music01 3
-	music8a 172
-	music01 3
-	music8a 169
-	music01 3
-	music8a 172
+	note_length 3
+	note_pitch G_, 2
+	note_length 3
+	note_pitch A#, 2
+	note_length 3
+	note_pitch G_, 2
+	note_length 3
+	note_pitch A#, 2
+	note_length 3
+	note_pitch G_, 2
+	note_length 3
+	note_pitch A#, 2
+	note_length 3
+	note_pitch G_, 2
+	note_length 3
+	note_pitch A#, 2
+	note_length 3
+	note_pitch G_, 2
+	note_length 3
+	note_pitch A#, 2
+	note_length 3
+	note_pitch G_, 2
+	note_length 3
+	note_pitch A#, 2
+	note_length 3
+	note_pitch G_, 2
+	note_length 3
+	note_pitch A#, 2
+	note_length 3
+	note_pitch G_, 2
+	note_length 3
+	note_pitch A#, 2
 	musicd8 221
-	music01 3
-	music8a 170
-	music01 3
-	music8a 173
+	note_length 3
+	note_pitch G#, 2
+	note_length 3
+	note_pitch B_, 2
 	musicd8 219
-	music01 3
-	music8a 170
-	music01 3
-	music8a 173
-	music01 3
-	music8a 170
-	music01 3
-	music8a 173
-	music01 3
-	music8a 170
-	music01 3
-	music8a 173
-	music01 3
-	music8a 170
-	music01 3
-	music8a 173
-	music01 3
-	music8a 170
-	music01 3
-	music8a 173
-	music01 3
-	music8a 170
-	music01 3
-	music8a 173
-	music01 3
-	music8a 170
-	music01 3
-	music8a 173
+	note_length 3
+	note_pitch G#, 2
+	note_length 3
+	note_pitch B_, 2
+	note_length 3
+	note_pitch G#, 2
+	note_length 3
+	note_pitch B_, 2
+	note_length 3
+	note_pitch G#, 2
+	note_length 3
+	note_pitch B_, 2
+	note_length 3
+	note_pitch G#, 2
+	note_length 3
+	note_pitch B_, 2
+	note_length 3
+	note_pitch G#, 2
+	note_length 3
+	note_pitch B_, 2
+	note_length 3
+	note_pitch G#, 2
+	note_length 3
+	note_pitch B_, 2
+	note_length 3
+	note_pitch G#, 2
+	note_length 3
+	note_pitch B_, 2
 	musicd8 222
-	music01 3
-	music8a 159
-	music01 3
-	music8a 161
-	music01 3
-	music8a 162
-	music01 3
-	music8a 154
+	note_length 3
+	note_pitch A_, 1
+	note_length 3
+	note_pitch B_, 1
+	note_length 3
+	note_pitch C_, 2
+	note_length 3
+	note_pitch E_, 1
 	musicd8 219
-	music01 3
-	music8a 159
-	music01 3
-	music8a 161
-	music01 3
-	music8a 162
-	music01 3
-	music8a 154
-	music01 3
-	music8a 159
-	music01 3
-	music8a 161
-	music01 3
-	music8a 162
-	music01 3
-	music8a 154
-	music01 3
-	music8a 159
-	music01 3
-	music8a 161
-	music01 3
-	music8a 162
-	music01 3
-	music8a 154
+	note_length 3
+	note_pitch A_, 1
+	note_length 3
+	note_pitch B_, 1
+	note_length 3
+	note_pitch C_, 2
+	note_length 3
+	note_pitch E_, 1
+	note_length 3
+	note_pitch A_, 1
+	note_length 3
+	note_pitch B_, 1
+	note_length 3
+	note_pitch C_, 2
+	note_length 3
+	note_pitch E_, 1
+	note_length 3
+	note_pitch A_, 1
+	note_length 3
+	note_pitch B_, 1
+	note_length 3
+	note_pitch C_, 2
+	note_length 3
+	note_pitch E_, 1
 	musicd8 221
-	music01 3
-	music8a 160
-	music01 3
-	music8a 162
-	music01 3
-	music8a 163
-	music01 3
-	music8a 155
-	music01 3
-	music8a 160
-	music01 3
-	music8a 162
-	music01 3
-	music8a 163
-	music01 3
-	music8a 155
+	note_length 3
+	note_pitch A#, 1
+	note_length 3
+	note_pitch C_, 2
+	note_length 3
+	note_pitch C#, 2
+	note_length 3
+	note_pitch F_, 1
+	note_length 3
+	note_pitch A#, 1
+	note_length 3
+	note_pitch C_, 2
+	note_length 3
+	note_pitch C#, 2
+	note_length 3
+	note_pitch F_, 1
 	musicd8 220
-	music01 3
-	music8a 148
-	music01 3
-	music8a 151
-	music01 3
-	music8a 151
-	music01 3
-	music8a 155
+	note_length 3
+	note_pitch A#, 0
+	note_length 3
+	note_pitch C#, 1
+	note_length 3
+	note_pitch C#, 1
+	note_length 3
+	note_pitch F_, 1
 	musicd8 221
-	music01 3
-	music8a 160
-	music01 3
-	music8a 162
-	music01 3
-	music8a 163
-	music01 3
-	musicd2
-	music01 48
-	musicd2
-	music01 48
-	musicd2
-	music01 3
-	musicd2
+	note_length 3
+	note_pitch A#, 1
+	note_length 3
+	note_pitch C_, 2
+	note_length 3
+	note_pitch C#, 2
+	note_length 3
+	rest
+	note_length 48
+	rest
+	note_length 48
+	rest
+	note_length 3
+	rest
 	musicd8 219
-	music01 3
-	music8a 165
-	music01 3
-	music8a 168
-	music01 3
-	music8a 170
-	music01 3
-	music8a 172
-	music01 3
-	music8a 175
-	music01 3
-	music8a 177
-	music01 3
-	music8a 182
-	music01 3
-	music8a 184
-	music01 3
-	music8a 187
-	music01 3
-	music8a 189
-	music01 3
-	music8a 192
-	music01 3
-	music8a 189
-	music01 3
-	music8a 192
-	music01 3
-	music8a 184
-	music01 3
-	music8a 180
-	music01 3
-	music8a 184
-	music01 3
-	music8a 177
-	music01 3
-	music8a 170
-	music01 3
-	music8a 172
-	music01 3
-	music8a 165
-	music01 3
-	music8a 168
-	music01 3
-	music8a 170
-	music01 3
-	music8a 172
-	music01 6
-	musicd2
+	note_length 3
+	note_pitch D#, 2
+	note_length 3
+	note_pitch F#, 2
+	note_length 3
+	note_pitch G#, 2
+	note_length 3
+	note_pitch A#, 2
+	note_length 3
+	note_pitch C#, 3
+	note_length 3
+	note_pitch D#, 3
+	note_length 3
+	note_pitch G#, 3
+	note_length 3
+	note_pitch A#, 3
+	note_length 3
+	note_pitch C#, 4
+	note_length 3
+	note_pitch D#, 4
+	note_length 3
+	note_pitch F#, 4
+	note_length 3
+	note_pitch D#, 4
+	note_length 3
+	note_pitch F#, 4
+	note_length 3
+	note_pitch A#, 3
+	note_length 3
+	note_pitch F#, 3
+	note_length 3
+	note_pitch A#, 3
+	note_length 3
+	note_pitch D#, 3
+	note_length 3
+	note_pitch G#, 2
+	note_length 3
+	note_pitch A#, 2
+	note_length 3
+	note_pitch D#, 2
+	note_length 3
+	note_pitch F#, 2
+	note_length 3
+	note_pitch G#, 2
+	note_length 3
+	note_pitch A#, 2
+	note_length 6
+	rest
 	musicd8 165
-	music01 6
-	music8a 165
-	music01 6
-	music8a 168
-	music01 6
-	music8a 170
-	music01 48
-	musicd2
-	music01 48
-	musicd2
-	music01 48
-	musicd2
-	music01 48
-	musicd2
+	note_length 6
+	note_pitch D#, 2
+	note_length 6
+	note_pitch F#, 2
+	note_length 6
+	note_pitch G#, 2
+	note_length 48
+	rest
+	note_length 48
+	rest
+	note_length 48
+	rest
+	note_length 48
+	rest
 	song_ret
 
 Music_Lance_Ch2: ; 189fb3 (62:5fb3)
-	volume 119
-	volume_envelope 115
+	volume 7, 7
+	volume_envelope 7, 3
 	stereo_panning_both
 	musicd4 55
 	musicd7 0
 	duty_cycle_50
 	musicd4 55
 	musicd8 180
-	music01 3
-	music8a 172
-	music01 3
-	music8a 173
-	music01 3
-	music8a 174
-	music01 3
-	music8a 175
+	note_length 3
+	note_pitch A#, 2
+	note_length 3
+	note_pitch B_, 2
+	note_length 3
+	note_pitch C_, 3
+	note_length 3
+	note_pitch C#, 3
 Music_Lance_branch_189fc9: ; 189fc9 (62:5fc9)
 	musicd4 55
 	musicd8 180
@@ -548,600 +548,600 @@ Music_Lance_branch_189fc9: ; 189fc9 (62:5fc9)
 Music_Lance_branch_189fdf: ; 189fdf (62:5fdf)
 	musicd4 55
 	duty_cycle_50
-	music01 6
-	music8a 177
-	music01 3
-	musicd2
-	music8a 172
-	music01 3
-	musicd2
-	music8a 172
-	music01 3
-	music8a 177
-	music01 3
-	music8a 176
-	music01 6
-	music8a 175
-	music01 6
-	music8a 174
-	music01 6
-	music8a 173
-	music01 6
-	music8a 172
+	note_length 6
+	note_pitch D#, 3
+	note_length 3
+	rest
+	note_pitch A#, 2
+	note_length 3
+	rest
+	note_pitch A#, 2
+	note_length 3
+	note_pitch D#, 3
+	note_length 3
+	note_pitch D_, 3
+	note_length 6
+	note_pitch C#, 3
+	note_length 6
+	note_pitch C_, 3
+	note_length 6
+	note_pitch B_, 2
+	note_length 6
+	note_pitch A#, 2
 	musicd8 182
 	musicd4 59
-	music01 12
-	music8a 173
+	note_length 12
+	note_pitch B_, 2
 	musicd4 55
 	musicd8 179
-	music01 12
-	music8a 178
+	note_length 12
+	note_pitch E_, 3
 	musicd8 181
 	musicd4 55
-	music01 2
-	music8a 170
-	music01 1
-	musicd2
-	music01 2
-	music8a 170
-	music01 1
-	musicd2
-	music01 6
-	music8a 173
+	note_length 2
+	note_pitch G#, 2
+	note_length 1
+	rest
+	note_length 2
+	note_pitch G#, 2
+	note_length 1
+	rest
+	note_length 6
+	note_pitch B_, 2
 	musicd8 179
-	music01 2
-	music8a 170
-	music01 1
-	musicd2
-	music01 2
-	music8a 170
-	music01 1
-	musicd2
-	music01 6
-	music8a 175
+	note_length 2
+	note_pitch G#, 2
+	note_length 1
+	rest
+	note_length 2
+	note_pitch G#, 2
+	note_length 1
+	rest
+	note_length 6
+	note_pitch C#, 3
 	musicd8 180
-	music01 2
-	music8a 165
-	music01 1
-	musicd2
-	music01 2
-	music8a 165
-	music01 1
-	musicd2
-	music01 12
-	musicd2
-	music01 2
-	music8a 165
-	music01 1
-	musicd2
-	music01 6
-	musicd2
-	music01 2
-	music8a 177
-	music01 1
-	musicd2
-	music01 3
-	musicd2
-	music01 2
-	music8a 177
-	music01 1
-	musicd2
-	music01 9
-	music8a 178
-	music01 3
-	musicd2
-	music01 2
-	music8a 165
-	music01 1
-	musicd2
-	music01 2
-	music8a 165
-	music01 1
-	musicd2
-	music01 12
-	musicd2
-	music01 2
-	music8a 165
-	music01 1
-	musicd2
-	music01 9
-	musicd2
-	music01 6
-	music8a 165
-	music01 6
-	music8a 168
-	music01 6
-	music8a 170
-	music01 6
-	music8a 177
-	music01 3
-	musicd2
-	music8a 172
-	music01 3
-	musicd2
-	music8a 172
-	music01 3
-	music8a 177
-	music01 3
-	music8a 176
-	music01 6
-	music8a 175
-	music01 6
-	music8a 174
-	music01 6
-	music8a 173
-	music01 6
-	music8a 172
+	note_length 2
+	note_pitch D#, 2
+	note_length 1
+	rest
+	note_length 2
+	note_pitch D#, 2
+	note_length 1
+	rest
+	note_length 12
+	rest
+	note_length 2
+	note_pitch D#, 2
+	note_length 1
+	rest
+	note_length 6
+	rest
+	note_length 2
+	note_pitch D#, 3
+	note_length 1
+	rest
+	note_length 3
+	rest
+	note_length 2
+	note_pitch D#, 3
+	note_length 1
+	rest
+	note_length 9
+	note_pitch E_, 3
+	note_length 3
+	rest
+	note_length 2
+	note_pitch D#, 2
+	note_length 1
+	rest
+	note_length 2
+	note_pitch D#, 2
+	note_length 1
+	rest
+	note_length 12
+	rest
+	note_length 2
+	note_pitch D#, 2
+	note_length 1
+	rest
+	note_length 9
+	rest
+	note_length 6
+	note_pitch D#, 2
+	note_length 6
+	note_pitch F#, 2
+	note_length 6
+	note_pitch G#, 2
+	note_length 6
+	note_pitch D#, 3
+	note_length 3
+	rest
+	note_pitch A#, 2
+	note_length 3
+	rest
+	note_pitch A#, 2
+	note_length 3
+	note_pitch D#, 3
+	note_length 3
+	note_pitch D_, 3
+	note_length 6
+	note_pitch C#, 3
+	note_length 6
+	note_pitch C_, 3
+	note_length 6
+	note_pitch B_, 2
+	note_length 6
+	note_pitch A#, 2
 	musicd8 181
 	musicd4 59
-	music01 12
-	music8a 178
+	note_length 12
+	note_pitch E_, 3
 	musicd8 179
 	musicd4 55
-	music01 12
-	music8a 182
+	note_length 12
+	note_pitch G#, 3
 	musicd8 180
 	musicd4 55
-	music01 12
-	music8a 178
-	music01 3
-	music8a 185
-	music01 3
-	music8a 161
-	music01 3
-	music8a 154
-	music01 3
-	music8a 149
-	music01 2
-	music8a 165
-	music01 1
-	musicd2
-	music01 2
-	music8a 165
-	music01 1
-	musicd2
-	music01 12
-	musicd2
-	music01 2
-	music8a 165
-	music01 1
-	musicd2
-	music01 6
-	musicd2
-	music01 3
-	music8a 177
-	music01 3
-	musicd2
-	music8a 177
-	music01 9
-	music8a 178
-	music01 3
-	musicd2
-	music8a 165
-	music01 2
-	music8a 165
-	music01 1
-	musicd2
-	music01 6
-	musicd2
-	music01 2
-	music8a 165
-	music01 1
-	musicd2
-	music01 3
-	musicd2
-	music01 2
-	music8a 165
-	music01 1
-	musicd2
-	music01 2
-	music8a 165
-	music01 1
-	musicd2
-	music01 6
-	musicd2
-	music8a 165
-	music01 6
-	music8a 168
-	music01 6
-	music8a 170
+	note_length 12
+	note_pitch E_, 3
+	note_length 3
+	note_pitch B_, 3
+	note_length 3
+	note_pitch B_, 1
+	note_length 3
+	note_pitch E_, 1
+	note_length 3
+	note_pitch B_, 0
+	note_length 2
+	note_pitch D#, 2
+	note_length 1
+	rest
+	note_length 2
+	note_pitch D#, 2
+	note_length 1
+	rest
+	note_length 12
+	rest
+	note_length 2
+	note_pitch D#, 2
+	note_length 1
+	rest
+	note_length 6
+	rest
+	note_length 3
+	note_pitch D#, 3
+	note_length 3
+	rest
+	note_pitch D#, 3
+	note_length 9
+	note_pitch E_, 3
+	note_length 3
+	rest
+	note_pitch D#, 2
+	note_length 2
+	note_pitch D#, 2
+	note_length 1
+	rest
+	note_length 6
+	rest
+	note_length 2
+	note_pitch D#, 2
+	note_length 1
+	rest
+	note_length 3
+	rest
+	note_length 2
+	note_pitch D#, 2
+	note_length 1
+	rest
+	note_length 2
+	note_pitch D#, 2
+	note_length 1
+	rest
+	note_length 6
+	rest
+	note_pitch D#, 2
+	note_length 6
+	note_pitch F#, 2
+	note_length 6
+	note_pitch G#, 2
 	song_ret
 
 Music_Lance_branch_18a0b6: ; 18a0b6 (62:60b6)
-	music01 48
-	musicd2
-	music01 48
-	musicd2
-	music01 48
-	musicd2
+	note_length 48
+	rest
+	note_length 48
+	rest
+	note_length 48
+	rest
 	duty_cycle_50
-	music01 36
-	musicd2
+	note_length 36
+	rest
 	musicd4 55
-	music01 3
-	music8a 172
-	music01 3
-	music8a 173
-	music01 3
-	music8a 174
-	music01 3
-	music8a 175
+	note_length 3
+	note_pitch A#, 2
+	note_length 3
+	note_pitch B_, 2
+	note_length 3
+	note_pitch C_, 3
+	note_length 3
+	note_pitch C#, 3
 	song_ret
 
 Music_Lance_branch_18a0ca: ; 18a0ca (62:60ca)
 	duty_cycle_75
 	musicd4 55
 	musicd8 180
-	music01 3
-	music8a 172
-	music01 3
-	music8a 172
-	music01 3
-	musicd2
-	music8a 170
-	music01 3
-	music8a 172
-	music01 3
-	musicd2
-	music8a 168
-	music01 3
-	music8a 170
-	music01 3
-	musicd2
-	music8a 165
-	music01 3
-	music8a 168
-	music01 3
-	musicd2
-	music8a 163
-	music01 3
-	music8a 165
-	music01 3
-	musicd2
-	music8a 160
-	music01 3
-	musicd2
-	music8a 156
-	music01 3
-	music8a 160
-	music01 3
-	music8a 163
-	music01 3
-	music8a 165
-	music01 3
-	music8a 168
-	music01 3
-	music8a 170
-	music01 3
-	music8a 172
-	music01 3
-	music8a 175
-	music01 3
-	music8a 177
-	music01 3
-	music8a 182
-	music01 3
-	music8a 184
-	music01 3
-	music8a 180
-	music01 3
-	music8a 182
-	music01 3
-	music8a 177
-	music01 3
-	music8a 175
+	note_length 3
+	note_pitch A#, 2
+	note_length 3
+	note_pitch A#, 2
+	note_length 3
+	rest
+	note_pitch G#, 2
+	note_length 3
+	note_pitch A#, 2
+	note_length 3
+	rest
+	note_pitch F#, 2
+	note_length 3
+	note_pitch G#, 2
+	note_length 3
+	rest
+	note_pitch D#, 2
+	note_length 3
+	note_pitch F#, 2
+	note_length 3
+	rest
+	note_pitch C#, 2
+	note_length 3
+	note_pitch D#, 2
+	note_length 3
+	rest
+	note_pitch A#, 1
+	note_length 3
+	rest
+	note_pitch F#, 1
+	note_length 3
+	note_pitch A#, 1
+	note_length 3
+	note_pitch C#, 2
+	note_length 3
+	note_pitch D#, 2
+	note_length 3
+	note_pitch F#, 2
+	note_length 3
+	note_pitch G#, 2
+	note_length 3
+	note_pitch A#, 2
+	note_length 3
+	note_pitch C#, 3
+	note_length 3
+	note_pitch D#, 3
+	note_length 3
+	note_pitch G#, 3
+	note_length 3
+	note_pitch A#, 3
+	note_length 3
+	note_pitch F#, 3
+	note_length 3
+	note_pitch G#, 3
+	note_length 3
+	note_pitch D#, 3
+	note_length 3
+	note_pitch C#, 3
 	musicd8 182
 	duty_cycle_50
-	music01 15
-	music8a 172
-	music01 3
-	musicd2
+	note_length 15
+	note_pitch A#, 2
+	note_length 3
+	rest
 	musicd8 180
-	music01 15
-	music8a 173
-	music01 3
-	musicd2
+	note_length 15
+	note_pitch B_, 2
+	note_length 3
+	rest
 	musicd8 178
-	music01 12
-	music8a 174
-	music01 3
-	musicd3
-	music01 3
-	musicd2
+	note_length 12
+	note_pitch C_, 3
+	note_length 3
+	continue_note
+	note_length 3
+	rest
 	musicd8 178
-	music01 24
-	music8a 175
-	music01 6
-	musicd2
+	note_length 24
+	note_pitch C#, 3
+	note_length 6
+	rest
 	musicd8 177
-	music8a 176
-	music01 6
-	musicd2
+	note_pitch D_, 3
+	note_length 6
+	rest
 	duty_cycle_75
 	musicd8 179
-	music8a 189
-	music01 6
-	music8a 188
-	music01 6
-	music8a 187
-	music01 6
-	music8a 186
-	music01 3
-	music8a 189
-	music01 3
-	music8a 188
-	music01 3
-	music8a 187
-	music01 3
-	music8a 186
-	music01 3
-	music8a 185
-	music01 3
-	musicd2
-	music8a 185
-	music01 3
-	musicd2
-	music01 6
-	musicd2
-	music01 33
-	music8a 189
-	music01 3
-	music8a 188
-	music01 3
-	music8a 187
-	music01 3
-	music8a 186
+	note_pitch D#, 4
+	note_length 6
+	note_pitch D_, 4
+	note_length 6
+	note_pitch C#, 4
+	note_length 6
+	note_pitch C_, 4
+	note_length 3
+	note_pitch D#, 4
+	note_length 3
+	note_pitch D_, 4
+	note_length 3
+	note_pitch C#, 4
+	note_length 3
+	note_pitch C_, 4
+	note_length 3
+	note_pitch B_, 3
+	note_length 3
+	rest
+	note_pitch B_, 3
+	note_length 3
+	rest
+	note_length 6
+	rest
+	note_length 33
+	note_pitch D#, 4
+	note_length 3
+	note_pitch D_, 4
+	note_length 3
+	note_pitch C#, 4
+	note_length 3
+	note_pitch C_, 4
 	musicd8 182
 	musicd4 55
 	duty_cycle_50
-	music01 15
-	music8a 174
-	music01 3
-	musicd2
+	note_length 15
+	note_pitch C_, 3
+	note_length 3
+	rest
 	musicd8 180
-	music01 15
-	music8a 175
-	music01 3
-	musicd2
+	note_length 15
+	note_pitch C#, 3
+	note_length 3
+	rest
 	musicd8 178
-	music01 12
-	music8a 176
-	music01 3
-	musicd3
-	music01 3
-	musicd2
+	note_length 12
+	note_pitch D_, 3
+	note_length 3
+	continue_note
+	note_length 3
+	rest
 	musicd8 177
-	music01 24
-	music8a 177
-	music01 6
-	musicd2
-	music8a 178
-	music01 6
-	musicd2
+	note_length 24
+	note_pitch D#, 3
+	note_length 6
+	rest
+	note_pitch E_, 3
+	note_length 6
+	rest
 	duty_cycle_50
 	musicd8 180
-	music01 6
-	musicd2
+	note_length 6
+	rest
 	musicd4 59
-	music01 12
-	music8a 179
+	note_length 12
+	note_pitch F_, 3
 	musicd4 55
-	music01 6
-	musicd2
-	music01 12
-	music8a 180
-	music01 12
-	musicd2
+	note_length 6
+	rest
+	note_length 12
+	note_pitch F#, 3
+	note_length 12
+	rest
 	musicd4 59
-	music01 9
-	music8a 181
+	note_length 9
+	note_pitch G_, 3
 	musicd4 55
-	music01 3
-	music8a 176
-	music01 3
-	musicd2
-	music8a 176
-	music01 3
-	music8a 181
-	music01 3
-	music8a 180
-	music01 6
-	music8a 179
-	music01 6
-	music8a 178
-	music01 6
-	music8a 177
-	music01 6
-	music8a 176
+	note_length 3
+	note_pitch D_, 3
+	note_length 3
+	rest
+	note_pitch D_, 3
+	note_length 3
+	note_pitch G_, 3
+	note_length 3
+	note_pitch F#, 3
+	note_length 6
+	note_pitch F_, 3
+	note_length 6
+	note_pitch E_, 3
+	note_length 6
+	note_pitch D#, 3
+	note_length 6
+	note_pitch D_, 3
 	musicd4 59
-	music01 12
-	music8a 177
+	note_length 12
+	note_pitch D#, 3
 	musicd4 55
-	music01 12
-	music8a 182
+	note_length 12
+	note_pitch G#, 3
 	musicd4 55
-	music01 12
-	music8a 170
-	music01 6
-	music8a 177
-	music01 6
-	musicd2
-	music01 9
-	music8a 171
-	music01 3
-	music8a 166
-	music01 3
-	musicd2
-	music8a 166
-	music01 3
-	music8a 171
-	music01 3
-	music8a 170
-	music01 6
-	music8a 169
-	music01 6
-	music8a 168
-	music01 6
-	music8a 167
-	music01 6
-	music8a 166
+	note_length 12
+	note_pitch G#, 2
+	note_length 6
+	note_pitch D#, 3
+	note_length 6
+	rest
+	note_length 9
+	note_pitch A_, 2
+	note_length 3
+	note_pitch E_, 2
+	note_length 3
+	rest
+	note_pitch E_, 2
+	note_length 3
+	note_pitch A_, 2
+	note_length 3
+	note_pitch G#, 2
+	note_length 6
+	note_pitch G_, 2
+	note_length 6
+	note_pitch F#, 2
+	note_length 6
+	note_pitch F_, 2
+	note_length 6
+	note_pitch E_, 2
 	musicd4 59
-	music01 12
-	music8a 167
-	music01 12
-	music8a 172
+	note_length 12
+	note_pitch F_, 2
+	note_length 12
+	note_pitch A#, 2
 	musicd4 55
-	music01 15
-	music8a 175
-	music01 9
-	musicd2
+	note_length 15
+	note_pitch C#, 3
+	note_length 9
+	rest
 	musicd4 55
 	musicd8 223
 	duty_cycle_12_5
-	music01 3
-	musicd2
-	music01 3
-	music8a 156
-	music01 3
-	music8a 160
-	music01 3
-	music8a 163
-	music01 3
-	music8a 165
+	note_length 3
+	rest
+	note_length 3
+	note_pitch F#, 1
+	note_length 3
+	note_pitch A#, 1
+	note_length 3
+	note_pitch C#, 2
+	note_length 3
+	note_pitch D#, 2
 	musicd8 221
-	music01 3
-	music8a 168
-	music01 3
-	music8a 170
-	music01 3
-	music8a 172
-	music01 3
-	music8a 175
-	music01 3
-	music8a 177
-	music01 3
-	music8a 182
-	music01 3
-	music8a 184
+	note_length 3
+	note_pitch F#, 2
+	note_length 3
+	note_pitch G#, 2
+	note_length 3
+	note_pitch A#, 2
+	note_length 3
+	note_pitch C#, 3
+	note_length 3
+	note_pitch D#, 3
+	note_length 3
+	note_pitch G#, 3
+	note_length 3
+	note_pitch A#, 3
 	musicd8 222
-	music01 3
-	music8a 180
-	music01 3
-	music8a 182
-	music01 3
-	music8a 177
-	music01 3
-	music8a 175
+	note_length 3
+	note_pitch F#, 3
+	note_length 3
+	note_pitch G#, 3
+	note_length 3
+	note_pitch D#, 3
+	note_length 3
+	note_pitch C#, 3
 	musicd8 223
-	music01 3
-	music8a 177
-	music01 3
-	music8a 170
-	music01 3
-	music8a 172
-	music01 3
-	music8a 168
-	music01 3
-	music8a 170
-	music01 3
-	music8a 172
-	music01 3
-	music8a 165
+	note_length 3
+	note_pitch D#, 3
+	note_length 3
+	note_pitch G#, 2
+	note_length 3
+	note_pitch A#, 2
+	note_length 3
+	note_pitch F#, 2
+	note_length 3
+	note_pitch G#, 2
+	note_length 3
+	note_pitch A#, 2
+	note_length 3
+	note_pitch D#, 2
 	musicd8 221
-	music01 3
-	music8a 163
-	music01 3
-	music8a 165
-	music01 3
-	music8a 158
-	music01 3
-	music8a 160
-	music01 3
-	music8a 156
+	note_length 3
+	note_pitch C#, 2
+	note_length 3
+	note_pitch D#, 2
+	note_length 3
+	note_pitch G#, 1
+	note_length 3
+	note_pitch A#, 1
+	note_length 3
+	note_pitch F#, 1
 	musicd8 222
-	music01 3
-	music8a 158
-	music01 3
-	music8a 160
+	note_length 3
+	note_pitch G#, 1
+	note_length 3
+	note_pitch A#, 1
 	musicd8 223
-	music01 3
-	music8a 153
-	music01 3
-	music8a 151
+	note_length 3
+	note_pitch D#, 1
+	note_length 3
+	note_pitch C#, 1
 	musicd8 223
-	music01 3
-	musicd2
-	music8a 156
-	music01 3
-	music8a 158
-	music01 3
-	music8a 160
+	note_length 3
+	rest
+	note_pitch F#, 1
+	note_length 3
+	note_pitch G#, 1
+	note_length 3
+	note_pitch A#, 1
 	musicd8 221
-	music01 3
-	music8a 165
-	music01 3
-	music8a 168
-	music01 3
-	music8a 170
-	music01 3
-	music8a 172
-	music01 3
-	music8a 175
+	note_length 3
+	note_pitch D#, 2
+	note_length 3
+	note_pitch F#, 2
+	note_length 3
+	note_pitch G#, 2
+	note_length 3
+	note_pitch A#, 2
+	note_length 3
+	note_pitch C#, 3
 	musicd8 222
-	music01 3
-	music8a 177
-	music01 3
-	music8a 182
-	music01 3
-	music8a 184
+	note_length 3
+	note_pitch D#, 3
+	note_length 3
+	note_pitch G#, 3
+	note_length 3
+	note_pitch A#, 3
 	musicd8 223
-	music01 3
-	music8a 180
-	music01 3
-	music8a 182
-	music01 3
-	music8a 177
-	music01 3
-	music8a 175
+	note_length 3
+	note_pitch F#, 3
+	note_length 3
+	note_pitch G#, 3
+	note_length 3
+	note_pitch D#, 3
+	note_length 3
+	note_pitch C#, 3
 	musicd8 224
-	music01 3
-	music8a 177
-	music01 3
-	music8a 172
+	note_length 3
+	note_pitch D#, 3
+	note_length 3
+	note_pitch A#, 2
 	musicd8 221
-	music01 3
-	music8a 163
-	music01 3
-	music8a 165
+	note_length 3
+	note_pitch C#, 2
+	note_length 3
+	note_pitch D#, 2
 	musicd8 222
-	music01 3
-	music8a 158
-	music01 3
-	music8a 160
+	note_length 3
+	note_pitch G#, 1
+	note_length 3
+	note_pitch A#, 1
 	musicd8 223
-	music01 3
-	music8a 163
-	music01 3
-	music8a 165
-	music01 6
-	musicd2
+	note_length 3
+	note_pitch C#, 2
+	note_length 3
+	note_pitch D#, 2
+	note_length 6
+	rest
 	musicd8 224
-	music8a 160
-	music01 6
-	music8a 163
-	music01 6
-	music8a 165
+	note_pitch A#, 1
+	note_length 6
+	note_pitch C#, 2
+	note_length 6
+	note_pitch D#, 2
 	song_ret
 
 Music_Lance_Ch3: ; 18a25d (62:625d)
 	stereo_panning_both
-	musice3 255
+	musice3 -1
 	musicd8 27
 	wave 64
 	musicd7 12
 	musicd4 55
-	music01 12
-	musicd2
+	note_length 12
+	rest
 Music_Lance_branch_18a26a: ; 18a26a (62:626a)
 	song_call Music_Lance_branch_18a285
 	song_call Music_Lance_branch_18a285
@@ -1154,1525 +1154,1525 @@ Music_Lance_branch_18a26a: ; 18a26a (62:626a)
 	song_jump Music_Lance_branch_18a26a
 
 Music_Lance_branch_18a285: ; 18a285 (62:6285)
-	music01 6
-	music8a 141
-	music01 12
-	musicd2
-	music01 6
-	music8a 141
-	music01 6
-	musicd2
-	music01 3
-	music8a 141
-	music01 3
-	musicd2
-	music01 2
-	music8a 142
-	music01 1
-	musicd2
-	music01 6
-	music8a 142
-	music01 3
-	musicd2
-	music01 6
-	music8a 141
-	music01 12
-	musicd2
-	music01 6
-	music8a 141
-	music01 6
-	musicd2
-	music01 3
-	music8a 141
-	music01 3
-	musicd2
-	music01 2
-	music8a 139
-	music01 1
-	musicd2
-	music01 6
-	music8a 139
-	music01 3
-	musicd2
-	music01 2
-	music8a 141
-	music01 1
-	musicd2
-	music01 3
-	music8a 141
-	music01 12
-	musicd2
-	music01 3
-	music8a 141
-	music01 9
-	musicd2
-	music01 3
-	music8a 141
-	music01 3
-	musicd2
-	music01 12
-	music8a 142
-	music01 2
-	music8a 141
-	music01 1
-	musicd2
-	music01 3
-	music8a 141
-	music01 12
-	musicd2
-	music01 2
-	music8a 141
-	music01 1
-	musicd2
-	music01 9
-	musicd2
-	music01 6
-	music8a 141
-	music01 6
-	music8a 144
-	music01 6
-	music8a 146
+	note_length 6
+	note_pitch D#, 0
+	note_length 12
+	rest
+	note_length 6
+	note_pitch D#, 0
+	note_length 6
+	rest
+	note_length 3
+	note_pitch D#, 0
+	note_length 3
+	rest
+	note_length 2
+	note_pitch E_, 0
+	note_length 1
+	rest
+	note_length 6
+	note_pitch E_, 0
+	note_length 3
+	rest
+	note_length 6
+	note_pitch D#, 0
+	note_length 12
+	rest
+	note_length 6
+	note_pitch D#, 0
+	note_length 6
+	rest
+	note_length 3
+	note_pitch D#, 0
+	note_length 3
+	rest
+	note_length 2
+	note_pitch C#, 0
+	note_length 1
+	rest
+	note_length 6
+	note_pitch C#, 0
+	note_length 3
+	rest
+	note_length 2
+	note_pitch D#, 0
+	note_length 1
+	rest
+	note_length 3
+	note_pitch D#, 0
+	note_length 12
+	rest
+	note_length 3
+	note_pitch D#, 0
+	note_length 9
+	rest
+	note_length 3
+	note_pitch D#, 0
+	note_length 3
+	rest
+	note_length 12
+	note_pitch E_, 0
+	note_length 2
+	note_pitch D#, 0
+	note_length 1
+	rest
+	note_length 3
+	note_pitch D#, 0
+	note_length 12
+	rest
+	note_length 2
+	note_pitch D#, 0
+	note_length 1
+	rest
+	note_length 9
+	rest
+	note_length 6
+	note_pitch D#, 0
+	note_length 6
+	note_pitch F#, 0
+	note_length 6
+	note_pitch G#, 0
 	song_ret
 
 Music_Lance_branch_18a2d4: ; 18a2d4 (62:62d4)
-	music01 6
-	music8a 141
-	music01 12
-	musicd2
-	music01 6
-	music8a 141
-	music01 6
-	musicd2
-	music01 3
-	music8a 141
-	music01 3
-	musicd2
-	music01 2
-	music8a 142
-	music01 1
-	musicd2
-	music01 6
-	music8a 142
-	music01 3
-	musicd2
-	music01 6
-	music8a 141
-	music01 12
-	musicd2
-	music01 6
-	music8a 141
-	music01 6
-	musicd2
-	music01 3
-	music8a 141
-	music01 6
-	musicd2
-	music01 9
-	music8a 139
-	music01 6
-	music8a 141
-	music01 12
-	musicd2
-	music01 6
-	music8a 141
-	music01 6
-	musicd2
-	music01 3
-	music8a 141
-	music01 3
-	musicd2
-	music01 2
-	music8a 142
-	music01 1
-	musicd2
-	music01 6
-	music8a 142
-	music01 3
-	musicd2
-	music01 6
-	music8a 141
-	music01 12
-	musicd2
-	music01 6
-	music8a 141
-	music01 6
-	musicd2
-	music01 3
-	music8a 141
-	music01 3
-	musicd2
-	music01 2
-	music8a 142
-	music01 1
-	musicd2
-	music01 6
-	music8a 142
-	music01 3
-	musicd2
+	note_length 6
+	note_pitch D#, 0
+	note_length 12
+	rest
+	note_length 6
+	note_pitch D#, 0
+	note_length 6
+	rest
+	note_length 3
+	note_pitch D#, 0
+	note_length 3
+	rest
+	note_length 2
+	note_pitch E_, 0
+	note_length 1
+	rest
+	note_length 6
+	note_pitch E_, 0
+	note_length 3
+	rest
+	note_length 6
+	note_pitch D#, 0
+	note_length 12
+	rest
+	note_length 6
+	note_pitch D#, 0
+	note_length 6
+	rest
+	note_length 3
+	note_pitch D#, 0
+	note_length 6
+	rest
+	note_length 9
+	note_pitch C#, 0
+	note_length 6
+	note_pitch D#, 0
+	note_length 12
+	rest
+	note_length 6
+	note_pitch D#, 0
+	note_length 6
+	rest
+	note_length 3
+	note_pitch D#, 0
+	note_length 3
+	rest
+	note_length 2
+	note_pitch E_, 0
+	note_length 1
+	rest
+	note_length 6
+	note_pitch E_, 0
+	note_length 3
+	rest
+	note_length 6
+	note_pitch D#, 0
+	note_length 12
+	rest
+	note_length 6
+	note_pitch D#, 0
+	note_length 6
+	rest
+	note_length 3
+	note_pitch D#, 0
+	note_length 3
+	rest
+	note_length 2
+	note_pitch E_, 0
+	note_length 1
+	rest
+	note_length 6
+	note_pitch E_, 0
+	note_length 3
+	rest
 	song_ret
 
 Music_Lance_branch_18a31f: ; 18a31f (62:631f)
-	music01 6
-	music8a 141
-	music01 12
-	musicd2
-	music01 6
-	music8a 141
-	music01 6
-	musicd2
-	music01 3
-	music8a 141
-	music01 3
-	musicd2
-	music01 2
-	music8a 142
-	music01 1
-	musicd2
-	music01 6
-	music8a 142
-	music01 3
-	musicd2
-	music01 6
-	music8a 141
-	music01 12
-	musicd2
-	music01 6
-	music8a 141
-	music01 6
-	musicd2
-	music01 3
-	music8a 141
-	music01 3
-	musicd2
-	music01 2
-	music8a 139
-	music01 1
-	musicd2
-	music01 6
-	music8a 139
-	music01 3
-	musicd2
-	music01 6
-	music8a 141
-	music01 12
-	musicd2
-	music01 6
-	music8a 141
-	music01 6
-	musicd2
-	music01 3
-	music8a 141
-	music01 3
-	musicd2
-	music01 2
-	music8a 142
-	music01 1
-	musicd2
-	music01 6
-	music8a 142
-	music01 3
-	musicd2
-	music01 6
-	music8a 141
-	music01 12
-	musicd2
-	music01 6
-	music8a 141
-	music01 6
-	musicd2
-	music01 3
-	music8a 141
-	music01 3
-	musicd2
-	music01 2
-	music8a 139
-	music01 1
-	musicd2
-	music01 6
-	music8a 139
-	music01 3
-	musicd2
-	music01 6
-	music8a 143
-	music01 12
-	musicd2
-	music01 6
-	music8a 143
-	music01 6
-	musicd2
-	music01 3
-	music8a 143
-	music01 3
-	musicd2
-	music01 2
-	music8a 141
-	music01 1
-	musicd2
-	music01 6
-	music8a 141
-	music01 3
-	musicd2
-	music01 6
-	music8a 143
-	music01 12
-	musicd2
-	music01 6
-	music8a 143
-	music01 6
-	musicd2
-	music01 3
-	music8a 143
-	music01 3
-	musicd2
-	music01 2
-	music8a 144
-	music01 1
-	musicd2
-	music01 6
-	music8a 144
-	music01 3
-	musicd2
-	music01 6
-	music8a 143
-	music01 12
-	musicd2
-	music01 6
-	music8a 143
-	music01 6
-	musicd2
-	music01 3
-	music8a 143
-	music01 3
-	musicd2
-	music01 2
-	music8a 141
-	music01 1
-	musicd2
-	music01 6
-	music8a 141
-	music01 3
-	musicd2
-	music01 6
-	music8a 143
-	music01 12
-	musicd2
-	music01 6
-	music8a 143
-	music01 6
-	musicd2
-	music01 3
-	music8a 143
-	music01 3
-	musicd2
-	music01 2
-	music8a 144
-	music01 1
-	musicd2
-	music01 6
-	music8a 144
-	music01 3
-	musicd2
-	music8a 138
-	music01 3
-	musicd2
-	music01 12
-	music8a 151
-	music01 3
-	music8a 138
-	music01 6
-	musicd2
-	music01 3
-	music8a 144
-	music01 3
-	music8a 146
-	music01 3
-	music8a 151
-	music01 3
-	music8a 156
-	music01 3
-	music8a 158
-	music01 3
-	music8a 163
-	music01 3
-	music8a 168
-	music01 48
-	musicd2
-	music01 48
-	musicd2
-	music01 2
-	music8a 147
-	music01 1
-	musicd2
-	music01 2
-	music8a 147
-	music01 1
-	musicd2
-	music01 3
-	musicd2
-	music01 2
-	music8a 147
-	music01 1
-	musicd2
-	music01 2
-	music8a 147
-	music01 1
-	musicd2
-	music01 3
-	musicd2
-	music01 2
-	music8a 147
-	music01 1
-	musicd2
-	music01 2
-	music8a 147
-	music01 1
-	musicd2
-	music01 3
-	musicd2
-	music01 2
-	music8a 147
-	music01 1
-	musicd2
-	music01 2
-	music8a 147
-	music01 1
-	musicd2
-	music01 3
-	musicd2
-	music01 2
-	music8a 147
-	music01 1
-	musicd2
-	music01 2
-	music8a 147
-	music01 1
-	musicd2
-	music01 2
-	music8a 147
-	music01 1
-	musicd2
-	music01 2
-	music8a 147
-	music01 1
-	musicd2
-	music01 2
-	music8a 148
-	music01 1
-	musicd2
-	music01 2
-	music8a 148
-	music01 1
-	musicd2
-	music01 2
-	music8a 148
-	music01 1
-	musicd2
-	music01 2
-	music8a 148
-	music01 1
-	musicd2
-	music01 2
-	music8a 148
-	music01 1
-	musicd2
-	music01 3
-	musicd2
-	music01 2
-	music8a 148
-	music01 1
-	musicd2
-	music01 2
-	music8a 148
-	music01 1
-	musicd2
-	music01 3
-	musicd2
-	music01 2
-	music8a 148
-	music01 1
-	musicd2
-	music01 2
-	music8a 148
-	music01 1
-	musicd2
-	music01 3
-	musicd2
-	music01 2
-	music8a 148
-	music01 1
-	musicd2
-	music01 2
-	music8a 148
-	music01 1
-	musicd2
-	music01 2
-	music8a 148
-	music01 1
-	musicd2
-	music01 2
-	music8a 148
-	music01 1
-	musicd2
+	note_length 6
+	note_pitch D#, 0
+	note_length 12
+	rest
+	note_length 6
+	note_pitch D#, 0
+	note_length 6
+	rest
+	note_length 3
+	note_pitch D#, 0
+	note_length 3
+	rest
+	note_length 2
+	note_pitch E_, 0
+	note_length 1
+	rest
+	note_length 6
+	note_pitch E_, 0
+	note_length 3
+	rest
+	note_length 6
+	note_pitch D#, 0
+	note_length 12
+	rest
+	note_length 6
+	note_pitch D#, 0
+	note_length 6
+	rest
+	note_length 3
+	note_pitch D#, 0
+	note_length 3
+	rest
+	note_length 2
+	note_pitch C#, 0
+	note_length 1
+	rest
+	note_length 6
+	note_pitch C#, 0
+	note_length 3
+	rest
+	note_length 6
+	note_pitch D#, 0
+	note_length 12
+	rest
+	note_length 6
+	note_pitch D#, 0
+	note_length 6
+	rest
+	note_length 3
+	note_pitch D#, 0
+	note_length 3
+	rest
+	note_length 2
+	note_pitch E_, 0
+	note_length 1
+	rest
+	note_length 6
+	note_pitch E_, 0
+	note_length 3
+	rest
+	note_length 6
+	note_pitch D#, 0
+	note_length 12
+	rest
+	note_length 6
+	note_pitch D#, 0
+	note_length 6
+	rest
+	note_length 3
+	note_pitch D#, 0
+	note_length 3
+	rest
+	note_length 2
+	note_pitch C#, 0
+	note_length 1
+	rest
+	note_length 6
+	note_pitch C#, 0
+	note_length 3
+	rest
+	note_length 6
+	note_pitch F_, 0
+	note_length 12
+	rest
+	note_length 6
+	note_pitch F_, 0
+	note_length 6
+	rest
+	note_length 3
+	note_pitch F_, 0
+	note_length 3
+	rest
+	note_length 2
+	note_pitch D#, 0
+	note_length 1
+	rest
+	note_length 6
+	note_pitch D#, 0
+	note_length 3
+	rest
+	note_length 6
+	note_pitch F_, 0
+	note_length 12
+	rest
+	note_length 6
+	note_pitch F_, 0
+	note_length 6
+	rest
+	note_length 3
+	note_pitch F_, 0
+	note_length 3
+	rest
+	note_length 2
+	note_pitch F#, 0
+	note_length 1
+	rest
+	note_length 6
+	note_pitch F#, 0
+	note_length 3
+	rest
+	note_length 6
+	note_pitch F_, 0
+	note_length 12
+	rest
+	note_length 6
+	note_pitch F_, 0
+	note_length 6
+	rest
+	note_length 3
+	note_pitch F_, 0
+	note_length 3
+	rest
+	note_length 2
+	note_pitch D#, 0
+	note_length 1
+	rest
+	note_length 6
+	note_pitch D#, 0
+	note_length 3
+	rest
+	note_length 6
+	note_pitch F_, 0
+	note_length 12
+	rest
+	note_length 6
+	note_pitch F_, 0
+	note_length 6
+	rest
+	note_length 3
+	note_pitch F_, 0
+	note_length 3
+	rest
+	note_length 2
+	note_pitch F#, 0
+	note_length 1
+	rest
+	note_length 6
+	note_pitch F#, 0
+	note_length 3
+	rest
+	note_pitch C_, 0
+	note_length 3
+	rest
+	note_length 12
+	note_pitch C#, 1
+	note_length 3
+	note_pitch C_, 0
+	note_length 6
+	rest
+	note_length 3
+	note_pitch F#, 0
+	note_length 3
+	note_pitch G#, 0
+	note_length 3
+	note_pitch C#, 1
+	note_length 3
+	note_pitch F#, 1
+	note_length 3
+	note_pitch G#, 1
+	note_length 3
+	note_pitch C#, 2
+	note_length 3
+	note_pitch F#, 2
+	note_length 48
+	rest
+	note_length 48
+	rest
+	note_length 2
+	note_pitch A_, 0
+	note_length 1
+	rest
+	note_length 2
+	note_pitch A_, 0
+	note_length 1
+	rest
+	note_length 3
+	rest
+	note_length 2
+	note_pitch A_, 0
+	note_length 1
+	rest
+	note_length 2
+	note_pitch A_, 0
+	note_length 1
+	rest
+	note_length 3
+	rest
+	note_length 2
+	note_pitch A_, 0
+	note_length 1
+	rest
+	note_length 2
+	note_pitch A_, 0
+	note_length 1
+	rest
+	note_length 3
+	rest
+	note_length 2
+	note_pitch A_, 0
+	note_length 1
+	rest
+	note_length 2
+	note_pitch A_, 0
+	note_length 1
+	rest
+	note_length 3
+	rest
+	note_length 2
+	note_pitch A_, 0
+	note_length 1
+	rest
+	note_length 2
+	note_pitch A_, 0
+	note_length 1
+	rest
+	note_length 2
+	note_pitch A_, 0
+	note_length 1
+	rest
+	note_length 2
+	note_pitch A_, 0
+	note_length 1
+	rest
+	note_length 2
+	note_pitch A#, 0
+	note_length 1
+	rest
+	note_length 2
+	note_pitch A#, 0
+	note_length 1
+	rest
+	note_length 2
+	note_pitch A#, 0
+	note_length 1
+	rest
+	note_length 2
+	note_pitch A#, 0
+	note_length 1
+	rest
+	note_length 2
+	note_pitch A#, 0
+	note_length 1
+	rest
+	note_length 3
+	rest
+	note_length 2
+	note_pitch A#, 0
+	note_length 1
+	rest
+	note_length 2
+	note_pitch A#, 0
+	note_length 1
+	rest
+	note_length 3
+	rest
+	note_length 2
+	note_pitch A#, 0
+	note_length 1
+	rest
+	note_length 2
+	note_pitch A#, 0
+	note_length 1
+	rest
+	note_length 3
+	rest
+	note_length 2
+	note_pitch A#, 0
+	note_length 1
+	rest
+	note_length 2
+	note_pitch A#, 0
+	note_length 1
+	rest
+	note_length 2
+	note_pitch A#, 0
+	note_length 1
+	rest
+	note_length 2
+	note_pitch A#, 0
+	note_length 1
+	rest
 	song_ret
 
 Music_Lance_Ch4: ; 18a44d (62:644d)
 	stereo_panning_both
-	music01 3
-	music6d 126
-	music01 3
-	music6d 126
-	music01 3
-	music6d 112
-	music01 3
-	musicd3
+	note_length 3
+	noise 17
+	note_length 3
+	noise 17
+	note_length 3
+	noise 3
+	note_length 3
+	continue_note
 Music_Lance_branch_18a456: ; 18a456 (62:6456)
 	song_call Music_Lance_branch_18a45c
 	song_jump Music_Lance_branch_18a456
 
 Music_Lance_branch_18a45c: ; 18a45c (62:645c)
-	music01 3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	music6d 120
-	music01 3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	music6d 112
-	music01 3
-	music6d 120
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	music6d 120
-	music01 3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	music6d 120
-	music01 3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	music6d 112
-	music01 3
-	music6d 120
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	music6d 126
-	music01 3
-	music6d 120
-	music01 3
-	music6d 120
-	music01 3
-	music6d 112
-	music01 6
-	musicd3
-	music01 3
-	music6d 126
-	music01 3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	music6d 120
-	music01 3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	music6d 112
-	music01 3
-	music6d 120
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	music6d 120
-	music01 3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	music6d 120
-	music01 3
-	music6d 125
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	music6d 112
-	music01 3
-	music6d 120
-	music01 3
-	musicd3
-	music6d 126
-	music01 9
-	musicd3
-	music01 3
-	music6d 126
-	music01 3
-	music6d 120
-	music01 3
-	music6d 126
-	music01 3
-	music6d 127
-	music01 24
-	musicd3
-	music01 3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	music6d 112
-	music01 3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	music6d 126
-	music01 3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	music6d 112
-	music01 3
-	music6d 120
-	music01 3
-	music6d 126
-	music01 3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	music6d 126
-	music01 3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	music6d 112
-	music01 3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	music6d 126
-	music01 3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	music6d 112
-	music01 3
-	music6d 120
-	music01 3
-	music6d 126
-	music01 3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	music6d 120
-	music01 3
-	music6d 112
-	music01 3
-	music6d 126
-	music01 6
-	musicd3
-	music01 3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	music6d 127
-	music01 3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	music6d 120
-	music01 3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	music6d 112
-	music01 3
-	music6d 120
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	music6d 120
-	music01 3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	music6d 120
-	music01 3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	music6d 112
-	music01 3
-	music6d 120
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	music6d 126
-	music01 3
-	music6d 120
-	music01 3
-	music6d 120
-	music01 3
-	music6d 112
-	music01 6
-	musicd3
-	music01 3
-	music6d 126
-	music01 3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	music6d 120
-	music01 3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	music6d 112
-	music01 3
-	music6d 120
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	music6d 120
-	music01 3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	music6d 120
-	music01 3
-	music6d 125
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	music6d 112
-	music01 3
-	music6d 120
-	music01 3
-	musicd3
-	music6d 126
-	music01 9
-	musicd3
-	music01 3
-	music6d 126
-	music01 3
-	music6d 120
-	music01 3
-	music6d 112
-	music01 3
-	music6d 126
-	music01 24
-	musicd3
-	music01 3
-	music6d 112
-	music01 3
-	music6d 120
-	music01 3
-	music6d 120
-	music01 3
-	music6d 112
-	music01 3
-	music6d 126
-	music01 3
-	musicd3
-	music8a 146
-	music01 3
-	music6d 126
-	music01 3
-	music8a 146
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	music6d 120
-	music01 3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	music6d 120
-	music01 3
-	music6d 120
-	music01 3
-	music6d 112
-	music01 3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	music6d 121
-	music01 3
-	music6d 120
-	music01 3
-	music6d 121
-	music01 3
-	music6d 112
-	music01 3
-	music6d 120
-	music01 3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	music6d 120
-	music01 3
-	music6d 120
-	music01 3
-	music6d 112
-	music01 3
-	music6d 126
-	music01 3
-	musicd3
-	music8a 146
-	music01 3
-	music6d 126
-	music01 3
-	music8a 146
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	music6d 120
-	music01 3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	music6d 121
-	music01 3
-	music6d 120
-	music01 3
-	music6d 112
-	music01 3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	music6d 126
-	music01 3
-	music6d 120
-	music01 3
-	music6d 120
-	music01 3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	music6d 120
-	music01 3
-	music6d 120
-	music01 3
-	music6d 112
-	music01 3
-	music6d 126
-	music01 3
-	musicd3
-	music8a 146
-	music01 3
-	music6d 126
-	music01 3
-	music8a 146
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	music6d 120
-	music01 3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	music6d 120
-	music01 3
-	music6d 120
-	music01 3
-	music6d 112
-	music01 3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	music6d 120
-	music01 3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	music6d 120
-	music01 3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	music6d 120
-	music01 3
-	music6d 120
-	music01 3
-	music6d 112
-	music01 3
-	music6d 126
-	music01 3
-	musicd3
-	music8a 146
-	music01 3
-	music6d 126
-	music01 3
-	music8a 146
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	music6d 120
-	music01 3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	music6d 120
-	music01 3
-	music6d 120
-	music01 3
-	music6d 112
-	music01 3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	music6d 126
-	music01 3
-	music6d 120
-	music01 3
-	music6d 120
-	music01 3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 120
-	music01 9
-	musicd3
-	music01 3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	music6d 126
-	music01 3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 127
-	music01 3
-	music6d 127
-	music01 3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	music6d 120
-	music01 3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	music6d 120
-	music01 3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	music6d 120
-	music01 3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	music6d 126
-	music01 3
-	music6d 120
-	music01 3
-	music6d 120
-	music01 3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 127
-	music01 3
-	music6d 127
-	music01 3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	music6d 120
-	music01 3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	music6d 120
-	music01 3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	music6d 120
-	music01 3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	music6d 112
-	music01 3
-	music6d 120
-	music01 3
-	musicd3
-	music6d 126
-	music01 9
-	musicd3
-	music01 3
-	music6d 126
-	music01 3
-	music6d 120
-	music01 3
-	music6d 126
-	music01 3
-	music6d 126
-	music01 24
-	musicd3
-	music01 3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	music6d 112
-	music01 3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	music6d 126
-	music01 3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	music6d 112
-	music01 3
-	music6d 120
-	music01 3
-	music6d 126
-	music01 3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	music6d 126
-	music01 3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	music6d 112
-	music01 3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	musicd3
-	music6d 112
-	music01 3
-	music6d 126
-	music01 3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	music6d 112
-	music01 3
-	music6d 120
-	music01 3
-	music6d 126
-	music01 3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 120
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	music6d 120
-	music01 3
-	music6d 112
-	music01 3
-	music6d 126
-	music01 6
-	musicd3
-	music01 3
-	music6d 112
-	music01 3
-	musicd3
-	music6d 126
-	music01 3
-	musicd3
-	music6d 127
-	music01 3
-	music6d 127
+	note_length 3
+	noise 3
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	noise 11
+	note_length 3
+	noise 3
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	noise 3
+	note_length 3
+	noise 11
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	noise 11
+	note_length 3
+	noise 3
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	noise 11
+	note_length 3
+	noise 3
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	noise 3
+	note_length 3
+	noise 11
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	noise 17
+	note_length 3
+	noise 11
+	note_length 3
+	noise 11
+	note_length 3
+	noise 3
+	note_length 6
+	continue_note
+	note_length 3
+	noise 17
+	note_length 3
+	noise 3
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	noise 11
+	note_length 3
+	noise 3
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	noise 3
+	note_length 3
+	noise 11
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	noise 11
+	note_length 3
+	noise 3
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	noise 11
+	note_length 3
+	noise 16
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	noise 3
+	note_length 3
+	noise 11
+	note_length 3
+	continue_note
+	noise 17
+	note_length 9
+	continue_note
+	note_length 3
+	noise 17
+	note_length 3
+	noise 11
+	note_length 3
+	noise 17
+	note_length 3
+	noise 18
+	note_length 24
+	continue_note
+	note_length 3
+	noise 3
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	noise 3
+	note_length 3
+	noise 17
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	noise 17
+	note_length 3
+	noise 3
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	noise 3
+	note_length 3
+	noise 11
+	note_length 3
+	noise 17
+	note_length 3
+	noise 3
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	noise 17
+	note_length 3
+	noise 3
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	noise 3
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	noise 3
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	noise 3
+	note_length 3
+	noise 17
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	noise 17
+	note_length 3
+	noise 3
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	noise 3
+	note_length 3
+	noise 11
+	note_length 3
+	noise 17
+	note_length 3
+	noise 3
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	noise 11
+	note_length 3
+	noise 3
+	note_length 3
+	noise 17
+	note_length 6
+	continue_note
+	note_length 3
+	noise 3
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	noise 18
+	note_length 3
+	noise 3
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	noise 11
+	note_length 3
+	noise 3
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	noise 3
+	note_length 3
+	noise 11
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	noise 11
+	note_length 3
+	noise 3
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	noise 11
+	note_length 3
+	noise 3
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	noise 3
+	note_length 3
+	noise 11
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	noise 17
+	note_length 3
+	noise 11
+	note_length 3
+	noise 11
+	note_length 3
+	noise 3
+	note_length 6
+	continue_note
+	note_length 3
+	noise 17
+	note_length 3
+	noise 3
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	noise 11
+	note_length 3
+	noise 3
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	noise 3
+	note_length 3
+	noise 11
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	noise 11
+	note_length 3
+	noise 3
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	noise 11
+	note_length 3
+	noise 16
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	noise 3
+	note_length 3
+	noise 11
+	note_length 3
+	continue_note
+	noise 17
+	note_length 9
+	continue_note
+	note_length 3
+	noise 17
+	note_length 3
+	noise 11
+	note_length 3
+	noise 3
+	note_length 3
+	noise 17
+	note_length 24
+	continue_note
+	note_length 3
+	noise 3
+	note_length 3
+	noise 11
+	note_length 3
+	noise 11
+	note_length 3
+	noise 3
+	note_length 3
+	noise 17
+	note_length 3
+	continue_note
+	note_pitch G#, 0
+	note_length 3
+	noise 17
+	note_length 3
+	note_pitch G#, 0
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	noise 11
+	note_length 3
+	noise 17
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	noise 11
+	note_length 3
+	noise 11
+	note_length 3
+	noise 3
+	note_length 3
+	noise 17
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	noise 12
+	note_length 3
+	noise 11
+	note_length 3
+	noise 12
+	note_length 3
+	noise 3
+	note_length 3
+	noise 11
+	note_length 3
+	noise 17
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	noise 11
+	note_length 3
+	noise 11
+	note_length 3
+	noise 3
+	note_length 3
+	noise 17
+	note_length 3
+	continue_note
+	note_pitch G#, 0
+	note_length 3
+	noise 17
+	note_length 3
+	note_pitch G#, 0
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	noise 11
+	note_length 3
+	noise 17
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	noise 12
+	note_length 3
+	noise 11
+	note_length 3
+	noise 3
+	note_length 3
+	noise 17
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	noise 17
+	note_length 3
+	noise 11
+	note_length 3
+	noise 11
+	note_length 3
+	noise 3
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	noise 11
+	note_length 3
+	noise 11
+	note_length 3
+	noise 3
+	note_length 3
+	noise 17
+	note_length 3
+	continue_note
+	note_pitch G#, 0
+	note_length 3
+	noise 17
+	note_length 3
+	note_pitch G#, 0
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	noise 11
+	note_length 3
+	noise 17
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	noise 11
+	note_length 3
+	noise 11
+	note_length 3
+	noise 3
+	note_length 3
+	noise 17
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	noise 11
+	note_length 3
+	noise 17
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	noise 11
+	note_length 3
+	noise 17
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	noise 11
+	note_length 3
+	noise 11
+	note_length 3
+	noise 3
+	note_length 3
+	noise 17
+	note_length 3
+	continue_note
+	note_pitch G#, 0
+	note_length 3
+	noise 17
+	note_length 3
+	note_pitch G#, 0
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	noise 11
+	note_length 3
+	noise 17
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	noise 11
+	note_length 3
+	noise 11
+	note_length 3
+	noise 3
+	note_length 3
+	noise 17
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	noise 17
+	note_length 3
+	noise 11
+	note_length 3
+	noise 11
+	note_length 3
+	noise 3
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	continue_note
+	noise 11
+	note_length 9
+	continue_note
+	note_length 3
+	noise 3
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	noise 17
+	note_length 3
+	noise 3
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	continue_note
+	noise 18
+	note_length 3
+	noise 18
+	note_length 3
+	noise 3
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	noise 11
+	note_length 3
+	noise 3
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	noise 11
+	note_length 3
+	noise 3
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	noise 11
+	note_length 3
+	noise 3
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	noise 17
+	note_length 3
+	noise 11
+	note_length 3
+	noise 11
+	note_length 3
+	noise 17
+	note_length 3
+	continue_note
+	noise 18
+	note_length 3
+	noise 18
+	note_length 3
+	noise 3
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	noise 11
+	note_length 3
+	noise 3
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	noise 11
+	note_length 3
+	noise 3
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	noise 11
+	note_length 3
+	noise 3
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	noise 3
+	note_length 3
+	noise 11
+	note_length 3
+	continue_note
+	noise 17
+	note_length 9
+	continue_note
+	note_length 3
+	noise 17
+	note_length 3
+	noise 11
+	note_length 3
+	noise 17
+	note_length 3
+	noise 17
+	note_length 24
+	continue_note
+	note_length 3
+	noise 3
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	noise 3
+	note_length 3
+	noise 17
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	noise 17
+	note_length 3
+	noise 3
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	noise 3
+	note_length 3
+	noise 11
+	note_length 3
+	noise 17
+	note_length 3
+	noise 3
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	noise 17
+	note_length 3
+	noise 3
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	noise 3
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	noise 3
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	noise 3
+	note_length 3
+	noise 17
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	continue_note
+	noise 3
+	note_length 3
+	noise 17
+	note_length 3
+	noise 3
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	noise 3
+	note_length 3
+	noise 11
+	note_length 3
+	noise 17
+	note_length 3
+	noise 3
+	note_length 3
+	continue_note
+	noise 11
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	noise 11
+	note_length 3
+	noise 3
+	note_length 3
+	noise 17
+	note_length 6
+	continue_note
+	note_length 3
+	noise 3
+	note_length 3
+	continue_note
+	noise 17
+	note_length 3
+	continue_note
+	noise 18
+	note_length 3
+	noise 18
 	song_ret
