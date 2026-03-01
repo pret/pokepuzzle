@@ -5,7 +5,7 @@ INCLUDE "hram.asm"
 
 INCLUDE "home.asm"
 
-SECTION "Audio Engine", ROMX[$4000], BANK[$20]
+SECTION "Audio Engine", ROMX
 
 INCLUDE "audio/engine.asm"
 
@@ -21,7 +21,7 @@ SECTION "Panel de Pon 2", ROMX[$4000], BANK[$60]
 
 INCLUDE "audio/music/paneldepon2.asm"
 
-SECTION "Music 1", ROMX[$4000], BANK[$61]
+SECTION "Music 1", ROMX
 
 INCLUDE "audio/music/none.asm"
 INCLUDE "audio/music/goldenrodgym.asm"
@@ -33,7 +33,7 @@ INCLUDE "audio/music/mainmenu.asm"
 INCLUDE "audio/music/travellingtothegyms.asm"
 INCLUDE "audio/music/roundcleared.asm"
 
-SECTION "Music 2", ROMX[$4000], BANK[$62]
+SECTION "Music 2", ROMX
 
 INCLUDE "audio/music/mahoganygym.asm"
 INCLUDE "audio/music/gymvictory.asm"
@@ -43,7 +43,7 @@ INCLUDE "audio/music/lance.asm"
 INCLUDE "audio/music/gameover.asm"
 INCLUDE "audio/music/intro.asm"
 
-SECTION "Music 3", ROMX[$4000], BANK[$63]
+SECTION "Music 3", ROMX
 
 INCLUDE "audio/music/titlescreen.asm"
 INCLUDE "audio/music/herecomestheelitefour.asm"
@@ -55,7 +55,7 @@ INCLUDE "audio/music/gymbattledanger.asm"
 INCLUDE "audio/music/secrettrainervictory.asm"
 INCLUDE "audio/music/secrettrainer.asm"
 
-SECTION "Music 4", ROMX[$4000], BANK[$64]
+SECTION "Music 4", ROMX
 
 INCLUDE "audio/music/mainmenucopy.asm"
 INCLUDE "audio/music/credits.asm"

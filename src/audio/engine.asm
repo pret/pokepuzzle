@@ -519,7 +519,7 @@ Func_802fe: ; 802fe (20:42fe)
 	bit 0, a
 	ret nz
 	ld a, $01
-	ldh [rNR12], a
+	ldh [rAUD1ENV], a
 	ret
 ; 0x80309
 
@@ -1444,7 +1444,7 @@ Func_80823: ; 80823 (20:4823)
 	bit 0, a
 	ret nz
 	ld a, $01
-	ldh [rNR22], a
+	ldh [rAUD2ENV], a
 	ret
 ; 0x8082e
 
@@ -2369,7 +2369,7 @@ Func_80d48: ; 80d48 (20:4d48)
 	bit 0, a
 	ret nz
 	xor a
-	ldh [rNR30], a
+	ldh [rAUD3ENA], a
 	ret
 ; 0x80d52
 
@@ -3285,7 +3285,7 @@ Func_81263: ; 81263 (20:5263)
 	bit 0, a
 	ret nz
 	ld a, $01
-	ldh [rNR42], a
+	ldh [rAUD4ENV], a
 	ret
 ; 0x8126e
 
@@ -3505,16 +3505,16 @@ Func_81383: ; 81383 (20:5383)
 	dec b
 	jr nz, .asm_8138e
 	ld a, $00
-	ldh [rNR52], a
+	ldh [rAUDENA], a
 	ld [wc5f8], a
 	ld a, $80
-	ldh [rNR52], a
+	ldh [rAUDENA], a
 	ld [wc5f8], a
 	ld a, $77
-	ldh [rNR50], a
+	ldh [rAUDVOL], a
 	ld [wc5f6], a
 	ld a, $ff
-	ldh [rNR51], a
+	ldh [rAUDTERM], a
 	ld [wc5f7], a
 	ld [wc5f9], a
 	call Func_817ed
@@ -3599,17 +3599,17 @@ Func_8143e: ; 8143e (20:543e)
 	ld hl, wc5f0
 	res 7, [hl]
 	ld a, $00
-	ldh [rNR52], a
+	ldh [rAUDENA], a
 	ld [wc5f8], a
 	ld a, $80
-	ldh [rNR52], a
+	ldh [rAUDENA], a
 	ld [wc5f8], a
 	call Func_817ed
 	ld a, $77
-	ldh [rNR50], a
+	ldh [rAUDVOL], a
 	ld [wc5f6], a
 	ld a, $ff
-	ldh [rNR51], a
+	ldh [rAUDTERM], a
 	ld [wc5f7], a
 	ld [wc5f9], a
 	pop hl
@@ -3620,15 +3620,15 @@ Func_81468: ; 81468 (20:5468)
 	ld hl, wc5f0
 	res 7, [hl]
 	ld a, $08
-	ldh [rNR12], a
-	ldh [rNR22], a
-	ldh [rNR42], a
+	ldh [rAUD1ENV], a
+	ldh [rAUD2ENV], a
+	ldh [rAUD4ENV], a
 	ld a, $80
-	ldh [rNR14], a
-	ldh [rNR24], a
-	ldh [rNR44], a
+	ldh [rAUD1HIGH], a
+	ldh [rAUD2HIGH], a
+	ldh [rAUD4GO], a
 	ld a, $00
-	ldh [rNR30], a
+	ldh [rAUD3ENA], a
 	ret
 ; 0x81482
 
@@ -3737,12 +3737,12 @@ Func_81521: ; 81521 (20:5521)
 	bit 0, b
 	jr z, .asm_81540
 	ld a, [wc5f6]
-	ldh [rNR50], a
+	ldh [rAUDVOL], a
 .asm_81540
 	bit 1, b
 	jr z, .asm_81549
 	ld a, [wc5f8]
-	ldh [rNR52], a
+	ldh [rAUDENA], a
 .asm_81549
 	ld a, [wc603]
 	ld b, a
@@ -3770,32 +3770,32 @@ Func_81521: ; 81521 (20:5521)
 	and $ee
 	or c
 	ld [wc5f9], a
-	ldh [rNR51], a
+	ldh [rAUDTERM], a
 .asm_8157e
 	bit 0, b
 	jr z, .asm_81587
 	ld a, [wc604]
-	ldh [rNR10], a
+	ldh [rAUD1SWEEP], a
 .asm_81587
 	bit 1, b
 	jr z, .asm_81590
 	ld a, [wc605]
-	ldh [rNR11], a
+	ldh [rAUD1LEN], a
 .asm_81590
 	bit 2, b
 	jr z, .asm_81599
 	ld a, [wc606]
-	ldh [rNR12], a
+	ldh [rAUD1ENV], a
 .asm_81599
 	bit 3, b
 	jr z, .asm_815a2
 	ld a, [wc607]
-	ldh [rNR13], a
+	ldh [rAUD1LOW], a
 .asm_815a2
 	bit 4, b
 	jr z, .asm_815ab
 	ld a, [wc608]
-	ldh [rNR14], a
+	ldh [rAUD1HIGH], a
 .asm_815ab
 	ld hl, wc608
 	res 7, [hl]
@@ -3825,27 +3825,27 @@ Func_81521: ; 81521 (20:5521)
 	and $dd
 	or c
 	ld [wc5f9], a
-	ldh [rNR51], a
+	ldh [rAUDTERM], a
 .asm_815e5
 	bit 1, b
 	jr z, .asm_815ee
 	ld a, [wc635]
-	ldh [rNR21], a
+	ldh [rAUD2LEN], a
 .asm_815ee
 	bit 2, b
 	jr z, .asm_815f7
 	ld a, [wc636]
-	ldh [rNR22], a
+	ldh [rAUD2ENV], a
 .asm_815f7
 	bit 3, b
 	jr z, .asm_81600
 	ld a, [wc637]
-	ldh [rNR23], a
+	ldh [rAUD2LOW], a
 .asm_81600
 	bit 4, b
 	jr z, .asm_81609
 	ld a, [wc638]
-	ldh [rNR24], a
+	ldh [rAUD2HIGH], a
 .asm_81609
 	ld hl, wc638
 	res 7, [hl]
@@ -3875,45 +3875,45 @@ Func_81521: ; 81521 (20:5521)
 	and $bb
 	or c
 	ld [wc5f9], a
-	ldh [rNR51], a
+	ldh [rAUDTERM], a
 .asm_81643
 	bit 4, b
 	jr z, .asm_8165c
 	ld a, [wc668]
 	bit 7, a
 	jr z, .asm_8165c
-	ldh a, [rNR52]
+	ldh a, [rAUDENA]
 	bit 2, a
 	jr z, .asm_8165c
 	xor a
-	ldh [rNR30], a
+	ldh [rAUD3ENA], a
 	ld a, [wc664]
-	ldh [rNR30], a
+	ldh [rAUD3ENA], a
 .asm_8165c
 	bit 0, b
 	jr z, .asm_81665
 	ld a, [wc664]
-	ldh [rNR30], a
+	ldh [rAUD3ENA], a
 .asm_81665
 	bit 1, b
 	jr z, .asm_8166e
 	ld a, [wc665]
-	ldh [rNR31], a
+	ldh [rAUD3LEN], a
 .asm_8166e
 	bit 2, b
 	jr z, .asm_81677
 	ld a, [wc666]
-	ldh [rNR32], a
+	ldh [rAUD3LEVEL], a
 .asm_81677
 	bit 3, b
 	jr z, .asm_81680
 	ld a, [wc667]
-	ldh [rNR33], a
+	ldh [rAUD3LOW], a
 .asm_81680
 	bit 4, b
 	jr z, .asm_81689
 	ld a, [wc668]
-	ldh [rNR34], a
+	ldh [rAUD3HIGH], a
 .asm_81689
 	ld hl, wc668
 	res 7, [hl]
@@ -3943,27 +3943,27 @@ Func_81521: ; 81521 (20:5521)
 	and $77
 	or c
 	ld [wc5f9], a
-	ldh [rNR51], a
+	ldh [rAUDTERM], a
 .asm_816c3
 	bit 1, b
 	jr z, .asm_816cc
 	ld a, [wc695]
-	ldh [rNR41], a
+	ldh [rAUD4LEN], a
 .asm_816cc
 	bit 2, b
 	jr z, .asm_816d5
 	ld a, [wc696]
-	ldh [rNR42], a
+	ldh [rAUD4ENV], a
 .asm_816d5
 	bit 3, b
 	jr z, .asm_816de
 	ld a, [wc697]
-	ldh [rNR43], a
+	ldh [rAUD4POLY], a
 .asm_816de
 	bit 4, b
 	jr z, .asm_816e7
 	ld a, [wc698]
-	ldh [rNR44], a
+	ldh [rAUD4GO], a
 .asm_816e7
 	ld hl, wc698
 	res 7, [hl]
@@ -4122,21 +4122,21 @@ Func_817c5: ; 817c5 (20:57c5)
 
 Func_817ed: ; 817ed (20:57ed)
 	ld a, $08
-	ldh [rNR12], a
-	ldh [rNR22], a
-	ldh [rNR42], a
+	ldh [rAUD1ENV], a
+	ldh [rAUD2ENV], a
+	ldh [rAUD4ENV], a
 	ld [wc606], a
 	ld [wc636], a
 	ld [wc696], a
 	ld a, $80
-	ldh [rNR14], a
-	ldh [rNR24], a
-	ldh [rNR44], a
+	ldh [rAUD1HIGH], a
+	ldh [rAUD2HIGH], a
+	ldh [rAUD4GO], a
 	ld [wc608], a
 	ld [wc638], a
 	ld [wc698], a
 	ld a, $00
-	ldh [rNR30], a
+	ldh [rAUD3ENA], a
 	ld [wc664], a
 	ret
 ; 0x81817
@@ -4154,13 +4154,13 @@ Func_81817: ; 81817 (20:5817)
 	ld bc, DataTable_82f71
 	add hl, bc
 	xor a
-	ldh [rNR30], a
-	ldh [rNR31], a
-	ldh [rNR32], a
-	ldh [rNR33], a
-	ldh [rNR34], a
+	ldh [rAUD3ENA], a
+	ldh [rAUD3LEN], a
+	ldh [rAUD3LEVEL], a
+	ldh [rAUD3LOW], a
+	ldh [rAUD3HIGH], a
 	ld b, $10
-	ld c, LOW(rWave)
+	ld c, LOW(_AUD3WAVERAM)
 	call Func_1476
 	pop hl
 	pop bc
@@ -4328,14 +4328,14 @@ PointerTable_81a3f: ; 81a3f (20:5a3f)
 	dw Func_8201a
 
 Func_81a6d: ; 81a6d (20:5a6d)
-	ld hl, rNR10
+	ld hl, rAUD1SWEEP
 	xor a
 	ld [hli], a
 	ld a, $80
 	ld [hli], a
 	ld a, $f8
 	ld [hli], a
-	ld hl, rNR13
+	ld hl, rAUD1LOW
 	ld a, $e4
 	ld [hli], a
 	ld a, $84
@@ -4345,7 +4345,7 @@ Func_81a6d: ; 81a6d (20:5a6d)
 ; 0x81a85
 
 Func_81a85: ; 81a85 (20:5a85)
-	ld hl, rNR13
+	ld hl, rAUD1LOW
 	ld a, $83
 	ld [hli], a
 	ld a, $04
@@ -4355,7 +4355,7 @@ Func_81a85: ; 81a85 (20:5a85)
 ; 0x81a92
 
 Func_81a92: ; 81a92 (20:5a92)
-	ld hl, rNR13
+	ld hl, rAUD1LOW
 	ld a, $16
 	ld [hli], a
 	ld a, $04
@@ -4365,7 +4365,7 @@ Func_81a92: ; 81a92 (20:5a92)
 ; 0x81a9f
 
 Func_81a9f: ; 81a9f (20:5a9f)
-	ld hl, rNR13
+	ld hl, rAUD1LOW
 	ld a, $9b
 	ld [hli], a
 	ld a, $03
@@ -4375,7 +4375,7 @@ Func_81a9f: ; 81a9f (20:5a9f)
 ; 0x81aac
 
 Func_81aac: ; 81aac (20:5aac)
-	ld hl, rNR13
+	ld hl, rAUD1LOW
 	ld a, $11
 	ld [hli], a
 	ld a, $03
@@ -4385,7 +4385,7 @@ Func_81aac: ; 81aac (20:5aac)
 ; 0x81ab9
 
 Func_81ab9: ; 81ab9 (20:5ab9)
-	ld hl, rNR13
+	ld hl, rAUD1LOW
 	ld a, $76
 	ld [hli], a
 	ld a, $02
@@ -4395,7 +4395,7 @@ Func_81ab9: ; 81ab9 (20:5ab9)
 ; 0x81ac6
 
 Func_81ac6: ; 81ac6 (20:5ac6)
-	ld hl, rNR13
+	ld hl, rAUD1LOW
 	ld a, $c9
 	ld [hli], a
 	ld a, $01
@@ -4405,7 +4405,7 @@ Func_81ac6: ; 81ac6 (20:5ac6)
 ; 0x81ad3
 
 Func_81ad3: ; 81ad3 (20:5ad3)
-	ld hl, rNR13
+	ld hl, rAUD1LOW
 	ld a, $06
 	ld [hli], a
 	ld a, $01
@@ -4416,22 +4416,22 @@ Func_81ad3: ; 81ad3 (20:5ad3)
 
 Func_81ae0: ; 81ae0 (20:5ae0)
 	ld a, $08
-	ldh [rNR12], a
+	ldh [rAUD1ENV], a
 	ld a, $80
-	ldh [rNR14], a
+	ldh [rAUD1HIGH], a
 	ld de, $0
 	ret
 ; 0x81aec
 
 Func_81aec: ; 81aec (20:5aec)
-	ld hl, rNR10
+	ld hl, rAUD1SWEEP
 	xor a
 	ld [hli], a
 	ld a, $80
 	ld [hli], a
 	ld a, $f8
 	ld [hli], a
-	ld hl, rNR13
+	ld hl, rAUD1LOW
 	ld a, $83
 	ld [hli], a
 	ld a, $84
@@ -4441,7 +4441,7 @@ Func_81aec: ; 81aec (20:5aec)
 ; 0x81b04
 
 Func_81b04: ; 81b04 (20:5b04)
-	ld hl, rNR13
+	ld hl, rAUD1LOW
 	ld a, $16
 	ld [hli], a
 	ld a, $04
@@ -4451,7 +4451,7 @@ Func_81b04: ; 81b04 (20:5b04)
 ; 0x81b11
 
 Func_81b11: ; 81b11 (20:5b11)
-	ld hl, rNR13
+	ld hl, rAUD1LOW
 	ld a, $9b
 	ld [hli], a
 	ld a, $03
@@ -4461,7 +4461,7 @@ Func_81b11: ; 81b11 (20:5b11)
 ; 0x81b1e
 
 Func_81b1e: ; 81b1e (20:5b1e)
-	ld hl, rNR13
+	ld hl, rAUD1LOW
 	ld a, $11
 	ld [hli], a
 	ld a, $03
@@ -4471,7 +4471,7 @@ Func_81b1e: ; 81b1e (20:5b1e)
 ; 0x81b2b
 
 Func_81b2b: ; 81b2b (20:5b2b)
-	ld hl, rNR13
+	ld hl, rAUD1LOW
 	ld a, $76
 	ld [hli], a
 	ld a, $02
@@ -4481,7 +4481,7 @@ Func_81b2b: ; 81b2b (20:5b2b)
 ; 0x81b38
 
 Func_81b38: ; 81b38 (20:5b38)
-	ld hl, rNR13
+	ld hl, rAUD1LOW
 	ld a, $c9
 	ld [hli], a
 	ld a, $01
@@ -4491,7 +4491,7 @@ Func_81b38: ; 81b38 (20:5b38)
 ; 0x81b45
 
 Func_81b45: ; 81b45 (20:5b45)
-	ld hl, rNR13
+	ld hl, rAUD1LOW
 	ld a, $06
 	ld [hli], a
 	ld a, $01
@@ -4501,7 +4501,7 @@ Func_81b45: ; 81b45 (20:5b45)
 ; 0x81b52
 
 Func_81b52: ; 81b52 (20:5b52)
-	ld hl, rNR13
+	ld hl, rAUD1LOW
 	ld a, $2c
 	ld [hli], a
 	ld a, $00
@@ -4512,15 +4512,15 @@ Func_81b52: ; 81b52 (20:5b52)
 
 Func_81b5f: ; 81b5f (20:5b5f)
 	ld a, $08
-	ldh [rNR12], a
+	ldh [rAUD1ENV], a
 	ld a, $80
-	ldh [rNR14], a
+	ldh [rAUD1HIGH], a
 	ld de, $0
 	ret
 ; 0x81b6b
 
 Func_81b6b: ; 81b6b (20:5b6b)
-	ld hl, rNR42
+	ld hl, rAUD4ENV
 	ld a, $f1
 	ld [hli], a
 	ld a, $a8
@@ -4532,7 +4532,7 @@ Func_81b6b: ; 81b6b (20:5b6b)
 ; 0x81b7b
 
 Func_81b7b: ; 81b7b (20:5b7b)
-	ld hl, rNR42
+	ld hl, rAUD4ENV
 	ld a, $b1
 	ld [hli], a
 	ld a, $5d
@@ -4544,14 +4544,14 @@ Func_81b7b: ; 81b7b (20:5b7b)
 ; 0x81b8b
 
 Func_81b8b: ; 81b8b (20:5b8b)
-	ld hl, rNR10
+	ld hl, rAUD1SWEEP
 	xor a
 	ld [hli], a
 	ld a, $80
 	ld [hli], a
 	ld a, $f8
 	ld [hli], a
-	ld hl, rNR13
+	ld hl, rAUD1LOW
 	ld a, $e4
 	ld [hli], a
 	ld a, $84
@@ -4561,7 +4561,7 @@ Func_81b8b: ; 81b8b (20:5b8b)
 ; 0x81ba3
 
 Func_81ba3: ; 81ba3 (20:5ba3)
-	ld hl, rNR13
+	ld hl, rAUD1LOW
 	ld a, $83
 	ld [hli], a
 	ld a, $04
@@ -4571,7 +4571,7 @@ Func_81ba3: ; 81ba3 (20:5ba3)
 ; 0x81bb0
 
 Func_81bb0: ; 81bb0 (20:5bb0)
-	ld hl, rNR13
+	ld hl, rAUD1LOW
 	ld a, $16
 	ld [hli], a
 	ld a, $04
@@ -4581,7 +4581,7 @@ Func_81bb0: ; 81bb0 (20:5bb0)
 ; 0x81bbd
 
 Func_81bbd: ; 81bbd (20:5bbd)
-	ld hl, rNR13
+	ld hl, rAUD1LOW
 	ld a, $9b
 	ld [hli], a
 	ld a, $03
@@ -4591,7 +4591,7 @@ Func_81bbd: ; 81bbd (20:5bbd)
 ; 0x81bca
 
 Func_81bca: ; 81bca (20:5bca)
-	ld hl, rNR13
+	ld hl, rAUD1LOW
 	ld a, $11
 	ld [hli], a
 	ld a, $03
@@ -4601,7 +4601,7 @@ Func_81bca: ; 81bca (20:5bca)
 ; 0x81bd7
 
 Func_81bd7: ; 81bd7 (20:5bd7)
-	ld hl, rNR13
+	ld hl, rAUD1LOW
 	ld a, $76
 	ld [hli], a
 	ld a, $02
@@ -4611,7 +4611,7 @@ Func_81bd7: ; 81bd7 (20:5bd7)
 ; 0x81be4
 
 Func_81be4: ; 81be4 (20:5be4)
-	ld hl, rNR13
+	ld hl, rAUD1LOW
 	ld a, $c9
 	ld [hli], a
 	ld a, $01
@@ -4621,7 +4621,7 @@ Func_81be4: ; 81be4 (20:5be4)
 ; 0x81bf1
 
 Func_81bf1: ; 81bf1 (20:5bf1)
-	ld hl, rNR13
+	ld hl, rAUD1LOW
 	ld a, $06
 	ld [hli], a
 	ld a, $01
@@ -4632,22 +4632,22 @@ Func_81bf1: ; 81bf1 (20:5bf1)
 
 Func_81bfe: ; 81bfe (20:5bfe)
 	ld a, $08
-	ldh [rNR12], a
+	ldh [rAUD1ENV], a
 	ld a, $80
-	ldh [rNR14], a
+	ldh [rAUD1HIGH], a
 	ld de, $0
 	ret
 ; 0x81c0a
 
 Func_81c0a: ; 81c0a (20:5c0a)
-	ld hl, rNR10
+	ld hl, rAUD1SWEEP
 	xor a
 	ld [hli], a
 	ld a, $80
 	ld [hli], a
 	ld a, $f8
 	ld [hli], a
-	ld hl, rNR13
+	ld hl, rAUD1LOW
 	ld a, $83
 	ld [hli], a
 	ld a, $84
@@ -4657,7 +4657,7 @@ Func_81c0a: ; 81c0a (20:5c0a)
 ; 0x81c22
 
 Func_81c22: ; 81c22 (20:5c22)
-	ld hl, rNR13
+	ld hl, rAUD1LOW
 	ld a, $16
 	ld [hli], a
 	ld a, $04
@@ -4667,7 +4667,7 @@ Func_81c22: ; 81c22 (20:5c22)
 ; 0x81c2f
 
 Func_81c2f: ; 81c2f (20:5c2f)
-	ld hl, rNR13
+	ld hl, rAUD1LOW
 	ld a, $9b
 	ld [hli], a
 	ld a, $03
@@ -4677,7 +4677,7 @@ Func_81c2f: ; 81c2f (20:5c2f)
 ; 0x81c3c
 
 Func_81c3c: ; 81c3c (20:5c3c)
-	ld hl, rNR13
+	ld hl, rAUD1LOW
 	ld a, $11
 	ld [hli], a
 	ld a, $03
@@ -4687,7 +4687,7 @@ Func_81c3c: ; 81c3c (20:5c3c)
 ; 0x81c49
 
 Func_81c49: ; 81c49 (20:5c49)
-	ld hl, rNR13
+	ld hl, rAUD1LOW
 	ld a, $76
 	ld [hli], a
 	ld a, $02
@@ -4697,7 +4697,7 @@ Func_81c49: ; 81c49 (20:5c49)
 ; 0x81c56
 
 Func_81c56: ; 81c56 (20:5c56)
-	ld hl, rNR13
+	ld hl, rAUD1LOW
 	ld a, $c9
 	ld [hli], a
 	ld a, $01
@@ -4707,7 +4707,7 @@ Func_81c56: ; 81c56 (20:5c56)
 ; 0x81c63
 
 Func_81c63: ; 81c63 (20:5c63)
-	ld hl, rNR13
+	ld hl, rAUD1LOW
 	ld a, $06
 	ld [hli], a
 	ld a, $01
@@ -4717,7 +4717,7 @@ Func_81c63: ; 81c63 (20:5c63)
 ; 0x81c70
 
 Func_81c70: ; 81c70 (20:5c70)
-	ld hl, rNR13
+	ld hl, rAUD1LOW
 	ld a, $2c
 	ld [hli], a
 	ld a, $00
@@ -4728,24 +4728,24 @@ Func_81c70: ; 81c70 (20:5c70)
 
 Func_81c7d: ; 81c7d (20:5c7d)
 	ld a, $08
-	ldh [rNR12], a
+	ldh [rAUD1ENV], a
 	ld a, $80
-	ldh [rNR14], a
+	ldh [rAUD1HIGH], a
 	ld de, $0
 	ret
 ; 0x81c89
 
 Func_81c89: ; 81c89 (20:5c89)
 	ld a, $08
-	ldh [rNR42], a
+	ldh [rAUD4ENV], a
 	ld a, $80
-	ldh [rNR44], a
+	ldh [rAUD4GO], a
 	ld de, $0
 	ret
 ; 0x81c95
 
 Func_81c95: ; 81c95 (20:5c95)
-	ld hl, rNR41
+	ld hl, rAUD4LEN
 	xor a
 	ld [hli], a
 	ld a, $f8
@@ -4760,72 +4760,72 @@ Func_81c95: ; 81c95 (20:5c95)
 
 Func_81ca7: ; 81ca7 (20:5ca7)
 	ld a, $e8
-	ldh [rNR42], a
+	ldh [rAUD4ENV], a
 	ld a, $5d
-	ldh [rNR43], a
+	ldh [rAUD4POLY], a
 	ld a, $80
-	ldh [rNR44], a
+	ldh [rAUD4GO], a
 	ld de, Func_81cb7
 	ret
 ; 0x81cb7
 
 Func_81cb7: ; 81cb7 (20:5cb7)
 	ld a, $c8
-	ldh [rNR42], a
+	ldh [rAUD4ENV], a
 	ld a, $5f
-	ldh [rNR43], a
+	ldh [rAUD4POLY], a
 	ld a, $80
-	ldh [rNR44], a
+	ldh [rAUD4GO], a
 	ld de, Func_81cc7
 	ret
 ; 0x81cc7
 
 Func_81cc7: ; 81cc7 (20:5cc7)
 	ld a, $88
-	ldh [rNR42], a
+	ldh [rAUD4ENV], a
 	ld a, $6d
-	ldh [rNR43], a
+	ldh [rAUD4POLY], a
 	ld a, $80
-	ldh [rNR44], a
+	ldh [rAUD4GO], a
 	ld de, Func_81cd7
 	ret
 ; 0x81cd7
 
 Func_81cd7: ; 81cd7 (20:5cd7)
 	ld a, $48
-	ldh [rNR42], a
+	ldh [rAUD4ENV], a
 	ld a, $6f
-	ldh [rNR43], a
+	ldh [rAUD4POLY], a
 	ld a, $80
-	ldh [rNR44], a
+	ldh [rAUD4GO], a
 	ld de, Func_81ce7
 	ret
 ; 0x81ce7
 
 Func_81ce7: ; 81ce7 (20:5ce7)
 	ld a, $28
-	ldh [rNR42], a
+	ldh [rAUD4ENV], a
 	ld a, $7d
-	ldh [rNR43], a
+	ldh [rAUD4POLY], a
 	ld a, $80
-	ldh [rNR44], a
+	ldh [rAUD4GO], a
 	ld de, Func_81cf7
 	ret
 ; 0x81cf7
 
 Func_81cf7: ; 81cf7 (20:5cf7)
 	ld a, $18
-	ldh [rNR42], a
+	ldh [rAUD4ENV], a
 	ld a, $7f
-	ldh [rNR43], a
+	ldh [rAUD4POLY], a
 	ld a, $80
-	ldh [rNR44], a
+	ldh [rAUD4GO], a
 	ld de, Func_81c89
 	ret
 ; 0x81d07
 
 Func_81d07: ; 81d07 (20:5d07)
-	ld hl, rNR41
+	ld hl, rAUD4LEN
 	xor a
 	ld [hli], a
 	ld a, $a8
@@ -4840,61 +4840,61 @@ Func_81d07: ; 81d07 (20:5d07)
 
 Func_81d19: ; 81d19 (20:5d19)
 	ld a, $98
-	ldh [rNR42], a
+	ldh [rAUD4ENV], a
 	ld a, $5d
-	ldh [rNR43], a
+	ldh [rAUD4POLY], a
 	ld a, $80
-	ldh [rNR44], a
+	ldh [rAUD4GO], a
 	ld de, Func_81d29
 	ret
 ; 0x81d29
 
 Func_81d29: ; 81d29 (20:5d29)
 	ld a, $88
-	ldh [rNR42], a
+	ldh [rAUD4ENV], a
 	ld a, $5f
-	ldh [rNR43], a
+	ldh [rAUD4POLY], a
 	ld a, $80
-	ldh [rNR44], a
+	ldh [rAUD4GO], a
 	ld de, Func_81d39
 	ret
 ; 0x81d39
 
 Func_81d39: ; 81d39 (20:5d39)
 	ld a, $48
-	ldh [rNR42], a
+	ldh [rAUD4ENV], a
 	ld a, $6f
-	ldh [rNR43], a
+	ldh [rAUD4POLY], a
 	ld a, $80
-	ldh [rNR44], a
+	ldh [rAUD4GO], a
 	ld de, Func_81d49
 	ret
 ; 0x81d49
 
 Func_81d49: ; 81d49 (20:5d49)
 	ld a, $28
-	ldh [rNR42], a
+	ldh [rAUD4ENV], a
 	ld a, $7d
-	ldh [rNR43], a
+	ldh [rAUD4POLY], a
 	ld a, $80
-	ldh [rNR44], a
+	ldh [rAUD4GO], a
 	ld de, Func_81d59
 	ret
 ; 0x81d59
 
 Func_81d59: ; 81d59 (20:5d59)
 	ld a, $18
-	ldh [rNR42], a
+	ldh [rAUD4ENV], a
 	ld a, $7f
-	ldh [rNR43], a
+	ldh [rAUD4POLY], a
 	ld a, $80
-	ldh [rNR44], a
+	ldh [rAUD4GO], a
 	ld de, Func_81c89
 	ret
 ; 0x81d69
 
 Func_81d69: ; 81d69 (20:5d69)
-	ld hl, rNR41
+	ld hl, rAUD4LEN
 	xor a
 	ld [hli], a
 	ld a, $f8
@@ -4909,51 +4909,51 @@ Func_81d69: ; 81d69 (20:5d69)
 
 Func_81d7b: ; 81d7b (20:5d7b)
 	ld a, $b8
-	ldh [rNR42], a
+	ldh [rAUD4ENV], a
 	ld a, $80
-	ldh [rNR44], a
+	ldh [rAUD4GO], a
 	ld de, Func_81d87
 	ret
 ; 0x81d87
 
 Func_81d87: ; 81d87 (20:5d87)
 	ld a, $78
-	ldh [rNR42], a
+	ldh [rAUD4ENV], a
 	ld a, $80
-	ldh [rNR44], a
+	ldh [rAUD4GO], a
 	ld de, Func_81d93
 	ret
 ; 0x81d93
 
 Func_81d93: ; 81d93 (20:5d93)
 	ld a, $38
-	ldh [rNR42], a
+	ldh [rAUD4ENV], a
 	ld a, $80
-	ldh [rNR44], a
+	ldh [rAUD4GO], a
 	ld de, Func_81d9f
 	ret
 ; 0x81d9f
 
 Func_81d9f: ; 81d9f (20:5d9f)
 	ld a, $28
-	ldh [rNR42], a
+	ldh [rAUD4ENV], a
 	ld a, $80
-	ldh [rNR44], a
+	ldh [rAUD4GO], a
 	ld de, Func_81dab
 	ret
 ; 0x81dab
 
 Func_81dab: ; 81dab (20:5dab)
 	ld a, $18
-	ldh [rNR42], a
+	ldh [rAUD4ENV], a
 	ld a, $80
-	ldh [rNR44], a
+	ldh [rAUD4GO], a
 	ld de, Func_81c89
 	ret
 ; 0x81db7
 
 Func_81db7: ; 81db7 (20:5db7)
-	ld hl, rNR41
+	ld hl, rAUD4LEN
 	xor a
 	ld [hli], a
 	ld a, $a8
@@ -4968,42 +4968,42 @@ Func_81db7: ; 81db7 (20:5db7)
 
 Func_81dc9: ; 81dc9 (20:5dc9)
 	ld a, $68
-	ldh [rNR42], a
+	ldh [rAUD4ENV], a
 	ld a, $80
-	ldh [rNR44], a
+	ldh [rAUD4GO], a
 	ld de, Func_81dd5
 	ret
 ; 0x81dd5
 
 Func_81dd5: ; 81dd5 (20:5dd5)
 	ld a, $38
-	ldh [rNR42], a
+	ldh [rAUD4ENV], a
 	ld a, $80
-	ldh [rNR44], a
+	ldh [rAUD4GO], a
 	ld de, Func_81de1
 	ret
 ; 0x81de1
 
 Func_81de1: ; 81de1 (20:5de1)
 	ld a, $28
-	ldh [rNR42], a
+	ldh [rAUD4ENV], a
 	ld a, $80
-	ldh [rNR44], a
+	ldh [rAUD4GO], a
 	ld de, Func_81ded
 	ret
 ; 0x81ded
 
 Func_81ded: ; 81ded (20:5ded)
 	ld a, $18
-	ldh [rNR42], a
+	ldh [rAUD4ENV], a
 	ld a, $80
-	ldh [rNR44], a
+	ldh [rAUD4GO], a
 	ld de, Func_81c89
 	ret
 ; 0x81df9
 
 Func_81df9: ; 81df9 (20:5df9)
-	ld hl, rNR41
+	ld hl, rAUD4LEN
 	xor a
 	ld [hli], a
 	ld a, $78
@@ -5018,33 +5018,33 @@ Func_81df9: ; 81df9 (20:5df9)
 
 Func_81e0b: ; 81e0b (20:5e0b)
 	ld a, $38
-	ldh [rNR42], a
+	ldh [rAUD4ENV], a
 	ld a, $80
-	ldh [rNR44], a
+	ldh [rAUD4GO], a
 	ld de, Func_81e17
 	ret
 ; 0x81e17
 
 Func_81e17: ; 81e17 (20:5e17)
 	ld a, $28
-	ldh [rNR42], a
+	ldh [rAUD4ENV], a
 	ld a, $80
-	ldh [rNR44], a
+	ldh [rAUD4GO], a
 	ld de, Func_81e23
 	ret
 ; 0x81e23
 
 Func_81e23: ; 81e23 (20:5e23)
 	ld a, $18
-	ldh [rNR42], a
+	ldh [rAUD4ENV], a
 	ld a, $80
-	ldh [rNR44], a
+	ldh [rAUD4GO], a
 	ld de, Func_81c89
 	ret
 ; 0x81e2f
 
 Func_81e2f: ; 81e2f (20:5e2f)
-	ld hl, rNR41
+	ld hl, rAUD4LEN
 	xor a
 	ld [hli], a
 	ld a, $f8
@@ -5059,27 +5059,27 @@ Func_81e2f: ; 81e2f (20:5e2f)
 
 Func_81e41: ; 81e41 (20:5e41)
 	ld a, $48
-	ldh [rNR42], a
+	ldh [rAUD4ENV], a
 	ld de, Func_81e49
 	ret
 ; 0x81e49
 
 Func_81e49: ; 81e49 (20:5e49)
 	ld a, $28
-	ldh [rNR42], a
+	ldh [rAUD4ENV], a
 	ld de, Func_81e51
 	ret
 ; 0x81e51
 
 Func_81e51: ; 81e51 (20:5e51)
 	ld a, $18
-	ldh [rNR42], a
+	ldh [rAUD4ENV], a
 	ld de, Func_81c89
 	ret
 ; 0x81e59
 
 Func_81e59: ; 81e59 (20:5e59)
-	ld hl, rNR41
+	ld hl, rAUD4LEN
 	xor a
 	ld [hli], a
 	ld a, $b8
@@ -5094,20 +5094,20 @@ Func_81e59: ; 81e59 (20:5e59)
 
 Func_81e6b: ; 81e6b (20:5e6b)
 	ld a, $28
-	ldh [rNR42], a
+	ldh [rAUD4ENV], a
 	ld de, Func_81e73
 	ret
 ; 0x81e73
 
 Func_81e73: ; 81e73 (20:5e73)
 	ld a, $18
-	ldh [rNR42], a
+	ldh [rAUD4ENV], a
 	ld de, Func_81c89
 	ret
 ; 0x81e7b
 
 Func_81e7b: ; 81e7b (20:5e7b)
-	ld hl, rNR10
+	ld hl, rAUD1SWEEP
 	xor a
 	ld [hli], a
 	ld a, $80
@@ -5115,8 +5115,8 @@ Func_81e7b: ; 81e7b (20:5e7b)
 	ld a, $a1
 	ld [hli], a
 	ld a, $1c
-	ldh [rNR10], a
-	ld hl, rNR13
+	ldh [rAUD1SWEEP], a
+	ld hl, rAUD1LOW
 	ld a, $08
 	ld [hli], a
 	ld a, $87
@@ -5126,7 +5126,7 @@ Func_81e7b: ; 81e7b (20:5e7b)
 ; 0x81e97
 
 Func_81e97: ; 81e97 (20:5e97)
-	ld hl, rNR13
+	ld hl, rAUD1LOW
 	ld a, $8e
 	ld [hli], a
 	ld a, $05
@@ -5136,7 +5136,7 @@ Func_81e97: ; 81e97 (20:5e97)
 ; 0x81ea4
 
 Func_81ea4: ; 81ea4 (20:5ea4)
-	ld hl, rNR13
+	ld hl, rAUD1LOW
 	ld a, $14
 	ld [hli], a
 	ld a, $05
@@ -5146,7 +5146,7 @@ Func_81ea4: ; 81ea4 (20:5ea4)
 ; 0x81eb1
 
 Func_81eb1: ; 81eb1 (20:5eb1)
-	ld hl, rNR13
+	ld hl, rAUD1LOW
 	ld a, $46
 	ld [hli], a
 	ld a, $05
@@ -5157,15 +5157,15 @@ Func_81eb1: ; 81eb1 (20:5eb1)
 
 Func_81ebe: ; 81ebe (20:5ebe)
 	ld a, $08
-	ldh [rNR12], a
+	ldh [rAUD1ENV], a
 	ld a, $80
-	ldh [rNR14], a
+	ldh [rAUD1HIGH], a
 	ld de, $0
 	ret
 ; 0x81eca
 
 Func_81eca: ; 81eca (20:5eca)
-	ld hl, rNR10
+	ld hl, rAUD1SWEEP
 	xor a
 	ld [hli], a
 	ld a, $80
@@ -5173,8 +5173,8 @@ Func_81eca: ; 81eca (20:5eca)
 	ld a, $c1
 	ld [hli], a
 	ld a, $1c
-	ldh [rNR10], a
-	ld hl, rNR13
+	ldh [rAUD1SWEEP], a
+	ld hl, rAUD1LOW
 	ld a, $08
 	ld [hli], a
 	ld a, $87
@@ -5184,7 +5184,7 @@ Func_81eca: ; 81eca (20:5eca)
 ; 0x81ee6
 
 Func_81ee6: ; 81ee6 (20:5ee6)
-	ld hl, rNR13
+	ld hl, rAUD1LOW
 	ld a, $8e
 	ld [hli], a
 	ld a, $05
@@ -5194,7 +5194,7 @@ Func_81ee6: ; 81ee6 (20:5ee6)
 ; 0x81ef3
 
 Func_81ef3: ; 81ef3 (20:5ef3)
-	ld hl, rNR13
+	ld hl, rAUD1LOW
 	ld a, $14
 	ld [hli], a
 	ld a, $05
@@ -5204,7 +5204,7 @@ Func_81ef3: ; 81ef3 (20:5ef3)
 ; 0x81f00
 
 Func_81f00: ; 81f00 (20:5f00)
-	ld hl, rNR13
+	ld hl, rAUD1LOW
 	ld a, $e2
 	ld [hli], a
 	ld a, $04
@@ -5215,15 +5215,15 @@ Func_81f00: ; 81f00 (20:5f00)
 
 Func_81f0d: ; 81f0d (20:5f0d)
 	ld a, $08
-	ldh [rNR12], a
+	ldh [rAUD1ENV], a
 	ld a, $80
-	ldh [rNR14], a
+	ldh [rAUD1HIGH], a
 	ld de, $0
 	ret
 ; 0x81f19
 
 Func_81f19: ; 81f19 (20:5f19)
-	ld hl, rNR10
+	ld hl, rAUD1SWEEP
 	xor a
 	ld [hli], a
 	ld a, $80
@@ -5231,8 +5231,8 @@ Func_81f19: ; 81f19 (20:5f19)
 	ld a, $f2
 	ld [hli], a
 	ld a, $1c
-	ldh [rNR10], a
-	ld hl, rNR13
+	ldh [rAUD1SWEEP], a
+	ld hl, rAUD1LOW
 	ld a, $40
 	ld [hli], a
 	ld a, $86
@@ -5242,7 +5242,7 @@ Func_81f19: ; 81f19 (20:5f19)
 ; 0x81f35
 
 Func_81f35: ; 81f35 (20:5f35)
-	ld hl, rNR13
+	ld hl, rAUD1LOW
 	ld a, $8e
 	ld [hli], a
 	ld a, $05
@@ -5252,7 +5252,7 @@ Func_81f35: ; 81f35 (20:5f35)
 ; 0x81f42
 
 Func_81f42: ; 81f42 (20:5f42)
-	ld hl, rNR13
+	ld hl, rAUD1LOW
 	ld a, $14
 	ld [hli], a
 	ld a, $05
@@ -5262,7 +5262,7 @@ Func_81f42: ; 81f42 (20:5f42)
 ; 0x81f4f
 
 Func_81f4f: ; 81f4f (20:5f4f)
-	ld hl, rNR13
+	ld hl, rAUD1LOW
 	ld a, $e2
 	ld [hli], a
 	ld a, $04
@@ -5272,7 +5272,7 @@ Func_81f4f: ; 81f4f (20:5f4f)
 ; 0x81f5c
 
 Func_81f5c: ; 81f5c (20:5f5c)
-	ld hl, rNR13
+	ld hl, rAUD1LOW
 	ld a, $7e
 	ld [hli], a
 	ld a, $04
@@ -5282,7 +5282,7 @@ Func_81f5c: ; 81f5c (20:5f5c)
 ; 0x81f69
 
 Func_81f69: ; 81f69 (20:5f69)
-	ld hl, rNR13
+	ld hl, rAUD1LOW
 	ld a, $1a
 	ld [hli], a
 	ld a, $04
@@ -5292,7 +5292,7 @@ Func_81f69: ; 81f69 (20:5f69)
 ; 0x81f76
 
 Func_81f76: ; 81f76 (20:5f76)
-	ld hl, rNR13
+	ld hl, rAUD1LOW
 	ld a, $b6
 	ld [hli], a
 	ld a, $03
@@ -5302,7 +5302,7 @@ Func_81f76: ; 81f76 (20:5f76)
 ; 0x81f83
 
 Func_81f83: ; 81f83 (20:5f83)
-	ld hl, rNR13
+	ld hl, rAUD1LOW
 	ld a, $52
 	ld [hli], a
 	ld a, $03
@@ -5312,7 +5312,7 @@ Func_81f83: ; 81f83 (20:5f83)
 ; 0x81f90
 
 Func_81f90: ; 81f90 (20:5f90)
-	ld hl, rNR13
+	ld hl, rAUD1LOW
 	ld a, $ee
 	ld [hli], a
 	ld a, $02
@@ -5322,7 +5322,7 @@ Func_81f90: ; 81f90 (20:5f90)
 ; 0x81f9d
 
 Func_81f9d: ; 81f9d (20:5f9d)
-	ld hl, rNR13
+	ld hl, rAUD1LOW
 	ld a, $8a
 	ld [hli], a
 	ld a, $02
@@ -5333,15 +5333,15 @@ Func_81f9d: ; 81f9d (20:5f9d)
 
 Func_81faa: ; 81faa (20:5faa)
 	ld a, $08
-	ldh [rNR12], a
+	ldh [rAUD1ENV], a
 	ld a, $80
-	ldh [rNR14], a
+	ldh [rAUD1HIGH], a
 	ld de, $0
 	ret
 ; 0x81fb6
 
 Func_81fb6: ; 81fb6 (20:5fb6)
-	ld hl, rNR41
+	ld hl, rAUD4LEN
 	xor a
 	ld [hli], a
 	ld a, $68
@@ -5356,28 +5356,28 @@ Func_81fb6: ; 81fb6 (20:5fb6)
 
 Func_81fc8: ; 81fc8 (20:5fc8)
 	ld a, $b8
-	ldh [rNR42], a
+	ldh [rAUD4ENV], a
 	ld a, $0d
-	ldh [rNR43], a
+	ldh [rAUD4POLY], a
 	ld a, $80
-	ldh [rNR44], a
+	ldh [rAUD4GO], a
 	ld de, Func_81fd8
 	ret
 ; 0x81fd8
 
 Func_81fd8: ; 81fd8 (20:5fd8)
 	ld a, $b8
-	ldh [rNR42], a
+	ldh [rAUD4ENV], a
 	ld a, $0f
-	ldh [rNR43], a
+	ldh [rAUD4POLY], a
 	ld a, $80
-	ldh [rNR44], a
+	ldh [rAUD4GO], a
 	ld de, Func_81c89
 	ret
 ; 0x81fe8
 
 Func_81fe8: ; 81fe8 (20:5fe8)
-	ld hl, rNR41
+	ld hl, rAUD4LEN
 	xor a
 	ld [hli], a
 	ld a, $98
@@ -5392,28 +5392,28 @@ Func_81fe8: ; 81fe8 (20:5fe8)
 
 Func_81ffa: ; 81ffa (20:5ffa)
 	ld a, $b8
-	ldh [rNR42], a
+	ldh [rAUD4ENV], a
 	ld a, $0c
-	ldh [rNR43], a
+	ldh [rAUD4POLY], a
 	ld a, $80
-	ldh [rNR44], a
+	ldh [rAUD4GO], a
 	ld de, Func_8200a
 	ret
 ; 0x8200a
 
 Func_8200a: ; 8200a (20:600a)
 	ld a, $b8
-	ldh [rNR42], a
+	ldh [rAUD4ENV], a
 	ld a, $0c
-	ldh [rNR43], a
+	ldh [rAUD4POLY], a
 	ld a, $80
-	ldh [rNR44], a
+	ldh [rAUD4GO], a
 	ld de, Func_81c89
 	ret
 ; 0x8201a
 
 Func_8201a: ; 8201a (20:601a)
-	ld hl, rNR41
+	ld hl, rAUD4LEN
 	xor a
 	ld [hli], a
 	ld a, $48
@@ -5428,39 +5428,39 @@ Func_8201a: ; 8201a (20:601a)
 
 Func_8202c: ; 8202c (20:602c)
 	ld a, $c8
-	ldh [rNR42], a
+	ldh [rAUD4ENV], a
 	ld a, $2e
-	ldh [rNR43], a
+	ldh [rAUD4POLY], a
 	ld a, $80
-	ldh [rNR44], a
+	ldh [rAUD4GO], a
 	ld de, Func_8203c
 	ret
 ; 0x8203c
 
 Func_8203c: ; 8203c (20:603c)
 	ld a, $c8
-	ldh [rNR42], a
+	ldh [rAUD4ENV], a
 	ld a, $3f
-	ldh [rNR43], a
+	ldh [rAUD4POLY], a
 	ld a, $80
-	ldh [rNR44], a
+	ldh [rAUD4GO], a
 	ld de, Func_8204c
 	ret
 ; 0x8204c
 
 Func_8204c: ; 8204c (20:604c)
 	ld a, $c8
-	ldh [rNR42], a
+	ldh [rAUD4ENV], a
 	ld a, $5c
-	ldh [rNR43], a
+	ldh [rAUD4POLY], a
 	ld a, $80
-	ldh [rNR44], a
+	ldh [rAUD4GO], a
 	ld de, Func_81c89
 	ret
 ; 0x8205c
 
 Func_8205c: ; 8205c (20:605c)
-	ld hl, rNR41
+	ld hl, rAUD4LEN
 	xor a
 	ld [hli], a
 	ld a, $51
@@ -5489,7 +5489,7 @@ Func_82076: ; 82076 (20:6076)
 ; 0x8207a
 
 Func_8207a: ; 8207a (20:607a)
-	ld hl, rNR41
+	ld hl, rAUD4LEN
 	xor a
 	ld [hli], a
 	ld a, $41
@@ -5518,7 +5518,7 @@ Func_82094: ; 82094 (20:6094)
 ; 0x82098
 
 Func_82098: ; 82098 (20:6098)
-	ld hl, rNR41
+	ld hl, rAUD4LEN
 	xor a
 	ld [hli], a
 	ld a, $71
@@ -5547,7 +5547,7 @@ Func_820b2: ; 820b2 (20:60b2)
 ; 0x820b6
 
 Func_820b6: ; 820b6 (20:60b6)
-	ld hl, rNR41
+	ld hl, rAUD4LEN
 	xor a
 	ld [hli], a
 	ld a, $61
@@ -5576,7 +5576,7 @@ Func_820d0: ; 820d0 (20:60d0)
 ; 0x820d4
 
 Func_820d4: ; 820d4 (20:60d4)
-	ld hl, rNR41
+	ld hl, rAUD4LEN
 	xor a
 	ld [hli], a
 	ld a, $33
@@ -5625,7 +5625,7 @@ Func_820fe: ; 820fe (20:60fe)
 ; 0x82102
 
 Func_82102: ; 82102 (20:6102)
-	ld hl, rNR41
+	ld hl, rAUD4LEN
 	xor a
 	ld [hli], a
 	ld a, $82
@@ -5674,7 +5674,7 @@ Func_8212c: ; 8212c (20:612c)
 ; 0x82130
 
 Func_82130: ; 82130 (20:6130)
-	ld hl, rNR41
+	ld hl, rAUD4LEN
 	xor a
 	ld [hli], a
 	ld a, $d2
@@ -5768,7 +5768,7 @@ Func_8217e: ; 8217e (20:617e)
 ; 0x82182
 
 Func_82182: ; 82182 (20:6182)
-	ld hl, rNR41
+	ld hl, rAUD4LEN
 	xor a
 	ld [hli], a
 	ld a, $68
@@ -5783,16 +5783,16 @@ Func_82182: ; 82182 (20:6182)
 
 Func_82194: ; 82194 (20:6194)
 	ld a, $28
-	ldh [rNR42], a
+	ldh [rAUD4ENV], a
 	ld a, $80
-	ldh [rNR44], a
+	ldh [rAUD4GO], a
 	ld de, Func_821a0
 	ret
 ; 0x821a0
 
 Func_821a0: ; 821a0 (20:61a0)
 	ld a, $52
-	ld hl, rNR42
+	ld hl, rAUD4ENV
 	ld [hli], a
 	ld a, $03
 	ld [hli], a
@@ -5813,7 +5813,7 @@ Func_821b4: ; 821b4 (20:61b4)
 ; 0x821b8
 
 Func_821b8: ; 821b8 (20:61b8)
-	ld hl, rNR41
+	ld hl, rAUD4LEN
 	xor a
 	ld [hli], a
 	ld a, $88
@@ -5828,16 +5828,16 @@ Func_821b8: ; 821b8 (20:61b8)
 
 Func_821ca: ; 821ca (20:61ca)
 	ld a, $38
-	ldh [rNR42], a
+	ldh [rAUD4ENV], a
 	ld a, $80
-	ldh [rNR44], a
+	ldh [rAUD4GO], a
 	ld de, Func_821d6
 	ret
 ; 0x821d6
 
 Func_821d6: ; 821d6 (20:61d6)
 	ld a, $62
-	ld hl, rNR42
+	ld hl, rAUD4ENV
 	ld [hli], a
 	ld a, $03
 	ld [hli], a
@@ -5858,7 +5858,7 @@ Func_821ea: ; 821ea (20:61ea)
 ; 0x821ee
 
 Func_821ee: ; 821ee (20:61ee)
-	ld hl, rNR41
+	ld hl, rAUD4LEN
 	xor a
 	ld [hli], a
 	ld a, $a8
@@ -5873,36 +5873,36 @@ Func_821ee: ; 821ee (20:61ee)
 
 Func_82200: ; 82200 (20:6200)
 	ld a, $68
-	ldh [rNR42], a
+	ldh [rAUD4ENV], a
 	ld a, $80
-	ldh [rNR44], a
+	ldh [rAUD4GO], a
 	ld de, Func_8220c
 	ret
 ; 0x8220c
 
 Func_8220c: ; 8220c (20:620c)
 	ld a, $38
-	ldh [rNR42], a
+	ldh [rAUD4ENV], a
 	ld a, $80
-	ldh [rNR44], a
+	ldh [rAUD4GO], a
 	ld de, Func_82218
 	ret
 ; 0x82218
 
 Func_82218: ; 82218 (20:6218)
 	ld a, $28
-	ldh [rNR42], a
+	ldh [rAUD4ENV], a
 	ld a, $80
-	ldh [rNR44], a
+	ldh [rAUD4GO], a
 	ld de, Func_82224
 	ret
 ; 0x82224
 
 Func_82224: ; 82224 (20:6224)
 	ld a, $18
-	ldh [rNR42], a
+	ldh [rAUD4ENV], a
 	ld a, $80
-	ldh [rNR44], a
+	ldh [rAUD4GO], a
 	ld de, Func_81c89
 	ret
 ; 0x82230

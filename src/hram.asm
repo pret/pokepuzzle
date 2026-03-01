@@ -1,4 +1,4 @@
-SECTION "High RAM", HRAM[$ff80]
+SECTION "HRAM", HRAM[$ff80]
 
 	ds $23
 

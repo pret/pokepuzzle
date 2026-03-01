@@ -1,4 +1,4 @@
-SECTION "Audio RAM", WRAM0[$c5f0]
+SECTION "Audio RAM", WRAM0
 
 wAudioStart::
 
