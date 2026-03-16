@@ -1,3 +1,29 @@
+SECTION "Virtual OAM", WRAM0
+
+wVirtualOAM:: ; c000
+	ds OAM_SIZE
+
+SECTION "Stack", WRAM0
+
+wStackBottom:: ; c0a0
+	ds $60
+wStack:: ; c100
+
+SECTION "WRAM0", WRAM0
+
+	ds $c342 - $c100
+
+; invoked on H-Blank interrupt
+wHBlankHandler:: ds 1 ; c342
+
+	ds $c492 - $c343
+
+; invoked on V-Blank interrupt, holds:
+; 	jp <func>
+; where <func> is dynamically loaded
+; default is VBlankHandler
+wVBlankHandler:: ds 3 ; c492
+
 SECTION "Audio RAM", WRAM0
 
 wAudioStart::

@@ -1,7 +1,9 @@
 rom := pokepuzzle.gbc
 
-rom_obj := src/main.o
-
+rom_obj := \
+	src/home.o \
+	src/main.o \
+	src/ram.o
 
 ### Build tools
 
@@ -56,7 +58,7 @@ tools:
 	$(MAKE) -C tools/
 
 
-RGBASMFLAGS += -I src/
+RGBASMFLAGS += -I src/ -P src/includes.asm
 # Create a sym/map for debug purposes if `make` run with `DEBUG=1`
 ifeq ($(DEBUG),1)
 RGBASMFLAGS += -E

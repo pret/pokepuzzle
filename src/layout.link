@@ -29,6 +29,8 @@ ROM0
 	"romheader"
 	org $0150
 	"start"
+ROMX $04
+	"Bank 4"
 ROMX $20
 	"Audio Engine"
 ROMX $61
@@ -40,5 +42,16 @@ ROMX $63
 ROMX $64
 	"Music 4"
 WRAM0
+	"Virtual OAM"
+	"Stack"
+	"WRAM0"
 	org $c5f0
 	"Audio RAM"
+VRAM $00
+	"VRAM0"
+VRAM $01
+	"VRAM1"
+SRAM $0
+	"SRAM0"
+HRAM
+	"DMA Transfer"

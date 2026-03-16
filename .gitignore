@@ -21,3 +21,6 @@
 *.1bpp
 *.2bpp
 *.pal
+
+# disassembler output
+disasm_output.asm
