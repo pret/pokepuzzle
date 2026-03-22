@@ -3737,13 +3737,13 @@ Func_814c5:: ; 814c5 (20:54c5)
 ; 0x81521
 
 Func_81521: ; 81521 (20:5521)
-	ld a, [$c7b4]
+	ld a, [wc7b4]
 	and a
 	jr nz, .asm_81549
-	ld a, [$c7bd]
+	ld a, [wc7bd]
 	and a
 	jr nz, .asm_81549
-	ld a, [$c7c6]
+	ld a, [wc7c6]
 	and a
 	jr nz, .asm_81549
 	ld a, [wc5f1]
@@ -4203,8 +4203,8 @@ Func_8183c: ; 8183c (20:583c)
 ; 0x81857
 
 Func_81857:: ; 81857 (20:5857)
-	ldh a, [hffbe]
-	bit 0, a
+	ldh a, [hJoypadPressed]
+	bit B_PAD_A, a
 	jr z, .asm_81873
 	ld a, [wc6ce]
 	cp $60
@@ -4220,8 +4220,8 @@ Func_81857:: ; 81857 (20:5857)
 	ld [wc6ce], a
 	jp .asm_8190d
 .asm_81873
-	ldh a, [hffbe]
-	bit 1, a
+	ldh a, [hJoypadPressed]
+	bit B_PAD_B, a
 	jr z, .asm_8188f
 	ld a, [wc6ce]
 	and a
@@ -4237,8 +4237,8 @@ Func_81857:: ; 81857 (20:5857)
 	ld [wc6ce], a
 	jp .asm_8190d
 .asm_8188f
-	ldh a, [hffbe]
-	bit 6, a
+	ldh a, [hJoypadPressed]
+	bit B_PAD_UP, a
 	jr z, .asm_818a6
 	ld hl, wc692
 	bit 0, [hl]
@@ -4249,8 +4249,8 @@ Func_81857:: ; 81857 (20:5857)
 	res 0, [hl]
 	jp .asm_8190d
 .asm_818a6
-	ldh a, [hffbe]
-	bit 4, a
+	ldh a, [hJoypadPressed]
+	bit B_PAD_RIGHT, a
 	jr z, .asm_818bd
 	ld hl, wc602
 	bit 0, [hl]
@@ -4261,8 +4261,8 @@ Func_81857:: ; 81857 (20:5857)
 	res 0, [hl]
 	jp .asm_8190d
 .asm_818bd
-	ldh a, [hffbe]
-	bit 7, a
+	ldh a, [hJoypadPressed]
+	bit B_PAD_DOWN, a
 	jr z, .asm_818d4
 	ld hl, wc632
 	bit 0, [hl]
@@ -4273,8 +4273,8 @@ Func_81857:: ; 81857 (20:5857)
 	res 0, [hl]
 	jp .asm_8190d
 .asm_818d4
-	ldh a, [hffbe]
-	bit 5, a
+	ldh a, [hJoypadPressed]
+	bit B_PAD_LEFT, a
 	jr z, .asm_818eb
 	ld hl, wc662
 	bit 0, [hl]
@@ -4285,14 +4285,14 @@ Func_81857:: ; 81857 (20:5857)
 	res 0, [hl]
 	jp .asm_8190d
 .asm_818eb
-	ldh a, [hffbe]
-	bit 2, a
+	ldh a, [hJoypadPressed]
+	bit B_PAD_SELECT, a
 	jr z, .asm_818f6
 	ld a, $0a
 	call Func_144d
 .asm_818f6
-	ldh a, [hffbe]
-	bit 3, a
+	ldh a, [hJoypadPressed]
+	bit B_PAD_START, a
 	jr z, .asm_8190d
 	ld hl, wc5f0
 	bit 7, [hl]

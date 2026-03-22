@@ -1,6 +1,7 @@
 rom := pokepuzzle.gbc
 
 rom_obj := \
+	src/gfx.o \
 	src/home.o \
 	src/main.o \
 	src/ram.o

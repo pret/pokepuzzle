@@ -1,5 +1,6 @@
 ROM0
 	org $0000
+	"NULL"
 	"rst00"
 	org $0008
 	"rst08"
@@ -29,10 +30,44 @@ ROM0
 	"romheader"
 	org $0150
 	"start"
+ROMX $01
+	"Bank 1"
+ROMX $02
+	"Bank 2"
 ROMX $04
 	"Bank 4"
+ROMX $0a
+	"Bank A"
+ROMX $10
+	"Bank 10"
+ROMX $11
+	"Bank 11"
+ROMX $19
+	"Bank 19"
+ROMX $1a
+	"Bank 1A"
+ROMX $1d
+	"Bank 1D"
+ROMX $1e
+	"Bank 1E"
+ROMX $1f
+	"Bank 1F"
 ROMX $20
 	"Audio Engine"
+ROMX $21
+	"Bank 21"
+ROMX $30
+	"Bank 30"
+ROMX $31
+	"Bank 31"
+ROMX $32
+	"Bank 32"
+ROMX $40
+	"Bank 40"
+ROMX $43
+	"Bank 43"
+ROMX $53
+	"Bank 53"
 ROMX $61
 	"Music 1"
 ROMX $62
@@ -41,17 +76,31 @@ ROMX $63
 	"Music 3"
 ROMX $64
 	"Music 4"
+ROMX $66
+	"Bank 66"
 WRAM0
 	"Virtual OAM"
 	"Stack"
 	"WRAM0"
 	org $c5f0
 	"Audio RAM"
+	org $c7b4
+	"WRAM0@c7b4"
+WRAMX $1
+	"WRAM1"
+WRAMX $7
+	"Scratch WRAM"
 VRAM $00
 	"VRAM0"
 VRAM $01
 	"VRAM1"
 SRAM $0
 	"SRAM0"
+SRAM $1
+	"SRAM1"
+SRAM $2
+	"SRAM2"
+SRAM $3
+	"SRAM3"
 HRAM
 	"DMA Transfer"

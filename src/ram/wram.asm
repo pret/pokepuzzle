@@ -2,6 +2,7 @@ SECTION "Virtual OAM", WRAM0
 
 wVirtualOAM:: ; c000
 	ds OAM_SIZE
+wVirtualOAMEnd::
 
 SECTION "Stack", WRAM0
 
@@ -11,7 +12,14 @@ wStack:: ; c100
 
 SECTION "WRAM0", WRAM0
 
-	ds $c342 - $c100
+wc100::  ; c300
+	ds $200
+
+wc300:: ds $10 ; c300
+wc310:: ds $10 ; c310
+
+wc320:: ; c320
+	ds $22
 
 ; invoked on H-Blank interrupt
 wHBlankHandler:: ds 1 ; c342
@@ -23,6 +31,11 @@ wHBlankHandler:: ds 1 ; c342
 ; where <func> is dynamically loaded
 ; default is VBlankHandler
 wVBlankHandler:: ds 3 ; c492
+
+; these palettes are filled and then flushed
+wPalettes::
+wBGPals:: ds 8 palettes ; c495
+wOBPals:: ds 8 palettes ; c4d5
 
 SECTION "Audio RAM", WRAM0
 
@@ -216,3 +229,178 @@ wc6cc:: ds 2 ; c6cc
 wc6ce:: ds 1 ; c6ce
 
 wAudioEnd:: ; c6cf
+
+SECTION "WRAM0@c7b4", WRAM0
+
+wc7b4:: ds 1 ; c7b4
+
+	ds $c7bd - $c7b5
+
+wc7bd:: ds 1 ; c7bd
+
+	ds $c7c6 - $c7be
+
+wc7c6:: ds 1 ; c7c6
+
+	ds $c7c9 - $c7c7
+
+wc7c9:: ds 1 ; c7c9
+
+	ds $c7cb - $c7ca
+
+wc7cb:: ds 1 ; c7cb
+
+	ds $c7cd - $c7cc
+
+wc7cd:: ds 1 ; c7cd
+wc7ce:: ds 1 ; c7ce
+wc7cf:: ds 1 ; c7cf
+
+	ds $c7d3 - $c7d0
+
+wc7d3:: ds 1 ; c7d3
+
+	ds $c7e4 - $c7d4
+
+wc7e4:: ds 1 ; c7e4
+
+	ds $c7e8 - $c7e5
+
+wc7e8:: ds 1 ; c7e8
+
+	ds $c7f9 - $c7e9
+
+wc7f9:: ds 1 ; c7f9
+
+	ds $c7fd - $c7fa
+
+wc7fd:: ds 1 ; c7fd
+
+	ds $ce38 - $c7fe
+
+wce38:: ds 1 ; ce38
+
+	ds $ce48 - $ce39
+
+wce48:: ds 3 ; ce48
+wce4b:: ds 3 ; ce4b
+wce4e:: ds 3 ; ce4e
+wce51:: ds 3 ; ce51
+
+	ds $ce9d - $ce54
+
+UNION
+wPanelDePonCodeAPresses:: ds 1 ; ce9d
+wPanelDePonCodeBPresses:: ds 1 ; ce9e
+NEXTU
+wPanelDePonMenuItem::     ds 1 ; ce9d
+wPanelDePonMenuPrevItem:: ds 1 ; ce9e
+ENDU
+
+wce9f:: ds 1 ; ce9f
+
+	ds $cea1 - $cea0
+
+; which game mode (GAMEMODE_* constant)
+wGameMode:: ds 1 ; cea1
+wcea2:: ds 1 ; cea2
+wcea3:: ds 1 ; cea3
+	ds $1
+; which game level (GAMELEVEL_* constant)
+wGameLevel:: ds 1 ; cea5
+wSpeedLevel:: ds 1 ; cea6
+	ds $2
+wcea9:: ds 1 ; cea9
+	ds $1
+wceab:: ds 1 ; ceab
+wceac:: ds 1 ; ceac
+wcead:: ds 1 ; cead
+	ds $3
+wceb1:: ds 1 ; ceb1
+wceb2:: ds 1 ; ceb2
+wceb3:: ds 1 ; ceb3
+wceb4:: ds 1 ; ceb4
+wceb5:: ds 1 ; ceb5
+wceb6:: ds 1 ; ceb6
+wceb7:: ds 1 ; ceb7
+wceb8:: ds 1 ; ceb8
+wceb9:: ds 1 ; ceb9
+wceba:: ds 1 ; ceba
+wcebb:: ds 1 ; cebb
+wcebc:: ds 1 ; cebc
+wcebd:: ds 1 ; cebd
+
+wcebe:: ds 1 ; cebe
+wcebf:: ds 1 ; cebf
+
+wcec0:: ds 1 ; cec0
+wcec1:: ds 1 ; cec1
+wcec2:: ds 1 ; cec2
+wcec3:: ds 1 ; cec3
+wcec4:: ds 1 ; cec4
+
+wcec5:: ds 7 ; cec5
+wcecc:: ds 7 ; cecc
+
+wced3:: ds 1 ; ced3
+wced4:: ds 1 ; ced4
+wced5:: ds 1 ; ced5
+wced6:: ds 1 ; ced6
+wced7:: ds 1 ; ced7
+wced8:: ds 1 ; ced8
+wced9:: ds 1 ; ced9
+wceda:: ds 1 ; ceda
+wcedb:: ds 1 ; cedb
+wcedc:: ds 1 ; cedc
+wcedd:: ds 1 ; cedd
+wcede:: ds 1 ; cede
+	ds $1
+wcee0:: ds 1 ; cee0
+wcee1:: ds 1 ; cee1
+wcee2:: ds 1 ; cee2
+wcee3:: ds 1 ; cee3
+
+	ds $cee9 - $cee4
+
+wcee9:: ds 2 ; cee9
+
+	ds $cf0b - $ceeb
+
+wcf0b:: ds 1 ; cf0b
+
+SECTION "WRAM1", WRAMX
+
+	ds $100
+
+w1d100:: ; d100
+	ds $571
+
+w1d671:: ; d671
+	ds 16 * $13
+
+	ds $d905 - $d7a1
+
+w1d905:: ; d905
+
+	ds $da96 - $d905
+
+w1da96:: ds 1 ; da96
+w1da97:: ds 1 ; da97
+w1da98:: ds 1 ; da98
+w1da99:: ds 1 ; da99
+w1da9a:: ds 1 ; da9a
+w1da9b:: ds 1 ; da9b
+w1da9c:: ds 1 ; da9c
+w1da9d:: ds 1 ; da9d
+w1da9e:: ds 1 ; da9e
+w1da9f:: ds 1 ; da9f
+w1daa0:: ds 1 ; daa0
+
+	ds $dd85 - $daa1
+
+w1dd85:: ds 1 ; dd85
+
+SECTION "Scratch WRAM", WRAMX
+
+wScratch:: ; d000
+	ds $1000

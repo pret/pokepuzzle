@@ -1,4 +1,8 @@
+MACRO? dwb
+	dw \1
+	db \2
+ENDM
+
 MACRO? dab
-	dw \1   ; address
-	db BANK(\1) ; bank
+	dwb \1, BANK(\1)
 ENDM

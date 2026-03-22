@@ -1,16 +1,16 @@
 SECTION "VRAM0", VRAM
 
-vTiles0:: ds $80 tiles
-vTiles1:: ds $80 tiles
-vTiles2:: ds $80 tiles
-vBGMap0:: ds TILEMAP_AREA
-vBGMap1:: ds TILEMAP_AREA
+v0Tiles0:: ds $80 tiles ; 8000
+v0Tiles1:: ds $80 tiles ; 8800
+v0Tiles2:: ds $80 tiles ; 9000
+v0BGMap0:: ds TILEMAP_AREA ; 9800
+v0BGMap1:: ds TILEMAP_AREA ; 9c00
 
 
 SECTION "VRAM1", VRAM
 
-vTiles3:: ds $80 tiles
-vTiles4:: ds $80 tiles
-vTiles5:: ds $80 tiles
-vBGMap2:: ds TILEMAP_AREA
-vBGMap3:: ds TILEMAP_AREA
+v1Tiles0:: ds $80 tiles ; 8000
+v1Tiles1:: ds $80 tiles ; 8800
+v1Tiles2:: ds $80 tiles ; 9000
+v1BGMap0:: ds TILEMAP_AREA ; 9800
+v1BGMap1:: ds TILEMAP_AREA ; 9c00
