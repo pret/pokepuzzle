@@ -23,7 +23,9 @@ Func_80000: ; 80000 (20:4000)
 	ld a, [hli]
 	ld b, [hl]
 	ld c, a
-.asm_80023
+;	fallthrough
+
+Func_80023::
 	call Func_1412 ; get next song byte
 	ld a, e
 	cp $d2
@@ -177,21 +179,21 @@ Func_800e7: ; 800e7 (20:40e7)
 Func_800ef: ; 800ef (20:40ef)
 	sub $01
 	ld [wc60b], a
-	jp Func_80000.asm_80023
+	jp Func_80023
 ; 0x800f7
 
 Func_800f7: ; 800f7 (20:40f7)
 	call Func_1412
 	ld l, e
 	call Func_803c2
-	jp Func_80000.asm_80023
+	jp Func_80023
 ; 0x80101
 
 Func_80101: ; 80101 (20:4101)
 	xor a
 	ld [wc61e + 1], a
 	call Func_803bd
-	jp Func_80000.asm_80023
+	jp Func_80023
 ; 0x8010b
 
 Func_8010b: ; 8010b (20:410b)
@@ -199,21 +201,21 @@ Func_8010b: ; 8010b (20:410b)
 	ld a, e
 	ld [wc5fa], a
 	ld [wc5fb], a
-	jp Func_80000.asm_80023
+	jp Func_80023
 ; 0x80118
 
 Func_80118: ; 80118 (20:4118)
 	call Func_1412
 	ld a, e
 	ld [wc618], a
-	jp Func_80000.asm_80023
+	jp Func_80023
 ; 0x80122
 
 Func_80122: ; 80122 (20:4122)
 	call Func_1412
 	ld l, e
 	call Func_8044e
-	jp Func_80000.asm_80023
+	jp Func_80023
 ; 0x8012c
 
 Func_8012c: ; 8012c (20:412c)
@@ -221,7 +223,7 @@ Func_8012c: ; 8012c (20:412c)
 	ld [wc624 + 1], a
 	ld [wc629 + 1], a
 	call Func_80449
-	jp Func_80000.asm_80023
+	jp Func_80023
 ; 0x80139
 
 Func_80139: ; 80139 (20:4139)
@@ -230,7 +232,7 @@ Func_80139: ; 80139 (20:4139)
 	ld [wc5f6], a
 	ld hl, wc5f1
 	set 0, [hl]
-	jp Func_80000.asm_80023
+	jp Func_80023
 ; 0x80148
 
 Func_80148: ; 80148 (20:4148)
@@ -240,7 +242,7 @@ Func_80148: ; 80148 (20:4148)
 	ld [wc5f7], a
 	ld hl, wc603
 	set 5, [hl]
-	jp Func_80000.asm_80023
+	jp Func_80023
 ; 0x8015a
 
 Func_8015a: ; 8015a (20:415a)
@@ -250,7 +252,7 @@ Func_8015a: ; 8015a (20:415a)
 	ld [wc5f7], a
 	ld hl, wc603
 	set 5, [hl]
-	jp Func_80000.asm_80023
+	jp Func_80023
 ; 0x8016c
 
 Func_8016c: ; 8016c (20:416c)
@@ -260,7 +262,7 @@ Func_8016c: ; 8016c (20:416c)
 	ld [wc5f7], a
 	ld hl, wc603
 	set 5, [hl]
-	jp Func_80000.asm_80023
+	jp Func_80023
 ; 0x8017e
 
 Func_8017e: ; 8017e (20:417e)
@@ -285,7 +287,7 @@ Func_8018a: ; 8018a (20:418a)
 	ld [hl], a
 	ld hl, wc603
 	set 1, [hl]
-	jp Func_80000.asm_80023
+	jp Func_80023
 ; 0x8019c
 
 Func_8019c: ; 8019c (20:419c)
@@ -297,28 +299,28 @@ Func_8019c: ; 8019c (20:419c)
 	ld [wc600], a
 	call Func_1462
 .asm_801ad
-	jp Func_80000.asm_80023
+	jp Func_80023
 ; 0x801b0
 
 Func_801b0: ; 801b0 (20:41b0)
 	call Func_1412
 	ld a, e
 	ld [wc619], a
-	jp Func_80000.asm_80023
+	jp Func_80023
 ; 0x801ba
 
 Func_801ba: ; 801ba (20:41ba)
 	call Func_1412
 	ld a, e
 	ld [wc61a], a
-	jp Func_80000.asm_80023
+	jp Func_80023
 ; 0x801c4
 
 Func_801c4: ; 801c4 (20:41c4)
 	call Func_1412
 	ld a, e
 	ld [wc61b], a
-	jp Func_80000.asm_80023
+	jp Func_80023
 ; 0x801ce
 
 Func_801ce: ; 801ce (20:41ce)
@@ -327,7 +329,7 @@ Func_801ce: ; 801ce (20:41ce)
 	ld [wc606], a
 	ld hl, wc603
 	set 2, [hl]
-	jp Func_80000.asm_80023
+	jp Func_80023
 ; 0x801dd
 
 Func_801dd: ; 801dd (20:41dd)
@@ -354,7 +356,7 @@ Func_801ec: ; 801ec (20:41ec)
 	inc bc
 	xor a
 	ld [hl], a
-	jp Func_80000.asm_80023
+	jp Func_80023
 .asm_801fe
 	inc [hl]
 	jp Func_10c4
@@ -399,7 +401,7 @@ Func_8021e: ; 8021e (20:421e)
 	ld a, [hli]
 	ld b, [hl]
 	ld c, a
-	jp Func_80000.asm_80023
+	jp Func_80023
 ; 0x80236
 
 Func_80236: ; 80236 (20:4236)
@@ -693,11 +695,13 @@ Func_803cd: ; 803cd (20:43cd)
 	ld a, [hli]
 	ld b, [hl]
 	ld c, a
-.asm_803e3
+;	fallthrough
+
+Func_803e3::
 	jp Func_10f5
 ; 0x803e6
 
-Func_803e6: ; 803e6 (20:43e6)
+Func_803e6:: ; 803e6 (20:43e6)
 	ld a, l
 	inc bc
 	cp $65
@@ -712,7 +716,7 @@ Func_803e6: ; 803e6 (20:43e6)
 .asm_803f9
 	dec a
 	ld [wc622], a
-	jr Func_803cd.asm_803e3
+	jr Func_803e3
 .asm_803ff
 	sub $85
 	ld e, a
@@ -948,7 +952,9 @@ Func_80525: ; 80525 (20:4525)
 	ld a, [hli]
 	ld b, [hl]
 	ld c, a
-.asm_80548
+;	fallthrough
+
+Func_80548::
 	call Func_1412 ; get next song byte
 	ld a, e
 	cp $d2
@@ -1102,21 +1108,21 @@ Func_8060c: ; 8060c (20:460c)
 Func_80614: ; 80614 (20:4614)
 	sub $01
 	ld [wc63b], a
-	jp Func_80525.asm_80548
+	jp Func_80548
 ; 0x8061c
 
 Func_8061c: ; 8061c (20:461c)
 	call Func_1412
 	ld l, e
 	call Func_808e7
-	jp Func_80525.asm_80548
+	jp Func_80548
 ; 0x80626
 
 Func_80626: ; 80626 (20:4626)
 	xor a
 	ld [wc64e + 1], a
 	call Func_808e2
-	jp Func_80525.asm_80548
+	jp Func_80548
 ; 0x80630
 
 Func_80630: ; 80630 (20:4630)
@@ -1124,21 +1130,21 @@ Func_80630: ; 80630 (20:4630)
 	ld a, e
 	ld [wc5fa], a
 	ld [wc5fb], a
-	jp Func_80525.asm_80548
+	jp Func_80548
 ; 0x8063d
 
 Func_8063d: ; 8063d (20:463d)
 	call Func_1412
 	ld a, e
 	ld [wc648], a
-	jp Func_80525.asm_80548
+	jp Func_80548
 ; 0x80647
 
 Func_80647: ; 80647 (20:4647)
 	call Func_1412
 	ld l, e
 	call Func_80973
-	jp Func_80525.asm_80548
+	jp Func_80548
 ; 0x80651
 
 Func_80651: ; 80651 (20:4651)
@@ -1146,7 +1152,7 @@ Func_80651: ; 80651 (20:4651)
 	ld [wc654 + 1], a
 	ld [wc659 + 1], a
 	call Func_8096e
-	jp Func_80525.asm_80548
+	jp Func_80548
 ; 0x8065e
 
 Func_8065e: ; 8065e (20:465e)
@@ -1155,7 +1161,7 @@ Func_8065e: ; 8065e (20:465e)
 	ld [wc5f6], a
 	ld hl, wc5f1
 	set 0, [hl]
-	jp Func_80525.asm_80548
+	jp Func_80548
 ; 0x8066d
 
 Func_8066d: ; 8066d (20:466d)
@@ -1165,7 +1171,7 @@ Func_8066d: ; 8066d (20:466d)
 	ld [wc5f7], a
 	ld hl, wc633
 	set 5, [hl]
-	jp Func_80525.asm_80548
+	jp Func_80548
 ; 0x8067f
 
 Func_8067f: ; 8067f (20:467f)
@@ -1175,7 +1181,7 @@ Func_8067f: ; 8067f (20:467f)
 	ld [wc5f7], a
 	ld hl, wc633
 	set 5, [hl]
-	jp Func_80525.asm_80548
+	jp Func_80548
 ; 0x80691
 
 Func_80691: ; 80691 (20:4691)
@@ -1185,7 +1191,7 @@ Func_80691: ; 80691 (20:4691)
 	ld [wc5f7], a
 	ld hl, wc633
 	set 5, [hl]
-	jp Func_80525.asm_80548
+	jp Func_80548
 ; 0x806a3
 
 Func_806a3: ; 806a3 (20:46a3)
@@ -1210,7 +1216,7 @@ Func_806af: ; 806af (20:46af)
 	ld [hl], a
 	ld hl, wc633
 	set 1, [hl]
-	jp Func_80525.asm_80548
+	jp Func_80548
 ; 0x806c1
 
 Func_806c1: ; 806c1 (20:46c1)
@@ -1222,28 +1228,28 @@ Func_806c1: ; 806c1 (20:46c1)
 	ld [wc600], a
 	call Func_1462
 .asm_806d2
-	jp Func_80525.asm_80548
+	jp Func_80548
 ; 0x806d5
 
 Func_806d5: ; 806d5 (20:46d5)
 	call Func_1412
 	ld a, e
 	ld [wc649], a
-	jp Func_80525.asm_80548
+	jp Func_80548
 ; 0x806df
 
 Func_806df: ; 806df (20:46df)
 	call Func_1412
 	ld a, e
 	ld [wc64a], a
-	jp Func_80525.asm_80548
+	jp Func_80548
 ; 0x806e9
 
 Func_806e9: ; 806e9 (20:46e9)
 	call Func_1412
 	ld a, e
 	ld [wc64b], a
-	jp Func_80525.asm_80548
+	jp Func_80548
 ; 0x806f3
 
 Func_806f3: ; 806f3 (20:46f3)
@@ -1252,7 +1258,7 @@ Func_806f3: ; 806f3 (20:46f3)
 	ld [wc636], a
 	ld hl, wc633
 	set 2, [hl]
-	jp Func_80525.asm_80548
+	jp Func_80548
 ; 0x80702
 
 Func_80702: ; 80702 (20:4702)
@@ -1279,7 +1285,7 @@ Func_80711: ; 80711 (20:4711)
 	inc bc
 	xor a
 	ld [hl], a
-	jp Func_80525.asm_80548
+	jp Func_80548
 .asm_80723
 	inc [hl]
 	jp Func_1183
@@ -1324,7 +1330,7 @@ Func_80743: ; 80743 (20:4743)
 	ld a, [hli]
 	ld b, [hl]
 	ld c, a
-	jp Func_80525.asm_80548
+	jp Func_80548
 ; 0x8075b
 
 Func_8075b: ; 8075b (20:475b)
@@ -1618,11 +1624,13 @@ Func_808f2: ; 808f2 (20:48f2)
 	ld a, [hli]
 	ld b, [hl]
 	ld c, a
-.asm_80908
+;	fallthrough
+
+Func_80908::
 	jp Func_11b4
 ; 0x8090b
 
-Func_8090b: ; 8090b (20:490b)
+Func_8090b:: ; 8090b (20:490b)
 	ld a, l
 	inc bc
 	cp $65
@@ -1637,7 +1645,7 @@ Func_8090b: ; 8090b (20:490b)
 .asm_8091e
 	dec a
 	ld [wc652], a
-	jr Func_808f2.asm_80908
+	jr Func_80908
 .asm_80924
 	sub $85
 	ld e, a
@@ -1873,7 +1881,9 @@ Func_80a4a: ; 80a4a (20:4a4a)
 	ld a, [hli]
 	ld b, [hl]
 	ld c, a
-.asm_80a6d
+;	fallthrough
+
+Func_80a6d::
 	call Func_1412 ; get next song byte
 	ld a, e
 	cp $d2
@@ -2027,21 +2037,21 @@ Func_80b31: ; 80b31 (20:4b31)
 Func_80b39: ; 80b39 (20:4b39)
 	sub $01
 	ld [wc66b], a
-	jp Func_80a4a.asm_80a6d
+	jp Func_80a6d
 ; 0x80b41
 
 Func_80b41: ; 80b41 (20:4b41)
 	call Func_1412
 	ld l, e
 	call Func_80e10
-	jp Func_80a4a.asm_80a6d
+	jp Func_80a6d
 ; 0x80b4b
 
 Func_80b4b: ; 80b4b (20:4b4b)
 	xor a
 	ld [wc67e + 1], a
 	call Func_80e0b
-	jp Func_80a4a.asm_80a6d
+	jp Func_80a6d
 ; 0x80b55
 
 Func_80b55: ; 80b55 (20:4b55)
@@ -2049,21 +2059,21 @@ Func_80b55: ; 80b55 (20:4b55)
 	ld a, e
 	ld [wc5fa], a
 	ld [wc5fb], a
-	jp Func_80a4a.asm_80a6d
+	jp Func_80a6d
 ; 0x80b62
 
 Func_80b62: ; 80b62 (20:4b62)
 	call Func_1412
 	ld a, e
 	ld [wc678], a
-	jp Func_80a4a.asm_80a6d
+	jp Func_80a6d
 ; 0x80b6c
 
 Func_80b6c: ; 80b6c (20:4b6c)
 	call Func_1412
 	ld l, e
 	call Func_80e9c
-	jp Func_80a4a.asm_80a6d
+	jp Func_80a6d
 ; 0x80b76
 
 Func_80b76: ; 80b76 (20:4b76)
@@ -2071,7 +2081,7 @@ Func_80b76: ; 80b76 (20:4b76)
 	ld [wc684 + 1], a
 	ld [wc689 + 1], a
 	call Func_80e97
-	jp Func_80a4a.asm_80a6d
+	jp Func_80a6d
 ; 0x80b83
 
 Func_80b83: ; 80b83 (20:4b83)
@@ -2080,7 +2090,7 @@ Func_80b83: ; 80b83 (20:4b83)
 	ld [wc5f6], a
 	ld hl, wc5f1
 	set 0, [hl]
-	jp Func_80a4a.asm_80a6d
+	jp Func_80a6d
 ; 0x80b92
 
 Func_80b92: ; 80b92 (20:4b92)
@@ -2090,7 +2100,7 @@ Func_80b92: ; 80b92 (20:4b92)
 	ld [wc5f7], a
 	ld hl, wc663
 	set 5, [hl]
-	jp Func_80a4a.asm_80a6d
+	jp Func_80a6d
 ; 0x80ba4
 
 Func_80ba4: ; 80ba4 (20:4ba4)
@@ -2100,7 +2110,7 @@ Func_80ba4: ; 80ba4 (20:4ba4)
 	ld [wc5f7], a
 	ld hl, wc663
 	set 5, [hl]
-	jp Func_80a4a.asm_80a6d
+	jp Func_80a6d
 ; 0x80bb6
 
 Func_80bb6: ; 80bb6 (20:4bb6)
@@ -2110,7 +2120,7 @@ Func_80bb6: ; 80bb6 (20:4bb6)
 	ld [wc5f7], a
 	ld hl, wc663
 	set 5, [hl]
-	jp Func_80a4a.asm_80a6d
+	jp Func_80a6d
 ; 0x80bc8
 
 Func_80bc8: ; 80bc8 (20:4bc8)
@@ -2135,7 +2145,7 @@ Func_80bd4: ; 80bd4 (20:4bd4)
 	ld [hl], a
 	ld hl, wc663
 	set 1, [hl]
-	jp Func_80a4a.asm_80a6d
+	jp Func_80a6d
 ; 0x80be6
 
 Func_80be6: ; 80be6 (20:4be6)
@@ -2147,28 +2157,28 @@ Func_80be6: ; 80be6 (20:4be6)
 	ld [wc600], a
 	call Func_1462
 .asm_80bf7
-	jp Func_80a4a.asm_80a6d
+	jp Func_80a6d
 ; 0x80bfa
 
 Func_80bfa: ; 80bfa (20:4bfa)
 	call Func_1412
 	ld a, e
 	ld [wc679], a
-	jp Func_80a4a.asm_80a6d
+	jp Func_80a6d
 ; 0x80c04
 
 Func_80c04: ; 80c04 (20:4c04)
 	call Func_1412
 	ld a, e
 	ld [wc67a], a
-	jp Func_80a4a.asm_80a6d
+	jp Func_80a6d
 ; 0x80c0e
 
 Func_80c0e: ; 80c0e (20:4c0e)
 	call Func_1412
 	ld a, e
 	ld [wc67b], a
-	jp Func_80a4a.asm_80a6d
+	jp Func_80a6d
 ; 0x80c18
 
 Func_80c18: ; 80c18 (20:4c18)
@@ -2177,7 +2187,7 @@ Func_80c18: ; 80c18 (20:4c18)
 	ld [wc666], a
 	ld hl, wc663
 	set 2, [hl]
-	jp Func_80a4a.asm_80a6d
+	jp Func_80a6d
 ; 0x80c27
 
 Func_80c27: ; 80c27 (20:4c27)
@@ -2204,7 +2214,7 @@ Func_80c36: ; 80c36 (20:4c36)
 	inc bc
 	xor a
 	ld [hl], a
-	jp Func_80a4a.asm_80a6d
+	jp Func_80a6d
 .asm_80c48
 	inc [hl]
 	jp Func_1242
@@ -2249,7 +2259,7 @@ Func_80c68: ; 80c68 (20:4c68)
 	ld a, [hli]
 	ld b, [hl]
 	ld c, a
-	jp Func_80a4a.asm_80a6d
+	jp Func_80a6d
 ; 0x80c80
 
 Func_80c80: ; 80c80 (20:4c80)
@@ -2545,11 +2555,13 @@ Func_80e1b: ; 80e1b (20:4e1b)
 	ld a, [hli]
 	ld b, [hl]
 	ld c, a
-.asm_80e31
+;	fallthrough
+
+Func_80e31::
 	jp Func_1273
 ; 0x80e34
 
-Func_80e34: ; 80e34 (20:4e34)
+Func_80e34:: ; 80e34 (20:4e34)
 	ld a, l
 	inc bc
 	cp $65
@@ -2564,7 +2576,7 @@ Func_80e34: ; 80e34 (20:4e34)
 .asm_80e47
 	dec a
 	ld [wc682], a
-	jr Func_80e1b.asm_80e31
+	jr Func_80e31
 .asm_80e4d
 	sub $85
 	ld e, a
@@ -2805,7 +2817,9 @@ Func_80f80: ; 80f80 (20:4f80)
 	ld a, [hli]
 	ld b, [hl]
 	ld c, a
-.asm_80fa3
+;	fallthrough
+
+Func_80fa3::
 	call Func_1412 ; get next song byte
 	ld a, e
 	cp $d2
@@ -2950,16 +2964,16 @@ Func_8105d: ; 8105d (20:505d)
 Func_81065: ; 81065 (20:5065)
 	sub $01
 	ld [wc69b], a
-	jp Func_80f80.asm_80fa3
+	jp Func_80fa3
 ; 0x8106d
 
 Func_8106d: ; 8106d (20:506d)
 	call Func_1412
-	jp Func_80f80.asm_80fa3
+	jp Func_80fa3
 ; 0x81073
 
 Func_81073: ; 81073 (20:5073)
-	jp Func_80f80.asm_80fa3
+	jp Func_80fa3
 ; 0x81076
 
 Func_81076: ; 81076 (20:5076)
@@ -2967,21 +2981,21 @@ Func_81076: ; 81076 (20:5076)
 	ld a, e
 	ld [wc5fa], a
 	ld [wc5fb], a
-	jp Func_80f80.asm_80fa3
+	jp Func_80fa3
 ; 0x81083
 
 Func_81083: ; 81083 (20:5083)
 	call Func_1412
 	ld a, e
 	ld [wc6a8], a
-	jp Func_80f80.asm_80fa3
+	jp Func_80fa3
 ; 0x8108d
 
 Func_8108d: ; 8108d (20:508d)
 	call Func_1412
 	ld l, e
 	call Func_81319
-	jp Func_80f80.asm_80fa3
+	jp Func_80fa3
 ; 0x81097
 
 Func_81097: ; 81097 (20:5097)
@@ -2989,7 +3003,7 @@ Func_81097: ; 81097 (20:5097)
 	ld [wc6b4 + 1], a
 	ld [wc6b9 + 1], a
 	call Func_81314
-	jp Func_80f80.asm_80fa3
+	jp Func_80fa3
 ; 0x810a4
 
 Func_810a4: ; 810a4 (20:50a4)
@@ -2998,7 +3012,7 @@ Func_810a4: ; 810a4 (20:50a4)
 	ld [wc5f6], a
 	ld hl, wc5f1
 	set 0, [hl]
-	jp Func_80f80.asm_80fa3
+	jp Func_80fa3
 ; 0x810b3
 
 Func_810b3: ; 810b3 (20:50b3)
@@ -3008,7 +3022,7 @@ Func_810b3: ; 810b3 (20:50b3)
 	ld [wc5f7], a
 	ld hl, wc693
 	set 5, [hl]
-	jp Func_80f80.asm_80fa3
+	jp Func_80fa3
 ; 0x810c5
 
 Func_810c5: ; 810c5 (20:50c5)
@@ -3018,7 +3032,7 @@ Func_810c5: ; 810c5 (20:50c5)
 	ld [wc5f7], a
 	ld hl, wc693
 	set 5, [hl]
-	jp Func_80f80.asm_80fa3
+	jp Func_80fa3
 ; 0x810d7
 
 Func_810d7: ; 810d7 (20:50d7)
@@ -3028,7 +3042,7 @@ Func_810d7: ; 810d7 (20:50d7)
 	ld [wc5f7], a
 	ld hl, wc693
 	set 5, [hl]
-	jp Func_80f80.asm_80fa3
+	jp Func_80fa3
 ; 0x810e9
 
 Func_810e9: ; 810e9 (20:50e9)
@@ -3053,7 +3067,7 @@ Func_810f5: ; 810f5 (20:50f5)
 	ld [hl], a
 	ld hl, wc693
 	set 1, [hl]
-	jp Func_80f80.asm_80fa3
+	jp Func_80fa3
 ; 0x81107
 
 Func_81107: ; 81107 (20:5107)
@@ -3065,28 +3079,28 @@ Func_81107: ; 81107 (20:5107)
 	ld [wc600], a
 	call Func_1462
 .asm_81118
-	jp Func_80f80.asm_80fa3
+	jp Func_80fa3
 ; 0x8111b
 
 Func_8111b: ; 8111b (20:511b)
 	call Func_1412
 	ld a, e
 	ld [wc6a9], a
-	jp Func_80f80.asm_80fa3
+	jp Func_80fa3
 ; 0x81125
 
 Func_81125: ; 81125 (20:5125)
 	call Func_1412
 	ld a, e
 	ld [wc6aa], a
-	jp Func_80f80.asm_80fa3
+	jp Func_80fa3
 ; 0x8112f
 
 Func_8112f: ; 8112f (20:512f)
 	call Func_1412
 	ld a, e
 	ld [wc6ab], a
-	jp Func_80f80.asm_80fa3
+	jp Func_80fa3
 ; 0x81139
 
 Func_81139: ; 81139 (20:5139)
@@ -3095,7 +3109,7 @@ Func_81139: ; 81139 (20:5139)
 	ld [wc696], a
 	ld hl, wc693
 	set 2, [hl]
-	jp Func_80f80.asm_80fa3
+	jp Func_80fa3
 ; 0x81148
 
 Func_81148: ; 81148 (20:5148)
@@ -3122,7 +3136,7 @@ Func_81157: ; 81157 (20:5157)
 	inc bc
 	xor a
 	ld [hl], a
-	jp Func_80f80.asm_80fa3
+	jp Func_80fa3
 .asm_81169
 	inc [hl]
 	jp Func_1301
@@ -3167,7 +3181,7 @@ Func_81189: ; 81189 (20:5189)
 	ld a, [hli]
 	ld b, [hl]
 	ld c, a
-	jp Func_80f80.asm_80fa3
+	jp Func_80fa3
 ; 0x811a1
 
 Func_811a1: ; 811a1 (20:51a1)
@@ -3490,7 +3504,7 @@ Func_81325: ; 81325 (20:5325)
 	jr .asm_8137c
 ; 0x81383
 
-Func_81383: ; 81383 (20:5383)
+Func_81383:: ; 81383 (20:5383)
 	push bc
 	push hl
 	ld hl, wAudioStart
@@ -3524,7 +3538,7 @@ Func_81383: ; 81383 (20:5383)
 ; 0x813ba
 
 ; play song id in l
-Func_813ba: ; 813ba (20:53ba)
+Func_813ba:: ; 813ba (20:53ba)
 	push bc
 	push de
 	ld a, [wc602]
@@ -3594,7 +3608,7 @@ Func_813ba: ; 813ba (20:53ba)
 	ret
 ; 0x8143e
 
-Func_8143e: ; 8143e (20:543e)
+Func_8143e:: ; 8143e (20:543e)
 	push hl
 	ld hl, wc5f0
 	res 7, [hl]
@@ -3616,7 +3630,7 @@ Func_8143e: ; 8143e (20:543e)
 	ret
 ; 0x81468
 
-Func_81468: ; 81468 (20:5468)
+Func_81468:: ; 81468 (20:5468)
 	ld hl, wc5f0
 	res 7, [hl]
 	ld a, $08
@@ -3632,7 +3646,7 @@ Func_81468: ; 81468 (20:5468)
 	ret
 ; 0x81482
 
-Func_81482: ; 81482 (20:5482)
+Func_81482:: ; 81482 (20:5482)
 	call Func_1462
 	ld a, [wc601]
 	and a
@@ -3642,7 +3656,7 @@ Func_81482: ; 81482 (20:5482)
 	ret
 ; 0x81490
 
-Func_81490: ; 81490 (20:5490)
+Func_81490:: ; 81490 (20:5490)
 	call Func_148d
 	ld hl, wAudioStart
 	ld de, wAudioEnd
@@ -3661,7 +3675,7 @@ Func_81490: ; 81490 (20:5490)
 	ret
 ; 0x814a9
 
-Func_814a9: ; 814a9 (20:54a9)
+Func_814a9:: ; 814a9 (20:54a9)
 	call Func_148d
 	ld de, wAudioStart
 	ld hl, wAudioEnd
@@ -3681,7 +3695,7 @@ Func_814a9: ; 814a9 (20:54a9)
 	ret
 ; 0x814c5
 
-Func_814c5: ; 814c5 (20:54c5)
+Func_814c5:: ; 814c5 (20:54c5)
 	ld hl, wc5f0
 	bit 7, [hl]
 	jp z, .asm_81520
@@ -3976,7 +3990,7 @@ Func_81521: ; 81521 (20:5521)
 	ret
 ; 0x816fd
 
-Func_816fd: ; 816fd (20:56fd)
+Func_816fd:: ; 816fd (20:56fd)
 	ld a, [wc601]
 	and a
 	jr z, .asm_81705
@@ -4141,7 +4155,7 @@ Func_817ed: ; 817ed (20:57ed)
 	ret
 ; 0x81817
 
-Func_81817: ; 81817 (20:5817)
+Func_81817:: ; 81817 (20:5817)
 	push bc
 	push hl
 	ld a, [wc600]
@@ -4188,7 +4202,7 @@ Func_8183c: ; 8183c (20:583c)
 	ret
 ; 0x81857
 
-Func_81857: ; 81857 (20:5857)
+Func_81857:: ; 81857 (20:5857)
 	ldh a, [hffbe]
 	bit 0, a
 	jr z, .asm_81873
@@ -4294,7 +4308,7 @@ Func_81857: ; 81857 (20:5857)
 
 INCLUDE "audio/song_pointers.asm"
 
-PointerTable_81a31: ; 81a31 (20:5a31)
+PointerTable_81a31:: ; 81a31 (20:5a31)
 	dw Func_81a6d
 	dw Func_81aec
 	dw Func_81b8b
@@ -4302,7 +4316,7 @@ PointerTable_81a31: ; 81a31 (20:5a31)
 	dw Func_81e7b
 	dw Func_81eca
 	dw Func_81f19
-PointerTable_81a3f: ; 81a3f (20:5a3f)
+PointerTable_81a3f:: ; 81a3f (20:5a3f)
 	dw Func_81b6b
 	dw Func_81b7b
 	dw Func_81c95
@@ -5907,7 +5921,7 @@ Func_82224: ; 82224 (20:6224)
 	ret
 ; 0x82230
 
-PointerTable_82230: ; 82230 (20:6230)
+PointerTable_82230:: ; 82230 (20:6230)
 	dw Data_82700, $0000
 	dw Data_8270d, $0000
 	dw Data_8270d, Data_82712
@@ -7020,7 +7034,7 @@ Data_82f67: ; 82f67 (20:6f67)
 Data_82f6c: ; 82f6c (20:6f6c)
 	db $19, $19, $84, $01, $00
 
-DataTable_82f71: ; 82f71 (20:6f71)
+DataTable_82f71:: ; 82f71 (20:6f71)
 	db $79, $AB, $CD, $DF, $EE, $DD, $CB, $A9, $7F, $43, $21, $10, $00, $11, $23, $45
 	db $FF, $EE, $D0, $CC, $BB, $AA, $9F, $88, $77, $66, $5F, $44, $3F, $22, $11, $00
 	db $FF, $EE, $D0, $CC, $BB, $AA, $9F, $88, $77, $66, $5F, $44, $3F, $2F, $11, $00
@@ -7095,7 +7109,7 @@ DataTable_82f71: ; 82f71 (20:6f71)
 	db $22, $22, $22, $22, $22, $22, $22, $22, $00, $00, $00, $00, $00, $00, $00, $00
 	db $11, $11, $11, $11, $11, $11, $11, $11, $00, $00, $00, $00, $00, $00, $00, $00
 
-PointerTable_83401: ; 83401 (20:7401)
+PointerTable_83401:: ; 83401 (20:7401)
 	dw Data_83498
 	dw Data_8349c
 	dw Data_834a0

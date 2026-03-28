@@ -1,0 +1,1 @@
+DEF tiles EQUS "* TILE_SIZE"

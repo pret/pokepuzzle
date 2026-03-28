@@ -1,9 +1,6 @@
-INCLUDE "constants.asm"
-INCLUDE "macros.asm"
-INCLUDE "wram.asm"
-INCLUDE "hram.asm"
+SECTION "Bank 4", ROMX
 
-INCLUDE "home.asm"
+INCLUDE "engine/bank04.asm"
 
 SECTION "Audio Engine", ROMX
 

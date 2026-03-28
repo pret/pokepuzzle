@@ -1,4 +1,4 @@
-SongPointers: ; 8190e (20:590e)
+SongPointers:: ; 8190e (20:590e)
 	dw Music_None
 	db BANK(Music_None)
 
