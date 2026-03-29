@@ -10,7 +10,7 @@ To assemble, first install [RGBDS](https://github.com/gbdev/rgbds/releases) and 
 Then copy the above ROM to this directory as "baserom.gbc".  
 Then run `make` in your shell.
 
-This will output a file named "pokepuzzle.gbc"
+This will output a file named "pokepuzzle.gbc".
 
 
 ## See also
