@@ -714,7 +714,7 @@ Func_1091c:
 	ld a, $06
 	ret
 .asm_10925
-	ld a, [$ceaa]
+	ld a, [wceaa]
 	and a
 	jr z, .asm_1092c
 	dec a
@@ -727,7 +727,7 @@ Func_1092d:
 	jr z, .asm_10940
 	cp GAMEMODE_CHALLENGE
 	jr z, .asm_10940
-	ld a, [$cea7]
+	ld a, [wcea7]
 	and a
 	jr z, .asm_1093f
 	dec a
@@ -4030,7 +4030,7 @@ Func_13636:
 .asm_13647
 	ld a, $01
 .asm_13649
-	ld [$cef8], a
+	ld [wcef8], a
 	dec a
 	ld l, a
 	ld h, $00
@@ -4040,20 +4040,20 @@ Func_13636:
 	ld bc, $6fbb
 	add hl, bc
 	ld a, l
-	ld [$cef3], a
+	ld [wcef3], a
 	ld a, h
-	ld [$cef4], a
+	ld [wcef4], a
 	ld a, $2c
-	ld [$cef6], a
+	ld [wcef6], a
 	ld a, $01
-	ld [$cef7], a
+	ld [wcef7], a
 	xor a
-	ld [$cef5], a
-	ld [$cef9], a
+	ld [wcef5], a
+	ld [wcef9], a
 	ret
 
 Func_13671:
-	ld hl, $cef7
+	ld hl, wcef7
 	ld a, [hld]
 	or [hl]
 	jr z, .asm_13683
@@ -4066,12 +4066,12 @@ Func_13671:
 	ld e, $00
 	ret
 .asm_13683
-	ld a, [$cef9]
+	ld a, [wcef9]
 	inc a
 	and $01
-	ld [$cef9], a
+	ld [wcef9], a
 	jr nz, .asm_136a4
-	ld a, [$cef8]
+	ld a, [wcef8]
 	cp $63
 	jr z, .asm_1369f
 	jr c, .asm_1369b
@@ -4080,16 +4080,16 @@ Func_13671:
 .asm_1369b
 	inc a
 .asm_1369c
-	ld [$cef8], a
+	ld [wcef8], a
 .asm_1369f
 	ld a, $b4
-	ld [$cefa], a
+	ld [wcefa], a
 .asm_136a4
-	ld hl, $cef3
+	ld hl, wcef3
 	ld a, [hli]
 	ld b, [hl]
 	ld c, a
-	ld a, [$cef5]
+	ld a, [wcef5]
 	ld l, a
 	ld h, $00
 	add hl, bc
@@ -4102,8 +4102,8 @@ Func_13671:
 	ld e, $10
 .asm_136be
 	xor a
-	ld [$cef6], a
-	ld [$cef7], a
+	ld [wcef6], a
+	ld [wcef7], a
 	ld hl, $4
 	add hl, bc
 	ld c, l
@@ -4119,7 +4119,7 @@ Func_13671:
 	ld c, $53
 	ld b, $71
 .asm_136de
-	ld hl, $cef4
+	ld hl, wcef4
 	ld a, b
 	ld [hld], a
 	ld [hl], c
@@ -4129,7 +4129,7 @@ Func_13671:
 	pop bc
 	pop de
 	and $03
-	ld [$cef5], a
+	ld [wcef5], a
 	add c
 	ld l, a
 	ld a, b
@@ -4145,13 +4145,13 @@ Func_13671:
 	ld h, $00
 	ld bc, $778d
 	add hl, bc
-	ld a, [$cef6]
+	ld a, [wcef6]
 	add [hl]
-	ld [$cef6], a
+	ld [wcef6], a
 	inc hl
-	ld a, [$cef7]
+	ld a, [wcef7]
 	adc [hl]
-	ld [$cef7], a
+	ld [wcef7], a
 	ld a, [wGameLevel]
 	and a
 	jr z, .asm_1372e ; GAMELEVEL_EASY
@@ -4181,13 +4181,13 @@ Func_13671:
 	ld l, a
 	ld h, $00
 	add hl, bc
-	ld a, [$cef6]
+	ld a, [wcef6]
 	add [hl]
-	ld [$cef6], a
+	ld [wcef6], a
 	inc hl
-	ld a, [$cef7]
+	ld a, [wcef7]
 	adc [hl]
-	ld [$cef7], a
+	ld [wcef7], a
 	ld a, [wGameLevel]
 	and a
 	jr z, .asm_13769 ; GAMELEVEL_EASY
@@ -4216,13 +4216,13 @@ Func_13671:
 	ld h, $00
 	add hl, hl
 	add hl, bc
-	ld a, [$cef6]
+	ld a, [wcef6]
 	add [hl]
-	ld [$cef6], a
+	ld [wcef6], a
 	inc hl
-	ld a, [$cef7]
+	ld a, [wcef7]
 	adc [hl]
-	ld [$cef7], a
+	ld [wcef7], a
 	ret
 ; 0x1378d
 

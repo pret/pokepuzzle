@@ -174,7 +174,7 @@ Func_44047:
 	xor a
 	ldh [rVDMA_LEN], a
 
-	ld hl, $c919
+	ld hl, wc919
 	ld a, [hli]
 	ld [$9de2], a
 	ld a, [hli]
@@ -183,7 +183,7 @@ Func_44047:
 	ld [$9e02], a
 	ld a, [hli]
 	ld [$9e03], a
-	ld hl, $c91d
+	ld hl, wc91d
 	ld a, [hli]
 	ld [$9de5], a
 	ld a, [hli]
@@ -192,10 +192,10 @@ Func_44047:
 	ld [$9e05], a
 	ld a, [hli]
 	ld [$9e06], a
-	ld a, [$c877]
+	ld a, [wc877]
 	and $01
 	jp nz, .asm_441bb
-	ld hl, $c907
+	ld hl, wc907
 	ld a, [hli]
 	ld [$9c81], a
 	ld a, [hli]
@@ -220,7 +220,7 @@ Func_44047:
 	ld [$9ca5], a
 	ld a, [hli]
 	ld [$9ca6], a
-	ld hl, $c921
+	ld hl, wc921
 	ld a, [hli]
 	ld [$9ce1], a
 	ld a, [hli]
@@ -236,7 +236,7 @@ Func_44047:
 	jp .asm_441fe
 
 .asm_441bb
-	ld hl, $c92d
+	ld hl, wc92d
 	ld a, [hli]
 	ld [$9d42], a
 	ld a, [hli]
@@ -405,10 +405,10 @@ Func_44047:
 	ldh [rVDMA_LEN], a
 
 	call Func_1c6e
-	ld a, [$c877]
+	ld a, [wc877]
 	and $01
 	jp nz, .asm_4431b
-	ld hl, $c927
+	ld hl, wc927
 	ld a, [hli]
 	ld [$9ce1], a
 	ld a, [hli]
@@ -424,7 +424,7 @@ Func_44047:
 	jp .asm_4435e
 
 .asm_4431b
-	ld hl, $c93d
+	ld hl, wc93d
 	ld a, [hli]
 	ld [$9d42], a
 	ld a, [hli]
@@ -464,16 +464,16 @@ Func_44047:
 SECTION "Bank 11@5bc0", ROMX[$5bc0], BANK[$11]
 
 Func_45bc0:
-	ld a, [$c83b]
+	ld a, [wc83b]
 	and a
 	jr nz, .asm_45bcd
-	ld hl, $c87c
+	ld hl, wc87c
 	ld a, [hli]
 	or [hl]
 	jr nz, .asm_45beb
 .asm_45bcd
-	ld hl, $ca06
-	ld de, $c9e6
+	ld hl, wca06
+	ld de, wc9e6
 	ld a, [hli]
 	ld [de], a
 	inc de
@@ -499,8 +499,8 @@ Func_45bc0:
 	ld [de], a
 	ret
 .asm_45beb
-	ld hl, $c9fe
-	ld de, $c9e6
+	ld hl, wc9fe
+	ld de, wc9e6
 	ld a, [hli]
 	ld [de], a
 	inc de
@@ -537,9 +537,9 @@ Func_46dda:
 	push af
 	ld a, $01
 	sramswitch
-	copy_data $cef8, $00, $ab51, $01, $1 ; cef8, ab51
-	copy_data $cea0, $00, $ab54, $01, $24 ; cea0, ab54
-	copy_data $c833, $00, $ab78, $01, $590 ; c833, ab78
+	copy_data wcef8, $00, $ab51, $01, $1 ; cef8, ab51
+	copy_data wcea0, $00, $ab54, $01, $24 ; cea0, ab54
+	copy_data wc833, $00, $ab78, $01, $590 ; c833, ab78
 	pop af
 	sramswitch
 	pop af

@@ -11,7 +11,7 @@ Func_840c0:
 	ld a, [wc7f9]
 	and a
 	call nz, Func_84629
-	ld a, [$c80f]
+	ld a, [wc80f]
 	and a
 	call nz, Func_847ea
 	ret
@@ -28,7 +28,7 @@ Func_840e1:
 	ld a, [wc7f9]
 	cp b
 	jr z, .asm_840fa
-	ld a, [$c80f]
+	ld a, [wc80f]
 	cp b
 	jr z, .asm_840fa
 	xor a
@@ -116,8 +116,8 @@ SECTION "Bank 21@47ea", ROMX[$47ea], BANK[$21]
 
 Func_847ea:
 	xor a
-	ld [$c80f], a
-	ld [$c813], a
+	ld [wc80f], a
+	ld [wc813], a
 	call Func_848c0
 	ld c, $06
 	jp Func_84173

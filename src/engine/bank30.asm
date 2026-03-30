@@ -126,7 +126,7 @@ Func_c0367::
 	jr .asm_c0387
 .asm_c0382
 	ld a, $01
-	ld [$cd72], a
+	ld [wcd72], a
 .asm_c0387
 	call Func_c1f13
 	ld a, [$d864]
@@ -266,7 +266,7 @@ Func_c042a:
 	ld a, $02
 	ld [$d866], a
 	ld a, $01
-	ld [$cd6e], a
+	ld [wcd6e], a
 	ret
 .asm_c049e
 	ld a, [$d89a]
@@ -297,11 +297,11 @@ Func_c042a:
 	ld a, $04
 	ld [$d866], a
 	ld a, $03
-	ld [$cd70], a
+	ld [wcd70], a
 	ret
 
 .asm_c04d7
-	ld a, [$cd46]
+	ld a, [wcd46]
 	and a
 	jp nz, .asm_c0447
 	ld a, $01
@@ -410,11 +410,11 @@ Func_c050a:
 	jr z, .asm_c059a
 	ret
 .asm_c0580
-	ld a, [$cefa]
+	ld a, [wcefa]
 	and a
 	ret z
 	dec a
-	ld [$cefa], a
+	ld [wcefa], a
 	and $1f
 	jr z, .asm_c0596
 	cp $10
@@ -465,7 +465,7 @@ Func_c059f:
 .asm_c05ce
 	call Func_c05da
 	ld a, $b4
-	ld [$cefa], a
+	ld [wcefa], a
 .asm_c05d6
 	pop de
 	pop bc
@@ -5506,7 +5506,7 @@ Func_c244b:
 	ld a, $06
 	jr .asm_c2484
 .asm_c247d
-	ld a, [$ceaa]
+	ld a, [wceaa]
 	and a
 	jr z, .asm_c2484
 	dec a
@@ -5562,7 +5562,7 @@ Func_c244b:
 	jr .asm_c24e0
 
 .asm_c24d3
-	ld a, [$cea7]
+	ld a, [wcea7]
 	and a
 	jr z, .asm_c24da
 	dec a
@@ -7712,7 +7712,7 @@ Func_c325c:
 	ld a, [wGameMode]
 	cp GAMEMODE_GARBAGE
 	jr nz, .asm_c327a
-	ld a, [$cef8]
+	ld a, [wcef8]
 	jr .asm_c327d
 .asm_c327a
 	ld a, [$d8ab]

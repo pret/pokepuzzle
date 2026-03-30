@@ -15,7 +15,7 @@ Func_10c011:
 	push bc
 	push de
 	ld b, $00
-	ld de, $cf0c
+	ld de, wcf0c
 	ld a, $00
 	fill_mem $b, $100
 	ld b, $02
@@ -180,33 +180,33 @@ Func_10c22b:
 .asm_10c251
 	call Func_3438
 	ld a, e
-	ld [$cf0d], a
+	ld [wcf0d], a
 	ld a, d
-	ld [$cf0e], a
+	ld [wcf0e], a
 	ld a, b
-	ld [$cf0f], a
+	ld [wcf0f], a
 	inc c
 	dec c
 	jr z, .asm_10c26f
 	call .Func_10c28d
 	ld a, $01
-	ld [$cf0c], a
+	ld [wcf0c], a
 	jp .asm_10c243
 .asm_10c26f
 	call Func_3438
 	ld a, e
-	ld [$cf10], a
+	ld [wcf10], a
 	ld a, d
-	ld [$cf11], a
+	ld [wcf11], a
 	ld a, b
-	ld [$cf12], a
+	ld [wcf12], a
 	inc c
 	dec c
 	jr z, .asm_10c285
 	call .Func_10c28d
 .asm_10c285
 	ld a, $02
-	ld [$cf0c], a
+	ld [wcf0c], a
 	jp .asm_10c243
 
 .Func_10c28d:
@@ -342,29 +342,29 @@ Func_10c22b:
 	cp $09
 	jr nc, .asm_10c3b6
 	ld a, $01
-	ld [$cf0c], a
+	ld [wcf0c], a
 	ld a, [$dd3a]
-	ld [$cf0d], a
+	ld [wcf0d], a
 	ld a, [$dd3b]
-	ld [$cf0e], a
+	ld [wcf0e], a
 	ld a, [$dd3c]
-	ld [$cf0f], a
+	ld [wcf0f], a
 	jr .asm_10c3df
 .asm_10c3b6
 	ld a, $02
-	ld [$cf0c], a
+	ld [wcf0c], a
 	ld a, [$dd3a]
-	ld [$cf0d], a
+	ld [wcf0d], a
 	ld a, [$dd3b]
-	ld [$cf0e], a
+	ld [wcf0e], a
 	ld a, [$dd3c]
-	ld [$cf0f], a
+	ld [wcf0f], a
 	ld a, [$dd3d]
-	ld [$cf10], a
+	ld [wcf10], a
 	ld a, [$dd3e]
-	ld [$cf11], a
+	ld [wcf11], a
 	ld a, [$dd3f]
-	ld [$cf12], a
+	ld [wcf12], a
 .asm_10c3df
 	ld a, [$dd16]
 	and a

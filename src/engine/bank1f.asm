@@ -11,11 +11,11 @@ Func_7c000::
 	ldh [hSCY], a
 	ldh [hWX], a
 	ldh [hWY], a
-	ld [$ce3b], a
+	ld [wce3b], a
 	call Func_504
 
 	xor a
-	ld [$ce35], a
+	ld [wce35], a
 	ld [$daa3], a
 	ld [$daa2], a
 	ld [$daa4], a
@@ -35,7 +35,7 @@ Func_7c000::
 	ldh [hIE], a
 	ldh [rIE], a
 
-	ld hl, $ce34
+	ld hl, wce34
 	inc [hl]
 	ret
 
@@ -91,7 +91,7 @@ Func_7c0b3:
 	dw .Func_7c120
 
 .Func_7c0cc:
-	ld a, [$ce35]
+	ld a, [wce35]
 	cp $40
 	jr nz, .asm_7c0d7
 	ld hl, $daa3
@@ -117,7 +117,7 @@ Func_7c0b3:
 
 .Func_7c117:
 	xor a
-	ld [$ce35], a
+	ld [wce35], a
 	ld hl, $daa3
 	inc [hl]
 	ret
@@ -133,7 +133,7 @@ Func_7c0b3:
 	ret nz
 	jr .asm_7c139
 .asm_7c133
-	ld a, [$ce35]
+	ld a, [wce35]
 	cp $80
 	ret nz
 .asm_7c139
@@ -144,7 +144,7 @@ Func_7c0b3:
 	cp $02
 	jr nz, .asm_7c154
 	ld a, $1e
-	ld [$ce34], a
+	ld [wce34], a
 	ld a, GAMESTATE_1A
 	ldh [hGameState], a
 	xor a
@@ -152,7 +152,7 @@ Func_7c0b3:
 	ret
 .asm_7c154
 	ld a, $34
-	ld [$ce34], a
+	ld [wce34], a
 	ret
 
 Func_7c15a:

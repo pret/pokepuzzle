@@ -42,9 +42,9 @@ Func_68b3d:
 	ld hl, $4913
 	add hl, bc
 	ld a, [hli]
-	ld [$c8dd], a
+	ld [wc8dd], a
 	ld a, [hl]
-	ld [$c8de], a
+	ld [wc8de], a
 	pop bc
 	ret
 ; 0x68b52
@@ -53,26 +53,26 @@ SECTION "Bank 1a@4ebb", ROMX[$4ebb], BANK[$1a]
 
 Func_68ebb:
 	xor a
-	ld [$cdad], a
-	ld [$cdae], a
-	ld [$cdaf], a
-	ld [$cdb0], a
-	ld [$cdb1], a
-	ld [$cdb2], a
-	ld [$cdb3], a
-	ld [$cdb4], a
-	ld [$cdb5], a
-	ld [$cdb6], a
-	ld [$cdb7], a
-	ld [$cdb8], a
-	ld [$cdb9], a
-	ld [$cdba], a
-	ld [$cdbb], a
-	ld [$cdbc], a
-	ld [$cdbd], a
-	ld [$cdbe], a
-	ld [$cdbf], a
-	ld [$cdc0], a
+	ld [wcdad], a
+	ld [wcdae], a
+	ld [wcdaf], a
+	ld [wcdb0], a
+	ld [wcdb1], a
+	ld [wcdb2], a
+	ld [wcdb3], a
+	ld [wcdb4], a
+	ld [wcdb5], a
+	ld [wcdb6], a
+	ld [wcdb7], a
+	ld [wcdb8], a
+	ld [wcdb9], a
+	ld [wcdba], a
+	ld [wcdbb], a
+	ld [wcdbc], a
+	ld [wcdbd], a
+	ld [wcdbe], a
+	ld [wcdbf], a
+	ld [wcdc0], a
 	ret
 ; 0x68ef9
 
@@ -87,7 +87,7 @@ SECTION "Bank 1a@666d", ROMX[$666d], BANK[$1a]
 
 Func_6a66d:
 	ld a, $01
-	ld [$cdc5], a
+	ld [wcdc5], a
 	call Func_2a3c
 	ret
 ; 0x6a676

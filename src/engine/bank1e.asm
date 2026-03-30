@@ -344,11 +344,11 @@ Func_78000:
 	ld [hli], a
 	inc l
 	inc l
-	ld a, [$cadf]
+	ld a, [wcadf]
 	and a
 	jr nz, .asm_78163
 	xor a
-	ld [$cae0], a
+	ld [wcae0], a
 .asm_78163
 	ld b, a
 	ld d, a
@@ -390,7 +390,7 @@ Func_78000:
 	ld a, [$d04d]
 	and a
 	jp nz, .asm_78280
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $4d
 	jp z, .asm_78280
@@ -401,7 +401,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d145], a
 	jp .asm_78280
@@ -433,7 +433,7 @@ Func_78000:
 	xor a
 	ld [$d195], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_78212
@@ -460,7 +460,7 @@ Func_78000:
 	ld bc, $45
 	ld de, $4d
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_78256
 	dec a
@@ -480,7 +480,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d145], a
 .asm_78268
 	ld hl, $d09d
@@ -534,7 +534,7 @@ Func_78000:
 	ld a, [$d04c]
 	and a
 	jp nz, .asm_7839b
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $4c
 	jp z, .asm_7839b
@@ -545,7 +545,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d144], a
 	jp .asm_7839b
@@ -577,7 +577,7 @@ Func_78000:
 	xor a
 	ld [$d194], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_7832d
@@ -604,7 +604,7 @@ Func_78000:
 	ld bc, $44
 	ld de, $4c
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_78371
 	dec a
@@ -624,7 +624,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d144], a
 .asm_78383
 	ld hl, $d09c
@@ -678,7 +678,7 @@ Func_78000:
 	ld a, [$d04b]
 	and a
 	jp nz, .asm_784b6
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $4b
 	jp z, .asm_784b6
@@ -689,7 +689,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d143], a
 	jp .asm_784b6
@@ -721,7 +721,7 @@ Func_78000:
 	xor a
 	ld [$d193], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_78448
@@ -748,7 +748,7 @@ Func_78000:
 	ld bc, $43
 	ld de, $4b
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_7848c
 	dec a
@@ -768,7 +768,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d143], a
 .asm_7849e
 	ld hl, $d09b
@@ -822,7 +822,7 @@ Func_78000:
 	ld a, [$d04a]
 	and a
 	jp nz, .asm_785d1
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $4a
 	jp z, .asm_785d1
@@ -833,7 +833,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d142], a
 	jp .asm_785d1
@@ -865,7 +865,7 @@ Func_78000:
 	xor a
 	ld [$d192], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_78563
@@ -892,7 +892,7 @@ Func_78000:
 	ld bc, $42
 	ld de, $4a
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_785a7
 	dec a
@@ -912,7 +912,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d142], a
 .asm_785b9
 	ld hl, $d09a
@@ -966,7 +966,7 @@ Func_78000:
 	ld a, [$d049]
 	and a
 	jp nz, .asm_786ec
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $49
 	jp z, .asm_786ec
@@ -977,7 +977,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d141], a
 	jp .asm_786ec
@@ -1009,7 +1009,7 @@ Func_78000:
 	xor a
 	ld [$d191], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_7867e
@@ -1036,7 +1036,7 @@ Func_78000:
 	ld bc, $41
 	ld de, $49
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_786c2
 	dec a
@@ -1056,7 +1056,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d141], a
 .asm_786d4
 	ld hl, $d099
@@ -1110,7 +1110,7 @@ Func_78000:
 	ld a, [$d048]
 	and a
 	jp nz, .asm_78807
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $48
 	jp z, .asm_78807
@@ -1121,7 +1121,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d140], a
 	jp .asm_78807
@@ -1153,7 +1153,7 @@ Func_78000:
 	xor a
 	ld [$d190], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_78799
@@ -1180,7 +1180,7 @@ Func_78000:
 	ld bc, $40
 	ld de, $48
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_787dd
 	dec a
@@ -1200,7 +1200,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d140], a
 .asm_787ef
 	ld hl, $d098
@@ -1254,7 +1254,7 @@ Func_78000:
 	ld a, [$d045]
 	and a
 	jp nz, .asm_78922
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $45
 	jp z, .asm_78922
@@ -1265,7 +1265,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d13d], a
 	jp .asm_78922
@@ -1297,7 +1297,7 @@ Func_78000:
 	xor a
 	ld [$d18d], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_788b4
@@ -1324,7 +1324,7 @@ Func_78000:
 	ld bc, $3d
 	ld de, $45
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_788f8
 	dec a
@@ -1344,7 +1344,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d13d], a
 .asm_7890a
 	ld hl, $d095
@@ -1398,7 +1398,7 @@ Func_78000:
 	ld a, [$d044]
 	and a
 	jp nz, .asm_78a3d
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $44
 	jp z, .asm_78a3d
@@ -1409,7 +1409,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d13c], a
 	jp .asm_78a3d
@@ -1441,7 +1441,7 @@ Func_78000:
 	xor a
 	ld [$d18c], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_789cf
@@ -1468,7 +1468,7 @@ Func_78000:
 	ld bc, $3c
 	ld de, $44
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_78a13
 	dec a
@@ -1488,7 +1488,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d13c], a
 .asm_78a25
 	ld hl, $d094
@@ -1542,7 +1542,7 @@ Func_78000:
 	ld a, [$d043]
 	and a
 	jp nz, .asm_78b58
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $43
 	jp z, .asm_78b58
@@ -1553,7 +1553,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d13b], a
 	jp .asm_78b58
@@ -1585,7 +1585,7 @@ Func_78000:
 	xor a
 	ld [$d18b], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_78aea
@@ -1612,7 +1612,7 @@ Func_78000:
 	ld bc, $3b
 	ld de, $43
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_78b2e
 	dec a
@@ -1632,7 +1632,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d13b], a
 .asm_78b40
 	ld hl, $d093
@@ -1686,7 +1686,7 @@ Func_78000:
 	ld a, [$d042]
 	and a
 	jp nz, .asm_78c73
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $42
 	jp z, .asm_78c73
@@ -1697,7 +1697,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d13a], a
 	jp .asm_78c73
@@ -1729,7 +1729,7 @@ Func_78000:
 	xor a
 	ld [$d18a], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_78c05
@@ -1756,7 +1756,7 @@ Func_78000:
 	ld bc, $3a
 	ld de, $42
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_78c49
 	dec a
@@ -1776,7 +1776,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d13a], a
 .asm_78c5b
 	ld hl, $d092
@@ -1830,7 +1830,7 @@ Func_78000:
 	ld a, [$d041]
 	and a
 	jp nz, .asm_78d8e
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $41
 	jp z, .asm_78d8e
@@ -1841,7 +1841,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d139], a
 	jp .asm_78d8e
@@ -1873,7 +1873,7 @@ Func_78000:
 	xor a
 	ld [$d189], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_78d20
@@ -1900,7 +1900,7 @@ Func_78000:
 	ld bc, $39
 	ld de, $41
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_78d64
 	dec a
@@ -1920,7 +1920,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d139], a
 .asm_78d76
 	ld hl, $d091
@@ -1974,7 +1974,7 @@ Func_78000:
 	ld a, [$d040]
 	and a
 	jp nz, .asm_78ea9
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $40
 	jp z, .asm_78ea9
@@ -1985,7 +1985,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d138], a
 	jp .asm_78ea9
@@ -2017,7 +2017,7 @@ Func_78000:
 	xor a
 	ld [$d188], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_78e3b
@@ -2044,7 +2044,7 @@ Func_78000:
 	ld bc, $38
 	ld de, $40
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_78e7f
 	dec a
@@ -2064,7 +2064,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d138], a
 .asm_78e91
 	ld hl, $d090
@@ -2118,7 +2118,7 @@ Func_78000:
 	ld a, [$d03d]
 	and a
 	jp nz, .asm_78fc4
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $3d
 	jp z, .asm_78fc4
@@ -2129,7 +2129,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d135], a
 	jp .asm_78fc4
@@ -2161,7 +2161,7 @@ Func_78000:
 	xor a
 	ld [$d185], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_78f56
@@ -2188,7 +2188,7 @@ Func_78000:
 	ld bc, $35
 	ld de, $3d
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_78f9a
 	dec a
@@ -2208,7 +2208,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d135], a
 .asm_78fac
 	ld hl, $d08d
@@ -2262,7 +2262,7 @@ Func_78000:
 	ld a, [$d03c]
 	and a
 	jp nz, .asm_790df
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $3c
 	jp z, .asm_790df
@@ -2273,7 +2273,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d134], a
 	jp .asm_790df
@@ -2305,7 +2305,7 @@ Func_78000:
 	xor a
 	ld [$d184], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_79071
@@ -2332,7 +2332,7 @@ Func_78000:
 	ld bc, $34
 	ld de, $3c
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_790b5
 	dec a
@@ -2352,7 +2352,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d134], a
 .asm_790c7
 	ld hl, $d08c
@@ -2406,7 +2406,7 @@ Func_78000:
 	ld a, [$d03b]
 	and a
 	jp nz, .asm_791fa
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $3b
 	jp z, .asm_791fa
@@ -2417,7 +2417,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d133], a
 	jp .asm_791fa
@@ -2449,7 +2449,7 @@ Func_78000:
 	xor a
 	ld [$d183], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_7918c
@@ -2476,7 +2476,7 @@ Func_78000:
 	ld bc, $33
 	ld de, $3b
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_791d0
 	dec a
@@ -2496,7 +2496,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d133], a
 .asm_791e2
 	ld hl, $d08b
@@ -2550,7 +2550,7 @@ Func_78000:
 	ld a, [$d03a]
 	and a
 	jp nz, .asm_79315
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $3a
 	jp z, .asm_79315
@@ -2561,7 +2561,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d132], a
 	jp .asm_79315
@@ -2593,7 +2593,7 @@ Func_78000:
 	xor a
 	ld [$d182], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_792a7
@@ -2620,7 +2620,7 @@ Func_78000:
 	ld bc, $32
 	ld de, $3a
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_792eb
 	dec a
@@ -2640,7 +2640,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d132], a
 .asm_792fd
 	ld hl, $d08a
@@ -2694,7 +2694,7 @@ Func_78000:
 	ld a, [$d039]
 	and a
 	jp nz, .asm_79430
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $39
 	jp z, .asm_79430
@@ -2705,7 +2705,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d131], a
 	jp .asm_79430
@@ -2737,7 +2737,7 @@ Func_78000:
 	xor a
 	ld [$d181], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_793c2
@@ -2764,7 +2764,7 @@ Func_78000:
 	ld bc, $31
 	ld de, $39
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_79406
 	dec a
@@ -2784,7 +2784,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d131], a
 .asm_79418
 	ld hl, $d089
@@ -2838,7 +2838,7 @@ Func_78000:
 	ld a, [$d038]
 	and a
 	jp nz, .asm_7954b
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $38
 	jp z, .asm_7954b
@@ -2849,7 +2849,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d130], a
 	jp .asm_7954b
@@ -2881,7 +2881,7 @@ Func_78000:
 	xor a
 	ld [$d180], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_794dd
@@ -2908,7 +2908,7 @@ Func_78000:
 	ld bc, $30
 	ld de, $38
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_79521
 	dec a
@@ -2928,7 +2928,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d130], a
 .asm_79533
 	ld hl, $d088
@@ -2982,7 +2982,7 @@ Func_78000:
 	ld a, [$d035]
 	and a
 	jp nz, .asm_79666
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $35
 	jp z, .asm_79666
@@ -2993,7 +2993,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d12d], a
 	jp .asm_79666
@@ -3025,7 +3025,7 @@ Func_78000:
 	xor a
 	ld [$d17d], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_795f8
@@ -3052,7 +3052,7 @@ Func_78000:
 	ld bc, $2d
 	ld de, $35
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_7963c
 	dec a
@@ -3072,7 +3072,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d12d], a
 .asm_7964e
 	ld hl, $d085
@@ -3126,7 +3126,7 @@ Func_78000:
 	ld a, [$d034]
 	and a
 	jp nz, .asm_79781
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $34
 	jp z, .asm_79781
@@ -3137,7 +3137,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d12c], a
 	jp .asm_79781
@@ -3169,7 +3169,7 @@ Func_78000:
 	xor a
 	ld [$d17c], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_79713
@@ -3196,7 +3196,7 @@ Func_78000:
 	ld bc, $2c
 	ld de, $34
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_79757
 	dec a
@@ -3216,7 +3216,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d12c], a
 .asm_79769
 	ld hl, $d084
@@ -3270,7 +3270,7 @@ Func_78000:
 	ld a, [$d033]
 	and a
 	jp nz, .asm_7989c
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $33
 	jp z, .asm_7989c
@@ -3281,7 +3281,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d12b], a
 	jp .asm_7989c
@@ -3313,7 +3313,7 @@ Func_78000:
 	xor a
 	ld [$d17b], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_7982e
@@ -3340,7 +3340,7 @@ Func_78000:
 	ld bc, $2b
 	ld de, $33
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_79872
 	dec a
@@ -3360,7 +3360,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d12b], a
 .asm_79884
 	ld hl, $d083
@@ -3414,7 +3414,7 @@ Func_78000:
 	ld a, [$d032]
 	and a
 	jp nz, .asm_799b7
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $32
 	jp z, .asm_799b7
@@ -3425,7 +3425,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d12a], a
 	jp .asm_799b7
@@ -3457,7 +3457,7 @@ Func_78000:
 	xor a
 	ld [$d17a], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_79949
@@ -3484,7 +3484,7 @@ Func_78000:
 	ld bc, $2a
 	ld de, $32
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_7998d
 	dec a
@@ -3504,7 +3504,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d12a], a
 .asm_7999f
 	ld hl, $d082
@@ -3558,7 +3558,7 @@ Func_78000:
 	ld a, [$d031]
 	and a
 	jp nz, .asm_79ad2
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $31
 	jp z, .asm_79ad2
@@ -3569,7 +3569,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d129], a
 	jp .asm_79ad2
@@ -3601,7 +3601,7 @@ Func_78000:
 	xor a
 	ld [$d179], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_79a64
@@ -3628,7 +3628,7 @@ Func_78000:
 	ld bc, $29
 	ld de, $31
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_79aa8
 	dec a
@@ -3648,7 +3648,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d129], a
 .asm_79aba
 	ld hl, $d081
@@ -3702,7 +3702,7 @@ Func_78000:
 	ld a, [$d030]
 	and a
 	jp nz, .asm_79bed
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $30
 	jp z, .asm_79bed
@@ -3713,7 +3713,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d128], a
 	jp .asm_79bed
@@ -3745,7 +3745,7 @@ Func_78000:
 	xor a
 	ld [$d178], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_79b7f
@@ -3772,7 +3772,7 @@ Func_78000:
 	ld bc, $28
 	ld de, $30
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_79bc3
 	dec a
@@ -3792,7 +3792,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d128], a
 .asm_79bd5
 	ld hl, $d080
@@ -3846,7 +3846,7 @@ Func_78000:
 	ld a, [$d02d]
 	and a
 	jp nz, .asm_79d08
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $2d
 	jp z, .asm_79d08
@@ -3857,7 +3857,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d125], a
 	jp .asm_79d08
@@ -3889,7 +3889,7 @@ Func_78000:
 	xor a
 	ld [$d175], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_79c9a
@@ -3916,7 +3916,7 @@ Func_78000:
 	ld bc, $25
 	ld de, $2d
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_79cde
 	dec a
@@ -3936,7 +3936,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d125], a
 .asm_79cf0
 	ld hl, $d07d
@@ -3990,7 +3990,7 @@ Func_78000:
 	ld a, [$d02c]
 	and a
 	jp nz, .asm_79e23
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $2c
 	jp z, .asm_79e23
@@ -4001,7 +4001,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d124], a
 	jp .asm_79e23
@@ -4033,7 +4033,7 @@ Func_78000:
 	xor a
 	ld [$d174], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_79db5
@@ -4060,7 +4060,7 @@ Func_78000:
 	ld bc, $24
 	ld de, $2c
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_79df9
 	dec a
@@ -4080,7 +4080,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d124], a
 .asm_79e0b
 	ld hl, $d07c
@@ -4134,7 +4134,7 @@ Func_78000:
 	ld a, [$d02b]
 	and a
 	jp nz, .asm_79f3e
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $2b
 	jp z, .asm_79f3e
@@ -4145,7 +4145,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d123], a
 	jp .asm_79f3e
@@ -4177,7 +4177,7 @@ Func_78000:
 	xor a
 	ld [$d173], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_79ed0
@@ -4204,7 +4204,7 @@ Func_78000:
 	ld bc, $23
 	ld de, $2b
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_79f14
 	dec a
@@ -4224,7 +4224,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d123], a
 .asm_79f26
 	ld hl, $d07b
@@ -4278,7 +4278,7 @@ Func_78000:
 	ld a, [$d02a]
 	and a
 	jp nz, .asm_7a059
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $2a
 	jp z, .asm_7a059
@@ -4289,7 +4289,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d122], a
 	jp .asm_7a059
@@ -4321,7 +4321,7 @@ Func_78000:
 	xor a
 	ld [$d172], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_79feb
@@ -4348,7 +4348,7 @@ Func_78000:
 	ld bc, $22
 	ld de, $2a
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_7a02f
 	dec a
@@ -4368,7 +4368,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d122], a
 .asm_7a041
 	ld hl, $d07a
@@ -4422,7 +4422,7 @@ Func_78000:
 	ld a, [$d029]
 	and a
 	jp nz, .asm_7a174
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $29
 	jp z, .asm_7a174
@@ -4433,7 +4433,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d121], a
 	jp .asm_7a174
@@ -4465,7 +4465,7 @@ Func_78000:
 	xor a
 	ld [$d171], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_7a106
@@ -4492,7 +4492,7 @@ Func_78000:
 	ld bc, $21
 	ld de, $29
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_7a14a
 	dec a
@@ -4512,7 +4512,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d121], a
 .asm_7a15c
 	ld hl, $d079
@@ -4566,7 +4566,7 @@ Func_78000:
 	ld a, [$d028]
 	and a
 	jp nz, .asm_7a28f
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $28
 	jp z, .asm_7a28f
@@ -4577,7 +4577,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d120], a
 	jp .asm_7a28f
@@ -4609,7 +4609,7 @@ Func_78000:
 	xor a
 	ld [$d170], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_7a221
@@ -4636,7 +4636,7 @@ Func_78000:
 	ld bc, $20
 	ld de, $28
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_7a265
 	dec a
@@ -4656,7 +4656,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d120], a
 .asm_7a277
 	ld hl, $d078
@@ -4710,7 +4710,7 @@ Func_78000:
 	ld a, [$d025]
 	and a
 	jp nz, .asm_7a3aa
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $25
 	jp z, .asm_7a3aa
@@ -4721,7 +4721,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d11d], a
 	jp .asm_7a3aa
@@ -4753,7 +4753,7 @@ Func_78000:
 	xor a
 	ld [$d16d], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_7a33c
@@ -4779,7 +4779,7 @@ Func_78000:
 	ld bc, $1d
 	ld de, $25
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_7a380
 	dec a
@@ -4799,7 +4799,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d11d], a
 .asm_7a392
 	ld hl, $d075
@@ -4853,7 +4853,7 @@ Func_78000:
 	ld a, [$d024]
 	and a
 	jp nz, .asm_7a4c5
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $24
 	jp z, .asm_7a4c5
@@ -4864,7 +4864,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d11c], a
 	jp .asm_7a4c5
@@ -4896,7 +4896,7 @@ Func_78000:
 	xor a
 	ld [$d16c], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_7a457
@@ -4922,7 +4922,7 @@ Func_78000:
 	ld bc, $1c
 	ld de, $24
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_7a49b
 	dec a
@@ -4942,7 +4942,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d11c], a
 .asm_7a4ad
 	ld hl, $d074
@@ -4996,7 +4996,7 @@ Func_78000:
 	ld a, [$d023]
 	and a
 	jp nz, .asm_7a5e0
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $23
 	jp z, .asm_7a5e0
@@ -5007,7 +5007,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d11b], a
 	jp .asm_7a5e0
@@ -5039,7 +5039,7 @@ Func_78000:
 	xor a
 	ld [$d16b], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_7a572
@@ -5065,7 +5065,7 @@ Func_78000:
 	ld bc, $1b
 	ld de, $23
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_7a5b6
 	dec a
@@ -5085,7 +5085,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d11b], a
 .asm_7a5c8
 	ld hl, $d073
@@ -5139,7 +5139,7 @@ Func_78000:
 	ld a, [$d022]
 	and a
 	jp nz, .asm_7a6fb
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $22
 	jp z, .asm_7a6fb
@@ -5150,7 +5150,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d11a], a
 	jp .asm_7a6fb
@@ -5182,7 +5182,7 @@ Func_78000:
 	xor a
 	ld [$d16a], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_7a68d
@@ -5208,7 +5208,7 @@ Func_78000:
 	ld bc, $1a
 	ld de, $22
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_7a6d1
 	dec a
@@ -5228,7 +5228,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d11a], a
 .asm_7a6e3
 	ld hl, $d072
@@ -5282,7 +5282,7 @@ Func_78000:
 	ld a, [$d021]
 	and a
 	jp nz, .asm_7a816
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $21
 	jp z, .asm_7a816
@@ -5293,7 +5293,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d119], a
 	jp .asm_7a816
@@ -5325,7 +5325,7 @@ Func_78000:
 	xor a
 	ld [$d169], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_7a7a8
@@ -5351,7 +5351,7 @@ Func_78000:
 	ld bc, $19
 	ld de, $21
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_7a7ec
 	dec a
@@ -5371,7 +5371,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d119], a
 .asm_7a7fe
 	ld hl, $d071
@@ -5425,7 +5425,7 @@ Func_78000:
 	ld a, [$d020]
 	and a
 	jp nz, .asm_7a931
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $20
 	jp z, .asm_7a931
@@ -5436,7 +5436,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d118], a
 	jp .asm_7a931
@@ -5468,7 +5468,7 @@ Func_78000:
 	xor a
 	ld [$d168], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_7a8c3
@@ -5494,7 +5494,7 @@ Func_78000:
 	ld bc, $18
 	ld de, $20
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_7a907
 	dec a
@@ -5514,7 +5514,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d118], a
 .asm_7a919
 	ld hl, $d070
@@ -5568,7 +5568,7 @@ Func_78000:
 	ld a, [$d01d]
 	and a
 	jp nz, .asm_7aa4c
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $1d
 	jp z, .asm_7aa4c
@@ -5579,7 +5579,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d115], a
 	jp .asm_7aa4c
@@ -5611,7 +5611,7 @@ Func_78000:
 	xor a
 	ld [$d165], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_7a9de
@@ -5637,7 +5637,7 @@ Func_78000:
 	ld bc, $15
 	ld de, $1d
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_7aa22
 	dec a
@@ -5657,7 +5657,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d115], a
 .asm_7aa34
 	ld hl, $d06d
@@ -5711,7 +5711,7 @@ Func_78000:
 	ld a, [$d01c]
 	and a
 	jp nz, .asm_7ab67
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $1c
 	jp z, .asm_7ab67
@@ -5722,7 +5722,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d114], a
 	jp .asm_7ab67
@@ -5754,7 +5754,7 @@ Func_78000:
 	xor a
 	ld [$d164], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_7aaf9
@@ -5780,7 +5780,7 @@ Func_78000:
 	ld bc, $14
 	ld de, $1c
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_7ab3d
 	dec a
@@ -5800,7 +5800,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d114], a
 .asm_7ab4f
 	ld hl, $d06c
@@ -5854,7 +5854,7 @@ Func_78000:
 	ld a, [$d01b]
 	and a
 	jp nz, .asm_7ac82
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $1b
 	jp z, .asm_7ac82
@@ -5865,7 +5865,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d113], a
 	jp .asm_7ac82
@@ -5897,7 +5897,7 @@ Func_78000:
 	xor a
 	ld [$d163], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_7ac14
@@ -5923,7 +5923,7 @@ Func_78000:
 	ld bc, $13
 	ld de, $1b
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_7ac58
 	dec a
@@ -5943,7 +5943,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d113], a
 .asm_7ac6a
 	ld hl, $d06b
@@ -5997,7 +5997,7 @@ Func_78000:
 	ld a, [$d01a]
 	and a
 	jp nz, .asm_7ad9d
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $1a
 	jp z, .asm_7ad9d
@@ -6008,7 +6008,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d112], a
 	jp .asm_7ad9d
@@ -6040,7 +6040,7 @@ Func_78000:
 	xor a
 	ld [$d162], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_7ad2f
@@ -6066,7 +6066,7 @@ Func_78000:
 	ld bc, $12
 	ld de, $1a
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_7ad73
 	dec a
@@ -6086,7 +6086,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d112], a
 .asm_7ad85
 	ld hl, $d06a
@@ -6140,7 +6140,7 @@ Func_78000:
 	ld a, [$d019]
 	and a
 	jp nz, .asm_7aeb8
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $19
 	jp z, .asm_7aeb8
@@ -6151,7 +6151,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d111], a
 	jp .asm_7aeb8
@@ -6183,7 +6183,7 @@ Func_78000:
 	xor a
 	ld [$d161], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_7ae4a
@@ -6209,7 +6209,7 @@ Func_78000:
 	ld bc, $11
 	ld de, $19
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_7ae8e
 	dec a
@@ -6229,7 +6229,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d111], a
 .asm_7aea0
 	ld hl, $d069
@@ -6283,7 +6283,7 @@ Func_78000:
 	ld a, [$d018]
 	and a
 	jp nz, .asm_7afd3
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $18
 	jp z, .asm_7afd3
@@ -6294,7 +6294,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d110], a
 	jp .asm_7afd3
@@ -6326,7 +6326,7 @@ Func_78000:
 	xor a
 	ld [$d160], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_7af65
@@ -6352,7 +6352,7 @@ Func_78000:
 	ld bc, $10
 	ld de, $18
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_7afa9
 	dec a
@@ -6372,7 +6372,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d110], a
 .asm_7afbb
 	ld hl, $d068
@@ -6426,7 +6426,7 @@ Func_78000:
 	ld a, [$d015]
 	and a
 	jp nz, .asm_7b0ee
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $15
 	jp z, .asm_7b0ee
@@ -6437,7 +6437,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d10d], a
 	jp .asm_7b0ee
@@ -6469,7 +6469,7 @@ Func_78000:
 	xor a
 	ld [$d15d], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_7b080
@@ -6496,7 +6496,7 @@ Func_78000:
 	ld bc, $d
 	ld de, $15
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_7b0c4
 	dec a
@@ -6516,7 +6516,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d10d], a
 .asm_7b0d6
 	ld hl, $d065
@@ -6570,7 +6570,7 @@ Func_78000:
 	ld a, [$d014]
 	and a
 	jp nz, .asm_7b209
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $14
 	jp z, .asm_7b209
@@ -6581,7 +6581,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d10c], a
 	jp .asm_7b209
@@ -6613,7 +6613,7 @@ Func_78000:
 	xor a
 	ld [$d15c], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_7b19b
@@ -6639,7 +6639,7 @@ Func_78000:
 	ld bc, $c
 	ld de, $14
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_7b1df
 	dec a
@@ -6659,7 +6659,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d10c], a
 .asm_7b1f1
 	ld hl, $d064
@@ -6713,7 +6713,7 @@ Func_78000:
 	ld a, [$d013]
 	and a
 	jp nz, .asm_7b324
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $13
 	jp z, .asm_7b324
@@ -6724,7 +6724,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d10b], a
 	jp .asm_7b324
@@ -6756,7 +6756,7 @@ Func_78000:
 	xor a
 	ld [$d15b], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_7b2b6
@@ -6782,7 +6782,7 @@ Func_78000:
 	ld bc, $b
 	ld de, $13
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_7b2fa
 	dec a
@@ -6802,7 +6802,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d10b], a
 .asm_7b30c
 	ld hl, $d063
@@ -6856,7 +6856,7 @@ Func_78000:
 	ld a, [$d012]
 	and a
 	jp nz, .asm_7b43f
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $12
 	jp z, .asm_7b43f
@@ -6867,7 +6867,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d10a], a
 	jp .asm_7b43f
@@ -6899,7 +6899,7 @@ Func_78000:
 	xor a
 	ld [$d15a], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_7b3d1
@@ -6925,7 +6925,7 @@ Func_78000:
 	ld bc, $a
 	ld de, $12
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_7b415
 	dec a
@@ -6945,7 +6945,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d10a], a
 .asm_7b427
 	ld hl, $d062
@@ -6999,7 +6999,7 @@ Func_78000:
 	ld a, [$d011]
 	and a
 	jp nz, .asm_7b55a
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $11
 	jp z, .asm_7b55a
@@ -7010,7 +7010,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d109], a
 	jp .asm_7b55a
@@ -7042,7 +7042,7 @@ Func_78000:
 	xor a
 	ld [$d159], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_7b4ec
@@ -7068,7 +7068,7 @@ Func_78000:
 	ld bc, $9
 	ld de, $11
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_7b530
 	dec a
@@ -7088,7 +7088,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d109], a
 .asm_7b542
 	ld hl, $d061
@@ -7142,7 +7142,7 @@ Func_78000:
 	ld a, [$d010]
 	and a
 	jp nz, .asm_7b675
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $10
 	jp z, .asm_7b675
@@ -7153,7 +7153,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d108], a
 	jp .asm_7b675
@@ -7185,7 +7185,7 @@ Func_78000:
 	xor a
 	ld [$d158], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_7b607
@@ -7211,7 +7211,7 @@ Func_78000:
 	ld bc, $8
 	ld de, $10
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_7b64b
 	dec a
@@ -7231,7 +7231,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d108], a
 .asm_7b65d
 	ld hl, $d060
@@ -7285,7 +7285,7 @@ Func_78000:
 	ld a, [$d00d]
 	and a
 	jp nz, .asm_7b790
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $0d
 	jp z, .asm_7b790
@@ -7296,7 +7296,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d105], a
 	jp .asm_7b790
@@ -7328,7 +7328,7 @@ Func_78000:
 	xor a
 	ld [$d155], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_7b722
@@ -7354,7 +7354,7 @@ Func_78000:
 	ld bc, $5
 	ld de, $d
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_7b766
 	dec a
@@ -7374,7 +7374,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d105], a
 .asm_7b778
 	ld hl, $d05d
@@ -7428,7 +7428,7 @@ Func_78000:
 	ld a, [$d00c]
 	and a
 	jp nz, .asm_7b8ab
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $0c
 	jp z, .asm_7b8ab
@@ -7439,7 +7439,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d104], a
 	jp .asm_7b8ab
@@ -7471,7 +7471,7 @@ Func_78000:
 	xor a
 	ld [$d154], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_7b83d
@@ -7497,7 +7497,7 @@ Func_78000:
 	ld bc, $4
 	ld de, $c
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_7b881
 	dec a
@@ -7517,7 +7517,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d104], a
 .asm_7b893
 	ld hl, $d05c
@@ -7571,7 +7571,7 @@ Func_78000:
 	ld a, [$d00b]
 	and a
 	jp nz, .asm_7b9c6
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $0b
 	jp z, .asm_7b9c6
@@ -7582,7 +7582,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d103], a
 	jp .asm_7b9c6
@@ -7614,7 +7614,7 @@ Func_78000:
 	xor a
 	ld [$d153], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_7b958
@@ -7640,7 +7640,7 @@ Func_78000:
 	ld bc, $3
 	ld de, $b
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_7b99c
 	dec a
@@ -7660,7 +7660,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d103], a
 .asm_7b9ae
 	ld hl, $d05b
@@ -7714,7 +7714,7 @@ Func_78000:
 	ld a, [$d00a]
 	and a
 	jp nz, .asm_7bae1
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $0a
 	jp z, .asm_7bae1
@@ -7725,7 +7725,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d102], a
 	jp .asm_7bae1
@@ -7757,7 +7757,7 @@ Func_78000:
 	xor a
 	ld [$d152], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_7ba73
@@ -7783,7 +7783,7 @@ Func_78000:
 	ld bc, $2
 	ld de, $a
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_7bab7
 	dec a
@@ -7803,7 +7803,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d102], a
 .asm_7bac9
 	ld hl, $d05a
@@ -7857,7 +7857,7 @@ Func_78000:
 	ld a, [$d009]
 	and a
 	jp nz, .asm_7bbfc
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $09
 	jp z, .asm_7bbfc
@@ -7868,7 +7868,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d101], a
 	jp .asm_7bbfc
@@ -7900,7 +7900,7 @@ Func_78000:
 	xor a
 	ld [$d151], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_7bb8e
@@ -7926,7 +7926,7 @@ Func_78000:
 	ld bc, $1
 	ld de, $9
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_7bbd2
 	dec a
@@ -7946,7 +7946,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d101], a
 .asm_7bbe4
 	ld hl, $d059
@@ -8000,7 +8000,7 @@ Func_78000:
 	ld a, [$d008]
 	and a
 	jp nz, .asm_7bd17
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hli]
 	cp $08
 	jp z, .asm_7bd17
@@ -8011,7 +8011,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$ca1d]
+	ld a, [wca1d]
 	dec a
 	ld [$d100], a
 	jp .asm_7bd17
@@ -8043,7 +8043,7 @@ Func_78000:
 	xor a
 	ld [$d150], a
 	inc a
-	ld [$c892], a
+	ld [wc892], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_7bca9
@@ -8069,7 +8069,7 @@ Func_78000:
 	ld bc, NULL
 	ld de, $8
 	call Func_7bd9c
-	ld a, [$c905]
+	ld a, [wc905]
 	dec a
 	jr z, .asm_7bced
 	dec a
@@ -8089,7 +8089,7 @@ Func_78000:
 	ld a, [hl]
 	or $04
 	ld [hl], a
-	ld a, [$c906]
+	ld a, [wc906]
 	ld [$d100], a
 .asm_7bcff
 	ld hl, $d058
@@ -8127,7 +8127,7 @@ Func_7bd18:
 .asm_7bd34
 	ld a, $05
 .asm_7bd36
-	ld hl, $cae0
+	ld hl, wcae0
 	cp [hl]
 	ret c
 	ld [hl], a
@@ -8139,13 +8139,13 @@ Func_7bd18:
 	adc $00
 	ld h, a
 	ld a, [hli]
-	ld [$cae4], a
+	ld [wcae4], a
 	ld a, [hl]
-	ld [$cae5], a
+	ld [wcae5], a
 	ld a, $01
-	ld [$cadf], a
+	ld [wcadf], a
 	ld a, $01
-	ld [$c8d5], a
+	ld [wc8d5], a
 	farcall Func_4247d
 	ret
 
@@ -8204,7 +8204,7 @@ Func_7bd9c:
 	add $06
 	ld c, a
 	ld b, $00
-	ld hl, $c904
+	ld hl, wc904
 	ld a, [hl]
 	and a
 	jr nz, .asm_7bdbd
@@ -8212,10 +8212,10 @@ Func_7bd9c:
 	sra a
 	ld [hl], a
 	xor a
-	ld [$c905], a
+	ld [wc905], a
 .asm_7bdbd
 	dec [hl]
-	ld a, [$c905]
+	ld a, [wc905]
 	and a
 	jr z, .asm_7bdc7
 	pop bc

@@ -3,7 +3,7 @@ SECTION "Bank 2@5b2d", ROMX[$5b2d], BANK[$2]
 Func_9b2d:
 	ld a, [wceab]
 	farcall_saveregs Func_10130e
-	ld [$cd08], a
+	ld [wcd08], a
 	add a
 	ld c, a
 	ld b, $00
@@ -13,9 +13,9 @@ Func_9b2d:
 	ld h, [hl]
 	ld l, a
 	ld a, l
-	ld [$cd09], a
+	ld [wcd09], a
 	ld a, h
-	ld [$cd0a], a
+	ld [wcd0a], a
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
@@ -30,68 +30,68 @@ Func_9b2d:
 	ld b, $00
 	add hl, bc
 	ld a, [hli]
-	ld [$cd0b], a
-	ld [$cd0d], a
-	ld [$cd0f], a
+	ld [wcd0b], a
+	ld [wcd0d], a
+	ld [wcd0f], a
 	ld a, [hli]
-	ld [$cd0c], a
-	ld [$cd0e], a
-	ld [$cd10], a
+	ld [wcd0c], a
+	ld [wcd0d + 1], a
+	ld [wcd10], a
 	ld a, [hli]
-	ld [$cd13], a
+	ld [wcd13], a
 	ld a, [hli]
-	ld [$cd14], a
+	ld [wcd14], a
 	ld a, [hli]
-	ld [$cd11], a
+	ld [wcd11], a
 	ld a, [hli]
-	ld [$cd12], a
+	ld [wcd12], a
 	ld a, [hli]
-	ld [$cd15], a
+	ld [wcd15], a
 	ld a, [hli]
-	ld [$cd16], a
+	ld [wcd16], a
 	ld a, [hli]
-	ld [$cd17], a
+	ld [wcd17], a
 	ld a, [hli]
-	ld [$cd18], a
+	ld [wcd18], a
 	ld a, [hli]
-	ld [$cd19], a
-	ld [$cd1b], a
+	ld [wcd19], a
+	ld [wcd1b], a
 	ld a, [hli]
-	ld [$cd1a], a
-	ld [$cd1c], a
+	ld [wcd1a], a
+	ld [wcd1c], a
 	ld a, [hli]
-	ld [$cd1d], a
+	ld [wcd1d], a
 	ld a, [hli]
-	ld [$cd1e], a
+	ld [wcd1e], a
 	ld a, [hli]
-	ld [$cd1f], a
+	ld [wcd1f], a
 	ld a, [hli]
-	ld [$cd20], a
+	ld [wcd20], a
 	ld a, [hli]
-	ld [$cd28], a
-	ld [$cd2a], a
+	ld [wcd28], a
+	ld [wcd2a], a
 	ld a, [hli]
-	ld [$cd29], a
-	ld [$cd2b], a
+	ld [wcd29], a
+	ld [wcd2b], a
 	xor a
-	ld [$cd21], a
-	ld [$cd22], a
-	ld [$cd23], a
-	ld [$cd24], a
-	ld [$cd25], a
+	ld [wcd21 + 0], a
+	ld [wcd21 + 1], a
+	ld [wcd23 + 0], a
+	ld [wcd23 + 1], a
+	ld [wcd25], a
 	xor a
-	ld [$cd26], a
-	ld [$cd27], a
-	ld [$cd2c], a
-	ld [$cd2d], a
-	ld [$cd2e], a
+	ld [wcd26], a
+	ld [wcd27], a
+	ld [wcd2c], a
+	ld [wcd2d], a
+	ld [wcd2e], a
 	xor a
-	ld [$cd2f], a
-	ld [$cd30], a
-	ld [$cd31], a
-	ld [$cd32], a
-	ld [$cd34], a
-	ld hl, $cd0d
+	ld [wcd2f], a
+	ld [wcd30], a
+	ld [wcd31], a
+	ld [wcd32], a
+	ld [wcd34], a
+	ld hl, wcd0d
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
@@ -107,7 +107,7 @@ Func_9b2d:
 	inc bc
 	jr .asm_9bf5
 .asm_9c02
-	ld hl, $cd44
+	ld hl, wcd44
 	ld a, c
 	ld [hli], a
 	ld [hl], b
@@ -123,7 +123,7 @@ Func_9b2d:
 	inc de
 	jr .asm_9c0b
 .asm_9c18
-	ld hl, $cd42
+	ld hl, wcd42
 	ld a, e
 	ld [hli], a
 	ld [hl], d
@@ -153,7 +153,7 @@ Func_9f5f:
 	ld hl, $7590
 	add hl, bc
 	ld c, [hl]
-	ld hl, $cd27
+	ld hl, wcd27
 	ld a, [hl]
 	add c
 	jr nc, .asm_9f76
@@ -165,14 +165,14 @@ Func_9f5f:
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
-	ld hl, $cd21
+	ld hl, wcd21
 	ld a, [hl]
 	add e
 	ld [hli], a
 	ld a, [hl]
 	adc d
 	ld [hl], a
-	ld hl, $cd23
+	ld hl, wcd23
 	ld a, [hl]
 	add e
 	ld [hli], a
@@ -187,14 +187,14 @@ SECTION "Bank 2@5fd7", ROMX[$5fd7], BANK[$2]
 
 Func_9fd7:
 	ld bc, NULL
-	ld hl, $cd0f
+	ld hl, wcd0f
 	ld a, [hli]
 	ldh [hff8a], a
 	or [hl]
 	jr z, .asm_a024
 	ld a, [hl]
 	ldh [hff8b], a
-	ld hl, $cd44
+	ld hl, wcd44
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
@@ -215,7 +215,7 @@ Func_9fd7:
 	ldh a, [hff8b]
 	adc d
 	ldh [hff8b], a
-	ld hl, $cd42
+	ld hl, wcd42
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
@@ -239,6 +239,6 @@ Func_9fd7:
 	jr nz, .asm_a024
 	ld a, $01
 .asm_a024
-	ld [$cd46], a
+	ld [wcd46], a
 	ret
 ; 0xa028

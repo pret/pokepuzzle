@@ -18,16 +18,16 @@ Func_4247d:
 	ld a, $40
 	call GetFarByte
 	inc hl
-	ld [$c9b2], a
+	ld [wc9b2], a
 	ld a, $40
 	call GetFarByte
 	inc hl
-	ld [$c9b3], a
+	ld [wc9b3], a
 	ld a, $40
 	call GetFarByte
-	ld [$c9b4], a
+	ld [wc9b4], a
 	xor a
-	ld [$c9b5], a
+	ld [wc9b5], a
 	pop bc
 	ret
 ; 0x424b0

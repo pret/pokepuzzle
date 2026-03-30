@@ -3057,7 +3057,7 @@ Func_1c6e::
 	push af
 	ld a, $04
 	wramswitch
-	ld hl, $c8ef
+	ld hl, wc8ee + 1
 	ld a, [hld]
 	ld c, [hl]
 	ld b, a
@@ -3077,7 +3077,7 @@ Func_1c6e::
 	ret
 
 Func_1c92::
-	ld hl, $c86a
+	ld hl, wc86a
 	ld a, [hli]
 	or [hl]
 	inc hl
@@ -3086,7 +3086,7 @@ Func_1c92::
 	scf
 	ret
 
-	ld hl, $c86c
+	ld hl, wc86c
 .asm_1ca0
 	inc hl
 	ld a, [hl]
@@ -3161,7 +3161,7 @@ SECTION "Bank 0@1f12", ROM0[$1f12]
 Func_1f12::
 	push bc
 	push hl
-	ld hl, $c8d3
+	ld hl, wc8d3
 	ld a, [hl]
 	ld c, a
 	ld b, $00
@@ -3172,10 +3172,10 @@ Func_1f12::
 .asm_1f21
 	ld [hl], a
 	ldh a, [hff8a]
-	ld hl, $c8be
+	ld hl, wc8be
 	add hl, bc
 	ld [hl], a
-	ld hl, $c8c8
+	ld hl, wc8c8
 	add hl, bc
 	ldh a, [hff8b]
 	and $f8
@@ -3193,7 +3193,7 @@ Func_1f38::
 	ld hl, wceab
 	ret
 .asm_1f42
-	ld hl, $c833
+	ld hl, wc833
 	ret
 
 Func_1f46::
@@ -3204,7 +3204,7 @@ Func_1f46::
 	inc b ; no input
 .got_input
 	inc b
-	ld hl, $c83c
+	ld hl, wc83c
 	ld a, [hl]
 	add b
 	ld [hli], a
@@ -3223,7 +3223,7 @@ Func_1f61::
 	push bc
 	push de
 	push hl
-	ld hl, $c83c
+	ld hl, wc83c
 	ld a, [hl]
 	add $01
 	ld [hli], a
@@ -3315,27 +3315,27 @@ Func_1fcb::
 	ret
 
 Func_1ff0::
-	ld a, [$cadf]
+	ld a, [wcadf]
 	dec a
 	jr z, .asm_1ffa
 	dec a
 	jr z, .asm_200b
 	ret
 .asm_1ffa
-	ld a, [$c869]
-	ld [$cae1], a
+	ld a, [wc869]
+	ld [wcae1], a
 	ld a, $02
-	ld [$cadf], a
-	ld hl, $cae2
+	ld [wcadf], a
+	ld hl, wcae2
 	xor a
 	ld [hli], a
 	ld [hl], a
 .asm_200b
-	ld hl, $cae4
+	ld hl, wcae4
 	ld a, [hli]
 	ld b, [hl]
 	ld c, a
-	ld hl, $cae2
+	ld hl, wcae2
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
@@ -3348,16 +3348,16 @@ Func_1ff0::
 	cp $82
 	jr z, .asm_2054
 	xor a
-	ld [$cae7], a
+	ld [wcae7], a
 	ld a, [hl]
 	ld d, a
-	ld [$cae6], a
+	ld [wcae6], a
 	and $80
 	jr z, .asm_2036
-	ld hl, $cae7
+	ld hl, wcae7
 	dec [hl]
 .asm_2036
-	ld hl, $cae1
+	ld hl, wcae1
 	ld a, [hl]
 	add d
 	ld [hl], a
@@ -3388,14 +3388,14 @@ Func_1ff0::
 	jr .asm_200b
 .asm_2066
 	xor a
-	ld [$cadf], a
-	ld hl, $cae6
+	ld [wcadf], a
+	ld hl, wcae6
 	ld [hli], a
 	ld [hl], a
 	ret
 
 .Func_2070
-	ld hl, $cae2
+	ld hl, wcae2
 	add [hl]
 	ld [hli], a
 	ld a, [hl]
@@ -3516,7 +3516,7 @@ Func_25ab::
 	sramswitch
 	call Func_26d4
 	push hl
-	ld a, [$cdc3]
+	ld a, [wcdc3]
 	push bc
 	ld b, a
 	add a
@@ -3526,7 +3526,7 @@ Func_25ab::
 	pop bc
 	ld c, a
 	ld b, $00
-	ld a, [$cdc5]
+	ld a, [wcdc5]
 	and a
 	jr nz, .asm_25db
 	ld hl, sSaveDataUnk3DF
@@ -3536,7 +3536,7 @@ Func_25ab::
 .asm_25de
 	add hl, bc
 	ld d, $0c
-	ld a, [$cdc4]
+	ld a, [wcdc4]
 	ld e, a
 .asm_25e5
 	ld a, [hl]
@@ -3557,7 +3557,7 @@ Func_25ab::
 	jr nz, .asm_260c
 .asm_25fa
 	ld a, $01
-	ld [$cdc6], a
+	ld [wcdc6], a
 	pop af
 	sramswitch
 	pop af
@@ -3567,14 +3567,14 @@ Func_25ab::
 .asm_260c
 	dec a
 	ld [de], a
-	ld a, [$cdc4]
+	ld a, [wcdc4]
 	ld [hl], a
 	jr .asm_2615
 .asm_2614
 	pop de
 .asm_2615
 	xor a
-	ld [$cdc6], a
+	ld [wcdc6], a
 	pop af
 	sramswitch
 	pop af
@@ -3592,8 +3592,8 @@ Func_2626::
 	sramswitch
 	call Func_26d4
 	ld a, [hl]
-	ld [$cdc7], a
-	ld a, [$cdc3]
+	ld [wcdc7], a
+	ld a, [wcdc3]
 	push bc
 	ld b, a
 	add a
@@ -3603,7 +3603,7 @@ Func_2626::
 	pop bc
 	ld c, a
 	ld b, $00
-	ld a, [$cdc5]
+	ld a, [wcdc5]
 	and a
 	jr nz, .asm_2659
 	ld hl, sSaveDataUnk3DF
@@ -3614,15 +3614,15 @@ Func_2626::
 	add hl, bc
 	ld d, $0c
 	xor a
-	ld [$cdc6], a
-	ld a, [$cdc4]
+	ld [wcdc6], a
+	ld a, [wcdc4]
 	ld e, a
 .asm_2667
 	ld a, [hli]
 	cp e
 	jr nz, .asm_2672
 	ld a, $01
-	ld [$cdc6], a
+	ld [wcdc6], a
 	jr .asm_2677
 .asm_2672
 	dec d
@@ -3641,10 +3641,10 @@ Func_2626::
 SECTION "Bank 0@26d4", ROM0[$26d4]
 
 Func_26d4:
-	ld a, [$cdc3]
+	ld a, [wcdc3]
 	ld c, a
 	ld b, $00
-	ld a, [$cdc5]
+	ld a, [wcdc5]
 	and a
 	jr nz, .asm_26e5
 	ld hl, sSaveDataUnk3DC
@@ -3667,7 +3667,7 @@ Func_2a3c::
 	ld a, $01
 	sramswitch
 	call Func_2a8c
-	ld a, [$cdc5]
+	ld a, [wcdc5]
 	ld [hl], a
 	pop af
 	sramswitch
@@ -3681,7 +3681,7 @@ SECTION "Bank 0@2a8c", ROM0[$2a8c]
 
 Func_2a8c:
 	push bc
-	ld a, [$cdc4]
+	ld a, [wcdc4]
 	ld c, a
 	ld b, $00
 	ld hl, $a64e
@@ -3711,19 +3711,19 @@ Func_2a99:
 	call Func_2de3
 .asm_2aca
 	ld a, $00
-	ld [$ce34], a
+	ld [wce34], a
 	xor a
-	ld [$ce95], a
-	ld [$ce96], a
-	ld [$ce97], a
-	ld [$ce98], a
-	ld [$ce99], a
+	ld [wce95], a
+	ld [wce96], a
+	ld [wce97], a
+	ld [wce98], a
+	ld [wce99], a
 	ld [$dad1], a
-	ld [$ce9b], a
+	ld [wce9b], a
 	ld [wcead], a
 	ld [wceab], a
 	ld a, $01
-	ld [$c897], a
+	ld [wc897], a
 	ld hl, hGameState
 	inc [hl]
 	ret
@@ -3761,7 +3761,7 @@ Func_2b03:
 	ret
 
 Func_2b30:
-	ld a, [$ce34]
+	ld a, [wce34]
 	ld e, a
 	ld d, $00
 	ld hl, PtrTable_2b46 + $2
@@ -3874,7 +3874,7 @@ Func_2c1e:
 .asm_2c43
 	call hTransferVirtualOAM
 
-	ld a, [$cf0c]
+	ld a, [wcf0c]
 	and a
 	call nz, Func_347d
 
@@ -3887,21 +3887,21 @@ Func_2c1e:
 	ldh [hVBlankPending], a
 	ldh a, [hLCDC]
 	ldh [rLCDC], a
-	ld a, [$ce3b]
+	ld a, [wce3b]
 	and a
 	jr nz, .asm_2c80
 	ldh a, [hSCX]
 	ldh [rSCX], a
-	ld [$ce3d], a
+	ld [wce3d], a
 	ldh a, [hSCY]
 	ldh [rSCY], a
-	ld [$ce3e], a
+	ld [wce3e], a
 	ldh a, [hWX]
 	ldh [rWX], a
-	ld [$ce3f], a
+	ld [wce3f], a
 	ldh a, [hWY]
 	ldh [rWY], a
-	ld [$ce40], a
+	ld [wce40], a
 .asm_2c80
 	call Func_2d7c
 	ldh a, [hffeb]
@@ -3925,21 +3925,21 @@ Func_2c1e:
 	ei
 	ldh a, [hLCDC]
 	ldh [rLCDC], a
-	ld a, [$ce3b]
+	ld a, [wce3b]
 	and a
 	jr nz, .asm_2cc6
 	ldh a, [hSCX]
 	ldh [rSCX], a
-	ld [$ce3d], a
+	ld [wce3d], a
 	ldh a, [hSCY]
 	ldh [rSCY], a
-	ld [$ce3e], a
+	ld [wce3e], a
 	ldh a, [hWX]
 	ldh [rWX], a
-	ld [$ce3f], a
+	ld [wce3f], a
 	ldh a, [hWY]
 	ldh [rWY], a
-	ld [$ce40], a
+	ld [wce40], a
 	call Func_504
 .asm_2cc6
 	call Func_2d7c
@@ -3967,7 +3967,7 @@ Func_2cd9:
 	call ReadJoypad
 	call ClearOAM
 	call Func_e31
-	ld hl, $ce35
+	ld hl, wce35
 	inc [hl]
 	pop af
 	inc a
@@ -3988,7 +3988,7 @@ Func_2cd9:
 SECTION "Bank 0@2d7c", ROM0[$2d7c]
 
 Func_2d7c:
-	ld a, [$ce3a]
+	ld a, [wce3a]
 	and a
 	jr nz, .skip
 	call FlushPalettes
@@ -4028,7 +4028,7 @@ Func_2de3:
 	ret
 
 Func_2dea:
-	ld de, $ce34
+	ld de, wce34
 	ld bc, $68
 	call ClearMemory
 	call Func_2db4
@@ -4563,7 +4563,7 @@ Func_3438::
 	ret
 
 Func_347d::
-	ld a, [$cf0c]
+	ld a, [wcf0c]
 	dec a
 	jp z, .asm_348f
 	dec a
@@ -4578,7 +4578,7 @@ Func_347d::
 .asm_348f
 	ldh a, [hVRAMBank]
 	push af
-	ld hl, $cf0f
+	ld hl, wcf0f
 	ld a, [hld]
 	vramswitch
 	ld a, [hld]
@@ -4595,7 +4595,7 @@ Func_347d::
 	ld a, $00
 	ldh [rVDMA_LEN], a
 	xor a
-	ld [$cf0c], a
+	ld [wcf0c], a
 	pop af
 	vramswitch
 	ret
@@ -4604,7 +4604,7 @@ Func_347d::
 	ldh a, [hVRAMBank]
 	push af
 
-	ld hl, $cf0f
+	ld hl, wcf0f
 	ld a, [hld]
 	vramswitch
 	ld a, [hld]
@@ -4621,7 +4621,7 @@ Func_347d::
 	ld a, $00
 	ldh [rVDMA_LEN], a
 
-	ld hl, $cf12
+	ld hl, wcf12
 	ld a, [hld]
 	vramswitch
 	ld a, [hld]
@@ -4638,7 +4638,7 @@ Func_347d::
 	ld a, $00
 	ldh [rVDMA_LEN], a
 	xor a
-	ld [$cf0c], a
+	ld [wcf0c], a
 	pop af
 	vramswitch
 	ret
@@ -4647,20 +4647,20 @@ Func_347d::
 	ldh a, [hVRAMBank]
 	push af
 
-	ld hl, $cf13
+	ld hl, wcf13
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
 	ld a, $01
 	vramswitch
-	ld a, [$cf16]
+	ld a, [wcf16]
 	ld [hl], a
 	xor a
 	vramswitch
-	ld a, [$cf15]
+	ld a, [wcf15]
 	ld [hl], a
 	xor a
-	ld [$cf0c], a
+	ld [wcf0c], a
 
 	pop af
 	vramswitch

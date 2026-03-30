@@ -9,14 +9,14 @@ Func_4003::
 	call Bank1Farcall
 .asm_4013
 	xor a
-	ld [$cdf2], a
+	ld [wcdf2], a
 	ld a, $1d
 	ld hl, $6ff5
 	call Bank1Farcall
-	ld a, [$cd6f]
+	ld a, [wcd6f]
 	and a
 	jr z, .asm_4037
-	ld a, [$c893]
+	ld a, [wc893]
 	and a
 	jp z, .asm_40c2
 	ld a, $1d
@@ -59,7 +59,7 @@ Func_4003::
 	ld a, $10
 	ld hl, $4004
 	call Bank1Farcall
-	ld hl, $ca27
+	ld hl, wca27
 	ld a, [hl]
 	add $01
 	ld [hli], a
@@ -74,11 +74,11 @@ Func_4003::
 	xor a
 	ld [hli], a
 	ld [hl], a
-	ld hl, $ca25
+	ld hl, wca25
 	ld a, [hli]
 	ld b, [hl]
 	ld c, a
-	ld hl, $ca23
+	ld hl, wca23
 	ld a, [hl]
 	sub c
 	ld [hli], a
@@ -91,10 +91,10 @@ Func_4003::
 	ld [hl], a
 .asm_40c2
 	call Func_413e
-	ld a, [$c887]
+	ld a, [wc887]
 	cp $00
 	jp z, .asm_4013
-	ld a, [$c887]
+	ld a, [wc887]
 	cp $01
 	jr z, .asm_40e2
 	cp $02
@@ -124,7 +124,7 @@ Func_4003::
 	ldh [$ffbb], a
 	ret
 .asm_40fa
-	ld a, [$c886]
+	ld a, [wc886]
 	add $0a
 	ldh [hGameState], a
 	xor a
@@ -154,7 +154,7 @@ Func_413e:
 	ldh a, [hffeb]
 	and a
 	call nz, Func_13eb
-	ld hl, $c877
+	ld hl, wc877
 	ld a, [hl]
 	add $01
 	ld [hli], a
@@ -177,12 +177,12 @@ Func_427a:
 	cp GAMEMODE_PUZZLE
 	ret z
 	xor a
-	ld [$c87e], a
-	ld hl, $c87c
+	ld [wc87e], a
+	ld hl, wc87c
 	ld a, [hli]
 	or [hl]
 	jr z, .asm_42ba
-	ld hl, $ccb3
+	ld hl, wccb3
 	ld a, [hli]
 	and a
 	ret nz
@@ -210,7 +210,7 @@ Func_427a:
 	ld a, [hli]
 	and a
 	ret nz
-	ld hl, $c87c
+	ld hl, wc87c
 	ld a, [hli]
 	sub $01
 	ld c, a
@@ -235,17 +235,17 @@ Func_427a:
 	inc hl
 	or [hl]
 	ret nz
-	ld a, [$c8a6]
+	ld a, [wc8a6]
 	ld b, a
-	ld a, [$cd6e]
+	ld a, [wcd6e]
 	ld c, a
-	ld a, [$cadf]
-	ld hl, $c89d
+	ld a, [wcadf]
+	ld hl, wc89d
 	or [hl]
 	or b
 	or c
 	ret nz
-	ld a, [$c87b]
+	ld a, [wc87b]
 	and a
 	jr z, .asm_42f3
 	ld b, $ff
@@ -266,7 +266,7 @@ Func_427a:
 	ld b, h
 	jr .asm_430c
 .asm_42fe
-	ld a, [$c8e6]
+	ld a, [wc8e6]
 	cp $ff
 	jr z, .asm_4309
 	cp $20
@@ -275,8 +275,8 @@ Func_427a:
 	ld bc, $1000
 .asm_430c
 	xor a
-	ld [$c880], a
-	ld hl, $cad0
+	ld [wc880], a
+	ld hl, wcad0
 	ld a, [hl]
 	sub c
 	ld [hli], a
@@ -295,14 +295,14 @@ Func_427a:
 	ld [hld], a
 	and $80
 	jr nz, .asm_431c
-	ld hl, $c869
+	ld hl, wc869
 	ld a, [hl]
 	ldh [hff8a], a
 	add d
 	ld [hl], a
 	ldh [hSCY], a
 	ld bc, $810
-	ld hl, $c864
+	ld hl, wc864
 	ld a, [hl]
 	and $f8
 	jr nz, .asm_4357
@@ -314,16 +314,16 @@ Func_427a:
 	jr nz, .asm_434b
 	jr .asm_4357
 .asm_434b
-	ld hl, $c864
+	ld hl, wc864
 	ld a, [hl]
 	add b
 	ld [hl], a
-	ld hl, $c866
+	ld hl, wc866
 	ld a, [hl]
 	add c
 	ld [hl], a
 .asm_4357
-	ld hl, $c8e2
+	ld hl, wc8e2
 	ld a, [hl]
 	add $10
 	ld [hli], a
@@ -332,13 +332,13 @@ Func_427a:
 	jr c, .asm_4364
 	ld [hl], a
 .asm_4364
-	ld hl, $cade
+	ld hl, wcade
 	ld a, [hl]
 	add d
 	ld [hl], a
 	cp $10
 	ret c
-	ld hl, $c869
+	ld hl, wc869
 	ld a, [hl]
 	and $f0
 	sub $10
@@ -348,48 +348,48 @@ Func_427a:
 	ld hl, $6509
 	call Bank1Farcall
 	call Func_5475
-	ld a, [$c87b]
+	ld a, [wc87b]
 	and a
 	jr z, .asm_438f
 	ld bc, $1
 	call Func_68f6
 .asm_438f
 	ld bc, $810
-	ld hl, $c864
+	ld hl, wc864
 	ld a, [hl]
 	sub b
 	ld [hl], a
-	ld hl, $cad4
+	ld hl, wcad4
 	ld a, [hl]
 	sub b
 	ld [hli], a
 	ld a, [hl]
 	sub b
 	ld [hl], a
-	ld hl, $c866
+	ld hl, wc866
 	ld a, [hl]
 	sub c
 	ld [hl], a
-	ld hl, $cad9
+	ld hl, wcad9
 	ld a, [hl]
 	sub c
 	ld [hl], a
 	xor a
-	ld [$cade], a
-	ld [$c87b], a
+	ld [wcade], a
+	ld [wc87b], a
 	inc a
-	ld [$c87e], a
-	ld [$c880], a
-	ld [$c892], a
+	ld [wc87e], a
+	ld [wc880], a
+	ld [wc892], a
 	ld a, $03
-	ld [$c89d], a
+	ld [wc89d], a
 	ret
 
 Func_43c4:
 	ld a, [wGameMode]
 	cp GAMEMODE_PUZZLE
 	jr nz, .asm_43dd
-	ld hl, $c8da
+	ld hl, wc8da
 	ld a, [hl]
 	and a
 	ret z
@@ -414,19 +414,19 @@ Func_43e0:
 	cp $0e
 	jr z, .asm_43fc
 	ld a, $01
-	ld [$c887], a
+	ld [wc887], a
 	ld a, $00
-	ld [$c898], a
+	ld [wc898], a
 	jr .asm_4401
 .asm_43fc
 	ld a, $01
-	ld [$cd72], a
+	ld [wcd72], a
 .asm_4401
-	ld a, [$c864]
+	ld a, [wc864]
 	ld b, a
-	ld a, [$c865]
+	ld a, [wc865]
 	ld d, a
-	ld a, [$c866]
+	ld a, [wc866]
 	ld e, a
 	xor a
 	ldh [hff8a], a
@@ -435,7 +435,7 @@ Func_43e0:
 	jp z, .asm_44a0
 	cp GAMEMODE_PUZZLE
 	jr z, .asm_447d
-	ld hl, $c89d
+	ld hl, wc89d
 	ld a, [hl]
 	and a
 	jr z, .asm_4427
@@ -445,26 +445,26 @@ Func_43e0:
 	ldh a, [hJoypadDown]
 	and PAD_B
 	jp z, .asm_44a0
-	ld hl, $c87c
+	ld hl, wc87c
 	xor a
 	ld [hli], a
 	ld [hl], a
 	ld a, [wceba]
 	and a
 	jr z, .asm_444c
-	ld a, [$cadf]
+	ld a, [wcadf]
 	and a
 	jr z, .asm_444c
 	xor a
-	ld [$cadf], a
-	ld [$cae0], a
-	ld a, [$c869]
+	ld [wcadf], a
+	ld [wcae0], a
+	ld a, [wc869]
 	ldh [hSCY], a
 .asm_444c
-	ld hl, $c87b
-	ld a, [$c8a6]
+	ld hl, wc87b
+	ld a, [wc8a6]
 	ld c, a
-	ld a, [$cadf]
+	ld a, [wcadf]
 	or [hl]
 	or c
 	jr nz, .asm_44a0
@@ -488,14 +488,14 @@ Func_43e0:
 	jr nz, .asm_44a0
 .asm_4475
 	ld a, $01
-	ld [$c87b], a
+	ld [wc87b], a
 	jp .asm_46b9
 .asm_447d
 	ldh a, [hJoypadPressed]
 	and PAD_B
 	jp z, .asm_44a0
-	ld hl, $c8dc
-	ld a, [$c8da]
+	ld hl, wc8dc
+	ld a, [wc8da]
 	cp [hl]
 	jr z, .asm_44a0
 	ld a, [wc7ce]
@@ -505,7 +505,7 @@ Func_43e0:
 	ld [wc7cb], a
 .asm_4498
 	ld a, $04
-	ld [$c887], a
+	ld [wc887], a
 	jp .asm_46b9
 .asm_44a0
 	ldh a, [hJoypadDown]
@@ -516,7 +516,7 @@ Func_43e0:
 	and $07
 	cp $07
 	jr z, .asm_44de
-	ld hl, $c881
+	ld hl, wc881
 	ld a, [hl]
 	and $c0
 	cp $00
@@ -530,7 +530,7 @@ Func_43e0:
 	and $3f
 	cp $01
 	jr z, .asm_44cb
-	ld hl, $c882
+	ld hl, wc882
 	cp [hl]
 	jp c, .asm_45d0
 .asm_44cb
@@ -555,7 +555,7 @@ Func_43e0:
 	and $07
 	cp $05
 	jr z, .asm_451f
-	ld hl, $c881
+	ld hl, wc881
 	ld a, [hl]
 	and $c0
 	cp $40
@@ -569,7 +569,7 @@ Func_43e0:
 	and $3f
 	cp $01
 	jr z, .asm_4509
-	ld hl, $c882
+	ld hl, wc882
 	cp [hl]
 	jp c, .asm_45d0
 .asm_4509
@@ -577,7 +577,7 @@ Func_43e0:
 	ld a, d
 	add $10
 	ld d, a
-	ld hl, $c881
+	ld hl, wc881
 	ld a, [hl]
 	and $3f
 	cp $0c
@@ -595,7 +595,7 @@ Func_43e0:
 	jr z, .asm_453f
 	cp $03
 	jr z, .asm_453f
-	ld a, [$c869]
+	ld a, [wc869]
 	and a
 	jr z, .asm_453f
 	ld a, b
@@ -608,7 +608,7 @@ Func_43e0:
 	and $f8
 	jr z, .asm_457a
 .asm_4544
-	ld hl, $c881
+	ld hl, wc881
 	ld a, [hl]
 	and $c0
 	cp $80
@@ -622,7 +622,7 @@ Func_43e0:
 	and $3f
 	cp $01
 	jr z, .asm_4561
-	ld hl, $c882
+	ld hl, wc882
 	cp [hl]
 	jp c, .asm_45d0
 .asm_4561
@@ -632,7 +632,7 @@ Func_43e0:
 	ld a, e
 	add $f0
 	ld e, a
-	ld hl, $c881
+	ld hl, wc881
 	ld a, [hl]
 	and $3f
 	cp $0c
@@ -649,7 +649,7 @@ Func_43e0:
 	add $08
 	cp $48
 	jr nc, .asm_45c1
-	ld hl, $c881
+	ld hl, wc881
 	ld a, [hl]
 	and $c0
 	cp $c0
@@ -663,7 +663,7 @@ Func_43e0:
 	and $3f
 	cp $01
 	jr z, .asm_45a4
-	ld hl, $c882
+	ld hl, wc882
 	cp [hl]
 	jp c, .asm_45d0
 .asm_45a4
@@ -675,7 +675,7 @@ Func_43e0:
 	ld a, e
 	add $10
 	ld e, a
-	ld hl, $c881
+	ld hl, wc881
 	ld a, [hl]
 	and $3f
 	cp $0c
@@ -686,10 +686,10 @@ Func_43e0:
 	jp .asm_45d0
 .asm_45c1
 	ld a, $00
-	ld [$c881], a
+	ld [wc881], a
 	ld a, $0b
-	ld [$c882], a
-	ld a, [$c8da]
+	ld [wc882], a
+	ld a, [wc8da]
 	and a
 	ret z
 .asm_45d0
@@ -705,26 +705,26 @@ Func_43e0:
 	ldh a, [hJoypadPressed]
 	and PAD_A
 	jp z, .asm_4644
-	ld a, [$cad2]
+	ld a, [wcad2]
 	and a
 	jp nz, .asm_4644
-	ld a, [$c881]
+	ld a, [wc881]
 	and $3f
 	cp $0b
 	jr c, .asm_4611
-	ld a, [$c864]
+	ld a, [wc864]
 	ld b, a
-	ld a, [$c865]
+	ld a, [wc865]
 	ld d, a
-	ld a, [$c866]
+	ld a, [wc866]
 	ld e, a
-	ld hl, $c881
+	ld hl, wc881
 	ld a, [hl]
 	and $c0
 	or $01
 	ld [hl], a
 	ld a, $0c
-	ld [$c882], a
+	ld [wc882], a
 .asm_4611
 	ld a, b
 	call Func_55fb
@@ -742,7 +742,7 @@ Func_43e0:
 	jr .asm_4631
 .asm_462c
 	ld a, $02
-	ld [$c8da], a
+	ld [wc8da], a
 .asm_4631
 	ld a, [wc7ce]
 	and a
@@ -751,7 +751,7 @@ Func_43e0:
 	ld [wc7cb], a
 .asm_463c
 	ld a, $01
-	ld [$cad2], a
+	ld [wcad2], a
 	jp .asm_46b9
 .asm_4644
 	ldh a, [hJoypadPressed]
@@ -760,22 +760,22 @@ Func_43e0:
 	ld a, [wGameMode]
 	cp GAMEMODE_PUZZLE
 	jr nz, .asm_46b9
-	ld a, [$c838]
-	ld [$cdc3], a
+	ld a, [wc838]
+	ld [wcdc3], a
 	call Func_1f38
 	ld a, [hl]
-	ld [$cdc4], a
+	ld [wcdc4], a
 	ld a, [wcead]
-	ld [$cdc5], a
+	ld [wcdc5], a
 	push bc
 	push de
 	call Func_2626
 	pop de
 	pop bc
-	ld a, [$cdc6]
+	ld a, [wcdc6]
 	and a
 	jr nz, .asm_4685
-	ld a, [$cdc7]
+	ld a, [wcdc7]
 	and a
 	jr nz, .asm_4685
 	ld a, [wc7ce]
@@ -786,13 +786,13 @@ Func_43e0:
 .asm_4683
 	jr .asm_46b9
 .asm_4685
-	ld a, [$c838]
-	ld [$cdc3], a
+	ld a, [wc838]
+	ld [wcdc3], a
 	call Func_1f38
 	ld a, [hl]
-	ld [$cdc4], a
+	ld [wcdc4], a
 	ld a, [wcead]
-	ld [$cdc5], a
+	ld [wcdc5], a
 	push bc
 	push de
 	farcall Func_6a2f4
@@ -802,32 +802,32 @@ Func_43e0:
 	farcall Func_68a0f
 	farcall Func_68b3d
 	ld a, $03
-	ld [$c887], a
+	ld [wc887], a
 	jp .asm_46b9
 .asm_46b9
 	ld a, b
-	ld [$c864], a
+	ld [wc864], a
 	ld a, d
-	ld [$c865], a
+	ld [wc865], a
 	ld a, e
-	ld [$c866], a
+	ld [wc866], a
 	ret
 
 Func_46c6:
-	ld a, [$c8da]
+	ld a, [wc8da]
 	and a
 	jr z, .asm_46f3
 	ldh a, [hSCY]
 	ld b, a
-	ld a, [$c866]
+	ld a, [wc866]
 	sub b
 	ld c, a
 	ldh a, [hSCX]
 	ld b, a
-	ld a, [$c865]
+	ld a, [wc865]
 	sub b
 	ld b, a
-	ld hl, $c867
+	ld hl, wc867
 	ld a, [hl]
 	inc [hl]
 	and $10
@@ -842,15 +842,15 @@ Func_46c6:
 .asm_46f3
 	ldh a, [hSCY]
 	ld b, a
-	ld a, [$c866]
+	ld a, [wc866]
 	sub b
 	ld c, a
 	ldh a, [hSCX]
 	ld b, a
-	ld a, [$c865]
+	ld a, [wc865]
 	sub b
 	ld b, a
-	ld hl, $c867
+	ld hl, wc867
 	inc [hl]
 	ld a, [hl]
 	and $02
@@ -1875,14 +1875,14 @@ Func_4763:
 	inc l
 	jr .asm_4c6d
 .asm_4c62
-	ld a, [$c88a]
+	ld a, [wc88a]
 	and a
 	ret z
 	ld a, $01
-	ld [$c8d4], a
+	ld [wc8d4], a
 	ret
 .asm_4c6d
-	ld a, [$c88a]
+	ld a, [wc88a]
 	and a
 	jr z, .asm_4ca2
 	ld b, a
@@ -1893,7 +1893,7 @@ Func_4763:
 	ld de, $a8
 	ld bc, $1020
 	ld a, $ff
-	ld [$cae8], a
+	ld [wcae8], a
 	ld a, $02
 	ld hl, $4ce2
 	call Bank1Farcall
@@ -1906,7 +1906,7 @@ Func_4763:
 	ld hl, Func_1f12
 	call Bank1Farcall
 .asm_4ca2
-	ld a, [$c88a]
+	ld a, [wc88a]
 	and a
 	jr z, .asm_4cab
 	nop
@@ -1914,8 +1914,8 @@ Func_4763:
 	nop
 .asm_4cab
 	xor a
-	ld [$c8d4], a
-	ld [$c88a], a
+	ld [wc8d4], a
+	ld [wc88a], a
 	ret
 
 Func_4cb3:
@@ -1962,7 +1962,7 @@ Func_4cb3:
 	ret
 
 Func_4cf7:
-	ld a, [$cad2]
+	ld a, [wcad2]
 	add a
 	ld c, a
 	ld b, $00
@@ -1978,14 +1978,14 @@ SECTION "Bank 1@4f43", ROMX[$4f43], BANK[$1]
 
 Func_4f43:
 	xor a
-	ld [$c889], a
-	ld [$c88b], a
-	ld [$c8d6], a
-	ld a, [$c892]
+	ld [wc889], a
+	ld [wc88b], a
+	ld [wc8d6], a
+	ld a, [wc892]
 	and a
 	ret z
 	xor a
-	ld [$c892], a
+	ld [wc892], a
 	ldh [hff8a], a
 	ld a, $1c
 	ld hl, $4034
@@ -2011,24 +2011,24 @@ Func_4f43:
 	add a
 	add $12
 	ldh [hff8f], a
-	ld a, [$c889]
+	ld a, [wc889]
 	sub $03
 	jr c, .asm_4f99
-	ld a, [$c88a]
+	ld a, [wc88a]
 	ld c, a
 	call Func_683b
 	call Func_68f6
 .asm_4f99
-	ld a, [$c889]
+	ld a, [wc889]
 	sub $04
 	jp c, .asm_5030
 	cp $33
 	jr c, .asm_4fa7
 	ld a, $33
 .asm_4fa7
-	ld [$cae8], a
+	ld [wcae8], a
 	call Func_5123
-	ld a, [$cae8]
+	ld a, [wcae8]
 	add a
 	ld e, a
 	ld d, $00
@@ -2041,11 +2041,11 @@ Func_4f43:
 	ld hl, $4ce2
 	call Bank1Farcall
 	ld a, $01
-	ld [$c8d6], a
+	ld [wc8d6], a
 	ld a, [wcebd]
 	and a
 	jr nz, .asm_5011
-	ld a, [$c883]
+	ld a, [wc883]
 	and a
 	jr z, .asm_5011
 	ld de, $a6
@@ -2053,7 +2053,7 @@ Func_4f43:
 	add $10
 	ld b, a
 	xor a
-	ld [$cae8], a
+	ld [wcae8], a
 	ld a, $02
 	ld hl, $4ce2
 	call Bank1Farcall
@@ -2078,7 +2078,7 @@ Func_4f43:
 	ld a, $3d
 	ld [wc7cb], a
 .asm_5011
-	ld a, [$c889]
+	ld a, [wc889]
 	ld c, a
 	call Func_693c
 	call Func_67b8
@@ -2106,12 +2106,12 @@ Func_4f43:
 .asm_5046
 	ld e, $10
 .asm_5048
-	ld a, [$c88a]
+	ld a, [wc88a]
 	cp e
 	jr nc, .asm_5059
 	jr .asm_505e
 .asm_5050
-	ld a, [$c88a]
+	ld a, [wc88a]
 	cp $1e
 	jr nc, .asm_5059
 	jr .asm_505e
@@ -2127,24 +2127,24 @@ Func_4f43:
 	ld e, l
 	ld d, h
 .asm_5068
-	ld a, [$c88a]
+	ld a, [wc88a]
 	cp $1e
 	jr c, .asm_5071
 	ld a, $1d
 .asm_5071
 	or $80
-	ld [$cae8], a
+	ld [wcae8], a
 	call Func_5123
 	call Func_5118
 	ld a, $02
 	ld hl, $4ce2
 	call Bank1Farcall
 	ld a, $01
-	ld [$c8d6], a
+	ld [wc8d6], a
 	ld a, [wcebd]
 	and a
 	jr nz, .asm_50d0
-	ld a, [$c883]
+	ld a, [wc883]
 	and a
 	jr z, .asm_50d0
 	ld de, $a6
@@ -2152,7 +2152,7 @@ Func_4f43:
 	add $10
 	ld b, a
 	xor a
-	ld [$cae8], a
+	ld [wcae8], a
 	ld a, $02
 	ld hl, $4ce2
 	call Bank1Farcall
@@ -2185,11 +2185,11 @@ Func_4f43:
 	jr z, .asm_50e0
 	call Func_68c1
 .asm_50e0
-	ld a, [$c88b]
+	ld a, [wc88b]
 	and a
 	jr z, .asm_5109
 	or $40
-	ld [$cae8], a
+	ld [wcae8], a
 	call Func_5123
 	call Func_5118
 	ld de, $a4
@@ -2200,9 +2200,9 @@ Func_4f43:
 	ld hl, $6417
 	call Bank1Farcall
 	ld a, $01
-	ld [$c8d6], a
+	ld [wc8d6], a
 .asm_5109
-	ld a, [$c8d6]
+	ld a, [wc8d6]
 	and a
 	jr z, .asm_5117
 	ld a, $10
@@ -2231,7 +2231,7 @@ Func_5123:
 	add $04
 	ldh [hff8a], a
 .asm_5135
-	ld a, [$c894]
+	ld a, [wc894]
 	add a
 	add a
 	add a
@@ -2253,31 +2253,31 @@ Func_5475:
 	ld [hli], a
 	ld [hli], a
 	ld [hl], a
-	ld hl, $c8a9
+	ld hl, wc8a9
 	ld a, [hl]
 	and a
 	jr z, .asm_54d2
-	ld hl, $c8a8
-	ld a, [$ca22]
+	ld hl, wc8a8
+	ld a, [wca22]
 	dec a
 	cp [hl]
 	jr c, .asm_54d2
 	call Func_1fc8
 	call Func_555b
 	jr c, .asm_54d2
-	ld hl, $c8a9
+	ld hl, wc8a9
 	dec [hl]
-	ld hl, $c8a8
+	ld hl, wc8a8
 	inc [hl]
 	ld hl, $d048
 	add hl, bc
 	ld [hl], $07
-	ld hl, $c8a9
+	ld hl, wc8a9
 	ld a, [hl]
 	and a
 	jr z, .asm_54d2
-	ld hl, $c8a8
-	ld a, [$ca22]
+	ld hl, wc8a8
+	ld a, [wca22]
 	dec a
 	cp [hl]
 	jr c, .asm_54d2
@@ -2287,9 +2287,9 @@ Func_5475:
 	call Func_1fc8
 	call Func_555b
 	jr c, .asm_54d2
-	ld hl, $c8a9
+	ld hl, wc8a9
 	dec [hl]
-	ld hl, $c8a8
+	ld hl, wc8a8
 	inc [hl]
 	ld hl, $d048
 	add hl, bc
@@ -2306,7 +2306,7 @@ Func_5475:
 	ld a, [hl]
 	cp $07
 	jp z, .asm_5545
-	ld a, [$ca18]
+	ld a, [wca18]
 	cp $06
 	jr z, .asm_54f4
 	call Func_1fa7
@@ -2319,7 +2319,7 @@ Func_5475:
 	ldh a, [hff8a]
 	cp c
 	jr nz, .asm_5525
-	ld a, [$ca19]
+	ld a, [wca19]
 	dec a
 	jr z, .asm_551c
 	dec a
@@ -2337,7 +2337,7 @@ Func_5475:
 	jr z, .asm_5525
 	jp .asm_5545
 .asm_551c
-	ld hl, $c87f
+	ld hl, wc87f
 	ld a, [hl]
 	inc [hl]
 	and $01
@@ -2357,7 +2357,7 @@ Func_5475:
 	jr .asm_5545
 .asm_5538
 	inc a
-	ld hl, $ca18
+	ld hl, wca18
 	cp [hl]
 	jr c, .asm_5527
 	jr z, .asm_5527
@@ -2547,7 +2547,7 @@ SECTION "Bank 1@688c", ROMX[$688c], BANK[$1]
 Func_688c:
 	push hl
 	push bc
-	ld a, [$c889]
+	ld a, [wc889]
 	cp $36
 	jr c, .asm_6897
 	ld a, $36
@@ -2555,7 +2555,7 @@ Func_688c:
 	add a
 	ld c, a
 	ld b, $00
-	ld a, [$c883]
+	ld a, [wc883]
 	and a
 	jr nz, .asm_68a6
 	ld hl, $db30
@@ -2567,7 +2567,7 @@ Func_688c:
 	ld a, [hli]
 	ld c, a
 	ld b, [hl]
-	ld hl, $c87c
+	ld hl, wc87c
 	ld a, [hli]
 	sub c
 	ld a, [hld]
@@ -2589,7 +2589,7 @@ Func_688c:
 Func_68c1:
 	push hl
 	push bc
-	ld a, [$c88a]
+	ld a, [wc88a]
 	cp $14
 	jr c, .asm_68cc
 	ld a, $13
@@ -2597,7 +2597,7 @@ Func_68c1:
 	add a
 	ld c, a
 	ld b, $00
-	ld a, [$c883]
+	ld a, [wc883]
 	and a
 	jr nz, .asm_68db
 	ld hl, $dc08
@@ -2609,7 +2609,7 @@ Func_68c1:
 	ld a, [hli]
 	ld c, a
 	ld b, [hl]
-	ld hl, $c87c
+	ld hl, wc87c
 	ld a, [hli]
 	sub c
 	ld a, [hld]
@@ -2652,7 +2652,7 @@ Func_68f6:
 	ld de, NULL
 	push de
 .asm_691f
-	ld hl, $c842
+	ld hl, wc842
 	ld a, [hl]
 	add c
 	ld [hli], a
@@ -2682,8 +2682,8 @@ Func_68f6:
 Func_693c:
 	push hl
 	push bc
-	ld a, [$c889]
-	ld hl, $cac9
+	ld a, [wc889]
+	ld hl, wcac9
 	cp [hl]
 	jr c, .asm_6948
 	ld [hl], a
@@ -2696,7 +2696,7 @@ Func_693c:
 	add a
 	ld c, a
 	ld b, $00
-	ld hl, $ca29
+	ld hl, wca29
 	add hl, bc
 	ld a, [hl]
 	add $01
@@ -2716,8 +2716,8 @@ Func_693c:
 Func_6969:
 	push hl
 	push bc
-	ld a, [$c88a]
-	ld hl, $caca
+	ld a, [wc88a]
+	ld hl, wcaca
 	cp [hl]
 	jr c, .asm_6975
 	ld [hl], a
@@ -2730,7 +2730,7 @@ Func_6969:
 	add a
 	ld c, a
 	ld b, $00
-	ld hl, $ca8f
+	ld hl, wca8f
 	add hl, bc
 	ld a, [hl]
 	add $01
@@ -2751,9 +2751,9 @@ Func_6969:
 SECTION "Bank 1@69b3", ROMX[$69b3], BANK[$1]
 
 Func_69b3:
-	ld a, [$c8fa]
+	ld a, [wc8fa]
 	ld c, a
-	ld a, [$c8fb]
+	ld a, [wc8fb]
 	cp c
 	ret z
 	ld b, $00
@@ -2769,10 +2769,10 @@ Func_69b3:
 	call Func_7313
 	and a
 	ret nz
-	ld a, [$c87b]
+	ld a, [wc87b]
 	and a
 	ret nz
-	ld a, [$c87e]
+	ld a, [wc87e]
 	and a
 	ret nz
 .asm_69db
@@ -2795,7 +2795,7 @@ Func_69b3:
 	ld a, [hli]
 	and a
 	ret nz
-	ld hl, $c8fa
+	ld hl, wc8fa
 	inc [hl]
 	ld hl, $d400
 	add hl, bc
@@ -2822,7 +2822,7 @@ Func_69b3:
 	ld [hli], a
 	ld [hli], a
 	ld [hl], a
-	ld hl, $c8fc
+	ld hl, wc8fc
 	ld a, [hl]
 	ld e, a
 	add $06
@@ -2890,7 +2890,7 @@ Func_69b3:
 	ret
 
 Func_6a7c:
-	ld hl, $c901
+	ld hl, wc901
 	ld a, [hl]
 	inc [hl]
 	and $01
@@ -2929,7 +2929,7 @@ Func_6a7c:
 	ret
 
 Func_6ab6:
-	ld hl, $c902
+	ld hl, wc902
 	ld a, [hl]
 	dec a
 	jr z, .asm_6ac5
@@ -2984,7 +2984,7 @@ Func_6ab6:
 	ret
 
 Func_6b04:
-	ld hl, $c903
+	ld hl, wc903
 	ld a, [hl]
 	inc [hl]
 	and $01
@@ -3115,10 +3115,10 @@ Func_6b81:
 Func_6bb8:
 	push bc
 	push de
-	ld a, [$c8fa]
+	ld a, [wc8fa]
 	ld e, a
 	ld d, $00
-	ld a, [$c8fb]
+	ld a, [wc8fb]
 	ld c, a
 	ld b, $00
 	ld a, c
@@ -3148,10 +3148,10 @@ Func_6bb8:
 	pop bc
 	ret
 .asm_6be8
-	ld a, [$c8fc]
+	ld a, [wc8fc]
 	ld e, a
 	ld d, $00
-	ld a, [$c8fd]
+	ld a, [wc8fd]
 	ld c, a
 	ld b, $00
 	ld a, c
@@ -3189,16 +3189,16 @@ Func_6bb8:
 	ret
 
 Func_6c1f:
-	ld a, [$c8fe]
+	ld a, [wc8fe]
 	ld e, a
-	ld a, [$c8ff]
+	ld a, [wc8ff]
 	ld d, a
 	cp e
 	ret z
 	ld b, $00
 	ld c, e
 .asm_6c2c
-	ld hl, $c900
+	ld hl, wc900
 	ld a, c
 	cp [hl]
 	jr z, .asm_6c3d
@@ -3224,7 +3224,7 @@ Func_6c1f:
 	ld a, [hl]
 	and a
 	jr nz, .asm_6c8b
-	ld hl, $c8fe
+	ld hl, wc8fe
 	ld a, [hl]
 	add $01
 	and $7f
@@ -3308,7 +3308,7 @@ Func_6df0:
 SECTION "Bank 1@6e88", ROMX[$6e88], BANK[$1]
 
 Func_6e88:
-	ld a, [$c8da]
+	ld a, [wc8da]
 	add a
 	ld c, a
 	ld b, $00
@@ -3323,7 +3323,7 @@ Func_6e88:
 SECTION "Bank 1@6ea1", ROMX[$6ea1], BANK[$1]
 
 Func_6ea1:
-	ld a, [$c8da]
+	ld a, [wc8da]
 	add a
 	ld c, a
 	ld b, $00
@@ -3338,7 +3338,7 @@ Func_6ea1:
 SECTION "Bank 1@6eba", ROMX[$6eba], BANK[$1]
 
 Func_6eba:
-	ld a, [$c8da]
+	ld a, [wc8da]
 	add a
 	ld c, a
 	ld b, $00
@@ -3353,22 +3353,22 @@ Func_6eba:
 SECTION "Bank 1@6ed3", ROMX[$6ed3], BANK[$1]
 
 Func_6ed3:
-	ld hl, $c8a4
+	ld hl, wc8a4
 	ld a, [hl]
 	and a
 	jr z, .asm_6edc
 	dec [hl]
 	ret
 .asm_6edc
-	ld hl, $c8a3
-	ld a, [$c8a2]
+	ld hl, wc8a3
+	ld a, [wc8a2]
 	cp [hl]
 	jr z, .asm_6eec
 	ld b, a
 	farcall Func_c0307
 .asm_6eec
-	ld a, [$c8a2]
-	ld [$c8a3], a
+	ld a, [wc8a2]
+	ld [wc8a3], a
 	ret
 
 Func_6ef3:

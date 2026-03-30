@@ -21,7 +21,7 @@ Func_64000::
 	ld [$df62], a
 	ld [$df87], a
 	ld [$df88], a
-	ld [$ce3a], a
+	ld [wce3a], a
 	call Func_64a59
 	farcall Func_46dda
 	ld a, [wGameMode]
@@ -33,15 +33,15 @@ Func_64000::
 .asm_6404b
 	ld a, [wGameLevel]
 	ld a, [wSpeedLevel]
-	ld a, [$c86d]
-	ld a, [$c86c]
-	ld a, [$c86b]
-	ld a, [$c842]
-	ld a, [$c843]
-	ld a, [$c844]
+	ld a, [wc86d]
+	ld a, [wc86c]
+	ld a, [wc86b]
+	ld a, [wc842 + 0]
+	ld a, [wc842 + 1]
+	ld a, [wc842 + 2]
 	ld a, [wceab]
 	ld a, $1c
-	ld [$cdc4], a
+	ld [wcdc4], a
 
 	farcall Func_6a66d
 	call SetSaveDataChecksumAndBackup
@@ -91,7 +91,7 @@ Func_64000::
 	ldh [hLCDC], a
 	ldh [rLCDC], a
 
-	ld hl, $ce34
+	ld hl, wce34
 	inc [hl]
 	ret
 
@@ -103,10 +103,10 @@ Func_640d8:
 	ld hl, rLCDC
 	set B_LCDC_OBJS, [hl]
 
-	ld a, [$ce3c]
+	ld a, [wce3c]
 	and a
 	jr nz, .asm_640f8
-	ld a, [$ce41]
+	ld a, [wce41]
 	and a
 	jr z, .asm_640ed
 	res B_LCDC_OBJS, [hl]
@@ -114,12 +114,12 @@ Func_640d8:
 	ld a, $5f
 	ldh [rLYC], a
 	ld a, $02
-	ld [$ce3c], a
+	ld [wce3c], a
 	jr .asm_640fe
 .asm_640f8
 	xor a
 	ldh [rLYC], a
-	ld [$ce3c], a
+	ld [wce3c], a
 .asm_640fe
 	pop hl
 	pop af
@@ -194,48 +194,48 @@ Func_641ab:
 	ld de, $7957
 	farcall Func_10c011
 .asm_641b6
-	ld a, [$cf0c]
+	ld a, [wcf0c]
 	and a
 	call nz, Func_347d
 	farcall_saveregs Func_10c22b
 	jr c, .asm_641b6
-	ld a, [$cf0c]
+	ld a, [wcf0c]
 	and a
 	call nz, Func_347d
 	ld b, $59
 	ld de, $7980
 	farcall Func_10c011
 .asm_641d7
-	ld a, [$cf0c]
+	ld a, [wcf0c]
 	and a
 	call nz, Func_347d
 	farcall_saveregs Func_10c22b
 	jr c, .asm_641d7
-	ld a, [$cf0c]
+	ld a, [wcf0c]
 	and a
 	call nz, Func_347d
 	ld b, $59
 	ld de, $79ab
 	farcall Func_10c011
 .asm_641f8
-	ld a, [$cf0c]
+	ld a, [wcf0c]
 	and a
 	call nz, Func_347d
 	farcall_saveregs Func_10c22b
 	jr c, .asm_641f8
-	ld a, [$cf0c]
+	ld a, [wcf0c]
 	and a
 	call nz, Func_347d
 	ld b, $59
 	ld de, $79d7
 	farcall Func_10c011
 .asm_64219
-	ld a, [$cf0c]
+	ld a, [wcf0c]
 	and a
 	call nz, Func_347d
 	farcall_saveregs Func_10c22b
 	jr c, .asm_64219
-	ld a, [$cf0c]
+	ld a, [wcf0c]
 	and a
 	call nz, Func_347d
 	ret

@@ -768,11 +768,11 @@ Func_c5451:
 	ld [hli], a
 	ld a, $fe
 	ld [hli], a
-	ld de, $ceca
+	ld de, wcec5 + $5
 	ld a, [wGameMode]
 	cp $00
 	jr z, .asm_c546d
-	ld de, $ced1
+	ld de, wcecc + $5
 .asm_c546d
 	hlbgcoord 11, 11
 	ld b, $f0
@@ -1475,7 +1475,7 @@ Func_c5676:
 	ld a, [$d8ab]
 	jr .asm_c59cf
 .asm_c59ca
-	ld a, [$cef8]
+	ld a, [wcef8]
 	jr .asm_c59cf
 .asm_c59cf
 	ld [wSpeedLevel], a
@@ -1642,7 +1642,7 @@ Func_c5bea:
 	ret
 
 Func_c5c31:
-	ld de, $ced3
+	ld de, wced3
 	ld bc, $38
 	call ClearMemory
 	ld de, w1d100
@@ -2399,7 +2399,7 @@ Func_c65f4:
 	jr z, .asm_c6618
 	jr .asm_c662b
 .asm_c6618
-	ld a, [$cea4]
+	ld a, [wcea4]
 	func_621 $9300, $00, $5f6e, $31, $3d, $90, $0, $1 ; 9300, c5f6e
 .asm_c662b
 	ld a, [wGameMode]
@@ -2414,7 +2414,7 @@ Func_c65f4:
 	ld a, [wcea3]
 	jr .asm_c6644
 .asm_c6641
-	ld a, [$cea4]
+	ld a, [wcea4]
 .asm_c6644
 	ld de, v0Tiles2 tile $3f
 	ld c, $00
@@ -2439,7 +2439,7 @@ Func_c65f4:
 	ldcoord_a 6, 2
 	ld a, $1e
 	ldcoord_a 5, 2
-	ld a, [$ceaa]
+	ld a, [wceaa]
 	call ConvertToDigits
 	ld a, e
 	ldcoord_a 4, 2
@@ -2454,7 +2454,7 @@ Func_c65f4:
 	ldcoord_a 5, 2
 	ld a, $1e
 	ldcoord_a 4, 2
-	ld a, [$ceaa]
+	ld a, [wceaa]
 	call ConvertToDigits
 	ld a, e
 	ldcoord_a 3, 2
@@ -2466,7 +2466,7 @@ Func_c65f4:
 	jr z, .asm_c66ad
 	jr .asm_c66bf
 .asm_c66ad
-	ld a, [$cea4]
+	ld a, [wcea4]
 	call ConvertToDigits
 	ld a, e
 	ldcoord_a 7, 11
@@ -2482,7 +2482,7 @@ Func_c65f4:
 	jr z, .asm_c66f2
 	jr .asm_c6716
 .asm_c66cc
-	ld a, [$cea7]
+	ld a, [wcea7]
 	call ConvertToDigits
 	ld a, e
 	ldcoord_a 6, 1
@@ -2491,7 +2491,7 @@ Func_c65f4:
 	jr z, .asm_c66de
 	ldcoord_a 5, 1
 .asm_c66de
-	ld a, [$cea8]
+	ld a, [wcea8]
 	call ConvertToDigits
 	ld a, e
 	ldcoord_a 7, 10
@@ -2503,7 +2503,7 @@ Func_c65f4:
 	jr .asm_c6716
 
 .asm_c66f2
-	ld a, [$cea7]
+	ld a, [wcea7]
 	call ConvertToDigits
 	ld a, e
 	ldcoord_a 3, 4
@@ -2512,7 +2512,7 @@ Func_c65f4:
 	jr z, .asm_c6704
 	ldcoord_a 2, 4
 .asm_c6704
-	ld a, [$cea8]
+	ld a, [wcea8]
 	call ConvertToDigits
 	ld a, e
 	ldcoord_a 3, 13
@@ -2555,7 +2555,7 @@ Func_c65f4:
 	dw $12 ; iterations
 
 .asm_c6769
-	ld a, [$ceaa]
+	ld a, [wceaa]
 	cp $04
 	jr nc, .asm_c677f
 	ld de, v0Tiles2 tile $20
@@ -2625,7 +2625,7 @@ Func_c67cb:
 	ret
 
 Func_c67e5:
-	ld a, [$ceaf]
+	ld a, [wceaf]
 	cp $00
 	jr c, .asm_c67f6
 	cp $63
@@ -2636,9 +2636,9 @@ Func_c67e5:
 .asm_c67f6
 	ld a, $00
 .asm_c67f8
-	ld [$ceaf], a
+	ld [wceaf], a
 .asm_c67fb
-	ld a, [$ceb0]
+	ld a, [wceb0]
 	cp $00
 	jr c, .asm_c680c
 	cp $63
@@ -2650,7 +2650,7 @@ Func_c67e5:
 .asm_c680c
 	ld a, $00
 .asm_c680e
-	ld [$ceb0], a
+	ld [wceb0], a
 .asm_c6811
 	ld a, [wGameMode]
 	cp GAMEMODE_UNK6
@@ -2659,7 +2659,7 @@ Func_c67e5:
 	jr z, .asm_c6842
 	ret
 .asm_c681d
-	ld a, [$ceaf]
+	ld a, [wceaf]
 	call ConvertToDigits
 	ld a, e
 	ldcoord_a 6, 6
@@ -2668,7 +2668,7 @@ Func_c67e5:
 	jr z, .asm_c682f
 	ldcoord_a 5, 6
 .asm_c682f
-	ld a, [$ceb0]
+	ld a, [wceb0]
 	call ConvertToDigits
 	ld a, e
 	ldcoord_a 7, 15
@@ -2679,7 +2679,7 @@ Func_c67e5:
 .asm_c6841
 	ret
 .asm_c6842
-	ld a, [$ceaf]
+	ld a, [wceaf]
 	call ConvertToDigits
 	ld a, e
 	ldcoord_a 6, 7
@@ -2688,7 +2688,7 @@ Func_c67e5:
 	jr z, .asm_c6854
 	ldcoord_a 5, 7
 .asm_c6854
-	ld a, [$ceb0]
+	ld a, [wceb0]
 	call ConvertToDigits
 	ld a, e
 	ldcoord_a 6, 16
@@ -2800,7 +2800,7 @@ Func_c6883:
 	ret
 
 Func_c6903:
-	ld a, [$ceae]
+	ld a, [wceae]
 	and a
 	ret nz
 
@@ -2835,7 +2835,7 @@ Func_c6903:
 	ld hl, $697a
 	ld a, $32
 	call Func_93d
-	ld a, [$ceaa]
+	ld a, [wceaa]
 	and a
 	jr nz, .asm_c694b
 	inc a
@@ -3101,7 +3101,7 @@ Func_c7391::
 	ldh [hVBlankTrampolinePtr + 1], a
 	ei
 
-	ld de, $ce9f
+	ld de, wce9f
 	ld bc, $34
 	call ClearMemory
 
