@@ -2251,8 +2251,7 @@ Func_11807:
 	ld a, [hl]
 	dec a
 	jp z, .asm_118ad
-.asm_11896
-	jr .asm_11896
+	debug_loop
 
 .Func_11898:
 	ld bc, $4
@@ -3067,8 +3066,9 @@ Func_12d2a:
 	ld c, l
 	ld b, h
 	ret
+
 .asm_12d46
-	jr .asm_12d46
+	debug_loop
 
 Func_12d48:
 	push hl
@@ -3609,7 +3609,7 @@ Func_12fe4:
 	cp $20
 	jr c, .asm_13025
 .asm_13023
-	jr .asm_13023
+	debug_loop
 .asm_13025
 	sub $0b
 	push af
@@ -3714,7 +3714,7 @@ Func_13086:
 	cp $26
 	jr c, .asm_130b0
 .asm_130ae
-	jr .asm_130ae
+	debug_loop
 .asm_130b0
 	sub $0b
 	push af
@@ -4416,8 +4416,7 @@ Func_139c3:
 	jp z, .asm_13a82
 	cp $07
 	jp z, .asm_13aa7
-.asm_139e7
-	jr .asm_139e7
+	debug_loop
 .asm_139e9
 	ld a, [hl]
 	cp $05
@@ -4426,8 +4425,7 @@ Func_139c3:
 	jr z, .asm_139f8
 	cp $07
 	jr z, .asm_13a08
-.asm_139f6
-	jr .asm_139f6
+	debug_loop
 .asm_139f8
 	ld bc, $3
 	add hl, bc

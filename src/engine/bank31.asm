@@ -1267,8 +1267,7 @@ Func_c5676:
 	jp z, .asm_c5847
 	cp GAMEMODE_UNK7
 	jp z, .asm_c5847
-.asm_c5836
-	jr .asm_c5836
+	debug_loop
 
 .asm_c5838
 	ld a, $ef
@@ -1469,8 +1468,7 @@ Func_c5676:
 	jr z, .asm_c59c5
 	cp GAMEMODE_GARBAGE
 	jr z, .asm_c59ca
-.asm_c59c3
-	jr .asm_c59c3
+	debug_loop
 .asm_c59c5
 	ld a, [$d8ab]
 	jr .asm_c59cf
@@ -2732,8 +2730,7 @@ Func_c6883:
 	jr z, .asm_c689c
 	dec a
 	jr z, .asm_c68a1
-.asm_c6895
-	jr .asm_c6895
+	debug_loop
 .asm_c6897
 	ld de, $4849
 	jr .asm_c68a4
@@ -2755,8 +2752,7 @@ Func_c6883:
 	jr z, .asm_c68be
 	cp $06
 	jr z, .asm_c68c3
-.asm_c68bc
-	jr .asm_c68bc
+	debug_loop
 .asm_c68be
 	ld de, Func_3266
 	jr .asm_c68c6
@@ -2779,8 +2775,7 @@ Func_c6883:
 	jr z, .asm_c68f2
 	cp $10
 	jr z, .asm_c68f7
-.asm_c68e6
-	jr .asm_c68e6
+	debug_loop
 .asm_c68e8
 	ld de, $4ac3
 	jr .asm_c68fa
@@ -3305,8 +3300,7 @@ Func_c757e:
 	jr z, .marathon
 	cp GAMEMODE_GARBAGE
 	jr z, .garbage
-.invalid
-	jr .invalid
+	debug_loop
 .marathon
 	call Func_3339
 	ret

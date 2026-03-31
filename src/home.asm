@@ -732,7 +732,7 @@ CompareHLtoDE::
 	ret
 
 ; input:
-; - a = ?
+; - a = fill value
 ; - b:de = destination address
 Func_58d::
 	; adjust stack pointer to skip data on call site
@@ -1066,7 +1066,7 @@ ENDR
 
 ; invalid write address, infinite loop
 .invalid
-	jr .invalid
+	debug_loop
 
 .got_dest
 	ldh a, [hCopySource + 0]
@@ -1369,8 +1369,7 @@ Func_8ef::
 	cp HIGH(STARTOF(VRAM)) ; VRAM?
 	jr nc, .switch_vram
 
-.invalid
-	jr .invalid
+	debug_loop
 
 	cp $e0 ; HRAM?
 	jr nc, .nothing_to_do
@@ -4114,7 +4113,7 @@ SafeCopyData::
 	jr .got_dest
 
 .invalid_dest
-	jr .invalid_dest
+	debug_loop
 
 .got_dest
 	ldh a, [hff8d]
@@ -4471,10 +4470,11 @@ Func_3397::
 	vramswitch
 	ret
 
+; gets next byte in w2dd21:w2dd1f
 Func_33f5::
 	ldh a, [hROMBank]
 	push af
-	ld hl, $dd21
+	ld hl, w2dd21
 	ld a, [hld]
 	bankswitch
 	ld a, [hld]
@@ -4483,9 +4483,9 @@ Func_33f5::
 	ld a, [hli]
 	ld e, a
 	ld a, l
-	ld [$dd1f], a
+	ld [w2dd1f + 0], a
 	ld a, h
-	ld [$dd20], a
+	ld [w2dd1f + 1], a
 	pop af
 	bankswitch
 	ld a, e
@@ -4493,13 +4493,15 @@ Func_33f5::
 
 ; input:
 ; - a = ?
+; output:
+; - de = ?
 Func_3416::
 	ld c, a
 	inc c
 	ldh a, [hROMBank]
 	push af
 .asm_341b
-	ld hl, $dd14
+	ld hl, w2dd14
 	ld a, [hld]
 	bankswitch
 	ld a, [hld]
@@ -4518,11 +4520,13 @@ Func_3416::
 	bankswitch
 	ret
 
+; output:
+; - b:de = ?
 Func_3438::
 	ldh a, [hROMBank]
 	push af
 .asm_343b
-	ld hl, $dd1e
+	ld hl, w2dd1e
 	ld a, [hld]
 	bankswitch
 	ld a, [hld]
@@ -4534,23 +4538,26 @@ Func_3438::
 	ld d, a
 	ld a, [hli]
 	ld b, a
+
+	; d == 0?
 	inc d
 	dec d
-	jr nz, .asm_3465
+	jr nz, .asm_3465 ; no
 	xor a
 	call Func_3416
 	ld a, e
-	ld [$dd1c], a
+	ld [w2dd1c + 0], a
 	ld a, d
-	ld [$dd1d], a
-	ld a, [$dd14]
-	ld [$dd1e], a
+	ld [w2dd1c + 1], a
+	ld a, [w2dd14]
+	ld [w2dd1e], a
 	jr .asm_343b
+
 .asm_3465
 	ld a, l
-	ld [$dd1c], a
+	ld [w2dd1c + 0], a
 	ld a, h
-	ld [$dd1d], a
+	ld [w2dd1c + 1], a
 	ld c, $00
 	inc hl
 	ld a, [hl]
@@ -4570,12 +4577,12 @@ Func_347d::
 	jp z, .asm_34b9
 	dec a
 	jp z, .asm_3500
-
-.asm_348c
-	jr .asm_348c
+	debug_loop
 	ret ; unreachable
 
 .asm_348f
+	; transfers 16 bytes (1 tile)
+	; from wc300 to wcf0f:wcf0d
 	ldh a, [hVRAMBank]
 	push af
 	ld hl, wcf0f
@@ -4604,6 +4611,8 @@ Func_347d::
 	ldh a, [hVRAMBank]
 	push af
 
+	; transfers 16 bytes (1 tile)
+	; from wc300 to wcf0f:wcf0d
 	ld hl, wcf0f
 	ld a, [hld]
 	vramswitch
@@ -4621,6 +4630,8 @@ Func_347d::
 	ld a, $00
 	ldh [rVDMA_LEN], a
 
+	; transfers 16 bytes (1 tile)
+	; from wc310 to wcf12:wcf10
 	ld hl, wcf12
 	ld a, [hld]
 	vramswitch
@@ -4647,11 +4658,13 @@ Func_347d::
 	ldh a, [hVRAMBank]
 	push af
 
+	; copies wcf16 to address wcf13 in VRAM1 (attribute)
+	; and wcf15 to address wcf13 in VRAM0 (tile index)
 	ld hl, wcf13
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	ld a, $01
+	ld a, BANK("VRAM1")
 	vramswitch
 	ld a, [wcf16]
 	ld [hl], a
@@ -4669,6 +4682,7 @@ Func_347d::
 
 SECTION "Bank 0@3549", ROM0[$3549]
 
+; calls function at w2dd26:w2dd24
 Func_3549::
 	ldh a, [hROMBank]
 	push af
@@ -4685,6 +4699,7 @@ Func_3549::
 	bankswitch
 	ret
 
+; calls function at w2dd26:w2dd24, returns result (c or nc)
 Func_3568::
 	ldh a, [hROMBank]
 	push af
@@ -4695,14 +4710,14 @@ Func_3568::
 	bankswitch
 	dec hl
 	call CallIndirect
-	jr nc, .asm_358a
+	jr nc, .no_carry
 	pop af
 	wramswitch
 	pop af
 	bankswitch
 	scf
 	ret
-.asm_358a
+.no_carry
 	pop af
 	wramswitch
 	pop af

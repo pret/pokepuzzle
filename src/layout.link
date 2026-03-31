@@ -88,6 +88,8 @@ WRAM0
 	"WRAM0@c7b4"
 WRAMX $1
 	"WRAM1"
+WRAMX $2
+	"WRAM2"
 WRAMX $7
 	"Scratch WRAM"
 VRAM $00

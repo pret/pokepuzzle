@@ -1274,8 +1274,7 @@ Func_c0c15:
 	jr z, .asm_c0c75
 	cp $08
 	jr z, .asm_c0c71
-.asm_c0c6f
-	jr .asm_c0c6f
+	debug_loop
 .asm_c0c71
 	ld a, $01
 	ld [hl], a
@@ -4854,8 +4853,7 @@ Func_c1f4b:
 .asm_c1f68
 	cp $25
 	jr z, .asm_c1f8c
-.asm_c1f6c
-	jr .asm_c1f6c
+	debug_loop
 .asm_c1f6e
 	ld bc, $5fdd
 	ld e, $12
@@ -6166,8 +6164,7 @@ Func_c2875:
 .asm_c28a2
 	call Func_c27ff
 	jr nc, .asm_c28a9
-.asm_c28a7
-	jr .asm_c28a7
+	debug_loop
 .asm_c28a9
 	ld d, $00
 	ld a, b
@@ -6664,8 +6661,7 @@ Func_c2b85:
 	jr nz, .asm_c2bdf
 	bit 7, a
 	jr nz, .asm_c2be6
-.asm_c2bb3
-	jr .asm_c2bb3
+	debug_loop
 .asm_c2bb5
 	res 0, a
 	ld de, $d479

@@ -15,8 +15,8 @@ SECTION "WRAM0", WRAM0
 wc100::  ; c300
 	ds $200
 
-wc300:: ds $10 ; c300
-wc310:: ds $10 ; c310
+wc300:: ds TILE_SIZE ; c300
+wc310:: ds TILE_SIZE ; c310
 
 wc320:: ; c320
 	ds $22
@@ -696,6 +696,57 @@ w1daa0:: ds 1 ; daa0
 	ds $dd85 - $daa1
 
 w1dd85:: ds 1 ; dd85
+
+SECTION "WRAM2", WRAMX
+
+	ds $dd00 - $d000
+
+w2dd00:: ds 2 * TILE_HEIGHT ; dd00
+
+w2dd10:: ds 1 ; dd10
+w2dd11:: ds 1 ; dd11
+
+w2dd12:: ds 2 ; dd12
+w2dd14:: ds 1 ; dd14
+
+w2dd15:: ds 1 ; dd15
+w2dd16:: ds 1 ; dd16
+w2dd17:: ds 1 ; dd17
+
+w2dd18:: ds 1 ; dd18
+
+w2dd19:: ds 1 ; dd19
+w2dd1a:: ds 1 ; dd1a
+w2dd1b:: ds 1 ; dd1b
+
+w2dd1c:: ds 2 ; dd1c
+w2dd1e:: ds 1 ; dd1e
+
+w2dd1f:: ds 2 ; dd1f
+w2dd21:: ds 1 ; dd21
+
+w2dd22:: ds 2 ; dd22
+
+w2dd24:: ds 2 ; dd24
+w2dd26:: ds 1 ; dd26
+
+w2dd27:: ds 1 ; dd27
+w2dd28:: ; dd28
+	ds 3 * $3
+
+w2dd31:: ds 1 ; dd31
+
+w2dd32:: ds 1 ; dd32
+w2dd33:: ds 1 ; dd33
+w2dd34:: ds 1 ; dd34
+w2dd35:: ds 1 ; dd35
+
+	ds $dd3a - $dd36
+
+w2dd3a:: ds 2 ; dd3a
+w2dd3c:: ds 1 ; dd3c
+w2dd3d:: ds 2 ; dd3d
+w2dd3f:: ds 1 ; dd3f
 
 SECTION "Scratch WRAM", WRAMX
 

@@ -103,8 +103,7 @@ Func_4003::
 	jr z, .asm_40ea
 	cp $04
 	jr z, .asm_40f2
-.asm_40e0
-	jr .asm_40e0
+	debug_loop
 .asm_40e2
 	ld a, GAMESTATE_06
 	ldh [hGameState], a

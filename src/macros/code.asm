@@ -117,3 +117,8 @@ MACRO? decompress
 		db  \3
 	ENDC
 ENDM
+
+MACRO? debug_loop
+:
+	jr :-
+ENDM
