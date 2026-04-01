@@ -12,14 +12,39 @@ wStack:: ; c100
 
 SECTION "WRAM0", WRAM0
 
-wc100::  ; c300
-	ds $200
+wc100:: ds $100 ; c100
+wc200:: ds $100 ; c200
 
 wc300:: ds TILE_SIZE ; c300
 wc310:: ds TILE_SIZE ; c310
 
-wc320:: ; c320
-	ds $22
+wc320:: ds 1 ; c320
+wc321:: ds 2 ; c321
+wc323:: ds 2 ; c323
+
+	ds $2
+
+wc327:: ds 3 ; c327
+
+	ds $4
+
+wc32e:: ds 2 ; c32e
+
+wc330:: ds 1 ; c330
+
+	ds $3
+
+wc334:: ds 2 ; c334
+wc336:: ds 1 ; c336
+
+	ds $c33a - $c337
+
+wc33a:: ds 1 ; c33a
+wc33b:: ds 1 ; c33b
+wc33c:: ds 1 ; c33c
+wc33d:: ds 1 ; c33d
+
+	ds $c342 - $c33e
 
 ; invoked on H-Blank interrupt
 wHBlankHandler:: ds 1 ; c342
@@ -36,6 +61,10 @@ wVBlankHandler:: ds 3 ; c492
 wPalettes::
 wBGPals:: ds 8 palettes ; c495
 wOBPals:: ds 8 palettes ; c4d5
+
+	ds $c59e - $c515
+
+wc59e:: ds 1 ; c59e
 
 SECTION "Audio RAM", WRAM0
 
@@ -441,13 +470,10 @@ wccb3:: ds 9 ; ccb3
 	ds $cd08 - $ccbc
 
 wcd08:: ds 1 ; cd08
-wcd09:: ds 1 ; cd09
-wcd0a:: ds 1 ; cd0a
-wcd0b:: ds 1 ; cd0b
-wcd0c:: ds 1 ; cd0c
+wcd09:: ds 2 ; cd09
+wcd0b:: ds 2 ; cd0b
 wcd0d:: ds 2 ; cd0d
-wcd0f:: ds 1 ; cd0f
-wcd10:: ds 1 ; cd10
+wcd0f:: ds 2 ; cd0f
 wcd11:: ds 1 ; cd11
 wcd12:: ds 1 ; cd12
 wcd13:: ds 1 ; cd13
@@ -599,7 +625,7 @@ wceb5:: ds 1 ; ceb5
 wceb6:: ds 1 ; ceb6
 wceb7:: ds 1 ; ceb7
 wceb8:: ds 1 ; ceb8
-wceb9:: ds 1 ; ceb9
+wScoreLimitSetting:: ds 1 ; ceb9
 wceba:: ds 1 ; ceba
 wcebb:: ds 1 ; cebb
 wcebc:: ds 1 ; cebc
@@ -641,8 +667,7 @@ wcee9:: ds 2 ; cee9
 
 	ds $cef3 - $ceeb
 
-wcef3:: ds 1 ; cef3
-wcef4:: ds 1 ; cef4
+wcef3:: ds 2 ; cef3
 wcef5:: ds 1 ; cef5
 wcef6:: ds 1 ; cef6
 wcef7:: ds 1 ; cef7
@@ -670,12 +695,48 @@ SECTION "WRAM1", WRAMX
 	ds $100
 
 w1d100:: ; d100
-	ds $571
+	ds $d125 - $d100
+
+w1d125:: ds 1 ; d125
+
+	ds $d28c - $d126
+
+
+SECTION "WRAM1@d587", WRAMX
+
+	ds $d671 - $d587
 
 w1d671:: ; d671
 	ds 16 * $13
 
-	ds $d905 - $d7a1
+	ds $d84e - $d7a1
+
+w1d84e:: ds 1 ; d84e
+w1d84f:: ds 1 ; d84f
+w1d850:: ds 1 ; d850
+w1d851:: ds 1 ; d851
+w1d852:: ds 1 ; d852
+	ds $2
+w1d855:: ds 1 ; d855
+w1d856:: ds 3 ; d85a
+w1d859:: ds 1 ; d859
+w1d85a:: ds 3 ; d85a
+w1d85d:: ds 1 ; d85d
+w1d85e:: ds 1 ; d85e
+w1d85f:: ds 1 ; d85f
+w1d860:: ds 1 ; d860
+w1d861:: ds 1 ; d861
+
+	ds $d88c - $d862
+
+wScoreLimit:: ds 6 ; d88c
+w1d892:: ds 1 ; d892
+
+	ds $d8ab - $d893
+
+w1d8ab:: ds 1 ; d8ab
+
+	ds $d905 - $d8ac
 
 w1d905:: ; d905
 
@@ -709,8 +770,7 @@ w2dd11:: ds 1 ; dd11
 w2dd12:: ds 2 ; dd12
 w2dd14:: ds 1 ; dd14
 
-w2dd15:: ds 1 ; dd15
-w2dd16:: ds 1 ; dd16
+w2dd15:: ds 2 ; dd15
 w2dd17:: ds 1 ; dd17
 
 w2dd18:: ds 1 ; dd18

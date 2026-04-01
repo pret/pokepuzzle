@@ -1,212 +1,8 @@
-SECTION "NULL", ROM0
-NULL::
-
-; rst vectors
-SECTION "rst00", ROM0
-	rst $38
-
-SECTION "rst08", ROM0
-	rst $38
-
-SECTION "rst10", ROM0
-	rst $38
-
-SECTION "rst18", ROM0
-	rst $38
-
-SECTION "rst20", ROM0
-	rst $38
-
-SECTION "rst28", ROM0
-	rst $38
-
-SECTION "rst30", ROM0
-	rst $38
-
-SECTION "rst38", ROM0
-	rst $38
-
-; interrupts
-SECTION "vblank", ROM0
-	jp wVBlankHandler
-
-SECTION "lcdc", ROM0
-	jp wHBlankHandler
-
-SECTION "timer", ROM0
-	jp TimerHandler
-
-SECTION "serial", ROM0
-	jp SerialHandler
-
-SECTION "joypad", ROM0
-	reti
-
-SECTION "romheader", ROM0
-	nop
-	jp Start
+INCLUDE "home/header.asm"
 
 SECTION "start", ROM0
 
-Start:
-	di
-	; setup stack
-	ld sp, wStack - $1
-
-	ldh [hInitialA], a
-	cp BOOTUP_A_CGB
-	jr z, .cgb
-	cp BOOTUP_A_DMG
-	jr z, .dmg_or_mgb
-	cp BOOTUP_A_MGB
-	jr z, .dmg_or_mgb
-.cgb
-	ld a, TRUE
-	jr .got_compatible_bool
-.dmg_or_mgb
-	xor a ; FALSE
-	jr .got_compatible_bool ; useless jump
-.got_compatible_bool
-	ldh [hCompatibleConsole], a
-
-	farcall Func_6a7b4
-	farcall Func_10996
-
-	xor a
-	ld [wc601], a
-	ld [wc7ce], a
-	ld a, LY_VBLANK + 1
-	ld hl, rLY
-.wait_vblank
-	cp [hl]
-	jr nc, .wait_vblank
-
-Reset:
-	; reset stack
-	di
-	ld sp, wStack - $1
-
-	; enable double speed on CGB
-	ld b, SPD_DOUBLE
-	call SetClockSpeed
-
-	disable_sram
-
-	; switch to default banks
-	xor a
-	bankswitch ; Bank 1
-	ldh [hHighROMBank], a
-	ld [rROMB1 + $100], a
-	sramswitch ; SRAM0
-	vramswitch ; VRAM0
-	wramswitch ; WRAM0
-
-	xor a
-	ldh [hGameState], a ; GAMESTATE_00
-	ldh [rLCDC], a
-	ldh [hLCDC], a
-	ldh [rIF], a
-	ldh [rIE], a
-	ldh [rRP], a
-	ldh [hIE], a
-	ldh [hJoypadDown], a
-	ldh [hJoypadPressed], a
-	ldh [hJoypadHeld], a
-	ldh [hVBlankPending], a
-	ld [$c59e], a
-	ldh [hVirtualOAMSize], a
-	ldh [hVBlankTrampolinePtr + 0], a
-	ldh [hVBlankTrampolinePtr + 1], a
-
-	; init window coordinates
-	ld a, SCREEN_WIDTH_PX
-	ldh [rWX], a
-	ld a, SCREEN_HEIGHT_PX
-	ldh [rWY], a
-
-	; init scroll
-	ld a, 8
-	ldh [rSCY], a
-	ldh [hSCY], a
-	xor a
-	ldh [rSCX], a
-	ldh [hSCX], a
-
-	ld a, 10
-	ldh [hJoypadRepeatDelay], a
-	ld a, 1
-	ldh [hJoypadRepeatInterval], a
-
-	; init H-Blank handler
-	ld a, $d9 ; reti
-	ld [wHBlankHandler], a
-
-	; init V-Blank handler
-	ld hl, wVBlankHandler
-	ld [hl], $c3 ; jp
-	inc hl
-	ld [hl], LOW(VBlankHandler)
-	inc hl
-	ld [hl], HIGH(VBlankHandler)
-
-	ldh a, [hROMBank]
-	push af
-	ld a, BANK(InitTransferVirtualOAM)
-	bankswitch
-	call InitTransferVirtualOAM
-	pop af
-	bankswitch
-
-	ld a, [wc7ce]
-	ld l, a
-	ld a, [wc601]
-	ld h, a
-	push hl
-	call Func_137a
-	pop hl
-	ld a, h
-	ld [wc601], a
-	ld a, l
-	ld [wc7ce], a
-
-	call ClearOAM
-	call Func_d91
-
-	; enable LYC stat interrupt
-	xor a
-	ldh [rIF], a
-	ld a, STAT_LYC
-	ldh [rSTAT], a
-
-	; enable V-Blank interrupt
-	xor a
-	ldh [rIF], a
-	ld a, IE_VBLANK
-	ldh [hIE], a
-	ldh [rIE], a
-
-	ei
-	farcall Func_109c0
-	farcall Func_10c000
-
-.loop
-	call DoGameState
-	jr .loop
-
-DoGameState:
-	ldh a, [hGameState]
-	ld e, a
-	ld d, $00
-	ld hl, GameStateTable + $2
-	add hl, de
-	add hl, de
-	add hl, de ; *3
-	ld a, [hld]
-	bankswitch
-	ld a, [hld]
-	ld l, [hl]
-	ld h, a
-	jp hl
+INCLUDE "home/start.asm"
 
 DoFrame::
 	push bc
@@ -411,10 +207,10 @@ Func_39d::
 	ret
 
 .clear_ops
-REPT OAM_COUNT
-	add hl, de
-	ld [hl], a
-ENDR
+	REPT OAM_COUNT
+		add hl, de
+		ld [hl], a
+	ENDR
 	ret
 
 ; outputs hl = a * hl
@@ -460,7 +256,7 @@ ATimesHL:
 SECTION "Bank 0@42d", ROM0[$42d]
 
 ReadJoypad::
-	ld a, [$c59e]
+	ld a, [wc59e]
 	bit 7, a
 	ret nz
 
@@ -468,10 +264,10 @@ ReadJoypad::
 	ld a, JOYP_GET_CTRL_PAD
 	ldh [rJOYP], a
 	; wait some cycles
-REPT 5
-	push hl
-	pop hl
-ENDR
+	REPT 5
+		push hl
+		pop hl
+	ENDR
 	ldh a, [rJOYP]
 	and JOYP_INPUTS
 	ld c, a
@@ -480,10 +276,10 @@ ENDR
 	ld a, JOYP_GET_BUTTONS
 	ldh [rJOYP], a
 	; wait some cycles
-REPT 5
-	push hl
-	pop hl
-ENDR
+	REPT 5
+		push hl
+		pop hl
+	ENDR
 	ldh a, [rJOYP]
 	and JOYP_INPUTS
 	swap c
@@ -536,7 +332,7 @@ ENDR
 	jr z, .no_soft_reset
 
 	; do a soft-reset
-	ld hl, $c59e
+	ld hl, wc59e
 	set 7, [hl]
 	ei
 	ld a, [wc7ce]
@@ -837,11 +633,11 @@ CopyData::
 	ld hl, sp+$00
 
 	; load arguments, destination/source location and length
-REPT 8
-	ld a, [de]
-	ld [hli], a
-	inc de
-ENDR
+	REPT 8
+		ld a, [de]
+		ld [hli], a
+		inc de
+	ENDR
 
 	; no interval
 	xor a
@@ -957,11 +753,12 @@ Func_692::
 	add sp, -12
 	ld hl, sp+$00
 
-REPT 12
-	ld a, [bc]
-	inc bc
-	ld [hli], a
-ENDR
+	REPT 12
+		ld a, [bc]
+		inc bc
+		ld [hli], a
+	ENDR
+
 	call _CopyData
 	add sp, 12
 	pop de
@@ -1021,11 +818,11 @@ _CopyData:
 	; load all input arguments from stack
 	ld hl, sp+$0e
 	ld bc, hCopyDest
-REPT 12
-	ld a, [hli]
-	ld [bc], a
-	inc bc
-ENDR
+	REPT 12
+		ld a, [hli]
+		ld [bc], a
+		inc bc
+	ENDR
 
 	; back up all loaded banks
 	ldh a, [hROMBank]
@@ -1558,8 +1355,8 @@ GameStateTable:
 	dab GameState_LoadGBCompatibility ; GAMESTATE_LOAD_GB_COMPATIBILITY
 	dab GameState_GBCompatibility ; GAMESTATE_GB_COMPATIBILITY
 	dab Func_c7391 ; GAMESTATE_1F
-	dab GameState_LoadPanelDePonMenu ; GAMESTATE_20
-	dab GameState_PanelDePonMenu ; GAMESTATE_21
+	dab GameState_LoadPanelDePonMenu ; GAMESTATE_LOAD_PDP_MENU
+	dab GameState_PanelDePonMenu ; GAMESTATE_PDP_MENU
 	dwb $4018, $42 ; GAMESTATE_22
 	dwb $4040, $42 ; GAMESTATE_23
 	assert_table_length NUM_GAME_STATES
@@ -2231,16 +2028,16 @@ TimerHandler:
 	reti
 
 Func_f03::
-	ld hl, $c336
+	ld hl, wc336
 	ld a, [hld]
 	ld b, a
 	ld a, [hld]
 	or [hl]
 	or b
 	ret z
-	ld a, [$c33a]
+	ld a, [wc33a]
 	ld e, a
-	ld d, $c1
+	ld d, HIGH(wc100)
 	ld a, [hli]
 	ld [de], a
 	inc e
@@ -2255,17 +2052,17 @@ Func_f03::
 	ld [hld], a
 	ld [hl], a
 	ld a, e
-	ld [$c33a], a
+	ld [wc33a], a
 	ret
 
 Func_f24:
-	ld a, [$c33b]
+	ld a, [wc33b]
 	ld e, a
-	ld a, [$c33a]
+	ld a, [wc33a]
 	cp e
 	jr z, .asm_f41
-	ld d, $c1
-	ld hl, $c327
+	ld d, HIGH(wc100)
+	ld hl, wc327
 	ld a, [de]
 	inc e
 	ld [hli], a
@@ -2276,10 +2073,10 @@ Func_f24:
 	inc e
 	ld [hli], a
 	ld a, e
-	ld [$c33b], a
+	ld [wc33b], a
 	ret
 .asm_f41
-	ld hl, $c327
+	ld hl, wc327
 	xor a
 	ld [hli], a
 	ld [hli], a
@@ -2287,16 +2084,16 @@ Func_f24:
 	ret
 
 Func_f49:
-	ld hl, $c323
+	ld hl, wc323
 	ld a, [hld]
 	ld b, a
 	ld a, [hld]
 	or [hl]
 	or b
 	ret z
-	ld a, [$c33c]
+	ld a, [wc33c]
 	ld e, a
-	ld d, $c2
+	ld d, HIGH(wc200)
 	ld a, [hli]
 	ld [de], a
 	inc e
@@ -2311,17 +2108,17 @@ Func_f49:
 	ld [hld], a
 	ld [hl], a
 	ld a, e
-	ld [$c33c], a
+	ld [wc33c], a
 	ret
 
 Func_f6a::
-	ld a, [$c33d]
+	ld a, [wc33d]
 	ld e, a
-	ld a, [$c33c]
+	ld a, [wc33c]
 	cp e
 	jr z, .asm_f87
-	ld d, $c2
-	ld hl, $c32e
+	ld d, HIGH(wc200)
+	ld hl, wc32e
 	ld a, [de]
 	inc e
 	ld [hli], a
@@ -2332,10 +2129,10 @@ Func_f6a::
 	inc e
 	ld [hli], a
 	ld a, e
-	ld [$c33d], a
+	ld [wc33d], a
 	ret
 .asm_f87
-	ld hl, $c32e
+	ld hl, wc32e
 	xor a
 	ld [hli], a
 	ld [hli], a
@@ -3048,6 +2845,316 @@ Bank1Farcall::
 .jp_hl
 	jp hl
 ; 0x1994
+
+SECTION "Bank 0@19bf", ROM0[$19bf]
+
+Func_19bf:
+	xor a
+	vramswitch
+
+	ld hl, rVDMA_SRC_HIGH
+	ld a, $dd
+	ld [hli], a ; rVDMA_SRC_HIGH
+	ld a, $80
+	ld [hli], a ; rVDMA_SRC_LOW
+	ld a, $98
+	ld [hli], a ; rVDMA_DEST_HIGH
+	ld a, $00
+	ld [hli], a ; rVDMA_DEST_LOW
+	xor a
+	ld [hl], a ; rVDMA_LEN
+
+	ld a, $90
+	ldh [rVDMA_SRC_LOW], a
+	ld a, $20
+	ldh [rVDMA_DEST_LOW], a
+	xor a
+	ldh [rVDMA_LEN], a
+
+	ld a, $a0
+	ldh [rVDMA_SRC_LOW], a
+	ld a, $40
+	ldh [rVDMA_DEST_LOW], a
+	xor a
+	ldh [rVDMA_LEN], a
+
+	ld a, $b0
+	ldh [rVDMA_SRC_LOW], a
+	ld a, $60
+	ldh [rVDMA_DEST_LOW], a
+	xor a
+	ldh [rVDMA_LEN], a
+
+	ld a, $c0
+	ldh [rVDMA_SRC_LOW], a
+	ld a, $80
+	ldh [rVDMA_DEST_LOW], a
+	xor a
+	ldh [rVDMA_LEN], a
+
+	ld a, $d0
+	ldh [rVDMA_SRC_LOW], a
+	ld a, $a0
+	ldh [rVDMA_DEST_LOW], a
+	xor a
+	ldh [rVDMA_LEN], a
+
+	ld a, $e0
+	ldh [rVDMA_SRC_LOW], a
+	ld a, $c0
+	ldh [rVDMA_DEST_LOW], a
+	xor a
+	ldh [rVDMA_LEN], a
+
+	ld a, $f0
+	ldh [rVDMA_SRC_LOW], a
+	ld a, $e0
+	ldh [rVDMA_DEST_LOW], a
+	xor a
+	ldh [rVDMA_LEN], a
+
+	ld hl, rVDMA_SRC_HIGH
+	ld a, $de
+	ld [hli], a ; rVDMA_SRC_HIGH
+	ld a, $00
+	ld [hli], a ; rVDMA_SRC_LOW
+	ld a, $99
+	ld [hli], a ; rVDMA_DEST_HIGH
+	ld a, $00
+	ld [hli], a ; rVDMA_DEST_LOW
+	xor a
+	ld [hl], a ; rVDMA_LEN
+
+	ld a, $10
+	ldh [rVDMA_SRC_LOW], a
+	ld a, $20
+	ldh [rVDMA_DEST_LOW], a
+	xor a
+	ldh [rVDMA_LEN], a
+
+	ld a, $20
+	ldh [rVDMA_SRC_LOW], a
+	ld a, $40
+	ldh [rVDMA_DEST_LOW], a
+	xor a
+	ldh [rVDMA_LEN], a
+
+	ld a, $30
+	ldh [rVDMA_SRC_LOW], a
+	ld a, $60
+	ldh [rVDMA_DEST_LOW], a
+	xor a
+	ldh [rVDMA_LEN], a
+
+	ld a, $40
+	ldh [rVDMA_SRC_LOW], a
+	ld a, $80
+	ldh [rVDMA_DEST_LOW], a
+	xor a
+	ldh [rVDMA_LEN], a
+
+	ld a, $50
+	ldh [rVDMA_SRC_LOW], a
+	ld a, $a0
+	ldh [rVDMA_DEST_LOW], a
+	xor a
+	ldh [rVDMA_LEN], a
+
+	ld a, $60
+	ldh [rVDMA_SRC_LOW], a
+	ld a, $c0
+	ldh [rVDMA_DEST_LOW], a
+	xor a
+	ldh [rVDMA_LEN], a
+
+	ld a, $70
+	ldh [rVDMA_SRC_LOW], a
+	ld a, $e0
+	ldh [rVDMA_DEST_LOW], a
+	xor a
+	ldh [rVDMA_LEN], a
+
+	ld a, $80
+	ldh [rVDMA_SRC_LOW], a
+	ld a, $9a
+	ldh [rVDMA_DEST_HIGH], a
+	ld a, $00
+	ldh [rVDMA_DEST_LOW], a
+	xor a
+	ldh [rVDMA_LEN], a
+
+	ld a, $90
+	ldh [rVDMA_SRC_LOW], a
+	ld a, $20
+	ldh [rVDMA_DEST_LOW], a
+	xor a
+	ldh [rVDMA_LEN], a
+
+	ld a, $a0
+	ldh [rVDMA_SRC_LOW], a
+	ld a, $40
+	ldh [rVDMA_DEST_LOW], a
+	xor a
+	ldh [rVDMA_LEN], a
+
+	ld a, $b0
+	ldh [rVDMA_SRC_LOW], a
+	ld a, $60
+	ldh [rVDMA_DEST_LOW], a
+	xor a
+	ldh [rVDMA_LEN], a
+
+	inc a
+	vramswitch
+	ld a, $c0
+	ldh [rVDMA_SRC_LOW], a
+	ld a, $98
+	ldh [rVDMA_DEST_HIGH], a
+	ld a, $00
+	ldh [rVDMA_DEST_LOW], a
+	xor a
+	ldh [rVDMA_LEN], a
+
+	ld a, $d0
+	ldh [rVDMA_SRC_LOW], a
+	ld a, $20
+	ldh [rVDMA_DEST_LOW], a
+	xor a
+	ldh [rVDMA_LEN], a
+
+	ld a, $e0
+	ldh [rVDMA_SRC_LOW], a
+	ld a, $40
+	ldh [rVDMA_DEST_LOW], a
+	xor a
+	ldh [rVDMA_LEN], a
+
+	ld a, $f0
+	ldh [rVDMA_SRC_LOW], a
+	ld a, $60
+	ldh [rVDMA_DEST_LOW], a
+	xor a
+	ldh [rVDMA_LEN], a
+
+	ld a, $df
+	ldh [rVDMA_SRC_HIGH], a
+	ld a, $00
+	ldh [rVDMA_SRC_LOW], a
+	ld a, $80
+	ldh [rVDMA_DEST_LOW], a
+	xor a
+	ldh [rVDMA_LEN], a
+
+	ld a, $10
+	ldh [rVDMA_SRC_LOW], a
+	ld a, $a0
+	ldh [rVDMA_DEST_LOW], a
+	xor a
+	ldh [rVDMA_LEN], a
+
+	ld a, $20
+	ldh [rVDMA_SRC_LOW], a
+	ld a, $c0
+	ldh [rVDMA_DEST_LOW], a
+	xor a
+	ldh [rVDMA_LEN], a
+
+	ld a, $30
+	ldh [rVDMA_SRC_LOW], a
+	ld a, $e0
+	ldh [rVDMA_DEST_LOW], a
+	xor a
+	ldh [rVDMA_LEN], a
+
+	ld a, $40
+	ldh [rVDMA_SRC_LOW], a
+	ld a, $99
+	ldh [rVDMA_DEST_HIGH], a
+	ld a, $00
+	ldh [rVDMA_DEST_LOW], a
+	xor a
+	ldh [rVDMA_LEN], a
+
+	ld a, $50
+	ldh [rVDMA_SRC_LOW], a
+	ld a, $20
+	ldh [rVDMA_DEST_LOW], a
+	xor a
+	ldh [rVDMA_LEN], a
+
+	ld a, $60
+	ldh [rVDMA_SRC_LOW], a
+	ld a, $40
+	ldh [rVDMA_DEST_LOW], a
+	xor a
+	ldh [rVDMA_LEN], a
+
+	ld a, $70
+	ldh [rVDMA_SRC_LOW], a
+	ld a, $60
+	ldh [rVDMA_DEST_LOW], a
+	xor a
+	ldh [rVDMA_LEN], a
+
+	ld a, $80
+	ldh [rVDMA_SRC_LOW], a
+	ld a, $80
+	ldh [rVDMA_DEST_LOW], a
+	xor a
+	ldh [rVDMA_LEN], a
+
+	ld a, $90
+	ldh [rVDMA_SRC_LOW], a
+	ld a, $a0
+	ldh [rVDMA_DEST_LOW], a
+	xor a
+	ldh [rVDMA_LEN], a
+
+	ld a, $a0
+	ldh [rVDMA_SRC_LOW], a
+	ld a, $c0
+	ldh [rVDMA_DEST_LOW], a
+	xor a
+	ldh [rVDMA_LEN], a
+
+	ld a, $b0
+	ldh [rVDMA_SRC_LOW], a
+	ld a, $e0
+	ldh [rVDMA_DEST_LOW], a
+	xor a
+	ldh [rVDMA_LEN], a
+
+	ld a, $c0
+	ldh [rVDMA_SRC_LOW], a
+	ld a, $9a
+	ldh [rVDMA_DEST_HIGH], a
+	ld a, $00
+	ldh [rVDMA_DEST_LOW], a
+	xor a
+	ldh [rVDMA_LEN], a
+
+	ld a, $d0
+	ldh [rVDMA_SRC_LOW], a
+	ld a, $20
+	ldh [rVDMA_DEST_LOW], a
+	xor a
+	ldh [rVDMA_LEN], a
+
+	ld a, $e0
+	ldh [rVDMA_SRC_LOW], a
+	ld a, $40
+	ldh [rVDMA_DEST_LOW], a
+	xor a
+	ldh [rVDMA_LEN], a
+
+	ld a, $f0
+	ldh [rVDMA_SRC_LOW], a
+	ld a, $60
+	ldh [rVDMA_DEST_LOW], a
+	xor a
+	ldh [rVDMA_LEN], a
+	ret
+; 0x1ba2
 
 SECTION "Bank 0@1c6e", ROM0[$1c6e]
 
@@ -4233,7 +4340,7 @@ Func_3298::
 	and a
 	jr z, .asm_32cf
 	call hTransferVirtualOAM
-	call $d28c
+	call w1d28c
 	ei
 	ldh a, [hLCDC]
 	ldh [rLCDC], a
@@ -4507,7 +4614,7 @@ Func_3416::
 	ld a, [hld]
 	ld l, [hl]
 	ld h, a
-.asm_3427
+.loop_ptrs
 	ld a, [hli]
 	ld e, a
 	ld a, [hli]
@@ -4515,7 +4622,7 @@ Func_3416::
 	and a
 	jr z, .asm_341b
 	dec c
-	jr nz, .asm_3427
+	jr nz, .loop_ptrs
 	pop af
 	bankswitch
 	ret
@@ -4688,7 +4795,7 @@ Func_3549::
 	push af
 	ldh a, [hWRAMBank]
 	push af
-	ld hl, $dd26
+	ld hl, w2dd26
 	ld a, [hld]
 	bankswitch
 	dec hl
@@ -4705,7 +4812,7 @@ Func_3568::
 	push af
 	ldh a, [hWRAMBank]
 	push af
-	ld hl, $dd26
+	ld hl, w2dd26
 	ld a, [hld]
 	bankswitch
 	dec hl
@@ -4730,7 +4837,7 @@ Func_3597::
 	push af
 	ldh a, [hWRAMBank]
 	push af
-	ld hl, $dd17
+	ld hl, w2dd17
 	ld a, [hld]
 	bankswitch
 	dec hl

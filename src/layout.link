@@ -34,6 +34,8 @@ ROMX $01
 	"Bank 1"
 ROMX $02
 	"Bank 2"
+ROMX $03
+	"Bank 3"
 ROMX $04
 	"Bank 4"
 ROMX $0a
@@ -68,6 +70,8 @@ ROMX $43
 	"Bank 43"
 ROMX $53
 	"Bank 53"
+ROMX $59
+	"Bank 59"
 ROMX $61
 	"Music 1"
 ROMX $62
@@ -88,6 +92,9 @@ WRAM0
 	"WRAM0@c7b4"
 WRAMX $1
 	"WRAM1"
+	org $d28c
+	"WRAM1@d28c"
+	"WRAM1@d587"
 WRAMX $2
 	"WRAM2"
 WRAMX $7

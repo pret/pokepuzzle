@@ -12,18 +12,18 @@ Func_76bcd:
 	ld a, $01
 	ld [wcd72], a
 .asm_76be1
-	ld a, [$c330]
+	ld a, [wc330]
 	and $80
 	jr z, .asm_76c01
-	ld a, [$c32e]
+	ld a, [wc32e]
 	and $01
 	ld [wcd73], a
-	ld a, [$c32e]
+	ld a, [wc32e]
 	sra a
 	and $01
 	ld [wcd71], a
 	xor a
-	ld hl, $c32e
+	ld hl, wc32e
 	ld [hli], a
 	ld [hli], a
 	ld [hl], a
@@ -115,22 +115,22 @@ Func_76bcd:
 	ret
 
 Func_76ca2:
-	ld hl, $c334
+	ld hl, wc334
 	ld a, $02
 	or [hl]
 	ld [hl], a
-	ld hl, $c336
+	ld hl, wc336
 	ld a, $80
 	or [hl]
 	ld [hl], a
 	ret
 
 Func_76cb1:
-	ld hl, $c334
+	ld hl, wc334
 	ld a, $01
 	or [hl]
 	ld [hl], a
-	ld hl, $c336
+	ld hl, wc336
 	ld a, $80
 	or [hl]
 	ld [hl], a

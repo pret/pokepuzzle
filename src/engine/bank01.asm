@@ -2631,7 +2631,7 @@ Func_68f6:
 	ld a, [wGameLevel]
 	cp GAMELEVEL_SLOW
 	jr z, .asm_6917
-	ld a, [wceb9]
+	ld a, [wScoreLimitSetting]
 	and a
 	jr z, .asm_690d
 	ld de, $423f

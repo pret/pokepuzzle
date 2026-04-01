@@ -176,99 +176,99 @@ Func_44047:
 
 	ld hl, wc919
 	ld a, [hli]
-	ld [$9de2], a
+	ldcoord_a 2, 15, v0BGMap1
 	ld a, [hli]
-	ld [$9de3], a
+	ldcoord_a 3, 15, v0BGMap1
 	ld a, [hli]
-	ld [$9e02], a
+	ldcoord_a 2, 16, v0BGMap1
 	ld a, [hli]
-	ld [$9e03], a
+	ldcoord_a 3, 16, v0BGMap1
 	ld hl, wc91d
 	ld a, [hli]
-	ld [$9de5], a
+	ldcoord_a 5, 15, v0BGMap1
 	ld a, [hli]
-	ld [$9de6], a
+	ldcoord_a 6, 15, v0BGMap1
 	ld a, [hli]
-	ld [$9e05], a
+	ldcoord_a 5, 16, v0BGMap1
 	ld a, [hli]
-	ld [$9e06], a
+	ldcoord_a 6, 16, v0BGMap1
 	ld a, [wc877]
 	and $01
 	jp nz, .asm_441bb
 	ld hl, wc907
 	ld a, [hli]
-	ld [$9c81], a
+	ldcoord_a 1, 4, v0BGMap1
 	ld a, [hli]
-	ld [$9c82], a
+	ldcoord_a 2, 4, v0BGMap1
 	ld a, [hli]
-	ld [$9c83], a
+	ldcoord_a 3, 4, v0BGMap1
 	ld a, [hli]
-	ld [$9c84], a
+	ldcoord_a 4, 4, v0BGMap1
 	ld a, [hli]
-	ld [$9c85], a
+	ldcoord_a 5, 4, v0BGMap1
 	ld a, [hli]
-	ld [$9c86], a
+	ldcoord_a 6, 4, v0BGMap1
 	ld a, [hli]
-	ld [$9ca1], a
+	ldcoord_a 1, 5, v0BGMap1
 	ld a, [hli]
-	ld [$9ca2], a
+	ldcoord_a 2, 5, v0BGMap1
 	ld a, [hli]
-	ld [$9ca3], a
+	ldcoord_a 3, 5, v0BGMap1
 	ld a, [hli]
-	ld [$9ca4], a
+	ldcoord_a 4, 5, v0BGMap1
 	ld a, [hli]
-	ld [$9ca5], a
+	ldcoord_a 5, 5, v0BGMap1
 	ld a, [hli]
-	ld [$9ca6], a
+	ldcoord_a 6, 5, v0BGMap1
 	ld hl, wc921
 	ld a, [hli]
-	ld [$9ce1], a
+	ldcoord_a 1, 7, v0BGMap1
 	ld a, [hli]
-	ld [$9ce2], a
+	ldcoord_a 2, 7, v0BGMap1
 	ld a, [hli]
-	ld [$9ce3], a
+	ldcoord_a 3, 7, v0BGMap1
 	ld a, [hli]
-	ld [$9ce4], a
+	ldcoord_a 4, 7, v0BGMap1
 	ld a, [hli]
-	ld [$9ce5], a
+	ldcoord_a 5, 7, v0BGMap1
 	ld a, [hli]
-	ld [$9ce6], a
+	ldcoord_a 6, 7, v0BGMap1
 	jp .asm_441fe
 
 .asm_441bb
 	ld hl, wc92d
 	ld a, [hli]
-	ld [$9d42], a
+	ldcoord_a 2, 10, v0BGMap1
 	ld a, [hli]
-	ld [$9d43], a
+	ldcoord_a 3, 10, v0BGMap1
 	ld a, [hli]
-	ld [$9d44], a
+	ldcoord_a 4, 10, v0BGMap1
 	ld a, [hli]
-	ld [$9d45], a
+	ldcoord_a 5, 10, v0BGMap1
 	ld a, [hli]
-	ld [$9d62], a
+	ldcoord_a 2, 11, v0BGMap1
 	ld a, [hli]
-	ld [$9d63], a
+	ldcoord_a 3, 11, v0BGMap1
 	ld a, [hli]
-	ld [$9d64], a
+	ldcoord_a 4, 11, v0BGMap1
 	ld a, [hli]
-	ld [$9d65], a
+	ldcoord_a 5, 11, v0BGMap1
 	ld a, [hli]
-	ld [$9d82], a
+	ldcoord_a 2, 12, v0BGMap1
 	ld a, [hli]
-	ld [$9d83], a
+	ldcoord_a 3, 12, v0BGMap1
 	ld a, [hli]
-	ld [$9d84], a
+	ldcoord_a 4, 12, v0BGMap1
 	ld a, [hli]
-	ld [$9d85], a
+	ldcoord_a 5, 12, v0BGMap1
 	ld a, [hli]
-	ld [$9da2], a
+	ldcoord_a 2, 13, v0BGMap1
 	ld a, [hli]
-	ld [$9da3], a
+	ldcoord_a 3, 13, v0BGMap1
 	ld a, [hli]
-	ld [$9da4], a
+	ldcoord_a 4, 13, v0BGMap1
 	ld a, [hli]
-	ld [$9da5], a
+	ldcoord_a 5, 13, v0BGMap1
 .asm_441fe:
 	ld a, $01
 	vramswitch
@@ -410,53 +410,53 @@ Func_44047:
 	jp nz, .asm_4431b
 	ld hl, wc927
 	ld a, [hli]
-	ld [$9ce1], a
+	ldcoord_a 1, 7, v0BGMap1
 	ld a, [hli]
-	ld [$9ce2], a
+	ldcoord_a 2, 7, v0BGMap1
 	ld a, [hli]
-	ld [$9ce3], a
+	ldcoord_a 3, 7, v0BGMap1
 	ld a, [hli]
-	ld [$9ce4], a
+	ldcoord_a 4, 7, v0BGMap1
 	ld a, [hli]
-	ld [$9ce5], a
+	ldcoord_a 5, 7, v0BGMap1
 	ld a, [hli]
-	ld [$9ce6], a
+	ldcoord_a 6, 7, v0BGMap1
 	jp .asm_4435e
 
 .asm_4431b
 	ld hl, wc93d
 	ld a, [hli]
-	ld [$9d42], a
+	ldcoord_a 2, 10, v0BGMap1
 	ld a, [hli]
-	ld [$9d43], a
+	ldcoord_a 3, 10, v0BGMap1
 	ld a, [hli]
-	ld [$9d44], a
+	ldcoord_a 4, 10, v0BGMap1
 	ld a, [hli]
-	ld [$9d45], a
+	ldcoord_a 5, 10, v0BGMap1
 	ld a, [hli]
-	ld [$9d62], a
+	ldcoord_a 2, 11, v0BGMap1
 	ld a, [hli]
-	ld [$9d63], a
+	ldcoord_a 3, 11, v0BGMap1
 	ld a, [hli]
-	ld [$9d64], a
+	ldcoord_a 4, 11, v0BGMap1
 	ld a, [hli]
-	ld [$9d65], a
+	ldcoord_a 5, 11, v0BGMap1
 	ld a, [hli]
-	ld [$9d82], a
+	ldcoord_a 2, 12, v0BGMap1
 	ld a, [hli]
-	ld [$9d83], a
+	ldcoord_a 3, 12, v0BGMap1
 	ld a, [hli]
-	ld [$9d84], a
+	ldcoord_a 4, 12, v0BGMap1
 	ld a, [hli]
-	ld [$9d85], a
+	ldcoord_a 5, 12, v0BGMap1
 	ld a, [hli]
-	ld [$9da2], a
+	ldcoord_a 2, 13, v0BGMap1
 	ld a, [hli]
-	ld [$9da3], a
+	ldcoord_a 3, 13, v0BGMap1
 	ld a, [hli]
-	ld [$9da4], a
+	ldcoord_a 4, 13, v0BGMap1
 	ld a, [hli]
-	ld [$9da5], a
+	ldcoord_a 5, 13, v0BGMap1
 .asm_4435e
 	jp Func_45bc0
 ; 0x44361

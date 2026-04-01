@@ -56,33 +56,35 @@ SECTION "Bank 4@44b4", ROMX[$44b4], BANK[$4]
 
 Func_104b4:
 	call Func_10503
-	ld [$d84e], a
+	ld [w1d84e], a
 	call Func_1055e
-	ld [$d84f], a
+	ld [w1d84f], a
 	call Func_105ba
-	ld [$d850], a
+	ld [w1d850], a
 	call Func_10614
-	ld [$d851], a
+	ld [w1d851], a
 	call Func_1066e
-	ld [$d852], a
+	ld [w1d852], a
 	call Func_106ab
-	ld [$d8ab], a
+	ld [w1d8ab], a
 	call Func_10723
-	ld [$d855], a
+	ld [w1d855], a
 	call Func_1077a
-	ld [$d859], a
+	ld [w1d859], a
 	call Func_10806
-	ld [$d85d], a
+	ld [w1d85d], a
 	call Func_10840
-	ld [$d85e], a
+	ld [w1d85e], a
 	call Func_1087a
-	ld [$d85f], a
+	ld [w1d85f], a
 	call Func_108b4
-	ld [$d860], a
+	ld [w1d860], a
 	call Func_108ee
-	ld [$d861], a
+	ld [w1d861], a
 	ret
 
+; output:
+; - a = ?
 Func_10503:
 	call .Func_1050b
 	add a ; *2
@@ -96,7 +98,7 @@ Func_10503:
 	cp GAMEMODE_TIME_ZONE
 	jr z, .asm_1052e
 	cp GAMEMODE_LINE_CLEAR
-	jr z, .asm_1053e
+	jr z, .line_clear
 	cp GAMEMODE_PUZZLE
 	jr z, .asm_1052e
 	cp GAMEMODE_GARBAGE
@@ -107,49 +109,54 @@ Func_10503:
 	jr z, .asm_1054e
 	cp GAMEMODE_UNK7
 	jr z, .asm_1054e
+
 .asm_1052e
 	call Func_108f4
 	ld l, a
 	ld h, $00
-	ld bc, $6396
+	ld bc, Data_e396
 	add hl, bc
-	ld a, $03
+	ld a, BANK(Data_e396)
 	call GetFarByte
 	ret
-.asm_1053e
+
+.line_clear
 	call Func_1091c
 	ld l, a
 	ld h, $00
-	ld bc, $6d88
+	ld bc, Data_ed88
 	add hl, bc
-	ld a, $03
+	ld a, BANK(Data_ed88)
 	call GetFarByte
 	ret
+
 .asm_1054e
 	call Func_1092d
 	ld l, a
 	ld h, $00
-	ld bc, $67c0
+	ld bc, Data_e7c0
 	add hl, bc
-	ld a, $03
+	ld a, BANK(Data_e7c0)
 	call GetFarByte
 	ret
 
+; output:
+; - a = ?
 Func_1055e:
-	call Func_10567
+	call .Func_10567
 	inc a
 	inc a
 	call Func_10958
 	ret
 
-Func_10567:
+.Func_10567:
 	ld a, [wGameMode]
 	cp GAMEMODE_MARATHON
 	jr z, .asm_1058a
 	cp GAMEMODE_TIME_ZONE
 	jr z, .asm_1058a
 	cp GAMEMODE_LINE_CLEAR
-	jr z, .asm_1059a
+	jr z, .line_clear
 	cp GAMEMODE_PUZZLE
 	jr z, .asm_1058a
 	cp GAMEMODE_GARBAGE
@@ -160,47 +167,52 @@ Func_10567:
 	jr z, .asm_105aa
 	cp GAMEMODE_UNK7
 	jr z, .asm_105aa
+
 .asm_1058a
 	call Func_108f4
 	ld l, a
 	ld h, $00
-	ld bc, $6399
+	ld bc, Data_e399
 	add hl, bc
-	ld a, $03
+	ld a, BANK(Data_e399)
 	call GetFarByte
 	ret
-.asm_1059a
+
+.line_clear
 	call Func_1091c
 	ld l, a
 	ld h, $00
-	ld bc, $6d8f
+	ld bc, Data_ed8f
 	add hl, bc
-	ld a, $03
+	ld a, BANK(Data_ed8f)
 	call GetFarByte
 	ret
+
 .asm_105aa
 	call Func_1092d
 	ld l, a
 	ld h, $00
-	ld bc, $67ca
+	ld bc, Data_e7ca
 	add hl, bc
-	ld a, $03
+	ld a, BANK(Data_e7ca)
 	call GetFarByte
 	ret
 
+; output:
+; - a = ?
 Func_105ba:
-	call Func_105c1
+	call .Func_105c1
 	call Func_10958
 	ret
 
-Func_105c1:
+.Func_105c1:
 	ld a, [wGameMode]
 	cp GAMEMODE_MARATHON
 	jr z, .asm_105e4
 	cp GAMEMODE_TIME_ZONE
 	jr z, .asm_105e4
 	cp GAMEMODE_LINE_CLEAR
-	jr z, .asm_105f4
+	jr z, .line_clear
 	cp GAMEMODE_PUZZLE
 	jr z, .asm_105e4
 	cp GAMEMODE_GARBAGE
@@ -211,47 +223,52 @@ Func_105c1:
 	jr z, .asm_10604
 	cp GAMEMODE_UNK7
 	jr z, .asm_10604
+
 .asm_105e4
 	call Func_108f4
 	ld l, a
 	ld h, $00
-	ld bc, $639c
+	ld bc, Data_e39c
 	add hl, bc
-	ld a, $03
+	ld a, BANK(Data_e39c)
 	call GetFarByte
 	ret
-.asm_105f4
+
+.line_clear
 	call Func_1091c
 	ld l, a
 	ld h, $00
-	ld bc, $6d96
+	ld bc, Data_ed96
 	add hl, bc
-	ld a, $03
+	ld a, BANK(Data_ed96)
 	call GetFarByte
 	ret
+
 .asm_10604
 	call Func_1092d
 	ld l, a
 	ld h, $00
-	ld bc, $67d4
+	ld bc, Data_e7d4
 	add hl, bc
-	ld a, $03
+	ld a, BANK(Data_e7d4)
 	call GetFarByte
 	ret
 
+; output:
+; - a = ?
 Func_10614:
-	call Func_1061b
+	call .Func_1061b
 	call Func_10958
 	ret
 
-Func_1061b:
+.Func_1061b:
 	ld a, [wGameMode]
 	cp GAMEMODE_MARATHON
 	jr z, .asm_1063e
 	cp GAMEMODE_TIME_ZONE
 	jr z, .asm_1063e
 	cp GAMEMODE_LINE_CLEAR
-	jr z, .asm_1064e
+	jr z, .line_clear
 	cp GAMEMODE_PUZZLE
 	jr z, .asm_1063e
 	cp GAMEMODE_GARBAGE
@@ -262,40 +279,45 @@ Func_1061b:
 	jr z, .asm_1065e
 	cp GAMEMODE_UNK7
 	jr z, .asm_1065e
+
 .asm_1063e
 	call Func_108f4
 	ld l, a
 	ld h, $00
-	ld bc, $639f
+	ld bc, Data_e39f
 	add hl, bc
-	ld a, $03
+	ld a, BANK(Data_e39f)
 	call GetFarByte
 	ret
-.asm_1064e
+
+.line_clear
 	call Func_1091c
 	ld l, a
 	ld h, $00
-	ld bc, $6d9d
+	ld bc, Data_ed9d
 	add hl, bc
-	ld a, $03
+	ld a, BANK(Data_ed9d)
 	call GetFarByte
 	ret
+
 .asm_1065e
 	call Func_1092d
 	ld l, a
 	ld h, $00
-	ld bc, $67fc
+	ld bc, Data_e7fc
 	add hl, bc
-	ld a, $03
+	ld a, BANK(Data_e7fc)
 	call GetFarByte
 	ret
 
+; output:
+; - a = ?
 Func_1066e:
-	call Func_10675
+	call .Func_10675
 	call Func_10958
 	ret
 
-Func_10675:
+.Func_10675:
 	ld a, [wGameMode]
 	cp GAMEMODE_MARATHON
 	jr z, .asm_10698
@@ -313,33 +335,37 @@ Func_10675:
 	jr z, .asm_1069b
 	cp GAMEMODE_UNK7
 	jr z, .asm_1069b
+
 .asm_10698
 	ld a, $00
 	ret
+
 .asm_1069b
 	call Func_1092d
 	ld l, a
 	ld h, $00
-	ld bc, $6806
+	ld bc, Data_e806
 	add hl, bc
-	ld a, $03
+	ld a, BANK(Data_e806)
 	call GetFarByte
 	ret
 
+; output:
+; - a = ?
 Func_106ab:
-	call Func_106af
+	call .Func_106af
 	ret
 
-Func_106af:
+.Func_106af:
 	ld a, [wGameMode]
 	cp GAMEMODE_MARATHON
-	jr z, .asm_106d2
+	jr z, .marathon_or_time_zone
 	cp GAMEMODE_TIME_ZONE
-	jr z, .asm_106d2
+	jr z, .marathon_or_time_zone
 	cp GAMEMODE_LINE_CLEAR
-	jr z, .asm_106de
+	jr z, .line_clear
 	cp GAMEMODE_PUZZLE
-	jr z, .asm_10710
+	jr z, .puzzle
 	cp GAMEMODE_GARBAGE
 	jr z, .asm_10713
 	cp GAMEMODE_CHALLENGE
@@ -348,16 +374,18 @@ Func_106af:
 	jr z, .asm_10713
 	cp GAMEMODE_UNK7
 	jr z, .asm_10713
-.asm_106d2
+
+.marathon_or_time_zone
 	ld a, [wSpeedLevel]
 	and a
 	jr z, .asm_106d9
 	dec a
 .asm_106d9
 	inc a
-	ld [$d8ab], a
+	ld [w1d8ab], a
 	ret
-.asm_106de
+
+.line_clear
 	ld a, [wceac]
 	and a
 	jr z, .asm_106e7
@@ -388,9 +416,11 @@ Func_106af:
 	ld a, $03
 	call GetFarByte
 	ret
-.asm_10710
+
+.puzzle
 	ld a, $00
 	ret
+
 .asm_10713
 	call Func_1092d
 	ld l, a
@@ -401,18 +431,20 @@ Func_106af:
 	call GetFarByte
 	ret
 
+; output:
+; - a = ?
 Func_10723:
-	call Func_10727
+	call .Func_10727
 	ret
 
-Func_10727:
+.Func_10727:
 	ld a, [wGameMode]
 	cp GAMEMODE_MARATHON
 	jr z, .asm_1074a
 	cp GAMEMODE_TIME_ZONE
 	jr z, .asm_1074a
 	cp GAMEMODE_LINE_CLEAR
-	jr z, .asm_1075a
+	jr z, .line_clear
 	cp GAMEMODE_PUZZLE
 	jr z, .asm_1074a
 	cp GAMEMODE_GARBAGE
@@ -423,6 +455,7 @@ Func_10727:
 	jr z, .asm_1076a
 	cp GAMEMODE_UNK7
 	jr z, .asm_1076a
+
 .asm_1074a
 	call Func_108f4
 	ld l, a
@@ -432,7 +465,8 @@ Func_10727:
 	ld a, $03
 	call GetFarByte
 	ret
-.asm_1075a
+
+.line_clear
 	call Func_1091c
 	ld l, a
 	ld h, $00
@@ -441,6 +475,7 @@ Func_10727:
 	ld a, $03
 	call GetFarByte
 	ret
+
 .asm_1076a
 	call Func_1092d
 	ld l, a
@@ -451,20 +486,22 @@ Func_10727:
 	call GetFarByte
 	ret
 
+; output:
+; - a = ?
 Func_1077a:
-	call Func_1077e
+	call .Func_1077e
 	ret
 
-Func_1077e:
+.Func_1077e:
 	ld a, [wGameMode]
 	cp GAMEMODE_MARATHON
-	jr z, .asm_107a1
+	jr z, .marathon_or_puzzle
 	cp GAMEMODE_TIME_ZONE
-	jr z, .asm_107b1
+	jr z, .time_zone
 	cp GAMEMODE_LINE_CLEAR
-	jr z, .asm_107b4
+	jr z, .line_clear
 	cp GAMEMODE_PUZZLE
-	jr z, .asm_107a1
+	jr z, .marathon_or_puzzle
 	cp GAMEMODE_GARBAGE
 	jr z, .asm_107e6
 	cp GAMEMODE_CHALLENGE
@@ -473,7 +510,8 @@ Func_1077e:
 	jr z, .asm_107e6
 	cp GAMEMODE_UNK7
 	jr z, .asm_107f6
-.asm_107a1
+
+.marathon_or_puzzle
 	call Func_108f4
 	ld l, a
 	ld h, $00
@@ -482,10 +520,12 @@ Func_1077e:
 	ld a, $03
 	call GetFarByte
 	ret
-.asm_107b1
+
+.time_zone
 	ld a, $06
 	ret
-.asm_107b4
+
+.line_clear
 	ld a, [wceac]
 	and a
 	jr z, .asm_107bd
@@ -516,6 +556,7 @@ Func_1077e:
 	ld a, $03
 	call GetFarByte
 	ret
+
 .asm_107e6
 	call Func_1092d
 	ld l, a
@@ -525,6 +566,7 @@ Func_1077e:
 	ld a, $03
 	call GetFarByte
 	ret
+
 .asm_107f6
 	call Func_1092d
 	ld l, a
@@ -535,11 +577,13 @@ Func_1077e:
 	call GetFarByte
 	ret
 
+; output:
+; - a = ?
 Func_10806:
-	call Func_1080a
+	call .Func_1080a
 	ret
 
-Func_1080a:
+.Func_1080a:
 	ld a, [wGameMode]
 	cp GAMEMODE_MARATHON
 	jr z, .asm_1082d
@@ -557,9 +601,11 @@ Func_1080a:
 	jr z, .asm_10830
 	cp GAMEMODE_UNK7
 	jr z, .asm_1082d
+
 .asm_1082d
 	ld a, $00
 	ret
+
 .asm_10830
 	call Func_1092d
 	ld l, a
@@ -570,11 +616,13 @@ Func_1080a:
 	call GetFarByte
 	ret
 
+; output:
+; - a = ?
 Func_10840:
-	call Func_10844
+	call .Func_10844
 	ret
 
-Func_10844:
+.Func_10844:
 	ld a, [wGameMode]
 	cp GAMEMODE_MARATHON
 	jr z, .asm_10867
@@ -592,9 +640,11 @@ Func_10844:
 	jr z, .asm_1086a
 	cp GAMEMODE_UNK7
 	jr z, .asm_10867
+
 .asm_10867
 	ld a, $00
 	ret
+
 .asm_1086a
 	call Func_1092d
 	ld l, a
@@ -605,11 +655,13 @@ Func_10844:
 	call GetFarByte
 	ret
 
+; output:
+; - a = ?
 Func_1087a:
-	call Func_1087e
+	call .Func_1087e
 	ret
 
-Func_1087e:
+.Func_1087e:
 	ld a, [wGameMode]
 	cp GAMEMODE_MARATHON
 	jr z, .asm_108a1
@@ -627,9 +679,11 @@ Func_1087e:
 	jr z, .asm_108a4
 	cp GAMEMODE_UNK7
 	jr z, .asm_108a1
+
 .asm_108a1
 	ld a, $00
 	ret
+
 .asm_108a4
 	call Func_1092d
 	ld l, a
@@ -640,11 +694,13 @@ Func_1087e:
 	call GetFarByte
 	ret
 
+; output:
+; - a = ?
 Func_108b4:
-	call Func_108b8
+	call .Func_108b8
 	ret
 
-Func_108b8:
+.Func_108b8:
 	ld a, [wGameMode]
 	cp GAMEMODE_MARATHON
 	jr z, .asm_108db
@@ -680,13 +736,17 @@ Func_108ee:
 	call Func_10958
 	ret
 
+; output a according to game mode and level:
+; - if Puzzle mode || Easy/Slow level: a = $0 
+; - if Normal level:                   a = $1 
+; - if Hard/S-Hard/V-Hard level:       a = $2 
 Func_108f4:
 	ld a, [wGameMode]
 	cp GAMEMODE_PUZZLE
-	jr nz, .asm_108fe
+	jr nz, .not_puzzle_mode
 	ld a, $00
 	ret
-.asm_108fe
+.not_puzzle_mode
 	ld a, [wGameLevel]
 	cp GAMELEVEL_EASY
 	ret z
@@ -695,18 +755,23 @@ Func_108f4:
 	cp GAMELEVEL_HARD
 	ret z
 	cp GAMELEVEL_S_HARD
-	jr z, .asm_10916
+	jr z, .s_hard_or_v_hard
 	cp GAMELEVEL_V_HARD
-	jr z, .asm_10916
+	jr z, .s_hard_or_v_hard
 	cp GAMELEVEL_SLOW
-	jr z, .asm_10919
-.asm_10916
+	jr z, .slow
+
+.s_hard_or_v_hard
 	ld a, $02
 	ret
-.asm_10919
+
+.slow
 	ld a, $00
 	ret
 
+; outputs in a:
+; - if wceac != 0: a = $6
+; - if wceac == 0: a = [wceaa] - 1 (min 0)
 Func_1091c:
 	ld a, [wceac]
 	and a
@@ -721,19 +786,26 @@ Func_1091c:
 .asm_1092c
 	ret
 
+; outputs in a:
+; - if not Garbage/Challenge: a = [wcea7] - 1 (min 0)
+; - else:
+;   - if Func_108f4 outputs $0: a = $1
+;   - if Func_108f4 outputs $1: a = $2
+;   - if Func_108f4 outputs $2: a = $5
 Func_1092d:
 	ld a, [wGameMode]
 	cp GAMEMODE_GARBAGE
-	jr z, .asm_10940
+	jr z, .garbage_or_challenge
 	cp GAMEMODE_CHALLENGE
-	jr z, .asm_10940
+	jr z, .garbage_or_challenge
 	ld a, [wcea7]
 	and a
 	jr z, .asm_1093f
 	dec a
 .asm_1093f
 	ret
-.asm_10940
+
+.garbage_or_challenge
 	call Func_108f4
 	cp $00
 	jr z, .asm_10955
@@ -751,6 +823,8 @@ Func_1092d:
 	ld a, $01
 	ret
 
+; input:
+; - a = ?
 Func_10958:
 	push bc
 	ld b, a
@@ -772,25 +846,25 @@ Func_10958:
 .slow
 	ld a, [wceb4]
 	cp $00
-	jr z, .asm_10989
+	jr z, .b_times_3
 	cp $01
-	jr z, .asm_1098d
+	jr z, .b_times_4
 	cp $02
-	jr z, .asm_10985
-.asm_10985
+	jr z, .b_times_2
+.b_times_2
 	ld c, $02
-	jr .asm_1098f
-.asm_10989
+	jr .b_times_c
+.b_times_3
 	ld c, $03
-	jr .asm_1098f
-.asm_1098d
+	jr .b_times_c
+.b_times_4
 	ld c, $04
-.asm_1098f
+.b_times_c
 	xor a
-.asm_10990
+.loop_mult
 	add b
 	dec c
-	jr nz, .asm_10990
+	jr nz, .loop_mult
 .asm_10994
 	pop bc
 	ret
@@ -805,7 +879,7 @@ Func_10996::
 	ld [wceb7], a
 	ld [wc601], a
 	ld [wc7ce], a
-	ld [wceb9], a
+	ld [wScoreLimitSetting], a
 	ld [wceba], a
 
 	ld a, $01
@@ -824,9 +898,9 @@ Func_109c8:
 	ld a, [$d89e]
 	ld l, a
 	push hl
-	ld a, [$c494]
+	ld a, [wVBlankHandler + 2]
 	ld l, a
-	ld a, [$c493]
+	ld a, [wVBlankHandler + 1]
 	ld h, a
 	push hl
 	ldh a, [hVBlankTrampolineBank]
@@ -860,9 +934,9 @@ Func_109c8:
 	ldh [hVBlankTrampolineBank], a
 	pop hl
 	ld a, h
-	ld [$c493], a
+	ld [wVBlankHandler + 1], a
 	ld a, l
-	ld [$c494], a
+	ld [wVBlankHandler + 2], a
 	pop hl
 	ld a, l
 	ld [$d89e], a
@@ -1889,11 +1963,11 @@ Func_11632:
 	ld hl, w1d671
 	ld de, $13
 	xor a
-REPT 16
-	cp [hl]
-	jr z, .found
-	add hl, de
-ENDR
+	REPT 16
+		cp [hl]
+		jr z, .found
+		add hl, de
+	ENDR
 	ld h, $00
 	ret
 .found
@@ -2498,7 +2572,7 @@ Func_11c9b:
 	cp GAMEMODE_TIME_ZONE
 	jp z, .Func_11dea
 	cp GAMEMODE_LINE_CLEAR
-	jp z, .Func_11e6c
+	jp z, .LineClear
 	cp GAMEMODE_PUZZLE
 	jp z, .Func_11dea
 	cp GAMEMODE_GARBAGE
@@ -2546,6 +2620,8 @@ Func_11c9b:
 	pop bc
 	ret
 
+; input:
+; - hl = ?
 .Func_11d21:
 	ld c, LOW(hff8a)
 	ld b, $06
@@ -2627,7 +2703,7 @@ Func_11c9b:
 	dec b
 	ret z
 .asm_11daa
-	call $d85a
+	call w1d85a
 	inc a
 	ld e, a
 	push bc
@@ -2751,7 +2827,7 @@ Func_11c9b:
 	ld e, $01
 	jp .Func_11d21
 
-.Func_11e6c:
+.LineClear:
 	ld hl, $d80f
 	ld d, $36
 .asm_11e71
@@ -2775,9 +2851,255 @@ Func_11c9b:
 	ld e, $00
 .asm_11e8a
 	ret
-; 0x11e8b
 
-SECTION "Bank 4@6186", ROMX[$6186], BANK[$4]
+Func_11e8b:
+LOAD "WRAM1@d28c", WRAMX
+w1d28c:: ; d28c
+	ld hl, sp+$00
+
+	nop ; these nops with be replaced
+	nop ; by a jp instruction in w1d28c
+	nop ;
+
+; clear BG map in the shape of a rectangle
+; with origin in (8, 0) and dimensions (12, 18)
+	bgcoord sp, 20, 0
+	REPT 12 / 2
+		ld de, $0000
+		push de
+	ENDR
+
+	bgcoord sp, 20, 1
+	REPT 12 / 2
+		ld de, $0000
+		push de
+	ENDR
+
+	bgcoord sp, 20, 2
+	REPT 12 / 2
+		ld de, $0000
+		push de
+	ENDR
+
+	bgcoord sp, 20, 3
+	REPT 12 / 2
+		ld de, $0000
+		push de
+	ENDR
+
+	bgcoord sp, 20, 4
+	REPT 12 / 2
+		ld de, $0000
+		push de
+	ENDR
+
+	bgcoord sp, 20, 5
+	REPT 12 / 2
+		ld de, $0000
+		push de
+	ENDR
+
+	bgcoord sp, 20, 6
+	REPT 12 / 2
+		ld de, $0000
+		push de
+	ENDR
+
+	bgcoord sp, 20, 7
+	REPT 12 / 2
+		ld de, $0000
+		push de
+	ENDR
+
+	bgcoord sp, 20, 8
+	REPT 12 / 2
+		ld de, $0000
+		push de
+	ENDR
+
+	bgcoord sp, 20, 9
+	REPT 12 / 2
+		ld de, $0000
+		push de
+	ENDR
+
+	bgcoord sp, 20, 10
+	REPT 12 / 2
+		ld de, $0000
+		push de
+	ENDR
+
+	bgcoord sp, 20, 11
+	REPT 12 / 2
+		ld de, $0000
+		push de
+	ENDR
+
+	bgcoord sp, 20, 12
+	REPT 12 / 2
+		ld de, $0000
+		push de
+	ENDR
+
+	bgcoord sp, 20, 13
+	REPT 12 / 2
+		ld de, $0000
+		push de
+	ENDR
+
+	bgcoord sp, 20, 14
+	REPT 12 / 2
+		ld de, $0000
+		push de
+	ENDR
+
+	bgcoord sp, 20, 15
+	REPT 12 / 2
+		ld de, $0000
+		push de
+	ENDR
+
+	bgcoord sp, 20, 16
+	REPT 12 / 2
+		ld de, $0000
+		push de
+	ENDR
+
+	bgcoord sp, 20, 17
+	REPT 12 / 2
+		ld de, $0000
+		push de
+	ENDR
+
+	ld sp, hl
+	ret
+
+; clear BG map in the shape of a rectangle
+; with origin in (8, 18) and dimensions (12, 2)
+w1d479:: ; d479
+	bgcoord sp, 20, 18
+	REPT 12 / 2
+		ld de, $0000
+		push de
+	ENDR
+
+	bgcoord sp, 20, 19
+	REPT 12 / 2
+		ld de, $0000
+		push de
+	ENDR
+
+	jp $d291
+
+w1d4b2:: ; d4b2
+	bgcoord sp, 7, 13
+	REPT 6 / 2
+		ld de, $0000
+		push de
+	ENDR
+
+	bgcoord sp, 6, 9
+	REPT 4 / 2
+		ld de, $0000
+		push de
+	ENDR
+
+	bgcoord sp, 6, 10
+	REPT 4 / 2
+		ld de, $0000
+		push de
+	ENDR
+
+	bgcoord sp, 6, 11
+	REPT 4 / 2
+		ld de, $0000
+		push de
+	ENDR
+
+	jp $d291
+
+w1d4e5:: ; d4e5
+	ld a, $00
+	ld [$9843], a
+	ld sp, $9867
+	ld de, NULL
+	push de
+	ld de, NULL
+	push de
+	ld sp, $98a6
+	ld de, NULL
+	push de
+	ld sp, $98c6
+	ld de, NULL
+	push de
+	jp $d291
+
+w1d506:: ; d506
+	ld sp, $98a7
+	ld de, NULL
+	push de
+	ld de, NULL
+	push de
+	ld de, NULL
+	push de
+	jp $d291
+
+w1d518:: ; d518
+	ld sp, $9967
+	ld de, NULL
+	push de
+	ld de, NULL
+	push de
+	ld de, NULL
+	push de
+	jp $d291
+
+w1d52a:: ; d52a
+	ld a, $00
+	ld [$9921], a
+	ld a, $00
+	ld [$9941], a
+	ld a, $00
+	ld [$9961], a
+	ld a, $00
+	ld [$9981], a
+	ld a, $00
+	ld [$99a1], a
+	ld a, $00
+	ld [$99c1], a
+	ld a, $00
+	ld [$99e1], a
+	ld a, $00
+	ld [$9a01], a
+	ld a, $00
+	ld [$9a21], a
+	jp $d291
+
+w1d55a:: ; d55a
+	ld sp, $98e7
+	ld de, $303
+	push de
+	ld de, $303
+	push de
+	ld de, $303
+	push de
+	jp $d291
+
+w1d56c:: ; d56c
+	ld sp, $9a07
+	ld de, $303
+	push de
+	ld sp, $9a04
+	ld de, $303
+	push de
+	nop
+	nop
+	nop
+	ld sp, $99e4
+	ld de, $303
+	push de
+	jp $d291
+ENDL
 
 Func_12186:
 	push bc
@@ -4040,9 +4362,9 @@ Func_13636:
 	ld bc, $6fbb
 	add hl, bc
 	ld a, l
-	ld [wcef3], a
+	ld [wcef3 + 0], a
 	ld a, h
-	ld [wcef4], a
+	ld [wcef3 + 1], a
 	ld a, $2c
 	ld [wcef6], a
 	ld a, $01
@@ -4119,7 +4441,7 @@ Func_13671:
 	ld c, $53
 	ld b, $71
 .asm_136de
-	ld hl, wcef4
+	ld hl, wcef3 + 1
 	ld a, b
 	ld [hld], a
 	ld [hl], c

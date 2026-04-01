@@ -152,7 +152,7 @@ Func_c0367::
 	cp $03
 	jr z, .asm_c03c4
 .asm_c03bc
-	ld a, GAMESTATE_20
+	ld a, GAMESTATE_LOAD_PDP_MENU
 	ldh [hGameState], a
 	xor a
 	ldh [hVBlankTrampolinePtr + 1], a
@@ -240,7 +240,7 @@ Func_c042a:
 	ldh a, [hJoypadDown]
 	bit B_PAD_B, a
 	jr nz, .asm_c0479
-	ld a, [$d85f]
+	ld a, [w1d85f]
 	ld b, a
 	ld a, [$d865]
 	cp b
@@ -452,7 +452,7 @@ Func_c059f:
 	ld [$d8ac], a
 	jr .asm_c05d6
 .asm_c05bd
-	ld a, [$d8ab]
+	ld a, [w1d8ab]
 	cp $63
 	jr z, .asm_c05ce
 	jr c, .asm_c05ca
@@ -461,7 +461,7 @@ Func_c059f:
 .asm_c05ca
 	inc a
 .asm_c05cb
-	ld [$d8ab], a
+	ld [w1d8ab], a
 .asm_c05ce
 	call Func_c05da
 	ld a, $b4
@@ -476,13 +476,13 @@ Func_c05da:
 	ld a, [wcebc]
 	and a
 	jr nz, .asm_c05eb
-	ld a, [$d8ab]
+	ld a, [w1d8ab]
 	cp $33
 	jr c, .asm_c05ee
 	ld a, $32
 	jr .asm_c05ee
 .asm_c05eb
-	ld a, [$d8ab]
+	ld a, [w1d8ab]
 .asm_c05ee
 	add a
 	ld l, a
@@ -496,7 +496,7 @@ Func_c05da:
 	ld a, $03
 	call GetFarByte
 	ld [$d8b0], a
-	ld a, [$d8ab]
+	ld a, [w1d8ab]
 	add a
 	ld l, a
 	ld h, $00
@@ -770,7 +770,7 @@ Func_c06f5:
 .asm_c077a
 	call Func_c1b40
 	call Func_c04ff
-	call $d856
+	call w1d856
 	call Func_c3110
 	xor a
 	ld [$d8b3], a
@@ -783,7 +783,7 @@ Func_c06f5:
 SECTION "Bank 30@4942", ROMX[$4942], BANK[$30]
 
 Func_c0942:
-	call $d856
+	call w1d856
 	call Func_c3110
 	ret
 
@@ -1237,7 +1237,7 @@ Func_c0c15:
 	add hl, de
 	ld c, l
 	ld b, h
-	ld a, [$d851]
+	ld a, [w1d851]
 	ld d, a
 	ld e, $00
 	farcall Func_12d91
@@ -1285,7 +1285,7 @@ Func_c0c15:
 	dec hl
 	ld c, l
 	ld b, h
-	ld a, [$d851]
+	ld a, [w1d851]
 	ld d, a
 	ld e, $00
 	farcall Func_12d91
@@ -4313,7 +4313,7 @@ Func_c1c39:
 	ld [hl], a
 	dec c
 	jr nz, .asm_c1c42
-	ld a, [$d84e]
+	ld a, [w1d84e]
 	ldh [hff8f], a
 	ldh a, [hff94]
 	ldh [hff91], a
@@ -4368,7 +4368,7 @@ Func_c1c64:
 	ld [hl], a
 	dec c
 	jr nz, .asm_c1c8d
-	ld a, [$d84f]
+	ld a, [w1d84f]
 	ldh [hff8f], a
 	ldh a, [hff8e]
 	inc a
@@ -4432,7 +4432,7 @@ Func_c1ca4:
 	ldh [hff92], a
 	ld a, d
 	ldh [hff93], a
-	ld a, [$d850]
+	ld a, [w1d850]
 	ldh [hff8f], a
 	ret
 .asm_c1d00
@@ -4476,7 +4476,7 @@ Func_c1ca4:
 	jr nz, .asm_c1d3e
 	ld c, l
 	ld b, h
-	ld a, [$d851]
+	ld a, [w1d851]
 	ld d, a
 	ld e, $01
 	farcall Func_12d91
@@ -4519,7 +4519,7 @@ Func_c1ca4:
 	ldh [hff92], a
 	ld a, d
 	ldh [hff93], a
-	ld a, [$d850]
+	ld a, [w1d850]
 	ldh [hff8f], a
 	dec e
 	ldh a, [hff95]
@@ -4587,7 +4587,7 @@ Func_c1d82:
 	jr z, .asm_c1de2
 	jr nc, .asm_c1e08
 	push hl
-	call $d85a
+	call w1d85a
 	add $01
 	ld [hli], a
 	ld [hli], a
@@ -4655,7 +4655,7 @@ Func_c1d82:
 	ldh [hff92], a
 	ld a, d
 	ldh [hff93], a
-	ld a, [$d850]
+	ld a, [w1d850]
 	ldh [hff8f], a
 	ret
 
@@ -4694,7 +4694,7 @@ Func_c1e39:
 	ld a, $80
 .asm_c1e62
 	ld [hli], a
-	ld a, [$d852]
+	ld a, [w1d852]
 	ld [hl], a
 	pop hl
 	push hl
@@ -4717,7 +4717,7 @@ Func_c1e39:
 	jr nz, .asm_c1e92
 	ld c, l
 	ld b, h
-	ld a, [$d851]
+	ld a, [w1d851]
 	ld d, a
 	ld e, $01
 	farcall Func_12d91
@@ -6697,7 +6697,7 @@ Func_c2b85:
 .asm_c2bed
 	ld [$d58c], a
 	ld hl, $d28e
-	ld a, $c3
+	ld a, $c3 ; jp
 	ld [hli], a
 	ld a, e
 	ld [hli], a
@@ -6707,10 +6707,9 @@ Func_c2b85:
 Func_c2bfa:
 	ld de, $4000
 	ld c, $00
-
-	ld a, [$d125]
+	ld a, [w1d125]
 	ld l, a
-	ld h, c
+	ld h, c ; $00
 	add hl, hl
 	add hl, hl
 	add hl, de
@@ -7711,7 +7710,7 @@ Func_c325c:
 	ld a, [wcef8]
 	jr .asm_c327d
 .asm_c327a
-	ld a, [$d8ab]
+	ld a, [w1d8ab]
 .asm_c327d
 	call ConvertToDigits
 	ld a, d

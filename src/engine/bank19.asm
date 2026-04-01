@@ -176,7 +176,8 @@ Func_64114:
 	ld a, $19
 	call Func_93d
 
-	copy_data $c4c9, $00, $5e5f, $19, $4 ; c4c9, 65e5f
+	
+	copy_data wBGPals palette 6 + $4, $00, $5e5f, $19, $4 ; 65e5f
 
 	call Func_6419d
 	ret

@@ -750,9 +750,9 @@ Func_c543a:
 	xor a
 	ld c, $10
 .loop_rows
-REPT 12
-	ld [hli], a
-ENDR
+	REPT 12
+		ld [hli], a
+	ENDR
 	add hl, de
 	dec c
 	jr nz, .loop_rows
@@ -1470,7 +1470,7 @@ Func_c5676:
 	jr z, .asm_c59ca
 	debug_loop
 .asm_c59c5
-	ld a, [$d8ab]
+	ld a, [w1d8ab]
 	jr .asm_c59cf
 .asm_c59ca
 	ld a, [wcef8]
@@ -1484,7 +1484,7 @@ Func_c5676:
 	farcall Func_c7a86
 	ret
 .asm_c59e2
-	ld a, GAMESTATE_20
+	ld a, GAMESTATE_LOAD_PDP_MENU
 	ldh [hGameState], a
 	xor a
 	ldh [hVBlankTrampolinePtr + 1], a
@@ -1621,7 +1621,8 @@ Func_c5a81:
 SECTION "Bank 31@5bea", ROMX[$5bea], BANK[$31]
 
 Func_c5bea:
-	copy_data $d28c, $01, $5e8b, $04, $2fb ; d28c, 11e8b
+	copy_data w1d28c, Func_11e8b, $2fb
+
 	farcall Func_c5cf6 ; unnecessary farcall
 	farcall Func_c2bfa
 	farcall Func_c3110
@@ -1632,7 +1633,7 @@ Func_c5bea:
 .asm_c5c1f
 	farcall Func_c2b85
 	di
-	call $d28c
+	call w1d28c
 	ei
 	ld a, [$d58c]
 	and a
@@ -1655,6 +1656,7 @@ Func_c5c44:
 	ld a, [wceac]
 	and a
 	jr z, .asm_c5c5b
+	; is Line Clear mode and wceac != 0
 	ld a, $0b
 	ld [wcea2], a
 	ld a, $00
@@ -1666,27 +1668,29 @@ Func_c5c44:
 	ret
 
 Func_c5c6e:
-	ld hl, $d892
+	ld hl, w1d892
 	xor a
 	ld [hld], a
 	ld [hld], a
 	ld [hld], a
-	ld a, [wceb9]
+
+	ld a, [wScoreLimitSetting]
 	and a
 	jr z, .asm_c5c81
-	ld a, $09
-	ld hl, $d891
+	ld a, 9
+	ld hl, wScoreLimit + 5
 	ld [hld], a
 .asm_c5c81
-	ld a, $09
-	ld hl, $d890
+	ld a, 9
+	ld hl, wScoreLimit + 4
 	ld [hld], a
-	ld a, $09
-	ld hl, $d88f
-	ld [hld], a
-	ld [hld], a
+	ld a, 9
+	ld hl, wScoreLimit + 3
 	ld [hld], a
 	ld [hld], a
+	ld [hld], a
+	ld [hld], a
+
 	ld a, $01
 	ld [wceda], a
 	ld a, $02
@@ -1735,7 +1739,7 @@ Func_c5c6e:
 	and a
 	jr z, .asm_c5cf5
 	xor a
-	ld [$d85f], a
+	ld [w1d85f], a
 .asm_c5cf5
 	ret
 
@@ -1904,9 +1908,9 @@ Func_c5e6d:
 	ldh [rLCDC], a
 
 .lcd_on
-REPT 4
-	call DoFrame
-ENDR
+	REPT 4
+		call DoFrame
+	ENDR
 
 	ld a, e
 	ldh [hLCDC], a
@@ -1971,99 +1975,99 @@ Func_c6256:
 
 .PtrTable:
 	table_width 2
-	dw Func_c62a3 ; GAMEMODE_MARATHON
-	dw Func_c62ba ; GAMEMODE_TIME_ZONE
-	dw Func_c62d1 ; GAMEMODE_LINE_CLEAR
-	dw Func_c62e7 ; GAMEMODE_PUZZLE
-	dw Func_c62fd ; GAMEMODE_GARBAGE
-	dw Func_c6313 ; GAMEMODE_CHALLENGE
-	dw Func_c6329 ; GAMEMODE_UNK6
-	dw Func_c633f ; GAMEMODE_UNK7
+	dw .Marathon ; GAMEMODE_MARATHON
+	dw .TimeZone ; GAMEMODE_TIME_ZONE
+	dw .LineClear ; GAMEMODE_LINE_CLEAR
+	dw .Puzzle ; GAMEMODE_PUZZLE
+	dw .Garbage ; GAMEMODE_GARBAGE
+	dw .Challenge ; GAMEMODE_CHALLENGE
+	dw .Func_c6329 ; GAMEMODE_UNK6
+	dw .Func_c633f ; GAMEMODE_UNK7
 	assert_table_length NUM_GAME_MODES
 
-Data_c6297:
+.Data_c6297:
 	dab v0BGMap0 ; dest
 	dab s3a000 ; source
 	dw  $8 ; length
 	dw $18 ; interval
 	dw $12 ; iterations
 
-Func_c62a3:
+.Marathon:
 	ld de, s3a000
 	ld c, BANK(s3a000)
 	decompress PtrTable_c5f3e, $3d
 	push hl
-	ld hl, Data_c6297
+	ld hl, .Data_c6297
 	call Func_692
 	pop hl
 	jp Func_c6353
 
-Func_c62ba:
+.TimeZone:
 	ld de, s3a000
 	ld c, BANK(s3a000)
 	decompress $5f41, $31, $3d ; c5f41
 	push hl
-	ld hl, Data_c6297
+	ld hl, .Data_c6297
 	call Func_692
 	pop hl
 	jp Func_c6353
 
-Func_c62d1:
+.LineClear:
 	ld de, s3a000
 	ld c, BANK(s3a000)
 	decompress $5f44, $31, $3d ; c5f44
 	push hl
-	ld hl, Data_c6297
+	ld hl, .Data_c6297
 	call Func_692
 	pop hl
 	jr Func_c6353
 
-Func_c62e7:
+.Puzzle:
 	ld de, s3a000
 	ld c, BANK(s3a000)
 	decompress $5f47, $31, $3d ; c5f47
 	push hl
-	ld hl, Data_c6297
+	ld hl, .Data_c6297
 	call Func_692
 	pop hl
 	jr Func_c6353
 
-Func_c62fd:
+.Garbage:
 	ld de, s3a000
 	ld c, BANK(s3a000)
 	decompress $5f4a, $31, $3d ; c5f4a
 	push hl
-	ld hl, Data_c6297
+	ld hl, .Data_c6297
 	call Func_692
 	pop hl
 	jr Func_c6353
 
-Func_c6313:
+.Challenge:
 	ld de, s3a000
 	ld c, BANK(s3a000)
 	decompress $5f4d, $31, $3d ; c5f4d
 	push hl
-	ld hl, Data_c6297
+	ld hl, .Data_c6297
 	call Func_692
 	pop hl
 	jr Func_c6353
 
-Func_c6329:
+.Func_c6329:
 	ld de, s3a000
 	ld c, BANK(s3a000)
 	decompress $5f50, $31, $3d ; c5f50
 	push hl
-	ld hl, Data_c6297
+	ld hl, .Data_c6297
 	call Func_692
 	pop hl
 	jr Func_c6353
 
-Func_c633f:
+.Func_c633f:
 	ld de, s3a000
 	ld c, BANK(s3a000)
 	decompress $5f53, $31, $3d ; c5f53
 	push hl
-	ld hl, Data_c6297
+	ld hl, .Data_c6297
 	call Func_692
 	pop hl
 
@@ -2106,59 +2110,59 @@ Func_c6353:
 
 .PtrTable:
 	table_width 2
-	dw Func_c63c8 ; GAMEMODE_MARATHON
-	dw Func_c63d6 ; GAMEMODE_TIME_ZONE
-	dw Func_c63e4 ; GAMEMODE_LINE_CLEAR
-	dw Func_c63f2 ; GAMEMODE_PUZZLE
-	dw Func_c6400 ; GAMEMODE_GARBAGE
-	dw Func_c640e ; GAMEMODE_CHALLENGE
-	dw Func_c641c ; GAMEMODE_UNK6
-	dw Func_c642a ; GAMEMODE_UNK7
+	dw .Marathon ; GAMEMODE_MARATHON
+	dw .TimeZone ; GAMEMODE_TIME_ZONE
+	dw .LineClear ; GAMEMODE_LINE_CLEAR
+	dw .Puzzle ; GAMEMODE_PUZZLE
+	dw .Garbage ; GAMEMODE_GARBAGE
+	dw .Challenge ; GAMEMODE_CHALLENGE
+	dw .Func_c641c ; GAMEMODE_UNK6
+	dw .Func_c642a ; GAMEMODE_UNK7
 	assert_table_length NUM_GAME_MODES
 
-Func_c63c8:
+.Marathon:
 	ld de, v0Tiles2 tile $30
 	ld c, $00
 	decompress $5f56, $31, $3d ; c5f56
 	jr Func_c6436
 
-Func_c63d6:
+.TimeZone:
 	ld de, v0Tiles2 tile $30
 	ld c, $00
 	decompress $5f59, $31, $3d ; c5f59
 	jr Func_c6436
 
-Func_c63e4:
+.LineClear:
 	ld de, v0Tiles2 tile $30
 	ld c, $00
 	decompress $5f5c, $31, $3d ; c5f5c
 	jr Func_c6436
 
-Func_c63f2:
+.Puzzle:
 	ld de, v0Tiles2 tile $30
 	ld c, $00
 	decompress $5f5f, $31, $3d ; c5f5f
 	jr Func_c6436
 
-Func_c6400:
+.Garbage:
 	ld de, v0Tiles2 tile $30
 	ld c, $00
 	decompress $5f62, $31, $3d ; c5f62
 	jr Func_c6436
 
-Func_c640e:
+.Challenge:
 	ld de, v0Tiles2 tile $50
 	ld c, $00
 	decompress $5f65, $31, $3d ; c5f65
 	jr Func_c6436
 
-Func_c641c:
+.Func_c641c:
 	ld de, v0Tiles2 tile $50
 	ld c, $00
 	decompress $5f68, $31, $3d ; c5f68
 	jr Func_c6436
 
-Func_c642a:
+.Func_c642a:
 	ld de, v0Tiles2 tile $40
 	ld c, $00
 	decompress $5f6b, $31, $3d ; c5f6b
@@ -2178,41 +2182,41 @@ Func_c6436:
 
 .PtrTable:
 	table_width 2
-	dw Func_c6458 ; GAMEMODE_MARATHON
-	dw Func_c6466 ; GAMEMODE_TIME_ZONE
-	dw Func_c6474 ; GAMEMODE_LINE_CLEAR
-	dw Func_c6482 ; GAMEMODE_PUZZLE
-	dw Func_c6490 ; GAMEMODE_GARBAGE
-	dw Func_c64ad ; GAMEMODE_CHALLENGE
-	dw Func_c64bb ; GAMEMODE_UNK6
-	dw Func_c64c9 ; GAMEMODE_UNK7
+	dw .Marathon ; GAMEMODE_MARATHON
+	dw .TimeZone ; GAMEMODE_TIME_ZONE
+	dw .LineClear ; GAMEMODE_LINE_CLEAR
+	dw .Puzzle ; GAMEMODE_PUZZLE
+	dw .Garbage ; GAMEMODE_GARBAGE
+	dw .Challenge ; GAMEMODE_CHALLENGE
+	dw .Func_c64bb ; GAMEMODE_UNK6
+	dw .Func_c64c9 ; GAMEMODE_UNK7
 	assert_table_length NUM_GAME_MODES
 
-Func_c6458:
+.Marathon:
 	ld de, v0Tiles2
 	ld c, $00
 	decompress $5e95, $31, $2a ; c5e95
 	jr Func_c64d5
 
-Func_c6466:
+.TimeZone:
 	ld de, v0Tiles2
 	ld c, $00
 	decompress $5e98, $31, $2a ; c5e98
 	jr Func_c64d5
 
-Func_c6474:
+.LineClear:
 	ld de, v0Tiles2
 	ld c, $00
 	decompress $5e9b, $31, $2a ; c5e9b
 	jr Func_c64d5
 
-Func_c6482:
+.Puzzle:
 	ld de, v0Tiles2
 	ld c, $00
 	decompress $5e9e, $31, $2a ; c5e9e
 	jr Func_c64d5
 
-Func_c6490:
+.Garbage:
 	ld de, v0Tiles2
 	ld c, $00
 	decompress $5ea4, $31, $2a ; c5ea4
@@ -2222,19 +2226,19 @@ Func_c6490:
 	decompress $5ea1, $31, $2a ; c5ea1
 	jr Func_c64d5
 
-Func_c64ad:
+.Challenge:
 	ld de, v0Tiles2
 	ld c, $00
 	decompress $5ea4, $31, $2a ; c5ea4
 	jr Func_c64d5
 
-Func_c64bb:
+.Func_c64bb:
 	ld de, v0Tiles2
 	ld c, $00
 	decompress $5ea7, $31, $2a ; c5ea7
 	jr Func_c64d5
 
-Func_c64c9:
+.Func_c64c9:
 	ld de, v0Tiles2
 	ld c, $00
 	decompress $5eaa, $31, $2a ; c5eaa
@@ -2279,45 +2283,45 @@ Func_c64d5:
 
 .PtrTable:
 	table_width 2
-	dw Func_c6528 ; GAMELEVEL_EASY
-	dw Func_c6536 ; GAMELEVEL_NORMAL
-	dw Func_c6544 ; GAMELEVEL_HARD
-	dw Func_c6552 ; GAMELEVEL_S_HARD
-	dw Func_c6560 ; GAMELEVEL_V_HARD
-	dw Func_c656e ; GAMELEVEL_SLOW
+	dw .Easy ; GAMELEVEL_EASY
+	dw .Normal ; GAMELEVEL_NORMAL
+	dw .Hard ; GAMELEVEL_HARD
+	dw .SHard ; GAMELEVEL_S_HARD
+	dw .VHard ; GAMELEVEL_V_HARD
+	dw .Slow ; GAMELEVEL_SLOW
 	assert_table_length NUM_GAME_LEVELS
 
-Func_c6528:
+.Easy:
 	ld de, v0Tiles2 tile $20
 	ld c, $00
 	decompress $5ead, $31, $2a ; c5ead
 	jr Func_c657a
 
-Func_c6536:
+.Normal:
 	ld de, v0Tiles2 tile $20
 	ld c, $00
 	decompress $5eb0, $31, $2a ; c5eb0
 	jr Func_c657a
 
-Func_c6544:
+.Hard:
 	ld de, v0Tiles2 tile $20
 	ld c, $00
 	decompress $5eb3, $31, $2a ; c5eb3
 	jr Func_c657a
 
-Func_c6552:
+.SHard:
 	ld de, v0Tiles2 tile $20
 	ld c, $00
 	decompress $5eb6, $31, $2a ; c5eb6
 	jr Func_c657a
 
-Func_c6560:
+.VHard:
 	ld de, v0Tiles2 tile $20
 	ld c, $00
 	decompress $5eb9, $31, $2a ; c5eb9
 	jr Func_c657a
 
-Func_c656e:
+.Slow:
 	ld de, v0Tiles2 tile $20
 	ld c, $00
 	decompress $5ebc, $31, $2a ; c5ebc
@@ -2342,52 +2346,52 @@ Func_c657a:
 
 .PtrTable:
 	table_width 2
-	dw Func_c65a2 ; GAMELEVEL_EASY
-	dw Func_c65b0 ; GAMELEVEL_NORMAL
-	dw Func_c65be ; GAMELEVEL_HARD
-	dw Func_c65cc ; GAMELEVEL_S_HARD
-	dw Func_c65da ; GAMELEVEL_V_HARD
-	dw Func_c65e8 ; GAMELEVEL_SLOW
+	dw .Easy ; GAMELEVEL_EASY
+	dw .Normal ; GAMELEVEL_NORMAL
+	dw .Hard ; GAMELEVEL_HARD
+	dw .SHard ; GAMELEVEL_S_HARD
+	dw .VHard ; GAMELEVEL_V_HARD
+	dw .Slow ; GAMELEVEL_SLOW
 	assert_table_length NUM_GAME_LEVELS
 
-Func_c65a2:
+.Easy:
 	ld de, v0Tiles2 tile $24
 	ld c, $00
 	decompress $5ead, $31, $2a ; c5ead
 	jr Func_c65f4
 
-Func_c65b0:
+.Normal:
 	ld de, v0Tiles2 tile $24
 	ld c, $00
 	decompress $5eb0, $31, $2a ; c5eb0
 	jr Func_c65f4
 
-Func_c65be:
+.Hard:
 	ld de, v0Tiles2 tile $24
 	ld c, $00
 	decompress $5eb3, $31, $2a ; c5eb3
 	jr Func_c65f4
 
-Func_c65cc:
+.SHard:
 	ld de, v0Tiles2 tile $24
 	ld c, $00
 	decompress $5eb6, $31, $2a ; c5eb6
 	jr Func_c65f4
 
-Func_c65da:
+.VHard:
 	ld de, v0Tiles2 tile $24
 	ld c, $00
 	decompress $5eb9, $31, $2a ; c5eb9
 	jr Func_c65f4
 
-Func_c65e8:
+.Slow:
 	ld de, v0Tiles2 tile $24
 	ld c, $00
 	decompress $5ebc, $31, $2a ; c5ebc
 
 Func_c65f4:
 	ld a, [wcea3]
-	func_621 $9040, $00, $5f6e, $31, $3d, $90, $0, $1 ; 9040, c5f6e
+	func_621 v0Tiles2 tile $04, $00, $5f6e, $31, $3d, $90, $0, $1 ; c5f6e
 	ld a, [wGameMode]
 	cp GAMEMODE_CHALLENGE
 	jr z, .asm_c6618
@@ -2398,17 +2402,17 @@ Func_c65f4:
 	jr .asm_c662b
 .asm_c6618
 	ld a, [wcea4]
-	func_621 $9300, $00, $5f6e, $31, $3d, $90, $0, $1 ; 9300, c5f6e
+	func_621 v0Tiles2 tile $30, $00, $5f6e, $31, $3d, $90, $0, $1 ; c5f6e
 .asm_c662b
 	ld a, [wGameMode]
 	cp GAMEMODE_GARBAGE
-	jr z, .asm_c663c
+	jr z, .garbage
 	cp GAMEMODE_CHALLENGE
 	jr z, .asm_c6641
 	cp GAMEMODE_UNK6
 	jr z, .asm_c6641
 	jr .asm_c6650
-.asm_c663c
+.garbage
 	ld a, [wcea3]
 	jr .asm_c6644
 .asm_c6641
@@ -2429,7 +2433,7 @@ Func_c65f4:
 	and a
 	jr nz, .asm_c66a4
 	ld a, [wceab]
-	cp $0a
+	cp 10 ; >= 10?
 	jr nc, .asm_c6685
 	ld a, [wceab]
 	call ConvertToDigits
@@ -2442,7 +2446,6 @@ Func_c65f4:
 	ld a, e
 	ldcoord_a 4, 2
 	jr .asm_c66a4
-
 .asm_c6685
 	ld a, [wceab]
 	call ConvertToDigits
@@ -2452,6 +2455,7 @@ Func_c65f4:
 	ldcoord_a 5, 2
 	ld a, $1e
 	ldcoord_a 4, 2
+
 	ld a, [wceaa]
 	call ConvertToDigits
 	ld a, e
@@ -2532,8 +2536,8 @@ Func_c65f4:
 	ld a, $32
 	call Func_93d
 
-	copy_data $9040, $00, $5c41, $32, $90 ; 9040, c9c41
-	copy_data $9470, $00, $5cd1, $32, $90 ; 9470, c9cd1
+	copy_data v0Tiles2 tile $04, $00, $5c41, $32, $90 ; c9c41
+	copy_data v0Tiles2 tile $47, $00, $5cd1, $32, $90 ; c9cd1
 
 	ld de, s3a000
 	ld c, BANK(s3a000)
@@ -2541,11 +2545,12 @@ Func_c65f4:
 	ld a, $32
 	call Func_93d
 	push hl
-	ld hl, $675d
+	ld hl, .Data_c675d
 	call Func_692
 	pop hl
 	jr .asm_c6769
 
+.Data_c675d:
 	dab v0BGMap0 ; dest
 	dab s3a000 ; source
 	dw  $8 ; length
@@ -2723,7 +2728,7 @@ Func_c6867:
 Func_c6883:
 	farcall Func_104b4
 
-	ld a, [$d855]
+	ld a, [w1d855]
 	and a
 	jr z, .asm_c6897
 	dec a
@@ -2741,13 +2746,13 @@ Func_c6883:
 	ld de, $479c
 .asm_c68a4
 	ld a, $c3 ; jp
-	ld [$d856], a
+	ld [w1d856 + 0], a
 	ld a, e
-	ld [$d857], a
+	ld [w1d856 + 1], a
 	ld a, d
-	ld [$d858], a
+	ld [w1d856 + 2], a
 
-	ld a, [$d859]
+	ld a, [w1d859]
 	cp $05
 	jr z, .asm_c68be
 	cp $06
@@ -2760,11 +2765,11 @@ Func_c6883:
 	ld de, Func_326c
 .asm_c68c6
 	ld a, $c3 ; jp
-	ld [$d85a], a
+	ld [w1d85a + 0], a
 	ld a, e
-	ld [$d85b], a
+	ld [w1d85a + 1], a
 	ld a, d
-	ld [$d85c], a
+	ld [w1d85a + 2], a
 
 	ld a, [$d861]
 	cp $04
@@ -3108,7 +3113,7 @@ Func_c7391::
 	ld [wSpeedLevel], a ; MIN_SPEEDLEVEL
 	ld [wcea9], a
 
-	ld a, GAMESTATE_20
+	ld a, GAMESTATE_LOAD_PDP_MENU
 	ldh [hGameState], a
 	ret
 
@@ -3236,7 +3241,7 @@ GameState_LoadPanelDePonMenu::
 
 	call Func_c78ac
 
-	ld a, GAMESTATE_21
+	ld a, GAMESTATE_PDP_MENU
 	ldh [hGameState], a
 	ret
 ; 0xc74d6
@@ -3367,7 +3372,7 @@ Func_c7603:
 	ret
 
 Func_c7621:
-	ld a, [wceb9]
+	ld a, [wScoreLimitSetting]
 	and a
 	jr nz, .asm_c7633
 	copy_data $990c, $00, $4495, $58, $8 ; 990c, 160495
@@ -3586,7 +3591,7 @@ Func_c77d7:
 	ret
 
 Func_c77de:
-	ld hl, wceb9
+	ld hl, wScoreLimitSetting
 	call TogglePdPSetting
 	ret
 
@@ -3632,7 +3637,7 @@ Func_c7816:
 
 	xor a
 	ld [wceb2], a
-	ld [wceb9], a
+	ld [wScoreLimitSetting], a
 	ld [wceb8], a
 	ld [wcebc], a
 	ld [wcebd], a
