@@ -1,4 +1,182 @@
-SECTION "Bank 30@42c0", ROMX[$42c0], BANK[$30]
+PdPBlockTiles:
+	db $00, $00, $00, $00 ; NONE
+
+	db $c0, $c1, $d0, $d1 ; BLOCK_HEART
+	db $c2, $c3, $d2, $d3 ; BLOCK_SQUARE
+	db $c4, $c5, $d4, $d5 ; BLOCK_TRIANGLE
+	db $c6, $c7, $d6, $d7 ; BLOCK_STAR
+	db $c8, $c9, $d8, $d9 ; BLOCK_DIAMOND
+	db $ca, $cb, $da, $db ; BLOCK_DELTA
+	db $ec, $ed, $fc, $fd ; BLOCK_SHOCK
+
+	db $03, $03, $03, $03 ; $08
+	db $48, $49, $4a, $4b ; $09
+	db $39, $3b, $3c, $3e ; $0a
+	db $48, $49, $4a, $4b ; $0b
+	db $48, $49, $4a, $4b ; $0c
+	db $48, $49, $4a, $4b ; $0d
+	db $48, $49, $4a, $4b ; $0e
+	db $48, $49, $4a, $4b ; $0f
+	db $48, $49, $4a, $4b ; $10
+	db $48, $49, $4a, $4b ; $11
+	db $48, $49, $4a, $4b ; $12
+	db $48, $49, $4a, $4b ; $13
+	db $48, $49, $4a, $4b ; $14
+	db $48, $49, $4a, $4b ; $15
+	db $48, $49, $4a, $4b ; $16
+	db $48, $49, $4a, $4b ; $17
+	db $48, $49, $4a, $4b ; $18
+	db $48, $49, $4a, $4b ; $19
+	db $48, $49, $4a, $4b ; $1a
+	db $48, $49, $4a, $4b ; $1b
+	db $48, $49, $4a, $4b ; $1c
+	db $48, $49, $4a, $4b ; $1d
+	db $48, $49, $4a, $4b ; $1e
+	db $48, $49, $4a, $4b ; $1f
+	db $39, $3b, $3c, $3e ; $20
+	db $39, $3b, $3c, $3e ; $21
+	db $39, $3b, $3c, $3e ; $22
+	db $39, $3b, $3c, $3e ; $23
+	db $39, $3b, $3c, $3e ; $24
+	db $39, $3b, $3c, $3e ; $25
+	db $80, $81, $90, $91 ; $26
+	db $82, $83, $92, $93 ; $27
+	db $84, $85, $94, $95 ; $28
+	db $86, $87, $96, $97 ; $29
+	db $88, $89, $98, $99 ; $2a
+	db $8a, $8b, $9a, $9b ; $2b
+	db $ec, $ed, $fc, $fd ; $2c
+	db $a0, $a1, $b0, $b1 ; $2d
+	db $a2, $a3, $b2, $b3 ; $2e
+	db $a4, $a5, $b4, $b5 ; $2f
+	db $a6, $a7, $b6, $b7 ; $30
+	db $a8, $a9, $b8, $b9 ; $31
+	db $aa, $ab, $ba, $bb ; $32
+	db $ec, $ed, $fc, $fd ; $33
+	db $e0, $e1, $f0, $f1 ; $34
+	db $e2, $e3, $f2, $f3 ; $35
+	db $e4, $e5, $f4, $f5 ; $36
+	db $e6, $e7, $f6, $f7 ; $37
+	db $e8, $e9, $f8, $f9 ; $38
+	db $ea, $eb, $fa, $fb ; $39
+	db $ec, $ed, $fc, $fd ; $3a
+	db $68, $69, $78, $79 ; $3b
+	db $70, $71, $72, $73 ; $3c
+	db $74, $75, $76, $77 ; $3d
+	db $6a, $6b, $7a, $7b ; $3e
+	db $6c, $6d, $7c, $7d ; $3f
+	db $6e, $6f, $7e, $7f ; $40
+	db $64, $65, $66, $67 ; $41
+	db $03, $03, $03, $03 ; $42
+	db $cc, $cd, $dc, $dd ; $43
+	db $cc, $cd, $dc, $dd ; $44
+	db $cc, $cd, $dc, $dd ; $45
+	db $cc, $cd, $dc, $dd ; $46
+	db $cc, $cd, $dc, $dd ; $47
+	db $cc, $cd, $dc, $dd ; $48
+	db $60, $61, $62, $63 ; $49
+	db $03, $03, $03, $03 ; $4a
+	db $cc, $cd, $dc, $dd ; $4b
+	db $cc, $cd, $dc, $dd ; $4c
+	db $cc, $cd, $dc, $dd ; $4d
+	db $cc, $cd, $dc, $dd ; $4e
+	db $cc, $cd, $dc, $dd ; $4f
+	db $cc, $cd, $dc, $dd ; $50
+	db $cc, $cd, $dc, $dd ; $51
+	db $cc, $cd, $dc, $dd ; $52
+	db $cc, $cd, $dc, $dd ; $53
+	db $cc, $cd, $dc, $dd ; $54
+	db $cc, $cd, $dc, $dd ; $55
+	db $cc, $cd, $dc, $dd ; $56
+	db $cc, $cd, $dc, $dd ; $57
+	db $cc, $cd, $dc, $dd ; $58
+	db $cc, $cd, $dc, $dd ; $59
+	db $cc, $cd, $dc, $dd ; $5a
+	db $cc, $cd, $dc, $dd ; $5b
+	db $cc, $cd, $dc, $dd ; $5c
+	db $cc, $cd, $dc, $dd ; $5d
+	db $cc, $cd, $dc, $dd ; $5e
+	db $cc, $cd, $dc, $dd ; $5f
+	db $cc, $cd, $dc, $dd ; $60
+	db $cc, $cd, $dc, $dd ; $61
+	db $cc, $cd, $dc, $dd ; $62
+	db $cc, $cd, $dc, $dd ; $63
+	db $cc, $cd, $dc, $dd ; $64
+	db $cc, $cd, $dc, $dd ; $65
+	db $cc, $cd, $dc, $dd ; $66
+	db $cc, $cd, $dc, $dd ; $67
+	db $8c, $8d, $9c, $9d ; $68
+	db $ac, $ad, $bc, $bd ; $69
+	db $8e, $8f, $9e, $9f ; $6a
+	db $ae, $af, $be, $bf ; $6b
+	db $ce, $cf, $de, $df ; $6c
+	db $ee, $ef, $fe, $ff ; $6d
+	db $60, $61, $62, $63 ; $6e
+	db $03, $03, $03, $03 ; $6f
+	db $48, $49, $4a, $4b ; $70
+	db $39, $3b, $3c, $3e ; $71
+	db $48, $49, $4a, $4b ; $72
+	db $48, $49, $4a, $4b ; $73
+	db $48, $49, $4a, $4b ; $74
+	db $48, $49, $4a, $4b ; $75
+	db $48, $49, $4a, $4b ; $76
+	db $48, $49, $4a, $4b ; $77
+	db $48, $49, $4a, $4b ; $78
+	db $48, $49, $4a, $4b ; $79
+	db $48, $49, $4a, $4b ; $7a
+	db $48, $49, $4a, $4b ; $7b
+	db $48, $49, $4a, $4b ; $7c
+	db $48, $49, $4a, $4b ; $7d
+	db $48, $49, $4a, $4b ; $7e
+	db $48, $49, $4a, $4b ; $7f
+	db $48, $49, $4a, $4b ; $80
+	db $48, $49, $4a, $4b ; $81
+	db $48, $49, $4a, $4b ; $82
+	db $48, $49, $4a, $4b ; $83
+	db $48, $49, $4a, $4b ; $84
+	db $48, $49, $4a, $4b ; $85
+	db $48, $49, $4a, $4b ; $86
+	db $39, $3b, $3c, $3e ; $87
+	db $39, $3b, $3c, $3e ; $88
+	db $39, $3b, $3c, $3e ; $89
+	db $39, $3b, $3c, $3e ; $8a
+	db $39, $3b, $3c, $3e ; $8b
+	db $39, $3b, $3c, $3e ; $8c
+	db $39, $3b, $3c, $3e ; $8d
+	db $39, $3a, $3c, $3d ; $8e
+	db $3a, $3b, $3d, $3e ; $8f
+	db $3a, $3a, $3d, $3d ; $90
+	db $0f, $2d, $2e, $2f ; $91
+	db $0f, $43, $2e, $42 ; $92
+	db $43, $2d, $42, $2f ; $93
+	db $44, $45, $46, $47 ; $94
+	db $45, $2d, $47, $2f ; $95
+	db $43, $44, $42, $46 ; $96
+	db $0f, $44, $2e, $46 ; $97
+	db $45, $43, $47, $42 ; $98
+	db $0f, $43, $40, $3f ; $99
+	db $43, $43, $02, $3f ; $9a
+	db $43, $2d, $02, $41 ; $9b
+	db $40, $02, $40, $3f ; $9c
+	db $3f, $02, $02, $3f ; $9d
+	db $3f, $41, $02, $41 ; $9e
+	db $40, $02, $2e, $42 ; $9f
+	db $3f, $02, $42, $42 ; $a0
+	db $3f, $41, $42, $2f ; $a1
+	db $3f, $02, $02, $02 ; $a2
+	db $02, $4c, $02, $4e ; $a3
+	db $4d, $02, $4f, $02 ; $a4
+	db $02, $02, $02, $3f ; $a5
+	db $43, $43, $02, $02 ; $a6
+	db $02, $02, $42, $42 ; $a7
+	db $02, $02, $02, $4c ; $a8
+	db $02, $02, $4d, $02 ; $a9
+	db $02, $4e, $02, $02 ; $aa
+	db $4f, $02, $02, $02 ; $ab
+	db $43, $43, $02, $4c ; $ac
+	db $43, $43, $4d, $02 ; $ad
+	db $02, $4e, $42, $42 ; $ae
+	db $4f, $02, $42, $42 ; $af
 
 Func_c02c0::
 	call Func_1426
@@ -643,16 +821,16 @@ Func_c06e7:
 	and $0f
 	ld [wced6], a
 	and a
-	call z, Func_c06f5
+	call z, .Func_c06f5
 	ret
 
-Func_c06f5:
+.Func_c06f5:
 	call Func_c0949
 
 	; overwrite all block rows with row right below it
 	ld c, BOARD_HEIGHT
-	ld hl, wBlocks + 6 * BLOCK_STRUCT_SIZE
-	ld de, wBlocks
+	ld hl, wPdPBlocks + 6 * BLOCK_STRUCT_SIZE
+	ld de, wPdPBlocks
 .loop_rows
 	REPT BOARD_WIDTH
 		REPT BLOCK_STRUCT_SIZE
@@ -680,9 +858,300 @@ Func_c06f5:
 	ld a, $04
 	ld [$d8b5], a
 	ret
-; 0xc0793
 
-SECTION "Bank 30@4942", ROMX[$4942], BANK[$30]
+Func_c0793:
+	ld hl, $d884
+	inc [hl]
+	bit 0, [hl]
+	jp nz, Func_c0849
+Func_c079c:
+	ld b, $02
+	ld c, $3a
+.asm_c07a0
+	call w1d85a
+	add BLOCK_HEART
+	ld hl, wPdPBlock30Type
+	cp [hl]
+	jr z, .asm_c07a0
+	ld hl, wPdPNextBlock0Type
+	ld [hli], a ; BLOCKSTRUCT_TYPE
+	add c
+	ld [hli], a ; BLOCKSTRUCT_UNK1
+	ld a, b
+	ld [hli], a ; BLOCKSTRUCT_UNK2
+	xor a
+	ld [hli], a ; BLOCKSTRUCT_UNK3
+	ld [hli], a ; BLOCKSTRUCT_UNK4
+	ld [hli], a ; BLOCKSTRUCT_UNK5
+.asm_c07b7
+	call w1d85a
+	add BLOCK_HEART
+	ld hl, wPdPBlock31Type
+	cp [hl]
+	jr z, .asm_c07b7
+	ld hl, wPdPNextBlock0Type
+	cp [hl]
+	jr z, .asm_c07b7
+	ld hl, wPdPNextBlock1Type
+	ld [hli], a ; BLOCKSTRUCT_TYPE
+	add c
+	ld [hli], a ; BLOCKSTRUCT_UNK1
+	ld a, b
+	ld [hli], a ; BLOCKSTRUCT_UNK2
+	xor a
+	ld [hli], a ; BLOCKSTRUCT_UNK3
+	ld [hli], a ; BLOCKSTRUCT_UNK4
+	ld [hli], a ; BLOCKSTRUCT_UNK5
+.asm_c07d4
+	call w1d85a
+	add BLOCK_HEART
+	ld hl, wPdPBlock32Type
+	cp [hl]
+	jr z, .asm_c07d4
+	ld hl, wPdPNextBlock1Type
+	cp [hl]
+	jr z, .asm_c07d4
+	ld hl, wPdPNextBlock2Type
+	ld [hli], a ; BLOCKSTRUCT_TYPE
+	add c
+	ld [hli], a ; BLOCKSTRUCT_UNK1
+	ld a, b
+	ld [hli], a ; BLOCKSTRUCT_UNK2
+	xor a
+	ld [hli], a ; BLOCKSTRUCT_UNK3
+	ld [hli], a ; BLOCKSTRUCT_UNK4
+	ld [hli], a ; BLOCKSTRUCT_UNK5
+.asm_c07f1
+	call w1d85a
+	add BLOCK_HEART
+	ld hl, wPdPBlock33Type
+	cp [hl]
+	jr z, .asm_c07f1
+	ld hl, wPdPNextBlock2Type
+	cp [hl]
+	jr z, .asm_c07f1
+	ld hl, wPdPNextBlock3Type
+	ld [hli], a ; BLOCKSTRUCT_TYPE
+	add c
+	ld [hli], a ; BLOCKSTRUCT_UNK1
+	ld a, b
+	ld [hli], a ; BLOCKSTRUCT_UNK2
+	xor a
+	ld [hli], a ; BLOCKSTRUCT_UNK3
+	ld [hli], a ; BLOCKSTRUCT_UNK4
+	ld [hli], a ; BLOCKSTRUCT_UNK5
+.asm_c080e
+	call w1d85a
+	add BLOCK_HEART
+	ld hl, wPdPBlock34Type
+	cp [hl]
+	jr z, .asm_c080e
+	ld hl, wPdPNextBlock3Type
+	cp [hl]
+	jr z, .asm_c080e
+	ld hl, wPdPNextBlock4Type
+	ld [hli], a ; BLOCKSTRUCT_TYPE
+	add c
+	ld [hli], a ; BLOCKSTRUCT_UNK1
+	ld a, b
+	ld [hli], a ; BLOCKSTRUCT_UNK2
+	xor a
+	ld [hli], a ; BLOCKSTRUCT_UNK3
+	ld [hli], a ; BLOCKSTRUCT_UNK4
+	ld [hli], a ; BLOCKSTRUCT_UNK5
+.asm_c082b
+	call w1d85a
+	add BLOCK_HEART
+	ld hl, wPdPBlock35Type
+	cp [hl]
+	jr z, .asm_c082b
+	ld hl, wPdPNextBlock4Type
+	cp [hl]
+	jr z, .asm_c082b
+	ld hl, wPdPNextBlock5Type
+	ld [hli], a ; BLOCKSTRUCT_TYPE
+	add c
+	ld [hli], a ; BLOCKSTRUCT_UNK1
+	ld a, b
+	ld [hli], a ; BLOCKSTRUCT_UNK2
+	xor a
+	ld [hli], a ; BLOCKSTRUCT_UNK3
+	ld [hli], a ; BLOCKSTRUCT_UNK4
+	ld [hli], a ; BLOCKSTRUCT_UNK5
+	ret
+
+Func_c0849:
+	ld b, $02
+	ld c, $3a
+	call Func_3266
+	ld d, a
+	ld a, d
+	cp $ff
+	jr nz, .asm_c0859
+	ld a, e
+	jr .asm_c085d
+.asm_c0859
+	call w1d85a
+	ld e, a
+.asm_c085d
+	add BLOCK_HEART
+	ld hl, wPdPBlock30Type
+	cp [hl]
+	jr z, .asm_c0859
+	ld hl, wPdPNextBlock0Type
+	ld [hli], a ; BLOCKSTRUCT_TYPE
+	add c
+	ld [hli], a ; BLOCKSTRUCT_UNK1
+	ld a, b
+	ld [hli], a ; BLOCKSTRUCT_UNK2
+	xor a
+	ld [hli], a ; BLOCKSTRUCT_UNK3
+	ld [hli], a ; BLOCKSTRUCT_UNK4
+	ld [hli], a ; BLOCKSTRUCT_UNK5
+	ld a, d
+	cp $00
+	jr nz, .asm_c0879
+	ld a, e
+	jr .asm_c087d
+.asm_c0879
+	call w1d85a
+	ld e, a
+.asm_c087d
+	add BLOCK_HEART
+	ld hl, wPdPBlock31Type
+	cp [hl]
+	jr z, .asm_c0879
+	ld hl, wPdPNextBlock1Type
+	ld [hli], a ; BLOCKSTRUCT_TYPE
+	add c
+	ld [hli], a ; BLOCKSTRUCT_UNK1
+	ld a, b
+	ld [hli], a ; BLOCKSTRUCT_UNK2
+	xor a
+	ld [hli], a ; BLOCKSTRUCT_UNK3
+	ld [hli], a ; BLOCKSTRUCT_UNK4
+	ld [hli], a ; BLOCKSTRUCT_UNK5
+	ld a, d
+	cp $01
+	jr nz, .asm_c0899
+	ld a, e
+	jr .asm_c089d
+.asm_c0899
+	call w1d85a
+	ld e, a
+.asm_c089d
+	add BLOCK_HEART
+	ld hl, wPdPBlock32Type
+	cp [hl]
+	jr z, .asm_c0899
+	ld hl, wPdPNextBlock1Type
+	cp [hl]
+	jr nz, .asm_c08b1
+	ld hl, wPdPNextBlock0Type
+	cp [hl]
+	jr z, .asm_c0899
+.asm_c08b1
+	ld hl, wPdPNextBlock2Type
+	ld [hli], a ; BLOCKSTRUCT_TYPE
+	add c
+	ld [hli], a ; BLOCKSTRUCT_UNK1
+	ld a, b
+	ld [hli], a ; BLOCKSTRUCT_UNK2
+	xor a
+	ld [hli], a ; BLOCKSTRUCT_UNK3
+	ld [hli], a ; BLOCKSTRUCT_UNK4
+	ld [hli], a ; BLOCKSTRUCT_UNK5
+	ld a, d
+	cp $02
+	jr nz, .asm_c08c5
+	ld a, e
+	jr .asm_c08c9
+.asm_c08c5
+	call w1d85a
+	ld e, a
+.asm_c08c9
+	add BLOCK_HEART
+	ld hl, wPdPBlock33Type
+	cp [hl]
+	jr z, .asm_c08c5
+	ld hl, wPdPNextBlock2Type
+	cp [hl]
+	jr nz, .asm_c08dd
+	ld hl, wPdPNextBlock1Type
+	cp [hl]
+	jr z, .asm_c08c5
+.asm_c08dd
+	ld hl, wPdPNextBlock3Type
+	ld [hli], a ; BLOCKSTRUCT_TYPE
+	add c
+	ld [hli], a ; BLOCKSTRUCT_UNK1
+	ld a, b
+	ld [hli], a ; BLOCKSTRUCT_UNK2
+	xor a
+	ld [hli], a ; BLOCKSTRUCT_UNK3
+	ld [hli], a ; BLOCKSTRUCT_UNK4
+	ld [hli], a ; BLOCKSTRUCT_UNK5
+	ld a, d
+	cp $03
+	jr nz, .asm_c08f1
+	ld a, e
+	jr .asm_c08f5
+.asm_c08f1
+	call w1d85a
+	ld e, a
+.asm_c08f5
+	add BLOCK_HEART
+	ld hl, wPdPBlock34Type
+	cp [hl]
+	jr z, .asm_c08f1
+	ld hl, wPdPNextBlock3Type
+	cp [hl]
+	jr nz, .asm_c0909
+	ld hl, wPdPNextBlock2Type
+	cp [hl]
+	jr z, .asm_c08f1
+.asm_c0909
+	ld hl, wPdPNextBlock4Type
+	ld [hli], a ; BLOCKSTRUCT_TYPE
+	add c
+	ld [hli], a ; BLOCKSTRUCT_UNK1
+	ld a, b
+	ld [hli], a ; BLOCKSTRUCT_UNK2
+	xor a
+	ld [hli], a ; BLOCKSTRUCT_UNK3
+	ld [hli], a ; BLOCKSTRUCT_UNK4
+	ld [hli], a ; BLOCKSTRUCT_UNK5
+	ld a, d
+	cp $04
+	jr nz, .asm_c091d
+	ld a, e
+	jr .asm_c0921
+.asm_c091d
+	call w1d85a
+	ld e, a
+.asm_c0921
+	add BLOCK_HEART
+	ld hl, wPdPBlock35Type
+	cp [hl]
+	jr z, .asm_c091d
+	ld hl, wPdPNextBlock4Type
+	cp [hl]
+	jr nz, .asm_c0935
+	ld hl, wPdPNextBlock3Type
+	cp [hl]
+	jr z, .asm_c091d
+.asm_c0935
+	ld hl, wPdPNextBlock5Type
+	ld [hli], a ; BLOCKSTRUCT_TYPE
+	add c
+	ld [hli], a ; BLOCKSTRUCT_UNK1
+	ld a, b
+	ld [hli], a ; BLOCKSTRUCT_UNK2
+	xor a
+	ld [hli], a ; BLOCKSTRUCT_UNK3
+	ld [hli], a ; BLOCKSTRUCT_UNK4
+	ld [hli], a ; BLOCKSTRUCT_UNK5
+	ret
 
 Func_c0942:
 	call w1d856
@@ -690,7 +1159,7 @@ Func_c0942:
 	ret
 
 Func_c0949:
-	ld hl, w1d268 + BLOCKSTRUCT_UNK1
+	ld hl, wPdPNextBlocks + BLOCKSTRUCT_UNK1
 	ld de, $5
 	ld c, BOARD_WIDTH
 	ld b, $01
@@ -737,21 +1206,21 @@ Func_c0961:
 	add hl, hl
 	add hl, de
 	add hl, hl ; *6
-	ld de, wBlocks
+	ld de, wPdPBlocks
 	add hl, de
 .asm_c0988
 	; do we have blocks to move?
-	ld b, [hl] ; BLOCKSTRUCT_UNK0
+	ld b, [hl] ; BLOCKSTRUCT_TYPE
 	ld de, BLOCK_STRUCT_SIZE
 	add hl, de
-	ld a, [hl] ; BLOCKSTRUCT_UNK0
+	ld a, [hl] ; BLOCKSTRUCT_TYPE
 	ld de, -BLOCK_STRUCT_SIZE
 	add hl, de
 	or b
 	ret z ; no blocks
 
 	; at least one of the cursored spaces has a block
-	ld a, [hl] ; BLOCKSTRUCT_UNK0
+	ld a, [hl] ; BLOCKSTRUCT_TYPE
 	ld de, BLOCK_STRUCT_SIZE
 	add hl, de
 	cp $09
@@ -764,7 +1233,7 @@ Func_c0961:
 	jr nc, .asm_c09a8
 	ret
 .asm_c09a8
-	ld a, [hl] ; BLOCKSTRUCT_UNK0
+	ld a, [hl] ; BLOCKSTRUCT_TYPE
 	ld de, -(BLOCK_STRUCT_SIZE - BLOCKSTRUCT_UNK2)
 	add hl, de
 	cp $09
@@ -797,7 +1266,7 @@ Func_c0961:
 	jr nz, .asm_c09ff
 	ld de, -((BOARD_WIDTH + 1) * BLOCK_STRUCT_SIZE + BLOCKSTRUCT_UNK2)
 	add hl, de
-	ld a, [hl] ; BLOCKSTRUCT_UNK0
+	ld a, [hl] ; BLOCKSTRUCT_TYPE
 	ld de, (BOARD_WIDTH + 1) * BLOCK_STRUCT_SIZE + BLOCKSTRUCT_UNK2
 	add hl, de
 	cp $09
@@ -841,7 +1310,7 @@ Func_c0961:
 	jr nz, .asm_c0a42
 	ld de, -((BOARD_WIDTH - 1) * BLOCK_STRUCT_SIZE + BLOCKSTRUCT_UNK2)
 	add hl, de
-	ld a, [hl] ; BLOCKSTRUCT_UNK0
+	ld a, [hl] ; BLOCKSTRUCT_TYPE
 	ld de, (BOARD_WIDTH - 1) * BLOCK_STRUCT_SIZE + BLOCKSTRUCT_UNK2
 	add hl, de
 	cp $09
@@ -951,11 +1420,11 @@ Func_c0aeb:
 	ld c, a
 	ld l, c
 	ld h, b
-	ld l, [hl] ; BLOCKSTRUCT_UNK0
+	ld l, [hl] ; BLOCKSTRUCT_TYPE
 	ld h, $00
 	add hl, hl
 	add hl, hl ; *4
-	ld de, $4000
+	ld de, PdPBlockTiles
 	add hl, de
 	ld a, [hli]
 	ld [$d876], a
@@ -970,11 +1439,11 @@ Func_c0aeb:
 	ld h, b
 	ld de, BLOCK_STRUCT_SIZE
 	add hl, de
-	ld l, [hl] ; BLOCKSTRUCT_UNK0
+	ld l, [hl] ; BLOCKSTRUCT_TYPE
 	ld h, $00
 	add hl, hl
 	add hl, hl ; *4
-	ld de, $4000
+	ld de, PdPBlockTiles
 	add hl, de
 	ld a, [hli]
 	ld [$d87a], a
@@ -1674,7 +2143,7 @@ Func_c0f77:
 	ret nz
 
 	ld b, BOARD_AREA
-	ld hl, wBlocks
+	ld hl, wPdPBlocks
 	ld de, BLOCK_STRUCT_SIZE
 	xor a
 .loop_blocks
@@ -1739,7 +2208,7 @@ Func_c0fe7:
 	ret
 
 Func_c0ff6:
-	ld hl, wBlocks
+	ld hl, wPdPBlocks
 	ld c, $08
 	ld d, $01
 	ld a, [hli]
@@ -6037,7 +6506,7 @@ SECTION "Bank 30@6875", ROMX[$6875], BANK[$30]
 Func_c2875:
 	call Func_c27e5
 	ret c
-	ld hl, wBlocks
+	ld hl, wPdPBlocks
 	ld de, BLOCK_STRUCT_SIZE
 	ld a, [hl]
 	add hl, de
@@ -6139,7 +6608,7 @@ Func_c2875:
 	add hl, bc
 	add hl, hl ; *6
 	pop bc
-	ld bc, wBlocks
+	ld bc, wPdPBlocks
 	add hl, bc
 	ld c, l
 	ld b, h
@@ -6609,7 +7078,7 @@ Func_c2b85:
 	ret
 
 Func_c2bfa:
-	ld de, $4000
+	ld de, PdPBlockTiles
 	ld c, $00
 
 	; overwrites w1d291 with the correct block tiles to push to the screen
@@ -6618,7 +7087,7 @@ Func_c2bfa:
 		DEF _block_x = n % BOARD_WIDTH
 		DEF _block_y = n / BOARD_WIDTH
 
-		ld a, [wBlocks{02x:n} + BLOCKSTRUCT_UNK1]
+		ld a, [wPdPBlock{02x:n} + BLOCKSTRUCT_UNK1]
 		ld l, a
 		ld h, c ; $00
 		add hl, hl
@@ -6642,7 +7111,7 @@ Func_c3110:
 	ld a, [wGameMode]
 	cp GAMEMODE_PUZZLE
 	jp z, .asm_c31b3
-	ld de, $4000
+	ld de, PdPBlockTiles
 	ld c, $00
 	ld a, [$d269]
 	ld l, a

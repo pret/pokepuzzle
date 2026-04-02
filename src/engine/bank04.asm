@@ -879,7 +879,7 @@ Func_10996::
 	ld [wceb7], a
 	ld [wc601], a
 	ld [wc7ce], a
-	ld [wScoreLimitSetting], a
+	ld [wPdPScoreLimitSetting], a
 	ld [wceba], a
 
 	ld a, $01
@@ -2640,7 +2640,7 @@ Func_11c9b:
 	ld hl, hff90
 	ld b, $06
 .asm_11d39
-	call Func_1f61
+	call Random
 	call Func_1fcb
 	ld c, LOW(hff8a)
 	add c
@@ -2668,32 +2668,32 @@ Func_11c9b:
 	ldh a, [hff8f]
 	ld b, a
 	ld c, $00
-	ld hl, $d262
+	ld hl, wPdPBlock35Type
 	call .Func_11da7
 	ldh a, [hff8e]
 	ld b, a
 	ld c, $01
-	ld hl, $d25c
+	ld hl, wPdPBlock34Type
 	call .Func_11da7
 	ldh a, [hff8d]
 	ld b, a
 	ld c, $01
-	ld hl, $d256
+	ld hl, wPdPBlock33Type
 	call .Func_11da7
 	ldh a, [hff8c]
 	ld b, a
 	ld c, $01
-	ld hl, $d250
+	ld hl, wPdPBlock32Type
 	call .Func_11da7
 	ldh a, [hff8b]
 	ld b, a
 	ld c, $01
-	ld hl, $d24a
+	ld hl, wPdPBlock31Type
 	call .Func_11da7
 	ldh a, [hff8a]
 	ld b, a
 	ld c, $01
-	ld hl, $d244
+	ld hl, wPdPBlock30Type
 	call .Func_11da7
 	farcall Func_c0942
 	jp .asm_11cf3
@@ -2755,32 +2755,32 @@ Func_11c9b:
 	ret
 
 .Func_11dea:
-	call Func_1f61
-	cp $ed
+	call Random
+	cp 93 percent
 	jr nc, .asm_11e62
-	cp $db
+	cp 86 percent
 	jr nc, .asm_11e5d
-	cp $c9
+	cp 79 percent
 	jr nc, .asm_11e58
-	cp $b6
+	cp 71 percent +1
 	jr nc, .asm_11e53
-	cp $a4
+	cp 64 percent + 1
 	jr nc, .asm_11e4e
-	cp $92
+	cp 57 percent + 1
 	jr nc, .asm_11e49
-	cp $80
+	cp 50 percent + 1
 	jr nc, .asm_11e44
-	cp $6d
+	cp 43 percent
 	jr nc, .asm_11e3f
-	cp $5b
+	cp 36 percent
 	jr nc, .asm_11e3a
-	cp $49
+	cp 29 percent
 	jr nc, .asm_11e35
-	cp $36
+	cp 21 percent + 1
 	jr nc, .asm_11e30
-	cp $24
+	cp 14 percent + 1
 	jr nc, .asm_11e2b
-	cp $12
+	cp 7 percent + 1
 	jr nc, .asm_11e26
 	ld hl, $72d5
 	jr .asm_11e67
@@ -4373,7 +4373,7 @@ Func_13671:
 	ld [hl], c
 	push de
 	push bc
-	call Func_1f61
+	call Random
 	pop bc
 	pop de
 	and $03

@@ -317,7 +317,8 @@ wc833:: ds 1 ; c833
 wc838:: ds 1 ; c838
 	ds $c83b - $c839
 wc83b:: ds 1 ; c83b
-wc83c:: ds 3 ; c83c
+wRNG1:: ds 2 ; c83c
+wRNG2:: ds 1 ; c83d
 	ds $c842 - $c83f
 wc842:: ds 3 ; c842
 	ds $c864 - $c845
@@ -625,7 +626,7 @@ wceb5:: ds 1 ; ceb5
 wceb6:: ds 1 ; ceb6
 wceb7:: ds 1 ; ceb7
 wceb8:: ds 1 ; ceb8
-wScoreLimitSetting:: ds 1 ; ceb9
+wPdPScoreLimitSetting:: ds 1 ; ceb9
 wceba:: ds 1 ; ceba
 wcebb:: ds 1 ; cebb
 wcebc:: ds 1 ; cebc
@@ -702,14 +703,15 @@ w1d100:: ; d100
 ; following a left-right, top-bottom order
 ; this data stores whether a block is present in that space,
 ; which block type it is, and other information (tbd)
-wBlocks:: ; d124
+wPdPBlocks:: ; d124
 FOR n, 0, BOARD_AREA
-	wBlocks{02x:n}:: block_struct wBlocks{02x:n}
+	wPdPBlock{02x:n}:: block_struct wPdPBlock{02x:n}
 ENDR
 
-w1d268:: ; d268
+; blocks generated at the bottom of the board
+wPdPNextBlocks:: ; d268
 FOR n, 0, BOARD_WIDTH
-	w1d268_{02x:n}:: block_struct w1d268_{02x:n}
+	wPdPNextBlock{x:n}:: block_struct wPdPNextBlock{x:n}
 ENDR
 
 
@@ -758,7 +760,7 @@ w1d871:: ds 2 ; d871
 
 	ds $d88c - $d873
 
-wScoreLimit:: ds 6 ; d88c
+wPdPScoreLimit:: ds 6 ; d88c
 w1d892:: ds 1 ; d892
 
 	ds $d8ab - $d893

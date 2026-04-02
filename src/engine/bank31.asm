@@ -1674,18 +1674,18 @@ Func_c5c6e:
 	ld [hld], a
 	ld [hld], a
 
-	ld a, [wScoreLimitSetting]
+	ld a, [wPdPScoreLimitSetting]
 	and a
 	jr z, .asm_c5c81
 	ld a, 9
-	ld hl, wScoreLimit + 5
+	ld hl, wPdPScoreLimit + 5
 	ld [hld], a
 .asm_c5c81
 	ld a, 9
-	ld hl, wScoreLimit + 4
+	ld hl, wPdPScoreLimit + 4
 	ld [hld], a
 	ld a, 9
-	ld hl, wScoreLimit + 3
+	ld hl, wPdPScoreLimit + 3
 	ld [hld], a
 	ld [hld], a
 	ld [hld], a
@@ -2752,13 +2752,13 @@ Func_c6883:
 	jr z, .asm_c68a1
 	debug_loop
 .asm_c6897
-	ld de, $4849
+	ld de, Func_c0849
 	jr .asm_c68a4
 .asm_c689c
-	ld de, $4793
+	ld de, Func_c0793
 	jr .asm_c68a4
 .asm_c68a1
-	ld de, $479c
+	ld de, Func_c079c
 .asm_c68a4
 	ld a, $c3 ; jp
 	ld [w1d856 + 0], a
@@ -3387,7 +3387,7 @@ Func_c7603:
 	ret
 
 Func_c7621:
-	ld a, [wScoreLimitSetting]
+	ld a, [wPdPScoreLimitSetting]
 	and a
 	jr nz, .asm_c7633
 	copy_data $990c, $00, $4495, $58, $8 ; 990c, 160495
@@ -3606,7 +3606,7 @@ Func_c77d7:
 	ret
 
 Func_c77de:
-	ld hl, wScoreLimitSetting
+	ld hl, wPdPScoreLimitSetting
 	call TogglePdPSetting
 	ret
 
@@ -3652,7 +3652,7 @@ Func_c7816:
 
 	xor a
 	ld [wceb2], a
-	ld [wScoreLimitSetting], a
+	ld [wPdPScoreLimitSetting], a
 	ld [wceb8], a
 	ld [wcebc], a
 	ld [wcebd], a
@@ -4032,7 +4032,7 @@ GameState_PanelDePonMenu::
 	call Func_c79a6
 	call Func_c7711
 	call Func_c7a91
-	call Func_1f46
+	call UpdateRNG
 	call DoFrame
 	ret
 

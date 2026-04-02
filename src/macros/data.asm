@@ -6,3 +6,5 @@ ENDM
 MACRO? dab
 	dwb \1, BANK(\1)
 ENDM
+
+DEF percent EQUS "* $ff / 100"

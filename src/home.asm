@@ -3302,53 +3302,59 @@ Func_1f38::
 	ld hl, wc833
 	ret
 
-Func_1f46::
-	ld b, $00
+; advances RNG engine without outputing a value
+UpdateRNG::
+	; if there's input, update once
+	; otherwise, update twice
+	ld b, 0
 	ldh a, [hJoypadDown]
 	and a
 	jr nz, .got_input
 	inc b ; no input
 .got_input
 	inc b
-	ld hl, wc83c
+	ld hl, wRNG1
 	ld a, [hl]
 	add b
 	ld [hli], a
 	ld c, a
 	ld a, [hl]
-	adc $00
+	adc 0
 	and $07
 	ld [hli], a
 	or c
-	jr nz, .asm_1f60
-	inc [hl]
-.asm_1f60
+	jr nz, .no_wrap
+	inc [hl] ; wRNG2
+.no_wrap
 	ret
 
-Func_1f61::
+; the RNG engine, increments wRNG1 (up to $7ff)
+; when this value wraps around, [wRNG2] is incremented
+; output is a = RandomSamples[wRNG1] + wRNG2
+Random::
 	push bc
 	push de
 	push hl
-	ld hl, wc83c
+	ld hl, wRNG1
 	ld a, [hl]
-	add $01
+	add 1
 	ld [hli], a
 	ld c, a
 	ld a, [hl]
-	adc $00
+	adc 0
 	and $07
 	ld [hli], a
 	ld b, a
 	or c
-	jr nz, .asm_1f77
-	inc [hl]
-.asm_1f77
+	jr nz, .no_wrap
+	inc [hl] ; wRNG2
+.no_wrap
 	ldh a, [hROMBank]
 	ld d, a
-	ld a, $1a
+	ld a, BANK(RandomSamples)
 	bankswitch
 	ld a, [hl]
-	ld hl, $4ef9
+	ld hl, RandomSamples
 	add hl, bc
 	add [hl]
 	ld e, a
@@ -3364,15 +3370,15 @@ Func_1f61::
 SECTION "Bank 0@1fa7", ROM0[$1fa7]
 
 Func_1fa7::
-	call Func_1f61
+	call Random
 Func_1faa:
-	cp $33
+	cp 20 percent
 	jr c, .asm_1fc6
-	cp $66
+	cp 40 percent
 	jr c, .asm_1fc3
-	cp $99
+	cp 60 percent
 	jr c, .asm_1fc0
-	cp $cc
+	cp 80 percent
 	jr c, .asm_1fbd
 	ld a, $04
 	ret
@@ -3390,17 +3396,17 @@ Func_1faa:
 	ret
 
 Func_1fc8::
-	call Func_1f61
+	call Random
 Func_1fcb::
-	cp $2b
+	cp 17 percent
 	jr c, .asm_1fee
-	cp $56
+	cp 34 percent
 	jr c, .asm_1feb
-	cp $81
+	cp 51 percent - 1
 	jr c, .asm_1fe8
-	cp $ac
+	cp 68 percent - 1
 	jr c, .asm_1fe5
-	cp $d6
+	cp 84 percent
 	jr c, .asm_1fe2
 	ld a, $05
 	ret
@@ -4299,11 +4305,11 @@ SafeCopyData::
 SECTION "Bank 0@3266", ROM0[$3266]
 
 Func_3266::
-	call Func_1f61
+	call Random
 	jp Func_1faa
 
 Func_326c::
-	call Func_1f61
+	call Random
 	jp Func_1fcb
 
 Func_3272::

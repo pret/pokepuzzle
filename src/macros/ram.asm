@@ -1,5 +1,5 @@
 MACRO? block_struct
-\1Unk0:: ds 1
+\1Type:: ds 1
 \1Unk1:: ds 1
 \1Unk2:: ds 1
 \1Unk3:: ds 1
