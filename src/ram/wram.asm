@@ -643,8 +643,8 @@ wcec4:: ds 1 ; cec4
 wcec5:: ds 7 ; cec5
 wcecc:: ds 7 ; cecc
 
-wced3:: ds 1 ; ced3
-wced4:: ds 1 ; ced4
+wCursorX:: ds 1 ; ced3
+wCursorY:: ds 1 ; ced4
 wced5:: ds 1 ; ced5
 wced6:: ds 1 ; ced6
 wced7:: ds 1 ; ced7
@@ -695,16 +695,31 @@ SECTION "WRAM1", WRAMX
 	ds $100
 
 w1d100:: ; d100
-	ds $d125 - $d100
+	ds $d124 - $d100
 
-w1d125:: ds 1 ; d125
+; game board is organized in a 6x9 block grid
+; each block struct here represents a space in that grid
+; following a left-right, top-bottom order
+; this data stores whether a block is present in that space,
+; which block type it is, and other information (tbd)
+wBlocks:: ; d124
+FOR n, 0, BOARD_AREA
+	wBlocks{02x:n}:: block_struct wBlocks{02x:n}
+ENDR
 
-	ds $d28c - $d126
+w1d268:: ; d268
+FOR n, 0, BOARD_WIDTH
+	w1d268_{02x:n}:: block_struct w1d268_{02x:n}
+ENDR
 
 
 SECTION "WRAM1@d587", WRAMX
 
-	ds $d671 - $d587
+	ds $d58c - $d587
+
+w1d58c:: ds 1 ; d58c
+
+	ds $d671 - $d58d
 
 w1d671:: ; d671
 	ds 16 * $13
@@ -726,8 +741,22 @@ w1d85e:: ds 1 ; d85e
 w1d85f:: ds 1 ; d85f
 w1d860:: ds 1 ; d860
 w1d861:: ds 1 ; d861
+w1d862:: ds 2 ; d862
+w1d864:: ds 1 ; d864
+w1d865:: ds 1 ; d865
+w1d866:: ds 1 ; d866
+w1d867:: ds 1 ; d867
+w1d868:: ds 1 ; d868
+w1d869:: ds 1 ; d869
+w1d86a:: ds 1 ; d86a
+w1d86b:: ds 1 ; d86b
+w1d86c:: ds 1 ; d86c
+w1d86d:: ds 1 ; d86d
+w1d86e:: ds 1 ; d86e
+w1d86f:: ds 2 ; d86f
+w1d871:: ds 2 ; d871
 
-	ds $d88c - $d862
+	ds $d88c - $d873
 
 wScoreLimit:: ds 6 ; d88c
 w1d892:: ds 1 ; d892

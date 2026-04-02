@@ -1,3 +1,7 @@
+MACRO? lb ; r, hi, lo
+	ld \1, ((\2) & $ff) << 8 | ((\3) & $ff)
+ENDM
+
 MACRO? bankswitch
 	ldh [hROMBank], a
 	ld [rROMB0 + $100], a

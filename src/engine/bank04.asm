@@ -918,7 +918,7 @@ Func_109c8:
 	push hl
 	call Func_10a10
 	xor a
-	ld [$d867], a
+	ld [w1d867], a
 	pop hl
 	ld a, h
 	ldh [hJoypadRepeatInterval], a
@@ -1004,16 +1004,16 @@ Func_10a10:
 	dec b
 	jr nz, .asm_10a74
 	ld a, $02
-	ld [$d86a], a
+	ld [w1d86a], a
 	xor a
-	ld [$d869], a
-	ld [$d868], a
-	ld [$d86b], a
+	ld [w1d869], a
+	ld [w1d868], a
+	ld [w1d86b], a
 .asm_10a89
 	ldh a, [hJoypadDown]
 	and PAD_SELECT
 	jp nz, .asm_10b84
-	ld a, [$d867]
+	ld a, [w1d867]
 	dec a
 	jr nz, .asm_10a9d
 	ldh a, [hJoypadPressed]
@@ -1028,10 +1028,10 @@ Func_10a10:
 	ld hl, $6ce0
 	ld e, $32
 	call Func_32c
-	ld a, [$d867]
+	ld a, [w1d867]
 	dec a
 	jp nz, .asm_10b84
-	ld a, [$d86a]
+	ld a, [w1d86a]
 	dec a
 	ld b, a
 	ldh a, [hJoypadPressed]
@@ -1040,13 +1040,13 @@ Func_10a10:
 	ldh a, [hJoypadHeld]
 	and PAD_UP
 	jr z, .asm_10af3
-	ld a, [$d869]
+	ld a, [w1d869]
 	and a
 	jr z, .asm_10af3
 .asm_10acf
 	xor a
-	ld [$d86b], a
-	ld a, [$d869]
+	ld [w1d86b], a
+	ld a, [w1d869]
 	cp b
 	jr z, .asm_10adb
 	jr nc, .asm_10ae1
@@ -1060,7 +1060,7 @@ Func_10a10:
 .asm_10ae4
 	dec a
 .asm_10ae5
-	ld [$d869], a
+	ld [w1d869], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_10af3
@@ -1073,13 +1073,13 @@ Func_10a10:
 	ldh a, [hJoypadHeld]
 	and PAD_DOWN
 	jr z, .asm_10b26
-	ld a, [$d869]
+	ld a, [w1d869]
 	cp b
 	jr z, .asm_10b26
 .asm_10b05
 	xor a
-	ld [$d86b], a
-	ld a, [$d869]
+	ld [w1d86b], a
+	ld a, [w1d869]
 	cp $00
 	jr c, .asm_10b13
 	cp b
@@ -1090,7 +1090,7 @@ Func_10a10:
 .asm_10b17
 	inc a
 .asm_10b18
-	ld [$d869], a
+	ld [w1d869], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_10b26
@@ -1100,7 +1100,7 @@ Func_10a10:
 	ldh a, [hffb7]
 	bit 3, a
 	jr z, .asm_10b49
-	ld a, [$d869]
+	ld a, [w1d869]
 	add a
 	add a
 	add a
@@ -1118,7 +1118,7 @@ Func_10a10:
 .asm_10b49
 	ld a, $68
 	ldh [hff90], a
-	ld a, [$d868]
+	ld a, [w1d868]
 	ld e, a
 	ld hl, rLY
 	ld a, $38
@@ -1149,7 +1149,7 @@ Func_10a10:
 	farcall Func_c54af
 	pop hl
 	ld a, e
-	ld [$d868], a
+	ld [w1d868], a
 .asm_10b84
 	call Func_39d
 	call DoFrame
@@ -1165,7 +1165,7 @@ Func_10b8d:
 	ld a, $03
 	ld [wc7cb], a
 .asm_10b9e
-	ld a, [$d869]
+	ld a, [w1d869]
 	ld [wcec4], a
 	jr .asm_10bb5
 .asm_10ba6
@@ -1194,7 +1194,7 @@ Func_10b8d:
 .asm_10bd4
 	farcall Func_c2b85
 	call DoFrame
-	ld a, [$d58c]
+	ld a, [w1d58c]
 	and a
 	jr nz, .asm_10bd4
 	ret
@@ -1416,7 +1416,7 @@ Func_10be4:
 	ld a, l
 	ldh [hVirtualOAMSize], a
 .asm_10d42
-	ld a, [$d86b]
+	ld a, [w1d86b]
 	cp $00
 	jr c, .asm_10d4d
 	cp $27
@@ -1427,17 +1427,17 @@ Func_10be4:
 .asm_10d51
 	inc a
 .asm_10d52
-	ld [$d86b], a
+	ld [w1d86b], a
 	ret
 
 Func_10d56:
 	ld a, $1c
 	ldh [hff8a], a
-	ld a, [$d86b]
+	ld a, [w1d86b]
 	ldh [hff93], a
 	xor a
 	ldh [hff91], a
-	ld a, [$d869]
+	ld a, [w1d869]
 	ld e, a
 	ldh a, [hff92]
 	cp e
@@ -1597,7 +1597,7 @@ Func_10ed9:
 	ld a, [wGameMode]
 	cp GAMEMODE_PUZZLE
 	ret nz
-	ld hl, $d58c
+	ld hl, w1d58c
 	set 2, [hl]
 	ld a, [wcec0]
 	and a
@@ -2855,250 +2855,176 @@ Func_11c9b:
 Func_11e8b:
 LOAD "WRAM1@d28c", WRAMX
 w1d28c:: ; d28c
+	; backup sp in hl
 	ld hl, sp+$00
 
 	nop ; these nops with be replaced
-	nop ; by a jp instruction in w1d28c
-	nop ;
+	nop ; by a jp instruction to one
+	nop ; on the functions below
 
-; clear BG map in the shape of a rectangle
-; with origin in (8, 0) and dimensions (12, 18)
-	bgcoord sp, 20, 0
-	REPT 12 / 2
-		ld de, $0000
-		push de
-	ENDR
+; fill BG map in the shape of a rectangle
+; with origin in (8, 0) and dimensions 12x18
+; each 4x4 tile region corresponds to a block in the board
+w1d291:: ; d291
+	FOR y, 0, BOARD_HEIGHT ; for each row
+		; push each "top" tiles
+		bgcoord sp, 20, 2*y + 0
+		REPT BOARD_WIDTH
+			lb de, $00, $00
+			push de
+		ENDR
 
-	bgcoord sp, 20, 1
-	REPT 12 / 2
-		ld de, $0000
-		push de
-	ENDR
-
-	bgcoord sp, 20, 2
-	REPT 12 / 2
-		ld de, $0000
-		push de
-	ENDR
-
-	bgcoord sp, 20, 3
-	REPT 12 / 2
-		ld de, $0000
-		push de
-	ENDR
-
-	bgcoord sp, 20, 4
-	REPT 12 / 2
-		ld de, $0000
-		push de
-	ENDR
-
-	bgcoord sp, 20, 5
-	REPT 12 / 2
-		ld de, $0000
-		push de
-	ENDR
-
-	bgcoord sp, 20, 6
-	REPT 12 / 2
-		ld de, $0000
-		push de
-	ENDR
-
-	bgcoord sp, 20, 7
-	REPT 12 / 2
-		ld de, $0000
-		push de
-	ENDR
-
-	bgcoord sp, 20, 8
-	REPT 12 / 2
-		ld de, $0000
-		push de
-	ENDR
-
-	bgcoord sp, 20, 9
-	REPT 12 / 2
-		ld de, $0000
-		push de
-	ENDR
-
-	bgcoord sp, 20, 10
-	REPT 12 / 2
-		ld de, $0000
-		push de
-	ENDR
-
-	bgcoord sp, 20, 11
-	REPT 12 / 2
-		ld de, $0000
-		push de
-	ENDR
-
-	bgcoord sp, 20, 12
-	REPT 12 / 2
-		ld de, $0000
-		push de
-	ENDR
-
-	bgcoord sp, 20, 13
-	REPT 12 / 2
-		ld de, $0000
-		push de
-	ENDR
-
-	bgcoord sp, 20, 14
-	REPT 12 / 2
-		ld de, $0000
-		push de
-	ENDR
-
-	bgcoord sp, 20, 15
-	REPT 12 / 2
-		ld de, $0000
-		push de
-	ENDR
-
-	bgcoord sp, 20, 16
-	REPT 12 / 2
-		ld de, $0000
-		push de
-	ENDR
-
-	bgcoord sp, 20, 17
-	REPT 12 / 2
-		ld de, $0000
-		push de
+		; push each "bottom" tiles
+		bgcoord sp, 20, 2*y + 1
+		REPT BOARD_WIDTH
+			lb de, $00, $00
+			push de
+		ENDR
 	ENDR
 
 	ld sp, hl
 	ret
 
-; clear BG map in the shape of a rectangle
-; with origin in (8, 18) and dimensions (12, 2)
+; fill BG map in the shape of a rectangle
+; with origin in (8, 18) and dimensions 12x2
 w1d479:: ; d479
 	bgcoord sp, 20, 18
 	REPT 12 / 2
-		ld de, $0000
+		lb de, $00, $00
 		push de
 	ENDR
 
 	bgcoord sp, 20, 19
 	REPT 12 / 2
-		ld de, $0000
+		lb de, $00, $00
 		push de
 	ENDR
 
-	jp $d291
+	jp w1d291
 
+; clears 6 bytes in BG Map at (1, 13)
+; and rectangle at (2, 9) with dimensions 4x3
 w1d4b2:: ; d4b2
 	bgcoord sp, 7, 13
 	REPT 6 / 2
-		ld de, $0000
+		lb de, $00, $00
 		push de
 	ENDR
 
 	bgcoord sp, 6, 9
 	REPT 4 / 2
-		ld de, $0000
+		lb de, $00, $00
 		push de
 	ENDR
 
 	bgcoord sp, 6, 10
 	REPT 4 / 2
-		ld de, $0000
+		lb de, $00, $00
 		push de
 	ENDR
 
 	bgcoord sp, 6, 11
 	REPT 4 / 2
-		ld de, $0000
+		lb de, $00, $00
 		push de
 	ENDR
 
-	jp $d291
+	jp w1d291
 
 w1d4e5:: ; d4e5
 	ld a, $00
-	ld [$9843], a
-	ld sp, $9867
-	ld de, NULL
-	push de
-	ld de, NULL
-	push de
-	ld sp, $98a6
-	ld de, NULL
-	push de
-	ld sp, $98c6
-	ld de, NULL
-	push de
-	jp $d291
+	ldcoord_a 3, 2
 
+	bgcoord sp, 7, 3
+	REPT 4 / 2
+		lb de, $00, $00
+		push de
+	ENDR
+
+	bgcoord sp, 6, 5
+	lb de, $00, $00
+	push de
+
+	bgcoord sp, 6, 6
+	lb de, $00, $00
+	push de
+
+	jp w1d291
+
+; fill BG map in the shape of a rectangle
+; with origin in (1, 5) and dimensions 6x1
 w1d506:: ; d506
-	ld sp, $98a7
-	ld de, NULL
-	push de
-	ld de, NULL
-	push de
-	ld de, NULL
-	push de
-	jp $d291
+	bgcoord sp, 7, 5
+	REPT 6 / 2
+		lb de, $00, $00
+		push de
+	ENDR
 
+	jp w1d291
+
+; fill BG map in the shape of a rectangle
+; with origin in (1, 11) and dimensions 6x1
 w1d518:: ; d518
-	ld sp, $9967
-	ld de, NULL
-	push de
-	ld de, NULL
-	push de
-	ld de, NULL
-	push de
-	jp $d291
+	bgcoord sp, 7, 11
+	REPT 6 / 2
+		lb de, $00, $00
+		push de
+	ENDR
 
+	jp w1d291
+
+; fill BG map in the shape of a rectangle
+; with origin in (1, 9) and dimensions 1x9
 w1d52a:: ; d52a
 	ld a, $00
-	ld [$9921], a
+	ldcoord_a 1, 9
 	ld a, $00
-	ld [$9941], a
+	ldcoord_a 1, 10
 	ld a, $00
-	ld [$9961], a
+	ldcoord_a 1, 11
 	ld a, $00
-	ld [$9981], a
+	ldcoord_a 1, 12
 	ld a, $00
-	ld [$99a1], a
+	ldcoord_a 1, 13
 	ld a, $00
-	ld [$99c1], a
+	ldcoord_a 1, 14
 	ld a, $00
-	ld [$99e1], a
+	ldcoord_a 1, 15
 	ld a, $00
-	ld [$9a01], a
+	ldcoord_a 1, 16
 	ld a, $00
-	ld [$9a21], a
-	jp $d291
+	ldcoord_a 1, 17
+	jp w1d291
 
+; fill BG map in the shape of a rectangle
+; with origin in (1, 7) and dimensions 6x1
 w1d55a:: ; d55a
-	ld sp, $98e7
-	ld de, $303
-	push de
-	ld de, $303
-	push de
-	ld de, $303
-	push de
-	jp $d291
+	bgcoord sp, 7, 7
+	REPT 6 / 2
+		lb de, $03, $03
+		push de
+	ENDR
+
+	jp w1d291
 
 w1d56c:: ; d56c
-	ld sp, $9a07
-	ld de, $303
+	bgcoord sp, 7, 16
+	lb de, $03, $03
 	push de
-	ld sp, $9a04
-	ld de, $303
+
+	bgcoord sp, 4, 16
+	lb de, $03, $03
 	push de
+
 	nop
 	nop
 	nop
-	ld sp, $99e4
-	ld de, $303
+
+	bgcoord sp, 4, 15
+	lb de, $03, $03
 	push de
-	jp $d291
+
+	jp w1d291
 ENDL
 
 Func_12186:

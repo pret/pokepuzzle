@@ -92,7 +92,6 @@ WRAM0
 	"WRAM0@c7b4"
 WRAMX $1
 	"WRAM1"
-	org $d28c
 	"WRAM1@d28c"
 	"WRAM1@d587"
 WRAMX $2

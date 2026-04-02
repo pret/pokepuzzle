@@ -1070,7 +1070,7 @@ Func_c5676:
 	call ClearOAM
 	farcall Func_c2b85
 	call DoFrame
-	ld a, [$d58c]
+	ld a, [w1d58c]
 	and a
 	jr nz, .asm_c5695
 	call Func_c5618
@@ -1342,7 +1342,7 @@ Func_c5676:
 	ld [$da92], a
 	ld a, $5a
 	ld [$da93], a
-	ld a, [$d866]
+	ld a, [w1d866]
 	cp $00
 	jr z, .asm_c58f3
 	cp $01
@@ -1621,7 +1621,7 @@ Func_c5a81:
 SECTION "Bank 31@5bea", ROMX[$5bea], BANK[$31]
 
 Func_c5bea:
-	copy_data w1d28c, Func_11e8b, $2fb
+	copy_data w1d28c, Func_11e8b, SIZEOF("WRAM1@d28c")
 
 	farcall Func_c5cf6 ; unnecessary farcall
 	farcall Func_c2bfa
@@ -1635,13 +1635,13 @@ Func_c5bea:
 	di
 	call w1d28c
 	ei
-	ld a, [$d58c]
+	ld a, [w1d58c]
 	and a
 	jr nz, .asm_c5c1f
 	ret
 
 Func_c5c31:
-	ld de, wced3
+	ld de, wCursorX
 	ld bc, $38
 	call ClearMemory
 	ld de, w1d100
@@ -1747,49 +1747,56 @@ Func_c5cf6:
 	ld a, [wGameMode]
 	cp GAMEMODE_UNK7
 	jr z, .asm_c5d23
+
+	; tiles to fill
 	ld a, [wcec2]
-	ld [$d50b], a
+	ld [w1d506 + $5], a
 	lda_coord 5, 5
-	ld [$d50a], a
+	ld [w1d506 + $4], a
 	lda_coord 4, 5
-	ld [$d50f], a
+	ld [w1d506 + $9], a
 	lda_coord 3, 5
-	ld [$d50e], a
+	ld [w1d506 + $8], a
 	lda_coord 2, 5
-	ld [$d513], a
+	ld [w1d506 + $d], a
 	lda_coord 1, 5
-	ld [$d512], a
+	ld [w1d506 + $c], a
 	jr .asm_c5d51
+
 .asm_c5d23
+	; tiles to fill
 	ld a, [wcec2]
-	ld [$d50b], a
+	ld [w1d506 + $5], a
 	lda_coord 5, 2
-	ld [$d50a], a
+	ld [w1d506 + $4], a
 	lda_coord 4, 2
-	ld [$d50f], a
+	ld [w1d506 + $9], a
 	lda_coord 3, 2
-	ld [$d50e], a
+	ld [w1d506 + $8], a
 	lda_coord 2, 2
-	ld [$d513], a
+	ld [w1d506 + $d], a
 	lda_coord 1, 2
-	ld [$d512], a
-	ld a, $47
-	ld [$d507], a
-	ld a, $98
-	ld [$d508], a
+	ld [w1d506 + $c], a
+	; replace origin coordinate with (1, 2)
+	ld a, LOW(v0BGMap0 + 7 + 2 * TILEMAP_WIDTH)
+	ld [w1d506 + $1], a
+	ld a, HIGH(v0BGMap0 + 7 + 2 * TILEMAP_WIDTH)
+	ld [w1d506 + $2], a
+
 .asm_c5d51
 	ld a, [wcec2]
-	ld [$d51d], a
+	ld [w1d518 + $5], a
 	lda_coord 5, 11
-	ld [$d51c], a
+	ld [w1d518 + $4], a
 	lda_coord 4, 11
-	ld [$d521], a
+	ld [w1d518 + $9], a
 	lda_coord 3, 11
-	ld [$d520], a
+	ld [w1d518 + $8], a
 	lda_coord 2, 11
-	ld [$d525], a
+	ld [w1d518 + $d], a
 	lda_coord 1, 11
-	ld [$d524], a
+	ld [w1d518 + $c], a
+
 	ld a, [wcec2]
 	ld [$d89f], a
 	lda_coord 5, 7
@@ -1802,6 +1809,7 @@ Func_c5cf6:
 	ld [$d8a3], a
 	lda_coord 1, 7
 	ld [$d8a4], a
+
 	ld a, [wGameMode]
 	cp GAMEMODE_PUZZLE
 	jr nz, .asm_c5ddf
@@ -1841,33 +1849,40 @@ Func_c5cf6:
 	lda_coord 2, 15
 	ld [$d8a6], a
 	jr .asm_c5e50
+
 .asm_c5dfc
 	lda_coord 4, 16
 	ld [$d8a5], a
 	lda_coord 3, 16
 	ld [$d8a6], a
-	ld a, $08
-	ld [$d56d], a
-	ld a, $9a
-	ld [$d56e], a
-	ld a, $05
-	ld [$d574], a
-	ld a, $9a
-	ld [$d575], a
+	; replace origin coordinate with (4, 16)
+	ld a, LOW(v0BGMap0 + 8 + 16 * TILEMAP_WIDTH)
+	ld [w1d56c + $1], a
+	ld a, HIGH(v0BGMap0 + 8 + 16 * TILEMAP_WIDTH)
+	ld [w1d56c + $2], a
+	; replace origin coordinate with (3, 16)
+	ld a, LOW(v0BGMap0 + 5 + 16 * TILEMAP_WIDTH)
+	ld [w1d56c + $8], a
+	ld a, HIGH(v0BGMap0 + 5 + 16 * TILEMAP_WIDTH)
+	ld [w1d56c + $9], a
 	jr .asm_c5e3e
+
 .asm_c5e1e
 	lda_coord 3, 17
 	ld [$d8a5], a
 	lda_coord 2, 17
 	ld [$d8a6], a
-	ld a, $27
-	ld [$d56d], a
-	ld a, $9a
-	ld [$d56e], a
-	ld a, $24
-	ld [$d574], a
-	ld a, $9a
-	ld [$d575], a
+	; replace origin coordinate with (5, 17)
+	ld a, LOW(v0BGMap0 + 7 + 17 * TILEMAP_WIDTH)
+	ld [w1d56c + $1], a
+	ld a, HIGH(v0BGMap0 + 7 + 17 * TILEMAP_WIDTH)
+	ld [w1d56c + $2], a
+	; replace origin coordinate with (2, 17)
+	ld a, LOW(v0BGMap0 + 4 + 17 * TILEMAP_WIDTH)
+	ld [w1d56c + $8], a
+	ld a, HIGH(v0BGMap0 + 4 + 17 * TILEMAP_WIDTH)
+	ld [w1d56c + $9], a
+
 .asm_c5e3e
 	ld a, [$5e6a]
 	ld [$d57b], a
@@ -2794,9 +2809,9 @@ Func_c6883:
 	ld de, $4adb
 .asm_c68fa
 	ld a, e
-	ld [$d862], a
+	ld [w1d862 + 0], a
 	ld a, d
-	ld [$d863], a
+	ld [w1d862 + 1], a
 	ret
 
 Func_c6903:

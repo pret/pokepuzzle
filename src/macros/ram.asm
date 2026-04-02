@@ -1,3 +1,12 @@
+MACRO? block_struct
+\1Unk0:: ds 1
+\1Unk1:: ds 1
+\1Unk2:: ds 1
+\1Unk3:: ds 1
+\1Unk4:: ds 1
+\1Unk5:: ds 1
+ENDM
+
 ; save data structs
 MACRO? save_data_struct
 \1Checksum:: ds   2 ; $000

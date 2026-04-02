@@ -122,14 +122,14 @@ Func_c0367::
 	and a
 	jr nz, .asm_c0382
 	ld a, $01
-	ld [$d867], a
+	ld [w1d867], a
 	jr .asm_c0387
 .asm_c0382
 	ld a, $01
 	ld [wcd72], a
 .asm_c0387
 	call Func_c1f13
-	ld a, [$d864]
+	ld a, [w1d864]
 	and a
 	jr z, .asm_c039d
 	farcall Func_c513d
@@ -138,7 +138,7 @@ Func_c0367::
 	jr nz, .asm_c0370
 	ret
 .asm_c039d
-	ld a, [$d867]
+	ld a, [w1d867]
 	and a
 	jr z, .asm_c03c4
 	farcall Func_109c8
@@ -189,7 +189,7 @@ Func_c0407:
 	ld a, [$d8b7]
 	and a
 	jr z, .asm_c0425
-	ld a, [$d86c]
+	ld a, [w1d86c]
 	and a
 	jr nz, .asm_c0425
 	ld a, [$d8bd]
@@ -207,7 +207,7 @@ Func_c042a:
 	ld a, [$d89e]
 	and a
 	ret z
-	ld a, [$d864]
+	ld a, [w1d864]
 	and a
 	ret nz
 	ld a, [wGameMode]
@@ -224,7 +224,7 @@ Func_c042a:
 	and a
 	jr nz, .asm_c0452
 	xor a
-	ld [$d865], a
+	ld [w1d865], a
 	ret
 .asm_c0452
 	ld hl, $d8b8
@@ -242,16 +242,16 @@ Func_c042a:
 	jr nz, .asm_c0479
 	ld a, [w1d85f]
 	ld b, a
-	ld a, [$d865]
+	ld a, [w1d865]
 	cp b
 	jr z, .asm_c0479
 	jr nc, .asm_c0479
 	inc a
-	ld [$d865], a
+	ld [w1d865], a
 	ret
 .asm_c0479
 	ld a, $01
-	ld [$d864], a
+	ld [w1d864], a
 	ld a, [wGameMode]
 	cp GAMEMODE_CHALLENGE
 	jr z, .asm_c0493
@@ -260,11 +260,11 @@ Func_c042a:
 	cp GAMEMODE_UNK7
 	jr z, .asm_c0493
 	ld a, $00
-	ld [$d866], a
+	ld [w1d866], a
 	ret
 .asm_c0493
 	ld a, $02
-	ld [$d866], a
+	ld [w1d866], a
 	ld a, $01
 	ld [wcd6e], a
 	ret
@@ -293,9 +293,9 @@ Func_c042a:
 	or [hl]
 	jr nz, .asm_c0447
 	ld a, $01
-	ld [$d864], a
+	ld [w1d864], a
 	ld a, $04
-	ld [$d866], a
+	ld [w1d866], a
 	ld a, $03
 	ld [wcd70], a
 	ret
@@ -305,9 +305,9 @@ Func_c042a:
 	and a
 	jp nz, .asm_c0447
 	ld a, $01
-	ld [$d864], a
+	ld [w1d864], a
 	ld a, $01
-	ld [$d866], a
+	ld [w1d866], a
 	ret
 
 Func_c04e9:
@@ -552,7 +552,7 @@ Func_c061b:
 	ld a, [$d8b7]
 	and a
 	ret z
-	ld a, [$d86c]
+	ld a, [w1d86c]
 	and a
 	ret nz
 	ld a, [$d8bd]
@@ -648,125 +648,27 @@ Func_c06e7:
 
 Func_c06f5:
 	call Func_c0949
-	ld c, $09
-	ld hl, $d148
-	ld de, $d124
-.asm_c0700
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
+
+	; overwrite all block rows with row right below it
+	ld c, BOARD_HEIGHT
+	ld hl, wBlocks + 6 * BLOCK_STRUCT_SIZE
+	ld de, wBlocks
+.loop_rows
+	REPT BOARD_WIDTH
+		REPT BLOCK_STRUCT_SIZE
+			ld a, [hli]
+			ld [de], a
+			inc de
+		ENDR
+	ENDR
 	dec c
-	jr nz, .asm_c0700
-	ld a, [wced4]
+	jr nz, .loop_rows
+
+	ld a, [wCursorY]
 	dec a
-	cp $0a
+	cp BOARD_HEIGHT + 1
 	jr nc, .asm_c077a
-	ld [wced4], a
+	ld [wCursorY], a
 .asm_c077a
 	call Func_c1b40
 	call Func_c04ff
@@ -788,11 +690,11 @@ Func_c0942:
 	ret
 
 Func_c0949:
-	ld hl, $d269
+	ld hl, w1d268 + BLOCKSTRUCT_UNK1
 	ld de, $5
-	ld c, $06
+	ld c, BOARD_WIDTH
 	ld b, $01
-.asm_c0953
+.loop_blocks
 	ld a, [hl]
 	and a
 	jr z, .asm_c095c
@@ -803,47 +705,54 @@ Func_c0949:
 .asm_c095c
 	add hl, de
 	dec c
-	jr nz, .asm_c0953
+	jr nz, .loop_blocks
 	ret
 
 Func_c0961:
-	ld a, [$d864]
+	ld a, [w1d864]
 	and a
 	ret nz
+
+	; did player press A?
 	ldh a, [hJoypadPressed]
 	bit B_PAD_A, a
-	ret z
+	ret z ; no A btn
+
 	ld a, [wced5]
 	and a
 	ret nz
-	ld a, [wced4]
+
+	ld a, [wCursorY]
 	ld l, a
 	add a
 	add l
-	add a
+	add a ; *6
 	ld l, a
-	ld a, [wced3]
+	ld a, [wCursorX]
 	add l
-	ld l, a
+	ld l, a ; wCursorX + BOARD_WIDTH * wCursorY
 	ld h, $00
 	ld e, l
 	ld d, h
 	add hl, hl
 	add hl, de
-	add hl, hl
-	ld de, $d124
+	add hl, hl ; *6
+	ld de, wBlocks
 	add hl, de
 .asm_c0988
-	ld b, [hl]
-	ld de, $6
+	; do we have blocks to move?
+	ld b, [hl] ; BLOCKSTRUCT_UNK0
+	ld de, BLOCK_STRUCT_SIZE
 	add hl, de
-	ld a, [hl]
-	ld de, $fffa
+	ld a, [hl] ; BLOCKSTRUCT_UNK0
+	ld de, -BLOCK_STRUCT_SIZE
 	add hl, de
 	or b
-	ret z
-	ld a, [hl]
-	ld de, $6
+	ret z ; no blocks
+
+	; at least one of the cursored spaces has a block
+	ld a, [hl] ; BLOCKSTRUCT_UNK0
+	ld de, BLOCK_STRUCT_SIZE
 	add hl, de
 	cp $09
 	ret z
@@ -855,8 +764,8 @@ Func_c0961:
 	jr nc, .asm_c09a8
 	ret
 .asm_c09a8
-	ld a, [hl]
-	ld de, $fffc
+	ld a, [hl] ; BLOCKSTRUCT_UNK0
+	ld de, -(BLOCK_STRUCT_SIZE - BLOCKSTRUCT_UNK2)
 	add hl, de
 	cp $09
 	ret z
@@ -867,9 +776,10 @@ Func_c0961:
 	cp $26
 	jr nc, .asm_c09bc
 	ret
+
 .asm_c09bc
-	ld a, [hl]
-	ld de, $6
+	ld a, [hl] ; BLOCKSTRUCT_UNK2
+	ld de, BLOCK_STRUCT_SIZE
 	add hl, de
 	cp $00
 	jr z, .asm_c09cb
@@ -877,17 +787,18 @@ Func_c0961:
 	jr z, .asm_c09f1
 	jr .asm_c09ff
 .asm_c09cb
-	ld de, $ffd6
+	; check block above
+	ld de, -((BOARD_WIDTH + 1) * BLOCK_STRUCT_SIZE)
 	add hl, de
-	ld a, [hl]
-	ld de, $2a
+	ld a, [hl] ; BLOCKSTRUCT_UNK2
+	ld de, (BOARD_WIDTH + 1) * BLOCK_STRUCT_SIZE
 	add hl, de
 	cp $01
 	jr nz, .asm_c09ff
-	ld de, $ffd4
+	ld de, -((BOARD_WIDTH + 1) * BLOCK_STRUCT_SIZE + BLOCKSTRUCT_UNK2)
 	add hl, de
-	ld a, [hl]
-	ld de, $2c
+	ld a, [hl] ; BLOCKSTRUCT_UNK0
+	ld de, (BOARD_WIDTH + 1) * BLOCK_STRUCT_SIZE + BLOCKSTRUCT_UNK2
 	add hl, de
 	cp $09
 	jr z, .asm_c09ff
@@ -898,18 +809,21 @@ Func_c0961:
 	cp $26
 	ret nc
 	jr .asm_c09ff
+
 .asm_c09f1
-	ld de, $1e
+	; check block below
+	ld de, (BOARD_WIDTH - 1) * BLOCK_STRUCT_SIZE
 	add hl, de
 	ld a, [hl]
-	ld de, $ffe2
+	ld de, -((BOARD_WIDTH - 1) * BLOCK_STRUCT_SIZE)
 	add hl, de
 	cp $00
 	jr nz, .asm_c09ff
 	ret
+
 .asm_c09ff
-	ld a, [hl]
-	ld de, $fffa
+	ld a, [hl] ; BLOCKSTRUCT_UNK2
+	ld de, -BLOCK_STRUCT_SIZE
 	add hl, de
 	cp $00
 	jr z, .asm_c0a0e
@@ -917,17 +831,18 @@ Func_c0961:
 	jr z, .asm_c0a34
 	jr .asm_c0a42
 .asm_c0a0e
-	ld de, $ffe2
+	; check block above
+	ld de, -((BOARD_WIDTH - 1) * BLOCK_STRUCT_SIZE)
 	add hl, de
-	ld a, [hl]
-	ld de, $1e
+	ld a, [hl] ; BLOCKSTRUCT_UNK2
+	ld de, (BOARD_WIDTH - 1) * BLOCK_STRUCT_SIZE
 	add hl, de
 	cp $01
 	jr nz, .asm_c0a42
-	ld de, $ffe0
+	ld de, -((BOARD_WIDTH - 1) * BLOCK_STRUCT_SIZE + BLOCKSTRUCT_UNK2)
 	add hl, de
-	ld a, [hl]
-	ld de, $20
+	ld a, [hl] ; BLOCKSTRUCT_UNK0
+	ld de, (BOARD_WIDTH - 1) * BLOCK_STRUCT_SIZE + BLOCKSTRUCT_UNK2
 	add hl, de
 	cp $09
 	jr z, .asm_c0a42
@@ -939,17 +854,18 @@ Func_c0961:
 	ret nc
 	jr .asm_c0a42
 .asm_c0a34
-	ld de, $2a
+	; check block below
+	ld de, (BOARD_WIDTH + 1) * BLOCK_STRUCT_SIZE
 	add hl, de
-	ld a, [hl]
-	ld de, $ffd6
+	ld a, [hl] ; BLOCKSTRUCT_UNK2
+	ld de, -((BOARD_WIDTH + 1) * BLOCK_STRUCT_SIZE)
 	add hl, de
 	cp $00
 	jr nz, .asm_c0a42
 	ret
 .asm_c0a42
-	ld a, [hl]
-	ld de, $6
+	ld a, [hl] ; BLOCKSTRUCT_UNK2
+	ld de, BLOCK_STRUCT_SIZE
 	add hl, de
 	cp $04
 	ret z
@@ -959,8 +875,8 @@ Func_c0961:
 	ret z
 	cp $08
 	ret z
-	ld a, [hl]
-	ld de, $ffd6
+	ld a, [hl] ; BLOCKSTRUCT_UNK2
+	ld de, -((BOARD_WIDTH + 1) * BLOCK_STRUCT_SIZE)
 	add hl, de
 	cp $04
 	ret z
@@ -970,40 +886,41 @@ Func_c0961:
 	ret z
 	cp $08
 	ret z
-	ld a, [hl]
-	ld de, $6
+	ld a, [hl] ; BLOCKSTRUCT_UNK2
+	ld de, BLOCK_STRUCT_SIZE
 	add hl, de
 	cp $04
 	ret z
 	cp $05
 	ret z
-	ld a, [hl]
-	ld de, $1c
+	ld a, [hl] ; BLOCKSTRUCT_UNK2
+	ld de, (BOARD_WIDTH - 1) * BLOCK_STRUCT_SIZE - BLOCKSTRUCT_UNK2
 	add hl, de
 	cp $04
 	ret z
 	cp $05
 	ret z
-	ld a, [$d86c]
+
+	ld a, [w1d86c]
 	and a
 	jr z, .asm_c0a8c
 	push hl
 	call Func_c0bfc
 	xor a
-	ld [$d86c], a
+	ld [w1d86c], a
 	pop hl
 	jp .asm_c0988
 .asm_c0a8c
 	ld a, $01
-	ld [$d86c], a
-	ld a, [wced3]
-	ld [$d86d], a
-	ld a, [wced4]
-	ld [$d86e], a
+	ld [w1d86c], a
+	ld a, [wCursorX]
+	ld [w1d86d], a
+	ld a, [wCursorY]
+	ld [w1d86e], a
 	ld a, l
-	ld [$d86f], a
+	ld [w1d86f + 0], a
 	ld a, h
-	ld [$d870], a
+	ld [w1d86f + 1], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_c0ab0
@@ -1013,7 +930,7 @@ Func_c0961:
 	ret
 
 Func_c0ab1:
-	ld a, [$d86c]
+	ld a, [w1d86c]
 	and a
 	ret z
 	dec a
@@ -1021,23 +938,23 @@ Func_c0ab1:
 	dec a
 	jp z, Func_c0bd5
 	xor a
-	ld [$d86c], a
+	ld [w1d86c], a
 	ret
 ; 0xc0ac3
 
 SECTION "Bank 30@4aeb", ROMX[$4aeb], BANK[$30]
 
 Func_c0aeb:
-	ld hl, $d86f
+	ld hl, w1d86f
 	ld a, [hli]
 	ld b, [hl]
 	ld c, a
 	ld l, c
 	ld h, b
-	ld l, [hl]
+	ld l, [hl] ; BLOCKSTRUCT_UNK0
 	ld h, $00
 	add hl, hl
-	add hl, hl
+	add hl, hl ; *4
 	ld de, $4000
 	add hl, de
 	ld a, [hli]
@@ -1048,14 +965,15 @@ Func_c0aeb:
 	ld [$d878], a
 	ld a, [hli]
 	ld [$d879], a
+
 	ld l, c
 	ld h, b
-	ld de, $6
+	ld de, BLOCK_STRUCT_SIZE
 	add hl, de
-	ld l, [hl]
+	ld l, [hl] ; BLOCKSTRUCT_UNK0
 	ld h, $00
 	add hl, hl
-	add hl, hl
+	add hl, hl ; *4
 	ld de, $4000
 	add hl, de
 	ld a, [hli]
@@ -1066,98 +984,69 @@ Func_c0aeb:
 	ld [$d87c], a
 	ld a, [hli]
 	ld [$d87d], a
-	ld a, [$d862]
-	ld [$d871], a
-	ld a, [$d863]
-	ld [$d872], a
-	ld a, [$d86d]
+
+	ld a, [w1d862 + 0]
+	ld [w1d871 + 0], a
+	ld a, [w1d862 + 1]
+	ld [w1d871 + 1], a
+
+	ld a, [w1d86d]
 	add a
 	add a
 	add a
-	add a
+	add a ; *16
 	add $08
 	ld [$d873], a
 	add $10
 	ld [$d874], a
-	ld a, [$d86e]
+	ld a, [w1d86e]
 	add a
 	add a
 	add a
-	add a
+	add a ; *16
 	add $10
 	ld [$d875], a
+
+	; swap block data
 	ld l, c
 	ld h, b
-	ld de, $fffa
-	ld bc, $6
+	ld de, -BLOCK_STRUCT_SIZE
+	ld bc, BLOCK_STRUCT_SIZE
+	REPT BLOCK_STRUCT_SIZE - 1
+		ld a, [hl]
+		add hl, bc
+		ld b, [hl]
+		add hl, de
+		ld [hl], b
+		ld bc, BLOCK_STRUCT_SIZE
+		add hl, bc
+		ld [hli], a
+		add hl, de
+	ENDR
 	ld a, [hl]
 	add hl, bc
 	ld b, [hl]
 	add hl, de
 	ld [hl], b
-	ld bc, $6
+	ld bc, BLOCK_STRUCT_SIZE
 	add hl, bc
 	ld [hli], a
-	add hl, de
-	ld a, [hl]
-	add hl, bc
-	ld b, [hl]
-	add hl, de
-	ld [hl], b
-	ld bc, $6
-	add hl, bc
-	ld [hli], a
-	add hl, de
-	ld a, [hl]
-	add hl, bc
-	ld b, [hl]
-	add hl, de
-	ld [hl], b
-	ld bc, $6
-	add hl, bc
-	ld [hli], a
-	add hl, de
-	ld a, [hl]
-	add hl, bc
-	ld b, [hl]
-	add hl, de
-	ld [hl], b
-	ld bc, $6
-	add hl, bc
-	ld [hli], a
-	add hl, de
-	ld a, [hl]
-	add hl, bc
-	ld b, [hl]
-	add hl, de
-	ld [hl], b
-	ld bc, $6
-	add hl, bc
-	ld [hli], a
-	add hl, de
-	ld a, [hl]
-	add hl, bc
-	ld b, [hl]
-	add hl, de
-	ld [hl], b
-	ld bc, $6
-	add hl, bc
-	ld [hli], a
+
 	ld de, $fff4
 	add hl, de
 	ld c, l
 	ld b, h
-	call Func_c0bb6
+	call .Func_c0bb6
 	ld l, c
 	ld h, b
 	ld de, $6
 	add hl, de
-	call Func_c0bb6
-	ld hl, $d86c
+	call .Func_c0bb6
+	ld hl, w1d86c
 	inc [hl]
 	jp Func_c0bd5
 
-Func_c0bb6:
+.Func_c0bb6:
 	ld a, [hli]
 	and a
 	ret z
@@ -1184,18 +1073,18 @@ Func_c0bb6:
 	ret
 
 Func_c0bd5:
-	ld a, [$d871]
+	ld a, [w1d871 + 0]
 	ld l, a
-	ld a, [$d872]
+	ld a, [w1d871 + 1]
 	ld h, a
 	ld a, [hli]
 	and a
 	jr z, Func_c0bfc
 	ld e, a
 	ld a, l
-	ld [$d871], a
+	ld [w1d871 + 0], a
 	ld a, h
-	ld [$d872], a
+	ld [w1d871 + 1], a
 	ld a, [$d873]
 	add e
 	ld [$d873], a
@@ -1206,11 +1095,11 @@ Func_c0bd5:
 	ret
 
 Func_c0bfc:
-	ld hl, $d86c
+	ld hl, w1d86c
 	inc [hl]
-	ld a, [$d86f]
+	ld a, [w1d86f + 0]
 	ld l, a
-	ld a, [$d870]
+	ld a, [w1d86f + 1]
 	ld h, a
 	push hl
 	call Func_c0c15
@@ -1309,103 +1198,115 @@ Func_c0c88:
 	add e
 	ld c, a
 	ld d, $00
+	; do we have space for 4 OAMs?
 	ldh a, [hVirtualOAMSize]
 	cp OAM_SIZE - 3 * OBJ_SIZE
-	jr nc, .asm_c0ce2
+	jr nc, .asm_c0ce2 ; no
 	ld l, a
 	ld h, HIGH(wVirtualOAM)
 	ld a, c
-	ld [hli], a
+	ld [hli], a ; y
 	ld a, b
-	ld [hli], a
+	ld [hli], a ; x
 	ld a, [$d876]
-	ld [hli], a
+	ld [hli], a ; tile index
 	ld a, d
-	ld [hli], a
+	ld [hli], a ; attribute
+
 	ld a, c
-	ld [hli], a
+	ld [hli], a ; y
 	ld a, b
 	add $08
-	ld [hli], a
+	ld [hli], a ; x
 	ld a, [$d877]
-	ld [hli], a
+	ld [hli], a ; tile index
 	ld a, d
-	ld [hli], a
+	ld [hli], a ; attribute
+
 	ld a, c
 	add $08
-	ld [hli], a
+	ld [hli], a ; y
 	ld a, b
-	ld [hli], a
+	ld [hli], a ; x
 	ld a, [$d878]
-	ld [hli], a
+	ld [hli], a ; tile index
 	ld a, d
-	ld [hli], a
+	ld [hli], a ; attribute
+
 	ld a, c
 	add $08
-	ld [hli], a
+	ld [hli], a ; y
 	ld a, b
 	add $08
-	ld [hli], a
+	ld [hli], a ; x
 	ld a, [$d879]
-	ld [hli], a
+	ld [hli], a ; tile index
 	ld a, d
-	ld [hli], a
+	ld [hli], a ; attribute
+
 	ld a, l
 	ldh [hVirtualOAMSize], a
+
 .asm_c0ce2
 	ld a, [$d87a]
 	and a
-	jp z, .asm_c0d30
+	jp z, .done
 	ld a, [$d874]
 	ld b, a
 	ld a, [$d875]
 	add e
 	ld c, a
 	ld d, $00
+	; do we have space for 4 OAMs?
 	ldh a, [hVirtualOAMSize]
 	cp OAM_SIZE - 3 * OBJ_SIZE
-	jr nc, .asm_c0d30
+	jr nc, .done ; no
 	ld l, a
 	ld h, HIGH(wVirtualOAM)
+
 	ld a, c
-	ld [hli], a
+	ld [hli], a ; y
 	ld a, b
-	ld [hli], a
+	ld [hli], a ; x
 	ld a, [$d87a]
-	ld [hli], a
+	ld [hli], a ; tile index
 	ld a, d
-	ld [hli], a
+	ld [hli], a ; attribute
+
 	ld a, c
-	ld [hli], a
+	ld [hli], a ; y
 	ld a, b
 	add $08
-	ld [hli], a
+	ld [hli], a ; x
 	ld a, [$d87b]
-	ld [hli], a
+	ld [hli], a ; tile index
 	ld a, d
-	ld [hli], a
+	ld [hli], a ; attribute
+
 	ld a, c
 	add $08
-	ld [hli], a
+	ld [hli], a ; y
 	ld a, b
-	ld [hli], a
+	ld [hli], a ; x
 	ld a, [$d87c]
-	ld [hli], a
+	ld [hli], a ; tile index
 	ld a, d
-	ld [hli], a
+	ld [hli], a ; attribute
+
 	ld a, c
 	add $08
-	ld [hli], a
+	ld [hli], a ; y
 	ld a, b
 	add $08
-	ld [hli], a
+	ld [hli], a ; x
 	ld a, [$d87d]
-	ld [hli], a
+	ld [hli], a ; tile index
 	ld a, d
-	ld [hli], a
+	ld [hli], a ; attribute
+
 	ld a, l
 	ldh [hVirtualOAMSize], a
-.asm_c0d30
+.done
 	ret
 
 Func_c0d31:
@@ -1422,13 +1323,13 @@ Func_c0d31:
 	jr nz, .asm_c0d46
 	dec c
 .asm_c0d46
-	ld a, [wced4]
+	ld a, [wCursorY]
 	sub c
-	cp $09
+	cp BOARD_HEIGHT
 	jr nc, .asm_c0d60
-	ld a, [wced4]
+	ld a, [wCursorY]
 	dec a
-	ld [wced4], a
+	ld [wCursorY], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_c0d60
@@ -1437,11 +1338,11 @@ Func_c0d31:
 .asm_c0d60
 	bit B_PAD_DOWN, b
 	jr z, .asm_c0d7a
-	ld a, [wced4]
+	ld a, [wCursorY]
 	inc a
-	cp $09
+	cp BOARD_HEIGHT
 	jr nc, .asm_c0d7a
-	ld [wced4], a
+	ld [wCursorY], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_c0d7a
@@ -1450,11 +1351,11 @@ Func_c0d31:
 .asm_c0d7a
 	bit B_PAD_LEFT, b
 	jr z, .asm_c0d94
-	ld a, [wced3]
+	ld a, [wCursorX]
 	dec a
-	cp $05
+	cp BOARD_WIDTH - 1
 	jr nc, .asm_c0d94
-	ld [wced3], a
+	ld [wCursorX], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_c0d94
@@ -1463,11 +1364,11 @@ Func_c0d31:
 .asm_c0d94
 	bit B_PAD_RIGHT, b
 	jr z, .asm_c0dae
-	ld a, [wced3]
+	ld a, [wCursorX]
 	inc a
-	cp $05
+	cp BOARD_WIDTH - 1
 	jr nc, .asm_c0dae
-	ld [wced3], a
+	ld [wCursorX], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_c0dae
@@ -1477,19 +1378,19 @@ Func_c0d31:
 	ld a, [wced6]
 	and a
 	jr nz, .asm_c0dc1
-	ld a, [wced4]
-	cp $09
+	ld a, [wCursorY]
+	cp BOARD_HEIGHT
 	jr c, .asm_c0dce
 	xor a
-	ld [wced4], a
+	ld [wCursorY], a
 	jr .asm_c0dce
 .asm_c0dc1
-	ld a, [wced4]
+	ld a, [wCursorY]
 	dec a
-	cp $08
+	cp BOARD_HEIGHT - 1
 	jr c, .asm_c0dce
-	ld a, $01
-	ld [wced4], a
+	ld a, 1
+	ld [wCursorY], a
 .asm_c0dce
 	ret
 
@@ -1504,17 +1405,17 @@ Func_c0dcf:
 	and $02
 	ret z
 .asm_c0dde
-	ld a, [wced3]
+	ld a, [wCursorX]
 	add a
 	add a
 	add a
-	add a
+	add a ; *16
 	ldh [hff8a], a
 	ld a, [wced7]
 	ld c, a
 	ld a, [wced6]
 	ld b, a
-	ld a, [wced4]
+	ld a, [wCursorY]
 	add a
 	add a
 	add a
@@ -1765,35 +1666,37 @@ Func_c0ebc:
 	ret
 
 Func_c0f77:
-	ld a, [$d86c]
+	ld a, [w1d86c]
 	and a
 	ret nz
 	ld a, [$da43]
 	and a
 	ret nz
-	ld b, $36
-	ld hl, $d124
-	ld de, $6
+
+	ld b, BOARD_AREA
+	ld hl, wBlocks
+	ld de, BLOCK_STRUCT_SIZE
 	xor a
-.asm_c0f8a
+.loop_blocks
 	cp [hl]
-	jr nz, .asm_c0f9c
+	jr nz, .non_empty
 	add hl, de
 	dec b
-	jr nz, .asm_c0f8a
+	jr nz, .loop_blocks
 	ld a, $01
-	ld [$d864], a
+	ld [w1d864], a
 	ld a, $04
-	ld [$d866], a
+	ld [w1d866], a
 	ret
-.asm_c0f9c
+
+.non_empty
 	ld a, [$da45]
 	and a
 	ret nz
 	ld a, $01
-	ld [$d864], a
+	ld [w1d864], a
 	ld a, $00
-	ld [$d866], a
+	ld [w1d866], a
 	ret
 
 Func_c0fac:
@@ -1806,7 +1709,7 @@ Func_c0fac:
 	ld a, [$d8b7]
 	and a
 	jr z, .asm_c0fce
-	ld a, [$d86c]
+	ld a, [w1d86c]
 	cp $03
 	jr z, .asm_c0fce
 	call Func_c0fe7
@@ -1824,7 +1727,7 @@ Func_c0fac:
 	ret
 
 Func_c0fe7:
-	ld b, $36
+	ld b, BOARD_AREA
 	ld hl, $d127
 	ld de, $6
 	xor a
@@ -1836,7 +1739,7 @@ Func_c0fe7:
 	ret
 
 Func_c0ff6:
-	ld hl, $d124
+	ld hl, wBlocks
 	ld c, $08
 	ld d, $01
 	ld a, [hli]
@@ -5315,6 +5218,7 @@ Func_c22ec:
 	ld [$d881], a
 	call Func_c0310
 	ret
+
 .asm_c2371
 	ld a, [$d881]
 	and a
@@ -6133,8 +6037,8 @@ SECTION "Bank 30@6875", ROMX[$6875], BANK[$30]
 Func_c2875:
 	call Func_c27e5
 	ret c
-	ld hl, $d124
-	ld de, $6
+	ld hl, wBlocks
+	ld de, BLOCK_STRUCT_SIZE
 	ld a, [hl]
 	add hl, de
 	or [hl]
@@ -6233,9 +6137,9 @@ Func_c2875:
 	ld b, h
 	add hl, hl
 	add hl, bc
-	add hl, hl
+	add hl, hl ; *6
 	pop bc
-	ld bc, $d124
+	ld bc, wBlocks
 	add hl, bc
 	ld c, l
 	ld b, h
@@ -6635,7 +6539,7 @@ Func_c2b07:
 	ret
 
 Func_c2b85:
-	ld a, [$d58c]
+	ld a, [w1d58c]
 	and a
 	jr nz, .asm_c2b93
 	xor a
@@ -6664,39 +6568,39 @@ Func_c2b85:
 	debug_loop
 .asm_c2bb5
 	res 0, a
-	ld de, $d479
+	ld de, w1d479
 	jr .asm_c2bed
 .asm_c2bbc
 	res 1, a
-	ld de, $d4b2
+	ld de, w1d4b2
 	jr .asm_c2bed
 .asm_c2bc3
 	res 2, a
-	ld de, $d4e5
+	ld de, w1d4e5
 	jr .asm_c2bed
 .asm_c2bca
 	res 3, a
-	ld de, $d55a
+	ld de, w1d55a
 	jr .asm_c2bed
 .asm_c2bd1
 	res 4, a
-	ld de, $d506
+	ld de, w1d506
 	jr .asm_c2bed
 .asm_c2bd8
 	res 5, a
-	ld de, $d518
+	ld de, w1d518
 	jr .asm_c2bed
 .asm_c2bdf
 	res 6, a
-	ld de, $d52a
+	ld de, w1d52a
 	jr .asm_c2bed
 .asm_c2be6
 	res 7, a
-	ld de, $d56c
+	ld de, w1d56c
 	jr .asm_c2bed
 .asm_c2bed
-	ld [$d58c], a
-	ld hl, $d28e
+	ld [w1d58c], a
+	ld hl, w1d28c + $2
 	ld a, $c3 ; jp
 	ld [hli], a
 	ld a, e
@@ -6707,819 +6611,33 @@ Func_c2b85:
 Func_c2bfa:
 	ld de, $4000
 	ld c, $00
-	ld a, [w1d125]
-	ld l, a
-	ld h, c ; $00
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d2a9], a
-	ld a, [hli]
-	ld [$d2aa], a
-	ld a, [hli]
-	ld [$d2c4], a
-	ld a, [hli]
-	ld [$d2c5], a
 
-	ld a, [$d12b]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d2a5], a
-	ld a, [hli]
-	ld [$d2a6], a
-	ld a, [hli]
-	ld [$d2c0], a
-	ld a, [hli]
-	ld [$d2c1], a
+	; overwrites w1d291 with the correct block tiles to push to the screen
 
-	ld a, [$d131]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d2a1], a
-	ld a, [hli]
-	ld [$d2a2], a
-	ld a, [hli]
-	ld [$d2bc], a
-	ld a, [hli]
-	ld [$d2bd], a
+	FOR n, 0, BOARD_AREA
+		DEF _block_x = n % BOARD_WIDTH
+		DEF _block_y = n / BOARD_WIDTH
 
-	ld a, [$d137]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d29d], a
-	ld a, [hli]
-	ld [$d29e], a
-	ld a, [hli]
-	ld [$d2b8], a
-	ld a, [hli]
-	ld [$d2b9], a
+		ld a, [wBlocks{02x:n} + BLOCKSTRUCT_UNK1]
+		ld l, a
+		ld h, c ; $00
+		add hl, hl
+		add hl, hl ; *4
+		add hl, de
+		ld a, [hli] ; top-left tile
+		ld [w1d291 + ((BOARD_WIDTH - 1) - _block_x) * $4 + _block_y * $36 + $4 + $0], a
+		ld a, [hli] ; top-right tile
+		ld [w1d291 + ((BOARD_WIDTH - 1) - _block_x) * $4 + _block_y * $36 + $4 + $1], a
+		ld a, [hli] ; bottom-left tile
+		ld [w1d291 + ((BOARD_WIDTH - 1) - _block_x) * $4 + _block_y * $36 + $1f + $0], a
+		ld a, [hli] ; bottom-right tile
+		ld [w1d291 + ((BOARD_WIDTH - 1) - _block_x) * $4 + _block_y * $36 + $1f + $1], a
+	ENDR
 
-	ld a, [$d13d]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d299], a
-	ld a, [hli]
-	ld [$d29a], a
-	ld a, [hli]
-	ld [$d2b4], a
-	ld a, [hli]
-	ld [$d2b5], a
-
-	ld a, [$d143]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d295], a
-	ld a, [hli]
-	ld [$d296], a
-	ld a, [hli]
-	ld [$d2b0], a
-	ld a, [hli]
-	ld [$d2b1], a
-
-	ld a, [$d149]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d2df], a
-	ld a, [hli]
-	ld [$d2e0], a
-	ld a, [hli]
-	ld [$d2fa], a
-	ld a, [hli]
-	ld [$d2fb], a
-
-	ld a, [$d14f]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d2db], a
-	ld a, [hli]
-	ld [$d2dc], a
-	ld a, [hli]
-	ld [$d2f6], a
-	ld a, [hli]
-	ld [$d2f7], a
-
-	ld a, [$d155]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d2d7], a
-	ld a, [hli]
-	ld [$d2d8], a
-	ld a, [hli]
-	ld [$d2f2], a
-	ld a, [hli]
-	ld [$d2f3], a
-
-	ld a, [$d15b]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d2d3], a
-	ld a, [hli]
-	ld [$d2d4], a
-	ld a, [hli]
-	ld [$d2ee], a
-	ld a, [hli]
-	ld [$d2ef], a
-
-	ld a, [$d161]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d2cf], a
-	ld a, [hli]
-	ld [$d2d0], a
-	ld a, [hli]
-	ld [$d2ea], a
-	ld a, [hli]
-	ld [$d2eb], a
-
-	ld a, [$d167]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d2cb], a
-	ld a, [hli]
-	ld [$d2cc], a
-	ld a, [hli]
-	ld [$d2e6], a
-	ld a, [hli]
-	ld [$d2e7], a
-
-	ld a, [$d16d]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d315], a
-	ld a, [hli]
-	ld [$d316], a
-	ld a, [hli]
-	ld [$d330], a
-	ld a, [hli]
-	ld [$d331], a
-
-	ld a, [$d173]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d311], a
-	ld a, [hli]
-	ld [$d312], a
-	ld a, [hli]
-	ld [$d32c], a
-	ld a, [hli]
-	ld [$d32d], a
-
-	ld a, [$d179]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d30d], a
-	ld a, [hli]
-	ld [$d30e], a
-	ld a, [hli]
-	ld [$d328], a
-	ld a, [hli]
-	ld [$d329], a
-
-	ld a, [$d17f]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d309], a
-	ld a, [hli]
-	ld [$d30a], a
-	ld a, [hli]
-	ld [$d324], a
-	ld a, [hli]
-	ld [$d325], a
-
-	ld a, [$d185]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d305], a
-	ld a, [hli]
-	ld [$d306], a
-	ld a, [hli]
-	ld [$d320], a
-	ld a, [hli]
-	ld [$d321], a
-
-	ld a, [$d18b]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d301], a
-	ld a, [hli]
-	ld [$d302], a
-	ld a, [hli]
-	ld [$d31c], a
-	ld a, [hli]
-	ld [$d31d], a
-
-	ld a, [$d191]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d34b], a
-	ld a, [hli]
-	ld [$d34c], a
-	ld a, [hli]
-	ld [$d366], a
-	ld a, [hli]
-	ld [$d367], a
-
-	ld a, [$d197]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d347], a
-	ld a, [hli]
-	ld [$d348], a
-	ld a, [hli]
-	ld [$d362], a
-	ld a, [hli]
-	ld [$d363], a
-
-	ld a, [$d19d]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d343], a
-	ld a, [hli]
-	ld [$d344], a
-	ld a, [hli]
-	ld [$d35e], a
-	ld a, [hli]
-	ld [$d35f], a
-
-	ld a, [$d1a3]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d33f], a
-	ld a, [hli]
-	ld [$d340], a
-	ld a, [hli]
-	ld [$d35a], a
-	ld a, [hli]
-	ld [$d35b], a
-
-	ld a, [$d1a9]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d33b], a
-	ld a, [hli]
-	ld [$d33c], a
-	ld a, [hli]
-	ld [$d356], a
-	ld a, [hli]
-	ld [$d357], a
-
-	ld a, [$d1af]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d337], a
-	ld a, [hli]
-	ld [$d338], a
-	ld a, [hli]
-	ld [$d352], a
-	ld a, [hli]
-	ld [$d353], a
-
-	ld a, [$d1b5]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d381], a
-	ld a, [hli]
-	ld [$d382], a
-	ld a, [hli]
-	ld [$d39c], a
-	ld a, [hli]
-	ld [$d39d], a
-
-	ld a, [$d1bb]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d37d], a
-	ld a, [hli]
-	ld [$d37e], a
-	ld a, [hli]
-	ld [$d398], a
-	ld a, [hli]
-	ld [$d399], a
-
-	ld a, [$d1c1]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d379], a
-	ld a, [hli]
-	ld [$d37a], a
-	ld a, [hli]
-	ld [$d394], a
-	ld a, [hli]
-	ld [$d395], a
-
-	ld a, [$d1c7]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d375], a
-	ld a, [hli]
-	ld [$d376], a
-	ld a, [hli]
-	ld [$d390], a
-	ld a, [hli]
-	ld [$d391], a
-
-	ld a, [$d1cd]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d371], a
-	ld a, [hli]
-	ld [$d372], a
-	ld a, [hli]
-	ld [$d38c], a
-	ld a, [hli]
-	ld [$d38d], a
-
-	ld a, [$d1d3]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d36d], a
-	ld a, [hli]
-	ld [$d36e], a
-	ld a, [hli]
-	ld [$d388], a
-	ld a, [hli]
-	ld [$d389], a
-
-	ld a, [$d1d9]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d3b7], a
-	ld a, [hli]
-	ld [$d3b8], a
-	ld a, [hli]
-	ld [$d3d2], a
-	ld a, [hli]
-	ld [$d3d3], a
-
-	ld a, [$d1df]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d3b3], a
-	ld a, [hli]
-	ld [$d3b4], a
-	ld a, [hli]
-	ld [$d3ce], a
-	ld a, [hli]
-	ld [$d3cf], a
-
-	ld a, [$d1e5]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d3af], a
-	ld a, [hli]
-	ld [$d3b0], a
-	ld a, [hli]
-	ld [$d3ca], a
-	ld a, [hli]
-	ld [$d3cb], a
-
-	ld a, [$d1eb]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d3ab], a
-	ld a, [hli]
-	ld [$d3ac], a
-	ld a, [hli]
-	ld [$d3c6], a
-	ld a, [hli]
-	ld [$d3c7], a
-
-	ld a, [$d1f1]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d3a7], a
-	ld a, [hli]
-	ld [$d3a8], a
-	ld a, [hli]
-	ld [$d3c2], a
-	ld a, [hli]
-	ld [$d3c3], a
-
-	ld a, [$d1f7]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d3a3], a
-	ld a, [hli]
-	ld [$d3a4], a
-	ld a, [hli]
-	ld [$d3be], a
-	ld a, [hli]
-	ld [$d3bf], a
-
-	ld a, [$d1fd]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d3ed], a
-	ld a, [hli]
-	ld [$d3ee], a
-	ld a, [hli]
-	ld [$d408], a
-	ld a, [hli]
-	ld [$d409], a
-
-	ld a, [$d203]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d3e9], a
-	ld a, [hli]
-	ld [$d3ea], a
-	ld a, [hli]
-	ld [$d404], a
-	ld a, [hli]
-	ld [$d405], a
-
-	ld a, [$d209]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d3e5], a
-	ld a, [hli]
-	ld [$d3e6], a
-	ld a, [hli]
-	ld [$d400], a
-	ld a, [hli]
-	ld [$d401], a
-
-	ld a, [$d20f]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d3e1], a
-	ld a, [hli]
-	ld [$d3e2], a
-	ld a, [hli]
-	ld [$d3fc], a
-	ld a, [hli]
-	ld [$d3fd], a
-
-	ld a, [$d215]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d3dd], a
-	ld a, [hli]
-	ld [$d3de], a
-	ld a, [hli]
-	ld [$d3f8], a
-	ld a, [hli]
-	ld [$d3f9], a
-
-	ld a, [$d21b]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d3d9], a
-	ld a, [hli]
-	ld [$d3da], a
-	ld a, [hli]
-	ld [$d3f4], a
-	ld a, [hli]
-	ld [$d3f5], a
-
-	ld a, [$d221]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d423], a
-	ld a, [hli]
-	ld [$d424], a
-	ld a, [hli]
-	ld [$d43e], a
-	ld a, [hli]
-	ld [$d43f], a
-
-	ld a, [$d227]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d41f], a
-	ld a, [hli]
-	ld [$d420], a
-	ld a, [hli]
-	ld [$d43a], a
-	ld a, [hli]
-	ld [$d43b], a
-
-	ld a, [$d22d]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d41b], a
-	ld a, [hli]
-	ld [$d41c], a
-	ld a, [hli]
-	ld [$d436], a
-	ld a, [hli]
-	ld [$d437], a
-
-	ld a, [$d233]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d417], a
-	ld a, [hli]
-	ld [$d418], a
-	ld a, [hli]
-	ld [$d432], a
-	ld a, [hli]
-	ld [$d433], a
-
-	ld a, [$d239]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d413], a
-	ld a, [hli]
-	ld [$d414], a
-	ld a, [hli]
-	ld [$d42e], a
-	ld a, [hli]
-	ld [$d42f], a
-
-	ld a, [$d23f]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d40f], a
-	ld a, [hli]
-	ld [$d410], a
-	ld a, [hli]
-	ld [$d42a], a
-	ld a, [hli]
-	ld [$d42b], a
-
-	ld a, [$d245]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d459], a
-	ld a, [hli]
-	ld [$d45a], a
-	ld a, [hli]
-	ld [$d474], a
-	ld a, [hli]
-	ld [$d475], a
-
-	ld a, [$d24b]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d455], a
-	ld a, [hli]
-	ld [$d456], a
-	ld a, [hli]
-	ld [$d470], a
-	ld a, [hli]
-	ld [$d471], a
-
-	ld a, [$d251]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d451], a
-	ld a, [hli]
-	ld [$d452], a
-	ld a, [hli]
-	ld [$d46c], a
-	ld a, [hli]
-	ld [$d46d], a
-
-	ld a, [$d257]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d44d], a
-	ld a, [hli]
-	ld [$d44e], a
-	ld a, [hli]
-	ld [$d468], a
-	ld a, [hli]
-	ld [$d469], a
-
-	ld a, [$d25d]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d449], a
-	ld a, [hli]
-	ld [$d44a], a
-	ld a, [hli]
-	ld [$d464], a
-	ld a, [hli]
-	ld [$d465], a
-
-	ld a, [$d263]
-	ld l, a
-	ld h, c
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld [$d445], a
-	ld a, [hli]
-	ld [$d446], a
-	ld a, [hli]
-	ld [$d460], a
-	ld a, [hli]
-	ld [$d461], a
 	ret
 
 Func_c3110:
-	ld hl, $d58c
+	ld hl, w1d58c
 	set 0, [hl]
 	ld a, [wGameMode]
 	cp GAMEMODE_PUZZLE
@@ -7528,9 +6646,9 @@ Func_c3110:
 	ld c, $00
 	ld a, [$d269]
 	ld l, a
-	ld h, c
+	ld h, c ; $00
 	add hl, hl
-	add hl, hl
+	add hl, hl ; *4
 	add hl, de
 	ld a, [hli]
 	ld [$d491], a
@@ -7542,9 +6660,9 @@ Func_c3110:
 	ld [$d4ad], a
 	ld a, [$d26f]
 	ld l, a
-	ld h, c
+	ld h, c ; $00
 	add hl, hl
-	add hl, hl
+	add hl, hl ; *4
 	add hl, de
 	ld a, [hli]
 	ld [$d48d], a
@@ -7556,9 +6674,9 @@ Func_c3110:
 	ld [$d4a9], a
 	ld a, [$d275]
 	ld l, a
-	ld h, c
+	ld h, c ; $00
 	add hl, hl
-	add hl, hl
+	add hl, hl ; *4
 	add hl, de
 	ld a, [hli]
 	ld [$d489], a
@@ -7570,9 +6688,9 @@ Func_c3110:
 	ld [$d4a5], a
 	ld a, [$d27b]
 	ld l, a
-	ld h, c
+	ld h, c ; $00
 	add hl, hl
-	add hl, hl
+	add hl, hl ; *4
 	add hl, de
 	ld a, [hli]
 	ld [$d485], a
@@ -7584,9 +6702,9 @@ Func_c3110:
 	ld [$d4a1], a
 	ld a, [$d281]
 	ld l, a
-	ld h, c
+	ld h, c ; $00
 	add hl, hl
-	add hl, hl
+	add hl, hl ; *4
 	add hl, de
 	ld a, [hli]
 	ld [$d481], a
@@ -7598,9 +6716,9 @@ Func_c3110:
 	ld [$d49d], a
 	ld a, [$d287]
 	ld l, a
-	ld h, c
+	ld h, c ; $00
 	add hl, hl
-	add hl, hl
+	add hl, hl ; *4
 	add hl, de
 	ld a, [hli]
 	ld [$d47d], a
@@ -7648,7 +6766,7 @@ Func_c31fe:
 	ret z
 	cp GAMEMODE_UNK6
 	ret z
-	ld hl, $d58c
+	ld hl, w1d58c
 	set 4, [hl]
 	ld b, $10
 	ld a, [$d88a]
@@ -7773,7 +6891,7 @@ Func_c32d9:
 	ret z
 	cp GAMEMODE_UNK7
 	ret z
-	ld hl, $d58c
+	ld hl, w1d58c
 	set 3, [hl]
 	ld a, [$d89f]
 	ld [$d55f], a
@@ -7831,7 +6949,7 @@ Func_c3312:
 	ld a, [$d8a6]
 	ld [$d581], a
 .asm_c3364
-	ld hl, $d58c
+	ld hl, w1d58c
 	set 7, [hl]
 	ret
 
