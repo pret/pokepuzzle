@@ -108,26 +108,26 @@ Func_4003::
 	ld a, GAMESTATE_06
 	ldh [hGameState], a
 	xor a
-	ldh [$ffbb], a
+	ldh [hVBlankTrampolinePtr + 1], a
 	ret
 .asm_40ea
 	ld a, GAMESTATE_07
 	ldh [hGameState], a
 	xor a
-	ldh [$ffbb], a
+	ldh [hVBlankTrampolinePtr + 1], a
 	ret
 .asm_40f2
 	ld a, GAMESTATE_08
 	ldh [hGameState], a
 	xor a
-	ldh [$ffbb], a
+	ldh [hVBlankTrampolinePtr + 1], a
 	ret
 .asm_40fa
 	ld a, [wc886]
 	add $0a
 	ldh [hGameState], a
 	xor a
-	ldh [$ffbb], a
+	ldh [hVBlankTrampolinePtr + 1], a
 	ret
 ; 0x4105
 
@@ -222,7 +222,7 @@ Func_427a:
 	ld [hl], c
 	ret
 .asm_42ba
-	ld hl, $d000
+	ld hl, wBlocks
 	ld a, [hli]
 	or [hl]
 	inc hl
@@ -253,7 +253,7 @@ Func_427a:
 	jr z, .asm_42ea
 	ld b, $67
 .asm_42ea
-	ld hl, $d0b0
+	ld hl, w6d0b0
 	call Func_73cc
 	ret nz
 	jr .asm_42fe
@@ -350,8 +350,8 @@ Func_427a:
 	ld a, [wc87b]
 	and a
 	jr z, .asm_438f
-	ld bc, $1
-	call Func_68f6
+	ld bc, 1
+	call AddToScore
 .asm_438f
 	ld bc, $810
 	ld hl, wc864
@@ -408,9 +408,9 @@ Func_43e0:
 	ldh a, [hJoypadPressed]
 	and PAD_START
 	jp z, .asm_4401
-	call Func_1d25
+	call Is2PlayerGameMode
 	jr z, .asm_43fc
-	cp $0e
+	cp GAMEMODE_UNKE
 	jr z, .asm_43fc
 	ld a, $01
 	ld [wc887], a
@@ -430,7 +430,7 @@ Func_43e0:
 	xor a
 	ldh [hff8a], a
 	ld a, [wGameMode]
-	cp $0e
+	cp GAMEMODE_UNKE
 	jp z, .asm_44a0
 	cp GAMEMODE_PUZZLE
 	jr z, .asm_447d
@@ -467,7 +467,7 @@ Func_43e0:
 	or [hl]
 	or c
 	jr nz, .asm_44a0
-	ld hl, $d000
+	ld hl, wBlocks
 	ld a, [hli]
 	or [hl]
 	inc hl
@@ -590,9 +590,9 @@ Func_43e0:
 	and PAD_UP
 	jr z, .asm_457a
 	ld a, [wGameMode]
-	cp $0e
+	cp GAMEMODE_UNKE
 	jr z, .asm_453f
-	cp $03
+	cp GAMEMODE_PUZZLE
 	jr z, .asm_453f
 	ld a, [wc869]
 	and a
@@ -731,7 +731,7 @@ Func_43e0:
 	ld a, [wGameMode]
 	cp GAMEMODE_PUZZLE
 	jr z, .asm_4624
-	cp $0e
+	cp GAMEMODE_UNKE
 	jr z, .asm_462c
 	jr .asm_4631
 .asm_4624
@@ -771,10 +771,12 @@ Func_43e0:
 	call Func_2626
 	pop de
 	pop bc
-	ld a, [wcdc6]
+
+	; used hint already?
+	ld a, [wUsedHint]
 	and a
-	jr nz, .asm_4685
-	ld a, [wcdc7]
+	jr nz, .asm_4685 ; yes
+	ld a, [wRemainingHints]
 	and a
 	jr nz, .asm_4685
 	ld a, [wc7ce]
@@ -862,7 +864,7 @@ Func_46c6:
 SECTION "Bank 1@4763", ROMX[$4763], BANK[$1]
 
 Func_4763:
-	ld hl, $d0b0
+	ld hl, w6d0b0
 	ld de, $d0b8
 	ld b, $c0
 	ld c, $3f
@@ -1690,7 +1692,7 @@ Func_4763:
 .asm_4b39
 	inc l
 	inc e
-	ld hl, $d0b0
+	ld hl, w6d0b0
 	ld e, $c5
 	ld a, [hli]
 	and e
@@ -1887,7 +1889,7 @@ Func_4763:
 	ld b, a
 	call Func_4cb3
 	call Func_6969
-	call Func_1d25
+	call Is2PlayerGameMode
 	jr z, .asm_4c94
 	ld de, $a8
 	ld bc, $1020
@@ -2016,7 +2018,7 @@ Func_4f43:
 	ld a, [wc88a]
 	ld c, a
 	call Func_683b
-	call Func_68f6
+	call AddToScore
 .asm_4f99
 	ld a, [wc889]
 	sub $04
@@ -2056,7 +2058,7 @@ Func_4f43:
 	ld a, $02
 	ld hl, $4ce2
 	call Bank1Farcall
-	call Func_1d25
+	call Is2PlayerGameMode
 	jr z, .asm_5011
 	call Func_1d31
 	jr z, .asm_5011
@@ -2081,7 +2083,7 @@ Func_4f43:
 	ld c, a
 	call Func_693c
 	call Func_67b8
-	call Func_68f6
+	call AddToScore
 	ld a, [wcebd]
 	and a
 	jr nz, .asm_5030
@@ -2155,7 +2157,7 @@ Func_4f43:
 	ld a, $02
 	ld hl, $4ce2
 	call Bank1Farcall
-	call Func_1d25
+	call Is2PlayerGameMode
 	jr z, .asm_50d0
 	call Func_1d31
 	jr z, .asm_50d0
@@ -2221,7 +2223,7 @@ Func_5118:
 
 Func_5123:
 	ldh [hff8a], a
-	call Func_1d25
+	call Is2PlayerGameMode
 	ret nz
 	ldh a, [hff8a]
 	and $c0
@@ -2261,7 +2263,7 @@ Func_5475:
 	dec a
 	cp [hl]
 	jr c, .asm_54d2
-	call Func_1fc8
+	call Random_0to5
 	call Func_555b
 	jr c, .asm_54d2
 	ld hl, wc8a9
@@ -2283,7 +2285,7 @@ Func_5475:
 	ld a, [hl]
 	cp $05
 	jr nc, .asm_54d2
-	call Func_1fc8
+	call Random_0to5
 	call Func_555b
 	jr c, .asm_54d2
 	ld hl, wc8a9
@@ -2296,7 +2298,7 @@ Func_5475:
 .asm_54d2
 	ld bc, NULL
 	ld de, $fff8
-	call Func_1fa7
+	call Random_0to4
 	inc a
 	ldh [hff8a], a
 .asm_54de
@@ -2308,10 +2310,10 @@ Func_5475:
 	ld a, [wca18]
 	cp $06
 	jr z, .asm_54f4
-	call Func_1fa7
+	call Random_0to4
 	jr .asm_54f7
 .asm_54f4
-	call Func_1fc8
+	call Random_0to5
 .asm_54f7
 	inc a
 	ldh [hff8b], a
@@ -2424,7 +2426,7 @@ Func_55fb:
 	sub $08
 	ld e, a
 	ld d, $00
-	ld hl, $d0b0
+	ld hl, w6d0b0
 	add hl, de
 	ld a, [hli]
 	and $20
@@ -2435,7 +2437,7 @@ Func_55fb:
 	or [hl]
 	jp nz, .set_carry
 .asm_5617
-	ld hl, $d000
+	ld hl, wBlocks
 	add hl, bc
 	ld a, [hli]
 	or [hl]
@@ -2445,7 +2447,7 @@ Func_55fb:
 	ld a, [hli]
 	or [hl]
 	jp nz, .set_carry
-	ld hl, $d0b0
+	ld hl, w6d0b0
 	add hl, bc
 	ld a, [hli]
 	and $88
@@ -2453,7 +2455,7 @@ Func_55fb:
 	ld a, [hl]
 	and $88
 	jp nz, .set_carry
-	ld hl, $d058
+	ld hl, w6d058
 	add hl, bc
 	ld a, [hli]
 	and $03
@@ -2508,7 +2510,7 @@ Func_67b8:
 	ld a, $35
 .asm_67bf
 	add a
-	ld hl, $67cd
+	ld hl, .Scores
 	add l
 	ld l, a
 	ld a, h
@@ -2518,9 +2520,63 @@ Func_67b8:
 	ld b, [hl]
 	ld c, a
 	ret
-; 0x67cd
 
-SECTION "Bank 1@683b", ROMX[$683b], BANK[$1]
+.Scores:
+	dw     0
+	dw     0
+	dw     0
+	dw     0
+	dw    30
+	dw    60
+	dw   150
+	dw   190
+	dw   230
+	dw   270
+	dw   310
+	dw   400
+	dw   450
+	dw   500
+	dw   550
+	dw   700
+	dw   760
+	dw   850
+	dw   970
+	dw  1120
+	dw  1300
+	dw  1510
+	dw  1750
+	dw  2020
+	dw  2320
+	dw  2650
+	dw 15000
+	dw 15570
+	dw 16170
+	dw 16800
+	dw 17460
+	dw 18150
+	dw 18870
+	dw 19620
+	dw 20400
+	dw 21200
+	dw 22000
+	dw 22800
+	dw 23600
+	dw 24400
+	dw 25200
+	dw 26000
+	dw 26800
+	dw 27600
+	dw 28400
+	dw 29200
+	dw 30000
+	dw 30800
+	dw 31600
+	dw 32400
+	dw 33200
+	dw 34000
+	dw 34800
+	dw 35600
+	dw 36400
 
 Func_683b:
 	ld a, c
@@ -2528,20 +2584,49 @@ Func_683b:
 	jr c, .asm_6842
 	ld a, $1d
 .asm_6842
-	add a
-	ld hl, $6850
+	add a ; *2
+	ld hl, .Scores
 	add l
 	ld l, a
 	ld a, h
-	adc $00
+	adc 0
 	ld h, a
 	ld a, [hli]
 	ld b, [hl]
 	ld c, a
 	ret
-; 0x6850
 
-SECTION "Bank 1@688c", ROMX[$688c], BANK[$1]
+.Scores:
+	dw    0
+	dw   50
+	dw   80
+	dw  150
+	dw  300
+	dw  400
+	dw  500
+	dw  700
+	dw  900
+	dw 1100
+	dw 1300
+	dw 1500
+	dw 1800
+	dw 2100
+	dw 2100
+	dw 2100
+	dw 2100
+	dw 2100
+	dw 2100
+	dw 2100
+	dw 2100
+	dw 2100
+	dw 2100
+	dw 2100
+	dw 2100
+	dw 2100
+	dw 2100
+	dw 2100
+	dw 2100
+	dw 2100
 
 Func_688c:
 	push hl
@@ -2627,31 +2712,35 @@ Func_68c1:
 	and a
 	ret
 
-Func_68f6:
+; adds value in bc to current score
+; respects the score limit setting
+AddToScore:
 	ld a, [wGameLevel]
 	cp GAMELEVEL_SLOW
-	jr z, .asm_6917
-	ld a, [wPdPScoreLimitSetting]
+	jr z, .cap_9999
+	ld a, [wScoreLimitSetting]
 	and a
-	jr z, .asm_690d
-	ld de, $423f
+	jr z, .cap_99999
+; cap 999'999
+	ld de, 999_999 & 0xffff
 	push de
-	ld de, $f
+	ld de, 999_999 >> 16
 	push de
-	jr .asm_691f
-.asm_690d
-	ld de, $869f
+	jr .add_to_score
+.cap_99999
+	ld de, 99_999 & 0xffff
 	push de
-	ld de, $1
+	ld de, 99_999 >> 16
 	push de
-	jr .asm_691f
-.asm_6917
-	ld de, $270f
+	jr .add_to_score
+.cap_9999
+	ld de, 9_999
 	push de
-	ld de, NULL
+	ld de, 9_999 >> 16
 	push de
-.asm_691f
-	ld hl, wc842
+.add_to_score
+	; score += bc
+	ld hl, wScore
 	ld a, [hl]
 	add c
 	ld [hli], a
@@ -2659,11 +2748,13 @@ Func_68f6:
 	adc b
 	ld [hli], a
 	ld a, [hl]
-	adc $00
+	adc 0
 	ld [hld], a
 	dec hl
 	pop bc
 	pop de
+
+	; cap score to max value
 	ld a, [hli]
 	sub e
 	ld a, [hli]
@@ -2775,7 +2866,7 @@ Func_69b3:
 	and a
 	ret nz
 .asm_69db
-	ld hl, $d000
+	ld hl, wBlocks
 	ld a, [hli]
 	and a
 	ret nz
@@ -2870,7 +2961,7 @@ Func_69b3:
 	ld [bc], a
 	inc c
 	inc e
-	ld hl, $d058
+	ld hl, w6d058
 	ld a, $09
 	ld [hli], a
 	ld [hli], a
@@ -2878,7 +2969,7 @@ Func_69b3:
 	ld [hli], a
 	ld [hli], a
 	ld [hl], a
-	ld hl, $d0b0
+	ld hl, w6d0b0
 	ld a, $04
 	ld [hli], a
 	ld [hli], a
@@ -2899,7 +2990,7 @@ Func_6a7c:
 .asm_6a8a
 	ld de, $3
 .asm_6a8d
-	ld hl, $d000
+	ld hl, wBlocks
 	add hl, de
 	ld a, $0e
 	ld [hli], a
@@ -2907,13 +2998,13 @@ Func_6a7c:
 	ld [hli], a
 	ld a, $10
 	ld [hl], a
-	ld hl, $d058
+	ld hl, w6d058
 	add hl, de
 	ld a, $09
 	ld [hli], a
 	ld [hli], a
 	ld [hl], a
-	ld hl, $d0b0
+	ld hl, w6d0b0
 	add hl, de
 	ld a, $04
 	ld [hli], a
@@ -2949,7 +3040,7 @@ Func_6ab6:
 	xor a
 .asm_6ad4
 	ld [hl], a
-	ld hl, $d000
+	ld hl, wBlocks
 	add hl, de
 	ld a, $4e
 	ld [hli], a
@@ -2959,14 +3050,14 @@ Func_6ab6:
 	ld [hli], a
 	ld a, $50
 	ld [hl], a
-	ld hl, $d058
+	ld hl, w6d058
 	add hl, de
 	ld a, $09
 	ld [hli], a
 	ld [hli], a
 	ld [hli], a
 	ld [hl], a
-	ld hl, $d0b0
+	ld hl, w6d0b0
 	add hl, de
 	ld a, $04
 	ld [hli], a
@@ -2993,7 +3084,7 @@ Func_6b04:
 .asm_6b12
 	ld de, $1
 .asm_6b15
-	ld hl, $d000
+	ld hl, wBlocks
 	add hl, de
 	ld a, $8e
 	ld [hli], a
@@ -3005,7 +3096,7 @@ Func_6b04:
 	ld [hli], a
 	ld a, $90
 	ld [hl], a
-	ld hl, $d058
+	ld hl, w6d058
 	add hl, de
 	ld a, $09
 	ld [hli], a
@@ -3013,7 +3104,7 @@ Func_6b04:
 	ld [hli], a
 	ld [hli], a
 	ld [hl], a
-	ld hl, $d0b0
+	ld hl, w6d0b0
 	add hl, de
 	ld a, $04
 	ld [hli], a
@@ -3032,7 +3123,7 @@ Func_6b04:
 	ret
 
 Func_6b4a:
-	ld hl, $d000
+	ld hl, wBlocks
 	ld a, $ce
 	ld [hli], a
 	ld a, $dd
@@ -3045,7 +3136,7 @@ Func_6b4a:
 	ld [hli], a
 	ld a, $d0
 	ld [hl], a
-	ld hl, $d058
+	ld hl, w6d058
 	ld a, $09
 	ld [hli], a
 	ld [hli], a
@@ -3053,7 +3144,7 @@ Func_6b4a:
 	ld [hli], a
 	ld [hli], a
 	ld [hl], a
-	ld hl, $d0b0
+	ld hl, w6d0b0
 	ld a, $04
 	ld [hli], a
 	ld [hli], a
@@ -3072,7 +3163,7 @@ Func_6b4a:
 	ret
 
 Func_6b81:
-	ld hl, $d000
+	ld hl, wBlocks
 	ld a, $f8
 	ld [hli], a
 	ld a, $f9
@@ -3085,7 +3176,7 @@ Func_6b81:
 	ld [hli], a
 	ld a, $fa
 	ld [hl], a
-	ld hl, $d058
+	ld hl, w6d058
 	ld a, $0a
 	ld [hli], a
 	ld [hli], a
@@ -3093,7 +3184,7 @@ Func_6b81:
 	ld [hli], a
 	ld [hli], a
 	ld [hl], a
-	ld hl, $d0b0
+	ld hl, w6d0b0
 	ld a, $04
 	ld [hli], a
 	ld [hli], a
@@ -3279,20 +3370,20 @@ Func_6df0:
 	call Func_6e88
 	ld e, l
 	ld d, h
-	ld hl, $d000
-	ld bc, $50
+	ld hl, wBlocks
+	ld bc, BOARD_VIRTUAL_AREA
 	call CopyHLtoDE
 	call Func_6ea1
 	ld e, l
 	ld d, h
-	ld hl, $d0b0
-	ld bc, $50
+	ld hl, w6d0b0
+	ld bc, BOARD_VIRTUAL_AREA
 	call CopyHLtoDE
 	call Func_6eba
 	ld e, l
 	ld d, h
-	ld hl, $d058
-	ld bc, $50
+	ld hl, w6d058
+	ld bc, BOARD_VIRTUAL_AREA
 	call CopyHLtoDE
 	pop af
 	sramswitch
@@ -3386,7 +3477,7 @@ Func_6ef3:
 SECTION "Bank 1@7313", ROMX[$7313], BANK[$1]
 
 Func_7313:
-	ld hl, $d0b0
+	ld hl, w6d0b0
 	ld a, [hli]
 	and a
 	ret nz

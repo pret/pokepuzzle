@@ -105,9 +105,9 @@ Func_10503:
 	jr z, .asm_1054e
 	cp GAMEMODE_CHALLENGE
 	jr z, .asm_1054e
-	cp GAMEMODE_UNK6
+	cp GAMEMODE_2P_VS
 	jr z, .asm_1054e
-	cp GAMEMODE_UNK7
+	cp GAMEMODE_2P_TIME_ZONE
 	jr z, .asm_1054e
 
 .asm_1052e
@@ -163,9 +163,9 @@ Func_1055e:
 	jr z, .asm_105aa
 	cp GAMEMODE_CHALLENGE
 	jr z, .asm_105aa
-	cp GAMEMODE_UNK6
+	cp GAMEMODE_2P_VS
 	jr z, .asm_105aa
-	cp GAMEMODE_UNK7
+	cp GAMEMODE_2P_TIME_ZONE
 	jr z, .asm_105aa
 
 .asm_1058a
@@ -219,9 +219,9 @@ Func_105ba:
 	jr z, .asm_10604
 	cp GAMEMODE_CHALLENGE
 	jr z, .asm_10604
-	cp GAMEMODE_UNK6
+	cp GAMEMODE_2P_VS
 	jr z, .asm_10604
-	cp GAMEMODE_UNK7
+	cp GAMEMODE_2P_TIME_ZONE
 	jr z, .asm_10604
 
 .asm_105e4
@@ -275,9 +275,9 @@ Func_10614:
 	jr z, .asm_1065e
 	cp GAMEMODE_CHALLENGE
 	jr z, .asm_1065e
-	cp GAMEMODE_UNK6
+	cp GAMEMODE_2P_VS
 	jr z, .asm_1065e
-	cp GAMEMODE_UNK7
+	cp GAMEMODE_2P_TIME_ZONE
 	jr z, .asm_1065e
 
 .asm_1063e
@@ -331,9 +331,9 @@ Func_1066e:
 	jr z, .asm_1069b
 	cp GAMEMODE_CHALLENGE
 	jr z, .asm_1069b
-	cp GAMEMODE_UNK6
+	cp GAMEMODE_2P_VS
 	jr z, .asm_1069b
-	cp GAMEMODE_UNK7
+	cp GAMEMODE_2P_TIME_ZONE
 	jr z, .asm_1069b
 
 .asm_10698
@@ -370,9 +370,9 @@ Func_106ab:
 	jr z, .asm_10713
 	cp GAMEMODE_CHALLENGE
 	jr z, .asm_10713
-	cp GAMEMODE_UNK6
+	cp GAMEMODE_2P_VS
 	jr z, .asm_10713
-	cp GAMEMODE_UNK7
+	cp GAMEMODE_2P_TIME_ZONE
 	jr z, .asm_10713
 
 .marathon_or_time_zone
@@ -405,7 +405,7 @@ Func_106ab:
 	ld a, $03
 	call GetFarByte
 	ld b, a
-	ld a, [wceab]
+	ld a, [wStage]
 	and a
 	jr z, .asm_10706
 	dec a
@@ -451,9 +451,9 @@ Func_10723:
 	jr z, .asm_1076a
 	cp GAMEMODE_CHALLENGE
 	jr z, .asm_1076a
-	cp GAMEMODE_UNK6
+	cp GAMEMODE_2P_VS
 	jr z, .asm_1076a
-	cp GAMEMODE_UNK7
+	cp GAMEMODE_2P_TIME_ZONE
 	jr z, .asm_1076a
 
 .asm_1074a
@@ -506,9 +506,9 @@ Func_1077a:
 	jr z, .asm_107e6
 	cp GAMEMODE_CHALLENGE
 	jr z, .asm_107e6
-	cp GAMEMODE_UNK6
+	cp GAMEMODE_2P_VS
 	jr z, .asm_107e6
-	cp GAMEMODE_UNK7
+	cp GAMEMODE_2P_TIME_ZONE
 	jr z, .asm_107f6
 
 .marathon_or_puzzle
@@ -545,7 +545,7 @@ Func_1077a:
 	ld a, $03
 	call GetFarByte
 	ld b, a
-	ld a, [wceab]
+	ld a, [wStage]
 	and a
 	jr z, .asm_107dc
 	dec a
@@ -597,9 +597,9 @@ Func_10806:
 	jr z, .asm_1082d
 	cp GAMEMODE_CHALLENGE
 	jr z, .asm_10830
-	cp GAMEMODE_UNK6
+	cp GAMEMODE_2P_VS
 	jr z, .asm_10830
-	cp GAMEMODE_UNK7
+	cp GAMEMODE_2P_TIME_ZONE
 	jr z, .asm_1082d
 
 .asm_1082d
@@ -636,9 +636,9 @@ Func_10840:
 	jr z, .asm_10867
 	cp GAMEMODE_CHALLENGE
 	jr z, .asm_1086a
-	cp GAMEMODE_UNK6
+	cp GAMEMODE_2P_VS
 	jr z, .asm_1086a
-	cp GAMEMODE_UNK7
+	cp GAMEMODE_2P_TIME_ZONE
 	jr z, .asm_10867
 
 .asm_10867
@@ -675,9 +675,9 @@ Func_1087a:
 	jr z, .asm_108a4
 	cp GAMEMODE_CHALLENGE
 	jr z, .asm_108a4
-	cp GAMEMODE_UNK6
+	cp GAMEMODE_2P_VS
 	jr z, .asm_108a4
-	cp GAMEMODE_UNK7
+	cp GAMEMODE_2P_TIME_ZONE
 	jr z, .asm_108a1
 
 .asm_108a1
@@ -714,9 +714,9 @@ Func_108b4:
 	jr z, .asm_108de
 	cp GAMEMODE_CHALLENGE
 	jr z, .asm_108de
-	cp GAMEMODE_UNK6
+	cp GAMEMODE_2P_VS
 	jr z, .asm_108de
-	cp GAMEMODE_UNK7
+	cp GAMEMODE_2P_TIME_ZONE
 	jr z, .asm_108db
 .asm_108db
 	ld a, $00
@@ -879,7 +879,7 @@ Func_10996::
 	ld [wceb7], a
 	ld [wc601], a
 	ld [wc7ce], a
-	ld [wPdPScoreLimitSetting], a
+	ld [wScoreLimitSetting], a
 	ld [wceba], a
 
 	ld a, $01
@@ -958,9 +958,9 @@ Func_10a10:
 	jr z, .asm_10a3e
 	cp GAMEMODE_CHALLENGE
 	jr z, .asm_10a3e
-	cp GAMEMODE_UNK6
+	cp GAMEMODE_2P_VS
 	jr z, .asm_10a3e
-	cp GAMEMODE_UNK7
+	cp GAMEMODE_2P_TIME_ZONE
 	jr z, .asm_10a3e
 	ld a, [wGameLevel]
 	cp GAMELEVEL_EASY
@@ -1504,7 +1504,7 @@ Func_10e63::
 	ld a, [wGameMode]
 	cp GAMEMODE_TIME_ZONE
 	jr z, .asm_10ea7
-	cp GAMEMODE_UNK7
+	cp GAMEMODE_2P_TIME_ZONE
 	jr z, .asm_10ea7
 	ld hl, $d89a
 	ld a, [hl]
@@ -2150,7 +2150,7 @@ Func_1177f:
 	ret z
 	cp GAMEMODE_CHALLENGE
 	ret z
-	cp GAMEMODE_UNK6
+	cp GAMEMODE_2P_VS
 	ret z
 	set 0, [hl]
 	ret
@@ -2579,9 +2579,9 @@ Func_11c9b:
 	jp z, .Func_11dea
 	cp GAMEMODE_CHALLENGE
 	jp z, .Func_11dea
-	cp GAMEMODE_UNK6
+	cp GAMEMODE_2P_VS
 	jp z, .Func_11d21
-	cp GAMEMODE_UNK7
+	cp GAMEMODE_2P_TIME_ZONE
 	jp z, .Func_11d21
 
 .asm_11cf3
@@ -2641,7 +2641,7 @@ Func_11c9b:
 	ld b, $06
 .asm_11d39
 	call Random
-	call Func_1fcb
+	call Random_0To5_GotSample
 	ld c, LOW(hff8a)
 	add c
 	ld c, a

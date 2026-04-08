@@ -313,28 +313,40 @@ wc813:: ds 1 ; c813
 	ds $c833 - $c814
 
 wc833:: ds 1 ; c833
-	ds $c838 - $c834
+wc834:: ds 1 ; c834
+	ds $c836 - $c835
+wc836:: ds 1 ; c836
+	ds $c838 - $c837
 wc838:: ds 1 ; c838
 	ds $c83b - $c839
 wc83b:: ds 1 ; c83b
 wRNG1:: ds 2 ; c83c
 wRNG2:: ds 1 ; c83d
 	ds $c842 - $c83f
-wc842:: ds 3 ; c842
+wScore:: ds 3 ; c842
 	ds $c864 - $c845
 wc864:: ds 1 ; c864
 wc865:: ds 1 ; c865
 wc866:: ds 1 ; c866
 wc867:: ds 1 ; c867
-	ds $c869 - $c868
+wc868:: ds 1 ; c868
 wc869:: ds 1 ; c869
 wc86a:: ds 1 ; c86a
-wc86b:: ds 1 ; c86b
-wc86c:: ds 1 ; c86c
+
+; game clock during a puzzle
+wGameClockSeconds:: ds 1 ; c86b
+wGameClockMinutes:: ds 1 ; c86c
+
 wc86d:: ds 1 ; c86d
-	ds $c877 - $c86e
+wc86e:: ds 1 ; c86e
+wc86f:: ds 1 ; c86f
+wc870:: ds 1 ; c870
+wc871:: ds 1 ; c871
+	ds $c876 - $c872
+wc876:: ds 1 ; c876
 wc877:: ds 2 ; c877
-	ds $c87b - $c879
+wc879:: ds 1 ; c879
+wc87a:: ds 1 ; c87a
 wc87b:: ds 1 ; c87b
 wc87c:: ds 2 ; c87c
 wc87e:: ds 1 ; c87e
@@ -343,54 +355,117 @@ wc880:: ds 1 ; c880
 wc881:: ds 1 ; c881
 wc882:: ds 1 ; c882
 wc883:: ds 1 ; c883
-	ds $c886 - $c884
+wc884:: ds 1 ; c884
+wc885:: ds 1 ; c885
 wc886:: ds 1 ; c886
 wc887:: ds 1 ; c887
-	ds $c889 - $c888
+wc888:: ds 1 ; c888
 wc889:: ds 1 ; c889
 wc88a:: ds 1 ; c88a
 wc88b:: ds 1 ; c88b
-	ds $c892 - $c88c
+wc88c:: ds 1 ; c88c
+wc88d:: ds 1 ; c88d
+wc88e:: ds 1 ; c88e
+wc88f:: ds 1 ; c88f
+wc890:: ds 1 ; c890
+wc891:: ds 1 ; c891
 wc892:: ds 1 ; c892
 wc893:: ds 1 ; c893
 wc894:: ds 1 ; c894
-	ds $c897 - $c895
+wc895:: ds 1 ; c895
+wc896:: ds 1 ; c896
 wc897:: ds 1 ; c897
 wc898:: ds 1 ; c898
-	ds $c89d - $c899
+wc899:: ds 1 ; c899
+	ds $c89d - $c89a
 wc89d:: ds 1 ; c89d
-	ds $c8a2 - $c89e
+wc89e:: ds 1 ; c89e
+wc89f:: ds 1 ; c89f
+
+wc8a0:: ds 1 ; c8a0
+wc8a1:: ds 1 ; c8a1
+
 wc8a2:: ds 1 ; c8a2
 wc8a3:: ds 1 ; c8a3
 wc8a4:: ds 1 ; c8a4
-	ds $c8a6 - $c8a5
+wc8a5:: ds 1 ; c8a5
 wc8a6:: ds 1 ; c8a6
-	ds $c8a8 - $c8a7
+wc8a7:: ds 1 ; c8a7
 wc8a8:: ds 1 ; c8a8
 wc8a9:: ds 1 ; c8a9
-	ds $c8be - $c8aa
-
+wc8aa:: ds 1 ; c8aa
+wc8ab:: ds 1 ; c8ab
+wc8ac:: ds 1 ; c8ac
+wc8ad:: ds 1 ; c8ad
+wc8ae:: ds 1 ; c8ae
+wc8af:: ds 1 ; c8af
+wc8b0:: ds 1 ; c8b0
+wc8b1:: ds 1 ; c8b1
+wc8b2:: ds 1 ; c8b2
+wc8b3:: ds 1 ; c8b3
+wc8b4:: ds 1 ; c8b4
+wc8b5:: ds 1 ; c8b5
+wc8b6:: ds 1 ; c8b6
+wc8b7:: ds 1 ; c8b7
+wc8b8:: ds 1 ; c8b8
+wc8b9:: ds 1 ; c8b9
+wc8ba:: ds 1 ; c8ba
+wc8bb:: ds 1 ; c8bb
+wc8bc:: ds 1 ; c8bc
+wc8bd:: ds 1 ; c8bd
 wc8be:: ds 1 ; c8be
-	ds $c8c8 - $c8bf
+wc8bf:: ds 1 ; c8bf
+wc8c0:: ds 1 ; c8c0
+wc8c1:: ds 1 ; c8c1
+wc8c2:: ds 1 ; c8c2
+wc8c3:: ds 1 ; c8c3
+wc8c4:: ds 1 ; c8c4
+wc8c5:: ds 1 ; c8c5
+wc8c6:: ds 1 ; c8c6
+wc8c7:: ds 1 ; c8c7
 wc8c8:: ds 1 ; c8c8
-	ds $c8d3 - $c8c9
+wc8c9:: ds 1 ; c8c9
+wc8ca:: ds 1 ; c8ca
+wc8cb:: ds 1 ; c8cb
+wc8cc:: ds 1 ; c8cc
+wc8cd:: ds 1 ; c8cd
+wc8ce:: ds 1 ; c8ce
+wc8cf:: ds 1 ; c8cf
 
+wc8d0:: ds 1 ; c8d0
+wc8d1:: ds 1 ; c8d1
+wc8d2:: ds 1 ; c8d2
 wc8d3:: ds 1 ; c8d3
 wc8d4:: ds 1 ; c8d4
 wc8d5:: ds 1 ; c8d5
 wc8d6:: ds 1 ; c8d6
-	ds $c8da - $c8d7
+wc8d7:: ds 1 ; c8d7
+wc8d8:: ds 1 ; c8d8
+wc8d9:: ds 1 ; c8d9
 wc8da:: ds 1 ; c8da
-	ds $c8dc - $c8db
+wc8db:: ds 1 ; c8db
 wc8dc:: ds 1 ; c8dc
 wc8dd:: ds 1 ; c8dd
 wc8de:: ds 1 ; c8de
-	ds $c8e2 - $c8df
+wc8df:: ds 1 ; c8df
+wc8e0:: ds 1 ; c8e0
+	ds $c8e2 - $c8e1
 wc8e2:: ds 2 ; c8e2
-	ds $c8e6 - $c8e4
+wc8e4:: ds 1 ; c8e4
+wc8e5:: ds 1 ; c8e5
 wc8e6:: ds 1 ; c8e6
-	ds $c8ee - $c8e7
-wc8ee:: ds 2 ; c8ee
+	ds $c8e8 - $c8e7
+wc8e8:: ds 1 ; c8e8
+wc8e9:: ds 1 ; c8e9
+wc8ea:: ds 1 ; c8ea
+wc8eb:: ds 1 ; c8eb
+	ds $c8ed - $c8ec
+wc8ed:: ds 1 ; c8ed
+
+; points to a tile in wBackgroundPatternTiles,
+; which will be drawn during next V-Blank
+wBackgroundPatternTilePtr:: ds 2 ; c8ee
+
 	ds $c8fa - $c8f0
 wc8fa:: ds 1 ; c8fa
 wc8fb:: ds 1 ; c8fb
@@ -405,36 +480,76 @@ wc903:: ds 1 ; c903
 wc904:: ds 1 ; c904
 wc905:: ds 1 ; c905
 wc906:: ds 1 ; c906
-wc907:: ds 1 ; c907
 
-	ds $c919 - $c908
+wBigScoreTilemap::   ds 6 * 2 ; c907
+wSmallScoreTilemap:: ds 6 * 1 ; c913
 
-wc919:: ds 4 ; c919
-wc91d:: ds 4 ; c91d
-wc921:: ds 6 ; c921
-wc927:: ds 6 ; c927
-wc92d:: ds 16 ; c92d
-wc93d:: ds 16 ; c93d
+wGameClockMinutesTilemap:: ds 2 * 2 ; c919
+wGameClockSecondsTilemap:: ds 2 * 2 ; c91d
 
-	ds $c9b2 - $c94d
+wSpeedLevelTilemap:: ds 6 * 1 ; c921
+wSpeedLevelAttrmap:: ds 6 * 1 ; c927
 
+wPlayerMonTilemap:: ds 4 * 4 ; c92d
+wPlayerMonAttrmap:: ds 4 * 4 ; c93d
+
+wOpponentMonTilemap:: ds 4 * 4 ; c94d
+wOpponentMonAttrmap:: ds 4 * 4 ; c95d
+
+wOpponentLifeGaugeTilemap:: ds 1 * 9 ; c96d
+wOpponentLifeGaugeAttrmap:: ds 1 * 9 ; c976
+
+wOpponentAttackMeterTilemap:: ds 2 * 7 ; c97f
+wOpponentAttackMeterAttrmap:: ds 2 * 7 ; c98d
+
+wc99b:: ds 4 ; c99b
+wc99f:: ds 4 ; c99f
+
+wc9a3:: ds 4 ; c9a3
+wc9a7:: ds 4 ; c9a7
+
+wRemainingHintsTile::       ds 1 ; c9ab
+wRemainingHintsAttributes:: ds 1 ; c9ac
+wHintStarTile::       ds 1 ; c9ad
+wHintStarAttributes:: ds 1 ; c9ae
+
+wc9af:: ds 1 ; c9af
+
+wc9b0:: ds 1 ; c9b0
+wc9b1:: ds 1 ; c9b1
 wc9b2:: ds 1 ; c9b2
 wc9b3:: ds 1 ; c9b3
 wc9b4:: ds 1 ; c9b4
 wc9b5:: ds 1 ; c9b5
-	ds $c9e6 - $c9b6
-wc9e6:: ds 8 ; c9e6
-	ds $c9fe - $c9ee
+wc9b6:: ds 1 ; c9b6
+wc9b7:: ds 1 ; c9b7
+wc9b8:: ds 1 ; c9b8
+wc9b9:: ds 1 ; c9b9
+wc9ba:: ds 1 ; c9ba
+wc9bb:: ds 1 ; c9bb
+wc9bc:: ds 1 ; c9bc
+wc9bd:: ds 1 ; c9bd
+	ds $c9e6 - $c9be
+wc9e6:: ds 1 palettes ; c9e6
+wc9ee:: ds 1 palettes ; c9ee
+	ds $c9fe - $c9f6
 wc9fe:: ds 8 ; c9fe
-wca06:: ds 8 ; ca06
+wca06:: ds 1 palettes ; ca06
 
-	ds $ca18 - $ca0e
+	ds $ca16 - $ca0e
+
+wca16:: ds 2 ; ca16
 
 wca18:: ds 1 ; ca18
 wca19:: ds 1 ; ca19
-	ds $ca1d - $ca1a
+wca1a:: ds 1 ; ca1a
+wca1b:: ds 1 ; ca1b
+wca1c:: ds 1 ; ca1c
 wca1d:: ds 1 ; ca1d
-	ds $ca22 - $ca1e
+wca1e:: ds 1 ; ca1e
+wca1f:: ds 1 ; ca1f
+wca20:: ds 1 ; ca20
+wca21:: ds 1 ; ca21
 wca22:: ds 1 ; ca22
 wca23:: ds 2 ; ca23
 wca25:: ds 2 ; ca25
@@ -445,14 +560,19 @@ wca8f:: ds 1 ; ca8f
 	ds $cac9 - $ca90
 wcac9:: ds 1 ; cac9
 wcaca:: ds 1 ; caca
-	ds $cad0 - $cacb
+	ds $cacf - $cacb
+wcacf:: ds 1 ; cacf
 wcad0:: ds 2 ; cad0
 wcad2:: ds 1 ; cad2
 	ds $cad4 - $cad3
 wcad4:: ds 1 ; cad4
-	ds $cad9 - $cad5
+wcad5:: ds 1 ; cad5
+wcad6:: ds 1 ; cad6
+wcad7:: ds 1 ; cad7
+wcad8:: ds 1 ; cad8
 wcad9:: ds 1 ; cad9
-	ds $cade - $cada
+wcada:: ds 1 ; cada
+	ds $cade - $cadb
 wcade:: ds 1 ; cade
 wcadf:: ds 1 ; cadf
 wcae0:: ds 1 ; cae0
@@ -515,10 +635,12 @@ wcd34:: ds 1 ; cd34
 wcd42:: ds 2 ; cd42
 wcd44:: ds 2 ; cd44
 wcd46:: ds 1 ; cd46
-	ds $cd68 - $cd47
+	ds $cd67 - $cd47
+wcd67:: ds 1 ; cd67
 wcd68:: ds 1 ; cd68
 wcd69:: ds 1 ; cd69
-	ds $cd6e - $cd6a
+wcd6a:: ds 1 ; cd6a
+	ds $cd6e - $cd6b
 wcd6e:: ds 1 ; cd6e
 wcd6f:: ds 1 ; cd6f
 wcd70:: ds 1 ; cd70
@@ -526,8 +648,7 @@ wcd71:: ds 1 ; cd71
 wcd72:: ds 1 ; cd72
 wcd73:: ds 1 ; cd73
 	ds $cdad - $cd74
-wcdad:: ds 1 ; cdad
-wcdae:: ds 1 ; cdae
+wcdad:: ds 2 ; cdad
 wcdaf:: ds 1 ; cdaf
 wcdb0:: ds 1 ; cdb0
 wcdb1:: ds 1 ; cdb1
@@ -546,17 +667,47 @@ wcdbd:: ds 1 ; cdbd
 wcdbe:: ds 1 ; cdbe
 wcdbf:: ds 1 ; cdbf
 wcdc0:: ds 1 ; cdc0
-	ds $cdc3 - $cdc1
+wcdc1:: ds 1 ; cdc1
+	ds $cdc3 - $cdc2
 wcdc3:: ds 1 ; cdc3
 wcdc4:: ds 1 ; cdc4
 wcdc5:: ds 1 ; cdc5
-wcdc6:: ds 1 ; cdc6
-wcdc7:: ds 1 ; cdc7
-	ds $cdf2 - $cdc8
+
+; whether player used a hint on current puzzle
+wUsedHint:: ds 1 ; cdc6
+; how many hints remaining for current puzzle round
+wRemainingHints:: ds 1 ; cdc7
+
+	ds $cdea - $cdc8
+
+wcdea:: ds 1 ; cdea
+wcdeb:: ds 1 ; cdeb
+wcdec:: ds 1 ; cdec
+wcded:: ds 1 ; cded
+wcdee:: ds 1 ; cdee
+wcdef:: ds 1 ; cdef
+wcdf0:: ds 1 ; cdf0
+wcdf1:: ds 1 ; cdf1
 wcdf2:: ds 1 ; cdf2
+	ds $cdf6 - $cdf3
+wcdf6:: ds 1 ; cdf6
+wcdf7:: ds 1 ; cdf7
+wcdf8:: ds 1 ; cdf8
 
-	ds $ce34 - $cdf3
+	ds $ce28 - $cdf9
 
+wce28:: ds 1 ; ce28
+wce29:: ds 1 ; ce29
+wce2a:: ds 1 ; ce2a
+wce2b:: ds 1 ; ce2b
+wce2c:: ds 1 ; ce2c
+wce2d:: ds 1 ; ce2d
+wce2e:: ds 1 ; ce2e
+wce2f:: ds 1 ; ce2f
+wce30:: ds 1 ; ce30
+wce31:: ds 1 ; ce31
+wce32:: ds 1 ; ce32
+wce33:: ds 1 ; ce33
 wce34:: ds 1 ; ce34
 wce35:: ds 1 ; ce35
 	ds $ce38 - $ce36
@@ -603,8 +754,10 @@ wcea0:: ds 1 ; cea0
 ; which game mode (GAMEMODE_* constant)
 wGameMode:: ds 1 ; cea1
 wcea2:: ds 1 ; cea2
-wcea3:: ds 1 ; cea3
-wcea4:: ds 1 ; cea4
+
+wPlayerMon:: ds 1 ; cea3
+wOpponentMon::  ds 1 ; cea4
+
 ; which game level (GAMELEVEL_* constant)
 wGameLevel:: ds 1 ; cea5
 wSpeedLevel:: ds 1 ; cea6
@@ -612,7 +765,7 @@ wcea7:: ds 1 ; cea7
 wcea8:: ds 1 ; cea8
 wcea9:: ds 1 ; cea9
 wceaa:: ds 1 ; ceaa
-wceab:: ds 1 ; ceab
+wStage:: ds 1 ; ceab
 wceac:: ds 1 ; ceac
 wcead:: ds 1 ; cead
 wceae:: ds 1 ; ceae
@@ -626,7 +779,7 @@ wceb5:: ds 1 ; ceb5
 wceb6:: ds 1 ; ceb6
 wceb7:: ds 1 ; ceb7
 wceb8:: ds 1 ; ceb8
-wPdPScoreLimitSetting:: ds 1 ; ceb9
+wScoreLimitSetting:: ds 1 ; ceb9
 wceba:: ds 1 ; ceba
 wcebb:: ds 1 ; cebb
 wcebc:: ds 1 ; cebc
@@ -785,13 +938,34 @@ w1da9e:: ds 1 ; da9e
 w1da9f:: ds 1 ; da9f
 w1daa0:: ds 1 ; daa0
 
-	ds $dd85 - $daa1
+w1daa1:: ; daa1
+	ds $1
+
+w1daa2:: ds 1 ; daa2
+w1daa3:: ds 1 ; daa3
+w1daa4:: ds 1 ; daa4
+w1daa5:: ds 1 ; daa5
+w1daa6:: ds 1 ; daa6
+w1daa7:: ds 1 ; daa7
+
+	ds $dad1 - $daa8
+
+w1dad1:: ds 1 ; dad1
+	ds $dd85 - $dad2
 
 w1dd85:: ds 1 ; dd85
 
+	ds $dfb0 - $dd86
+
+
 SECTION "WRAM2", WRAMX
 
-	ds $dd00 - $d000
+	ds $da80 - $d000
+
+w2da80:: ; da80
+	ds $60
+
+	ds $dd00 - $dae0
 
 w2dd00:: ds 2 * TILE_HEIGHT ; dd00
 
@@ -838,6 +1012,44 @@ w2dd3a:: ds 2 ; dd3a
 w2dd3c:: ds 1 ; dd3c
 w2dd3d:: ds 2 ; dd3d
 w2dd3f:: ds 1 ; dd3f
+
+SECTION "WRAM4", WRAMX
+
+; tiles of pattern drawn in the background of all stages
+; is updated continuously and cycles through these 4 tiles
+wBackgroundPatternTiles:: ds 4 tiles ; d000
+
+SECTION "WRAM6", WRAMX
+
+; game board is organized in a 6x9 block grid, but
+; internally the data grids are organized as 8x10
+; only the first 6 rows actually have any data, the rest is empty
+; moreover the extra row at the bottom holds data for the next set of blocks
+
+; each cell represents a block type (BLOCK_*) and extra flags (tbd)
+wBlocks:: ds BOARD_VIRTUAL_AREA ; d000
+
+	ds $8
+
+w6d058:: ds BOARD_VIRTUAL_AREA ; d058
+
+	ds $8
+
+w6d0b0:: ds BOARD_VIRTUAL_AREA ; d0b0
+
+	ds $d150 - $d100
+
+w6d150:: ds BOARD_VIRTUAL_AREA ; d150
+
+	ds $d300 - $d1a0
+
+w6d300:: ; d300
+	ds $300
+
+	ds $dd80 - $d600
+
+w6dd80:: ds BOARD_VIRTUAL_AREA * 4 ; dd80
+w6dec0:: ds BOARD_VIRTUAL_AREA * 4 ; dec0
 
 SECTION "Scratch WRAM", WRAMX
 

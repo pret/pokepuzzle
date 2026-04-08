@@ -1,3 +1,5 @@
+SETCHARMAP ascii
+
 SECTION "Bank 1a@4a0f", ROMX[$4a0f], BANK[$1a]
 
 Func_68a0f:
@@ -29,9 +31,57 @@ Func_68a0f:
 	ldh [hff8a], a
 	pop bc
 	ret
-; 0x68a37
 
-SECTION "Bank 1a@4b3d", ROMX[$4b3d], BANK[$1a]
+Func_68a37:
+	ldh a, [hff8a]
+	ld l, a
+	ld h, $00
+	add hl, hl
+	ld c, l
+	ld b, h
+	ld hl, $4000
+	add hl, bc
+	ld a, [hli]
+	ld c, a
+	ld a, [hl]
+	and $1f
+	ld b, a
+	ld a, [hl]
+	and $e0
+	swap a
+	ld e, a
+	ld d, $00
+	xor a
+	ldh [hff8c], a
+	ld a, $08
+	ldh [hff8d], a
+	ld hl, $4000
+	add hl, bc
+	push hl
+	ld hl, $4aa7
+	add hl, de
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	jp hl
+; 0x68a65
+
+SECTION "Bank 1a@4b26", ROMX[$4b26], BANK[$1a]
+
+Func_68b26:
+	push bc
+	ldh a, [hff8a]
+	ld c, a
+	ld b, $00
+	ld hl, $4895
+	add hl, bc
+	ld a, [hl]
+	ld [wc8dc], a
+	xor a
+	ld [wc8da], a
+	ld [wc8db], a
+	pop bc
+	ret
 
 Func_68b3d:
 	push bc
@@ -47,14 +97,346 @@ Func_68b3d:
 	ld [wc8de], a
 	pop bc
 	ret
-; 0x68b52
+
+Func_68b52:
+	ldh a, [hWRAMBank]
+	push af
+	ld a, $02
+	wramswitch
+	ld bc, $d000
+	ld de, NULL
+.asm_68b61
+	call Func_68c31
+	ld hl, $d180
+	call Func_68c53
+	jr c, .asm_68b61
+	ld bc, $d0c0
+	ld de, NULL
+.asm_68b72
+	call Func_68c31
+	ld hl, $d480
+	call Func_68c53
+	jr c, .asm_68b72
+	ld de, NULL
+.asm_68b80
+	ld hl, $d480
+	add hl, de
+	ld a, [hli]
+	ldh [hff8a], a
+	ld a, [hli]
+	ldh [hff8b], a
+	ld a, [hli]
+	ldh [hff8c], a
+	ld a, [hli]
+	ldh [hff8d], a
+	ld a, [hli]
+	ldh [hff8e], a
+	ld a, [hl]
+	ldh [hff8f], a
+	ld hl, $d180
+	add hl, de
+	ldh a, [hff8a]
+	sub [hl]
+	ld c, a
+	inc hl
+	ldh a, [hff8b]
+	sbc [hl]
+	ld b, a
+	inc hl
+	sra b
+	rr c
+	sra b
+	rr c
+	sra b
+	rr c
+	sra b
+	rr c
+	sra b
+	rr c
+	ld a, c
+	ldh [hff8a], a
+	ld a, b
+	ldh [hff8b], a
+	ldh a, [hff8c]
+	sub [hl]
+	ld c, a
+	inc hl
+	ldh a, [hff8d]
+	sbc [hl]
+	ld b, a
+	inc hl
+	sra b
+	rr c
+	sra b
+	rr c
+	sra b
+	rr c
+	sra b
+	rr c
+	sra b
+	rr c
+	ld a, c
+	ldh [hff8c], a
+	ld a, b
+	ldh [hff8d], a
+	ldh a, [hff8e]
+	sub [hl]
+	ld c, a
+	inc hl
+	ldh a, [hff8f]
+	sbc [hl]
+	ld b, a
+	inc hl
+	sra b
+	rr c
+	sra b
+	rr c
+	sra b
+	rr c
+	sra b
+	rr c
+	sra b
+	rr c
+	ld a, c
+	ldh [hff8e], a
+	ld a, b
+	ldh [hff8f], a
+	ld hl, $d780
+	add hl, de
+	ldh a, [hff8a]
+	ld [hli], a
+	ldh a, [hff8b]
+	ld [hli], a
+	ldh a, [hff8c]
+	ld [hli], a
+	ldh a, [hff8d]
+	ld [hli], a
+	ldh a, [hff8e]
+	ld [hli], a
+	ldh a, [hff8f]
+	ld [hl], a
+	ld hl, $8
+	add hl, de
+	ld d, h
+	ld e, l
+	ld a, e
+	sub $00
+	ld a, d
+	sbc $03
+	jp c, .asm_68b80
+	pop af
+	wramswitch
+	ret
+
+Func_68c31:
+	ld a, [bc]
+	and $1f
+	ldh [hff8a], a
+	ld a, [bc]
+	inc bc
+	and $e0
+	swap a
+	sra a
+	ld l, a
+	ld a, [bc]
+	and $03
+	add a
+	add a
+	add a
+	or l
+	ldh [hff8b], a
+	ld a, [bc]
+	inc bc
+	and $7c
+	sra a
+	sra a
+	ldh [hff8c], a
+	ret
+
+Func_68c53:
+	add hl, de
+	xor a
+	ld [hli], a
+	ldh a, [hff8a]
+	ld [hli], a
+	xor a
+	ld [hli], a
+	ldh a, [hff8b]
+	ld [hli], a
+	xor a
+	ld [hli], a
+	ldh a, [hff8c]
+	ld [hli], a
+	xor a
+	ld [hli], a
+	ld [hl], a
+	ld hl, $8
+	add hl, de
+	ld d, h
+	ld e, l
+	ld a, e
+	sub $00
+	ld a, d
+	sbc $03
+	ret
+
+Func_68c73::
+	ldh a, [hWRAMBank]
+	push af
+	ld a, $02
+	wramswitch
+	ld hl, $d780
+	add hl, de
+	ld a, [hli]
+	ldh [hff8a], a
+	ld a, [hli]
+	ldh [hff8b], a
+	ld a, [hli]
+	ldh [hff8c], a
+	ld a, [hli]
+	ldh [hff8d], a
+	ld a, [hli]
+	ldh [hff8e], a
+	ld a, [hl]
+	ldh [hff8f], a
+	ld hl, $d480
+	add hl, de
+	ld a, [hli]
+	ld b, [hl]
+	ld c, a
+	ld hl, $d180
+	add hl, de
+	ldh a, [hff8a]
+	add [hl]
+	ld [hli], a
+	ldh a, [hff8b]
+	adc [hl]
+	ld [hld], a
+	ld a, [hli]
+	sub c
+	ld a, [hl]
+	sbc b
+	jr c, .asm_68caf
+	ld a, b
+	ld [hld], a
+	ld a, c
+	ld [hli], a
+.asm_68caf
+	ld b, d
+	ld c, e
+	sra b
+	rr c
+	sra b
+	rr c
+	ld a, [hl]
+	ld hl, $d000
+	add hl, bc
+	ld c, a
+	ld a, [hl]
+	and $e0
+	or c
+	ld [hl], a
+	ld hl, $d482
+	add hl, de
+	ld a, [hli]
+	ld b, [hl]
+	ld c, a
+	ld hl, wPdPBlock0fUnk4
+	add hl, de
+	ldh a, [hff8c]
+	add [hl]
+	ld [hli], a
+	ldh a, [hff8d]
+	adc [hl]
+	ld [hld], a
+	ld a, [hli]
+	sub c
+	ld a, [hl]
+	sbc b
+	jr c, .asm_68ce1
+	ld a, b
+	ld [hld], a
+	ld a, c
+	ld [hli], a
+.asm_68ce1
+	ld b, d
+	ld c, e
+	sra b
+	rr c
+	sra b
+	rr c
+	ld a, [hl]
+	ld hl, $d000
+	add hl, bc
+	ld b, a
+	and $07
+	swap a
+	add a
+	ld c, a
+	ld a, [hl]
+	and $1f
+	or c
+	ld [hli], a
+	ld a, b
+	and $18
+	rra
+	rra
+	rra
+	ld c, a
+	ld a, [hl]
+	and $fc
+	or c
+	ld [hl], a
+	ld hl, $d484
+	add hl, de
+	ld a, [hli]
+	ld b, [hl]
+	ld c, a
+	ld hl, wPdPBlock10Type
+	add hl, de
+	ldh a, [hff8e]
+	add [hl]
+	ld [hli], a
+	ldh a, [hff8f]
+	adc [hl]
+	ld [hld], a
+	ld a, [hli]
+	sub c
+	ld a, [hl]
+	sbc b
+	jr c, .asm_68d25
+	ld a, b
+	ld [hld], a
+	ld a, c
+	ld [hli], a
+.asm_68d25
+	ld b, d
+	ld c, e
+	sra b
+	rr c
+	sra b
+	rr c
+	ld a, [hl]
+	ld hl, $d001
+	add hl, bc
+	add a
+	add a
+	ld c, a
+	ld a, [hl]
+	and $83
+	or c
+	ld [hl], a
+	pop af
+	wramswitch
+	ret
+; 0x68d42
 
 SECTION "Bank 1a@4ebb", ROMX[$4ebb], BANK[$1a]
 
 Func_68ebb:
 	xor a
-	ld [wcdad], a
-	ld [wcdae], a
+	ld [wcdad + 0], a
+	ld [wcdad + 1], a
 	ld [wcdaf], a
 	ld [wcdb0], a
 	ld [wcdb1], a
@@ -206,6 +588,114 @@ RandomSamples::
 	db $3d, $da, $a2, $7e, $f8, $37, $06, $aa, $ca, $01, $b3, $aa, $9d, $36, $9d, $54
 ; 0x696f9
 
+SECTION "Bank 1a@5a7d", ROMX[$5a7d], BANK[$1a]
+
+Func_69a7d:
+	xor a
+	ldh [hff8e], a
+	ldh [hff8f], a
+	ldh [hff90], a
+	ldh [hff91], a
+	ldh [hff94], a
+	ldh [hff95], a
+	ldh [hff96], a
+	ldh [hff97], a
+	ld a, b
+	or c
+	or d
+	or e
+.asm_69a92
+	jr z, .asm_69a92
+	ld a, $20
+.asm_69a96
+	push af
+	ldh a, [hff8a]
+	sla a
+	ldh [hff8a], a
+	ldh a, [hff8b]
+	rla
+	ldh [hff8b], a
+	ldh a, [hff8c]
+	rla
+	ldh [hff8c], a
+	ldh a, [hff8d]
+	rla
+	ldh [hff8d], a
+	ldh a, [hff8e]
+	rla
+	ldh [hff8e], a
+	ldh a, [hff8f]
+	rla
+	ldh [hff8f], a
+	ldh a, [hff90]
+	rla
+	ldh [hff90], a
+	ldh a, [hff91]
+	rla
+	ldh [hff91], a
+	ldh a, [hff8e]
+	sub e
+	ldh a, [hff8f]
+	sbc d
+	ldh a, [hff90]
+	sbc c
+	ldh a, [hff91]
+	sbc b
+	jr c, .asm_69ae2
+	ldh a, [hff8e]
+	sub e
+	ldh [hff8e], a
+	ldh a, [hff8f]
+	sbc d
+	ldh [hff8f], a
+	ldh a, [hff90]
+	sbc c
+	ldh [hff90], a
+	ldh a, [hff91]
+	sbc b
+	ldh [hff91], a
+.asm_69ae2
+	ccf
+	ldh a, [hff94]
+	rla
+	ldh [hff94], a
+	ldh a, [hff95]
+	rla
+	ldh [hff95], a
+	ldh a, [hff96]
+	rla
+	ldh [hff96], a
+	ldh a, [hff97]
+	rla
+	ldh [hff97], a
+	pop af
+	dec a
+	jr nz, .asm_69a96
+	ldh a, [hff94]
+	ld e, a
+	ldh a, [hff95]
+	ld d, a
+	ldh a, [hff96]
+	ld c, a
+	ldh a, [hff97]
+	ld b, a
+	ret
+; 0x69b08
+
+SECTION "Bank 1a@6209", ROMX[$6209], BANK[$1a]
+
+Func_6a209:
+	call Func_2380
+	ret
+; 0x6a20d
+
+SECTION "Bank 1a@62ec", ROMX[$62ec], BANK[$1a]
+
+Func_6a2ec:
+	call Func_2470
+	ret
+; 0x6a2f0
+
 SECTION "Bank 1a@62f4", ROMX[$62f4], BANK[$1a]
 
 Func_6a2f4:
@@ -251,7 +741,7 @@ Func_6a7bc:
 	and a
 	jr nz, .new_game
 	ld hl, sSaveDataContent
-	ld bc, $682
+	ld bc, sSaveDataEnd - sSaveDataContent
 	call CalculateChecksum
 	; is the checksum valid?
 	ld hl, sSaveDataChecksum
@@ -266,11 +756,11 @@ Func_6a7bc:
 
 .invalid_checksum
 	; overwrites sSaveData with sBackupSaveData
-	copy_data wScratch, sBackupSaveData, $684
-	copy_data sSaveData, wScratch, $684
+	copy_data wScratch, sBackupSaveData, sSaveDataEnd - sSaveData
+	copy_data sSaveData, wScratch, sSaveDataEnd - sSaveData
 
 	ld hl, sSaveDataContent
-	ld bc, $682
+	ld bc, sSaveDataEnd - sSaveDataContent
 	call CalculateChecksum
 	; is the backup checksum valid?
 	ld hl, sSaveDataChecksum
@@ -283,10 +773,10 @@ Func_6a7bc:
 	jr nz, .new_game
 	; yes it's valid, continue
 .valid_checksum
-	ld hl, $a686
-	ld bc, $1831
+	ld hl, sUnkData
+	ld bc, sUnkDataEnd - sUnkData
 	call CalculateChecksum
-	ld hl, $a684
+	ld hl, sUnkChecksum
 	ld a, e
 	cp [hl]
 	jp nz, .asm_6a8dc
@@ -331,7 +821,7 @@ Func_6a7bc:
 
 	; fill all SRAM1 with $ff
 	ld de, STARTOF("SRAM1")
-	ld bc, $2000
+	ld bc, SIZEOF(SRAM)
 	ld a, $ff
 	call FillMemory
 
@@ -369,7 +859,7 @@ Func_6a7bc:
 	call SetSaveDataChecksumAndBackup
 .asm_6a8dc
 	xor a
-	ld [$ab36], a
+	ld [s1ab36], a
 	call Func_20d4
 	pop af
 	sramswitch
@@ -1134,13 +1624,56 @@ Func_6aede:
 
 Func_6af04::
 	ld c, 1 ; byte
-	ld de, $ab36
+	ld de, s1ab36
 	ld hl, hff8a
-	call Func_212f
+	call CopySRAM1
 	ldh a, [hff8a]
 	ld b, a
 	ret
 ; 0x6af13
+
+SECTION "Bank 1a@71cd", ROMX[$71cd], BANK[$1a]
+
+Func_6b1cd:
+	ld a, b
+	ld [wcdc3], a
+	ld de, wcdc4
+	ld bc, $7
+	ld a, $00
+	call FillMemory
+	call Func_6a209
+	call SetSaveDataChecksumAndBackup
+	ret
+
+Func_6b1e3:
+	ld a, b
+	ld [wcdc3], a
+	ld de, wcdc4
+	ld bc, $d
+	ld a, $00
+	call FillMemory
+	call Func_6a2ec
+	call SetSaveDataChecksumAndBackup
+	ret
+; 0x6b1f9
+
+SECTION "Bank 1a@72ab", ROMX[$72ab], BANK[$1a]
+
+Func_6b2ab:
+	push bc
+	ld a, b
+	ld [wcdc3], a
+	call Func_24ac
+	pop bc
+	ld a, b
+	ld [wcdc3], a
+	ld a, c
+	ld [$cdcc], a
+	ld [$c8e1], a
+	call Func_6a2ec
+	call SetSaveDataChecksumAndBackup
+	ret
+; 0x6b2c6
 
 SECTION "Bank 1a@730e", ROMX[$730e], BANK[$1a]
 
@@ -1160,7 +1693,7 @@ Func_6b31e:
 	ld c, 1 ; byte
 	ld hl, w1da9e
 	ld de, sSaveDataUnk644
-	call Func_212f
+	call CopySRAM1
 	pop af
 	wramswitch
 	ret
@@ -1197,7 +1730,7 @@ Func_6b338:
 	ld e, a
 	ld c, 1 ; byte
 	pop hl
-	call Func_212f
+	call CopySRAM1
 	pop de
 	inc e
 	jr .loop
@@ -1236,7 +1769,7 @@ Func_6b39d:
 	ld c, 1 ; byte
 	ld hl, w1da9f
 	ld de, sSaveDataUnk645
-	call Func_212f
+	call CopySRAM1
 	pop af
 	wramswitch
 	ret
@@ -1249,7 +1782,7 @@ Func_6b3b7:
 	ld c, 1 ; byte
 	ld hl, w1daa0
 	ld de, sSaveDataUnk641
-	call Func_212f
+	call CopySRAM1
 	pop af
 	wramswitch
 	ret

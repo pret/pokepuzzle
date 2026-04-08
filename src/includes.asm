@@ -1,4 +1,5 @@
 INCLUDE "constants/hardware.inc"
+INCLUDE "constants/charmap.asm"
 
 INCLUDE "macros/asserts.asm"
 INCLUDE "macros/coords.asm"
@@ -12,4 +13,5 @@ INCLUDE "macros/ram.asm"
 INCLUDE "constants/menu_constants.asm"
 INCLUDE "constants/misc_constants.asm"
 INCLUDE "constants/music_constants.asm"
+INCLUDE "constants/pokemon_constants.asm"
 INCLUDE "constants/puzzle_constants.asm"

@@ -1,7 +1,7 @@
 SECTION "Bank 2@5b2d", ROMX[$5b2d], BANK[$2]
 
 Func_9b2d:
-	ld a, [wceab]
+	ld a, [wStage]
 	farcall_saveregs Func_10130e
 	ld [wcd08], a
 	add a

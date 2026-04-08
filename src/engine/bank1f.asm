@@ -16,12 +16,12 @@ Func_7c000::
 
 	xor a
 	ld [wce35], a
-	ld [$daa3], a
-	ld [$daa2], a
-	ld [$daa4], a
-	ld [$daa5], a
-	ld [$daa6], a
-	ld [$daa7], a
+	ld [w1daa3], a
+	ld [w1daa2], a
+	ld [w1daa4], a
+	ld [w1daa5], a
+	ld [w1daa6], a
+	ld [w1daa7], a
 
 	call Func_7c051
 	call Func_2dc3
@@ -64,15 +64,15 @@ Func_7c051:
 	ret
 
 Func_7c0a7::
-	call Func_7c0b3
-	ld a, [$daa7]
+	call .Func_7c0b3
+	ld a, [w1daa7]
 	and a
 	ret z
-	call Func_7c15a
+	call .Func_7c15a
 	ret
 
-Func_7c0b3:
-	ld a, [$daa3]
+.Func_7c0b3:
+	ld a, [w1daa3]
 	ld e, a
 	ld d, $00
 	ld hl, .PtrTable
@@ -84,17 +84,17 @@ Func_7c0b3:
 	jp hl
 
 .PtrTable:
-	dw .Func_7c0cc
+	dw .Wait40Frames
 	dw .Func_7c0d8
 	dw .Func_7c10d
 	dw .Func_7c117
 	dw .Func_7c120
 
-.Func_7c0cc:
+.Wait40Frames:
 	ld a, [wce35]
 	cp $40
 	jr nz, .asm_7c0d7
-	ld hl, $daa3
+	ld hl, w1daa3
 	inc [hl]
 .asm_7c0d7
 	ret
@@ -104,26 +104,27 @@ Func_7c0b3:
 	safe_copy_data $9905, $01, Attrmap_14d52f, $a, $16, $a
 	safe_copy_data $9800, $00, Tilemap_14d133, $14, $c, $8
 	safe_copy_data $9800, $01, Attrmap_14d29b, $14, $c, $8
-	ld hl, $daa3
+
+	ld hl, w1daa3
 	inc [hl]
 	ret
 
 .Func_7c10d:
 	ld a, $01
-	ld [$daa7], a
-	ld hl, $daa3
+	ld [w1daa7], a
+	ld hl, w1daa3
 	inc [hl]
 	ret
 
 .Func_7c117:
 	xor a
 	ld [wce35], a
-	ld hl, $daa3
+	ld hl, w1daa3
 	inc [hl]
 	ret
 
 .Func_7c120:
-	ld a, [$daa5]
+	ld a, [w1daa5]
 	and a
 	jr z, .asm_7c133
 	ld b, $27
@@ -155,18 +156,18 @@ Func_7c0b3:
 	ld [wce34], a
 	ret
 
-Func_7c15a:
-	ld a, [$daa6]
+.Func_7c15a:
+	ld a, [w1daa6]
 	and a
 	jr nz, .asm_7c16c
 	call Func_7c17b
-	ld a, [$daa6]
+	ld a, [w1daa6]
 	and a
 	ret nz
 	call Func_7c18a
 	ret
 .asm_7c16c
-	ld a, [$daa6]
+	ld a, [w1daa6]
 	cp $01
 	jr nz, .asm_7c177
 	call Func_7c17b
@@ -176,7 +177,7 @@ Func_7c15a:
 	ret
 
 Func_7c17b:
-	ld a, [$daa4]
+	ld a, [w1daa4]
 	ld e, a
 	ld d, $00
 	ld hl, $4199
@@ -188,7 +189,7 @@ Func_7c17b:
 	jp hl
 
 Func_7c18a:
-	ld a, [$daa4]
+	ld a, [w1daa4]
 	ld e, a
 	ld d, $00
 	ld hl, $41a1

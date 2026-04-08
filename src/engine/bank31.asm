@@ -663,7 +663,7 @@ SECTION "Bank 31@50a3", ROMX[$50a3], BANK[$31]
 
 Func_c50a3:
 	ld bc, $50ac
-	ld a, [wcea3]
+	ld a, [wPlayerMon]
 	jp Func_c512f
 ; 0xc50ac
 
@@ -671,7 +671,7 @@ SECTION "Bank 31@50c6", ROMX[$50c6], BANK[$31]
 
 Func_c50c6:
 	ld bc, $50cf
-	ld a, [wcea3]
+	ld a, [wPlayerMon]
 	jp Func_c512f
 ; 0xc50cf
 
@@ -770,7 +770,7 @@ Func_c5451:
 	ld [hli], a
 	ld de, wcec5 + $5
 	ld a, [wGameMode]
-	cp $00
+	cp GAMEMODE_MARATHON
 	jr z, .asm_c546d
 	ld de, wcecc + $5
 .asm_c546d
@@ -1263,9 +1263,9 @@ Func_c5676:
 	jp z, .asm_c5838
 	cp GAMEMODE_CHALLENGE
 	jp z, .asm_c5847
-	cp GAMEMODE_UNK6
+	cp GAMEMODE_2P_VS
 	jp z, .asm_c5847
-	cp GAMEMODE_UNK7
+	cp GAMEMODE_2P_TIME_ZONE
 	jp z, .asm_c5847
 	debug_loop
 
@@ -1360,14 +1360,14 @@ Func_c5676:
 	cp $07
 	jr z, .asm_c5912
 .asm_c58e1
-	ld a, [wcea3]
+	ld a, [wPlayerMon]
 	ld e, a
 	ld bc, $434d
 	farcall Func_c033c
 	call Func_c50a3
 	jr .asm_c5903
 .asm_c58f3
-	ld a, [wcea3]
+	ld a, [wPlayerMon]
 	ld e, a
 	ld bc, $434e
 	farcall Func_c033c
@@ -1511,7 +1511,7 @@ Func_c5a2e:
 	jr z, .asm_c5a43
 	cp GAMEMODE_GARBAGE
 	jr z, .asm_c5a43
-	cp GAMEMODE_UNK7
+	cp GAMEMODE_2P_TIME_ZONE
 	jr z, .asm_c5a52
 	ret
 .asm_c5a43
@@ -1660,7 +1660,7 @@ Func_c5c44:
 	ld a, $0b
 	ld [wcea2], a
 	ld a, $00
-	ld [wcea3], a
+	ld [wPlayerMon], a
 .asm_c5c5b
 	farcall Func_c6883 ; unnecessary farcall
 	farcall Func_11c9b
@@ -1674,7 +1674,7 @@ Func_c5c6e:
 	ld [hld], a
 	ld [hld], a
 
-	ld a, [wPdPScoreLimitSetting]
+	ld a, [wScoreLimitSetting]
 	and a
 	jr z, .asm_c5c81
 	ld a, 9
@@ -1745,7 +1745,7 @@ Func_c5c6e:
 
 Func_c5cf6:
 	ld a, [wGameMode]
-	cp GAMEMODE_UNK7
+	cp GAMEMODE_2P_TIME_ZONE
 	jr z, .asm_c5d23
 
 	; tiles to fill
@@ -1827,7 +1827,7 @@ Func_c5cf6:
 	ld [$d4e9], a
 	lda_coord 3, 2
 	ld [$d4e6], a
-	ld a, [wceab]
+	ld a, [wStage]
 	cp $0a
 	jr c, .asm_c5ddf
 	ld a, $42
@@ -1840,9 +1840,9 @@ Func_c5cf6:
 	ld a, [wGameMode]
 	cp GAMEMODE_CHALLENGE
 	jr z, .asm_c5dfc
-	cp GAMEMODE_UNK6
+	cp GAMEMODE_2P_VS
 	jr z, .asm_c5dfc
-	cp GAMEMODE_UNK7
+	cp GAMEMODE_2P_TIME_ZONE
 	jr z, .asm_c5e1e
 	lda_coord 3, 15
 	ld [$d8a5], a
@@ -1996,9 +1996,9 @@ Func_c6256:
 	dw .Puzzle ; GAMEMODE_PUZZLE
 	dw .Garbage ; GAMEMODE_GARBAGE
 	dw .Challenge ; GAMEMODE_CHALLENGE
-	dw .Func_c6329 ; GAMEMODE_UNK6
-	dw .Func_c633f ; GAMEMODE_UNK7
-	assert_table_length NUM_GAME_MODES
+	dw .Func_c6329 ; GAMEMODE_2P_VS
+	dw .Func_c633f ; GAMEMODE_2P_TIME_ZONE
+	assert_table_length NUM_PDP_GAME_MODES
 
 .Data_c6297:
 	dab v0BGMap0 ; dest
@@ -2131,9 +2131,9 @@ Func_c6353:
 	dw .Puzzle ; GAMEMODE_PUZZLE
 	dw .Garbage ; GAMEMODE_GARBAGE
 	dw .Challenge ; GAMEMODE_CHALLENGE
-	dw .Func_c641c ; GAMEMODE_UNK6
-	dw .Func_c642a ; GAMEMODE_UNK7
-	assert_table_length NUM_GAME_MODES
+	dw .Func_c641c ; GAMEMODE_2P_VS
+	dw .Func_c642a ; GAMEMODE_2P_TIME_ZONE
+	assert_table_length NUM_PDP_GAME_MODES
 
 .Marathon:
 	ld de, v0Tiles2 tile $30
@@ -2203,9 +2203,9 @@ Func_c6436:
 	dw .Puzzle ; GAMEMODE_PUZZLE
 	dw .Garbage ; GAMEMODE_GARBAGE
 	dw .Challenge ; GAMEMODE_CHALLENGE
-	dw .Func_c64bb ; GAMEMODE_UNK6
-	dw .Func_c64c9 ; GAMEMODE_UNK7
-	assert_table_length NUM_GAME_MODES
+	dw .Func_c64bb ; GAMEMODE_2P_VS
+	dw .Func_c64c9 ; GAMEMODE_2P_TIME_ZONE
+	assert_table_length NUM_PDP_GAME_MODES
 
 .Marathon:
 	ld de, v0Tiles2
@@ -2405,18 +2405,18 @@ Func_c657a:
 	decompress $5ebc, $31, $2a ; c5ebc
 
 Func_c65f4:
-	ld a, [wcea3]
+	ld a, [wPlayerMon]
 	func_621 v0Tiles2 tile $04, $00, $5f6e, $31, $3d, $90, $0, $1 ; c5f6e
 	ld a, [wGameMode]
 	cp GAMEMODE_CHALLENGE
 	jr z, .asm_c6618
-	cp GAMEMODE_UNK6
+	cp GAMEMODE_2P_VS
 	jr z, .asm_c6618
-	cp GAMEMODE_UNK7
+	cp GAMEMODE_2P_TIME_ZONE
 	jr z, .asm_c6618
 	jr .asm_c662b
 .asm_c6618
-	ld a, [wcea4]
+	ld a, [wOpponentMon]
 	func_621 v0Tiles2 tile $30, $00, $5f6e, $31, $3d, $90, $0, $1 ; c5f6e
 .asm_c662b
 	ld a, [wGameMode]
@@ -2424,14 +2424,14 @@ Func_c65f4:
 	jr z, .garbage
 	cp GAMEMODE_CHALLENGE
 	jr z, .asm_c6641
-	cp GAMEMODE_UNK6
+	cp GAMEMODE_2P_VS
 	jr z, .asm_c6641
 	jr .asm_c6650
 .garbage
-	ld a, [wcea3]
+	ld a, [wPlayerMon]
 	jr .asm_c6644
 .asm_c6641
-	ld a, [wcea4]
+	ld a, [wOpponentMon]
 .asm_c6644
 	ld de, v0Tiles2 tile $3f
 	ld c, $00
@@ -2447,10 +2447,10 @@ Func_c65f4:
 	ld a, [wceac]
 	and a
 	jr nz, .asm_c66a4
-	ld a, [wceab]
+	ld a, [wStage]
 	cp 10 ; >= 10?
 	jr nc, .asm_c6685
-	ld a, [wceab]
+	ld a, [wStage]
 	call ConvertToDigits
 	ld a, e
 	ldcoord_a 6, 2
@@ -2462,7 +2462,7 @@ Func_c65f4:
 	ldcoord_a 4, 2
 	jr .asm_c66a4
 .asm_c6685
-	ld a, [wceab]
+	ld a, [wStage]
 	call ConvertToDigits
 	ld a, e
 	ldcoord_a 6, 2
@@ -2483,7 +2483,7 @@ Func_c65f4:
 	jr z, .asm_c66ad
 	jr .asm_c66bf
 .asm_c66ad
-	ld a, [wcea4]
+	ld a, [wOpponentMon]
 	call ConvertToDigits
 	ld a, e
 	ldcoord_a 7, 11
@@ -2493,9 +2493,9 @@ Func_c65f4:
 	ldcoord_a 6, 11
 .asm_c66bf
 	ld a, [wGameMode]
-	cp GAMEMODE_UNK6
+	cp GAMEMODE_2P_VS
 	jr z, .asm_c66cc
-	cp GAMEMODE_UNK7
+	cp GAMEMODE_2P_TIME_ZONE
 	jr z, .asm_c66f2
 	jr .asm_c6716
 .asm_c66cc
@@ -2598,9 +2598,9 @@ Func_c65f4:
 
 Func_c6799:
 	ld a, [wGameMode]
-	cp GAMEMODE_UNK6
+	cp GAMEMODE_2P_VS
 	jr z, .asm_c67a5
-	cp GAMEMODE_UNK7
+	cp GAMEMODE_2P_TIME_ZONE
 	jr z, .asm_c67b8
 	ret
 .asm_c67a5
@@ -2671,9 +2671,9 @@ Func_c67e5:
 	ld [wceb0], a
 .asm_c6811
 	ld a, [wGameMode]
-	cp GAMEMODE_UNK6
+	cp GAMEMODE_2P_VS
 	jr z, .asm_c681d
-	cp GAMEMODE_UNK7
+	cp GAMEMODE_2P_TIME_ZONE
 	jr z, .asm_c6842
 	ret
 .asm_c681d
@@ -2832,7 +2832,7 @@ Func_c6903:
 	jr z, .asm_c6937
 	cp GAMEMODE_PUZZLE
 	jr z, .asm_c6937
-	cp GAMEMODE_UNK7
+	cp GAMEMODE_2P_TIME_ZONE
 	jr z, .asm_c6929
 	ret
 
@@ -2856,7 +2856,7 @@ Func_c6903:
 	inc a
 .asm_c694b
 	func_621 $8040, $00, $6993, $31, $3, $20, $0, $1 ; 8040, c6993
-	ld a, [wceab]
+	ld a, [wStage]
 	and a
 	jr nz, .asm_c6962
 	inc a
@@ -2869,7 +2869,7 @@ Func_c6903:
 	ld a, $01
 .asm_c696b
 	func_621 $8060, $00, $6993, $31, $3, $20, $0, $1 ; 8060, c6993
-	ld a, [wceab]
+	ld a, [wStage]
 	and a
 	jr nz, .asm_c6982
 	inc a
@@ -2958,8 +2958,8 @@ GameState_LoadGBCompatibility::
 	fill_mem $0, $4, $100
 
 	; load font graphics
-	copy_data v0Tiles2, Font1Gfx, $80 tiles
-	copy_data v0Tiles1, Font2Gfx, $80 tiles
+	copy_data v0Tiles2, $00, FontGfx tile $00, BANK(FontGfx), $80 tiles
+	copy_data v0Tiles1, $00, FontGfx tile $80, BANK(FontGfx), $80 tiles
 
 	call Func_c7aa9
 
@@ -3174,8 +3174,8 @@ GameState_LoadPanelDePonMenu::
 	ld a, $80
 	fill_mem $0, $4, $100
 
-	copy_data v0Tiles2, Font1Gfx, $80 tiles
-	copy_data v0Tiles1, Font2Gfx, $80 tiles
+	copy_data v0Tiles2, $00, FontGfx tile $00, BANK(FontGfx), $80 tiles
+	copy_data v0Tiles1, $00, FontGfx tile $80, BANK(FontGfx), $80 tiles
 
 	ld de, v0BGMap1
 	ld c, $00
@@ -3387,7 +3387,7 @@ Func_c7603:
 	ret
 
 Func_c7621:
-	ld a, [wPdPScoreLimitSetting]
+	ld a, [wScoreLimitSetting]
 	and a
 	jr nz, .asm_c7633
 	copy_data $990c, $00, $4495, $58, $8 ; 990c, 160495
@@ -3606,7 +3606,7 @@ Func_c77d7:
 	ret
 
 Func_c77de:
-	ld hl, wPdPScoreLimitSetting
+	ld hl, wScoreLimitSetting
 	call TogglePdPSetting
 	ret
 
@@ -3652,7 +3652,7 @@ Func_c7816:
 
 	xor a
 	ld [wceb2], a
-	ld [wPdPScoreLimitSetting], a
+	ld [wScoreLimitSetting], a
 	ld [wceb8], a
 	ld [wcebc], a
 	ld [wcebd], a

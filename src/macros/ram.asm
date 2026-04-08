@@ -64,4 +64,5 @@ MACRO? save_data_struct
 	ds $674 - $646
 \1Unk674::   ds   8 ; $674
 	ds $684 - $67c
+\1End::
 ENDM

@@ -1,10 +1,24 @@
 SECTION "Bank A", ROMX
-Font1Gfx:: INCBIN "gfx/font1.2bpp"
-Font2Gfx:: INCBIN "gfx/font2.2bpp"
+FontGfx:: INCBIN "gfx/font.2bpp"
 
+SECTION "Bank 13", ROMX
+SECTION "Bank 13@5bac", ROMX[$5bac], BANK[$13]
+Gfx_4dbac:: INCBIN "gfx/gfx_4dbac.2bpp"
+SECTION "Bank 13@5c6c", ROMX[$5c6c], BANK[$13]
+DemoHintGfx:: INCBIN "gfx/demo_hint.2bpp"
 
 SECTION "Bank 32", ROMX
 Gfx_c8000:: INCBIN "gfx/gfx_c8000.2bpp"
+
+SECTION "Bank 36", ROMX
+SECTION "Bank 36@6170", ROMX[$6170], BANK[$36]
+PressStartGfx:: INCBIN "gfx/press_start.2bpp"
+
+SECTION "Bank 38", ROMX
+BlocksGfx:: INCBIN "gfx/blocks.2bpp"
+Gfx_e1000:: INCBIN "gfx/gfx_e1000.2bpp"
+SECTION "Bank 38@58a0", ROMX[$58a0], BANK[$38]
+StopCounterGfx:: INCBIN "gfx/stop_counter.2bpp"
 
 SECTION "Bank 53", ROMX
 

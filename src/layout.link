@@ -44,10 +44,18 @@ ROMX $10
 	"Bank 10"
 ROMX $11
 	"Bank 11"
+ROMX $12
+	"Bank 12"
+ROMX $13
+	"Bank 13"
+ROMX $14
+	"Bank 14"
 ROMX $19
 	"Bank 19"
 ROMX $1a
 	"Bank 1A"
+ROMX $1b
+	"Bank 1B"
 ROMX $1d
 	"Bank 1D"
 ROMX $1e
@@ -64,6 +72,10 @@ ROMX $31
 	"Bank 31"
 ROMX $32
 	"Bank 32"
+ROMX $36
+	"Bank 36"
+ROMX $38
+	"Bank 38"
 ROMX $40
 	"Bank 40"
 ROMX $43
@@ -96,6 +108,10 @@ WRAMX $1
 	"WRAM1@d587"
 WRAMX $2
 	"WRAM2"
+WRAMX $4
+	"WRAM4"
+WRAMX $6
+	"WRAM6"
 WRAMX $7
 	"Scratch WRAM"
 VRAM $00
