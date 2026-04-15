@@ -737,9 +737,9 @@ Func_108ee:
 	ret
 
 ; output a according to game mode and level:
-; - if Puzzle mode || Easy/Slow level: a = $0 
-; - if Normal level:                   a = $1 
-; - if Hard/S-Hard/V-Hard level:       a = $2 
+; - if Puzzle mode || Easy/Slow level: a = $0
+; - if Normal level:                   a = $1
+; - if Hard/S-Hard/V-Hard level:       a = $2
 Func_108f4:
 	ld a, [wGameMode]
 	cp GAMEMODE_PUZZLE

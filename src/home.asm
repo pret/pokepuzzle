@@ -1323,7 +1323,7 @@ SetClockSpeed:
 
 GameStateTable:
 	table_width 3
-	dab Func_10018 ; GAMESTATE_00 
+	dab Func_10018 ; GAMESTATE_00
 	dwb $4000, $03 ; GAMESTATE_01
 	dwb $404e, $03 ; GAMESTATE_02
 	dwb $4000, $14 ; GAMESTATE_03
