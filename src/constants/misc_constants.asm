@@ -1,2 +1,41 @@
+	const_def
+	const GAMESTATE_00 ; $00
+	const GAMESTATE_01 ; $01
+	const GAMESTATE_02 ; $02
+	const GAMESTATE_03 ; $03
+	const GAMESTATE_04 ; $04
+	const GAMESTATE_05 ; $05
+	const GAMESTATE_06 ; $06
+	const GAMESTATE_07 ; $07
+	const GAMESTATE_08 ; $08
+	const GAMESTATE_09 ; $09
+	const GAMESTATE_0A ; $0a
+	const GAMESTATE_0B ; $0b
+	const GAMESTATE_0C ; $0c
+	const GAMESTATE_0D ; $0d
+	const GAMESTATE_0E ; $0e
+	const GAMESTATE_0F ; $0f
+	const GAMESTATE_10 ; $10
+	const GAMESTATE_11 ; $11
+	const GAMESTATE_12 ; $12
+	const GAMESTATE_13 ; $13
+	const GAMESTATE_14 ; $14
+	const GAMESTATE_15 ; $15
+	const GAMESTATE_16 ; $16
+	const GAMESTATE_17 ; $17
+	const GAMESTATE_18 ; $18
+	const GAMESTATE_19 ; $19
+	const GAMESTATE_1A ; $1a
+	const GAMESTATE_1B ; $1b
+	const GAMESTATE_1C ; $1c
+	const GAMESTATE_LOAD_GB_COMPATIBILITY ; $1d
+	const GAMESTATE_GB_COMPATIBILITY ; $1e
+	const GAMESTATE_1F ; $1f
+	const GAMESTATE_LOAD_PDP_MENU ; $20
+	const GAMESTATE_PDP_MENU ; $21
+	const GAMESTATE_22 ; $22
+	const GAMESTATE_23 ; $23
+DEF NUM_GAME_STATES EQU const_value
+
 DEF FALSE EQU 0
 DEF TRUE  EQU 1
