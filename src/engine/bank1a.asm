@@ -227,7 +227,7 @@ SECTION "Bank 1a@67a8", ROMX[$67a8], BANK[$1a]
 ; beside the checksum, save data must have
 ; this string in the header to be considered valid
 SaveDataMagicString:
-    db "POKEPONCGB", $0c, $00
+	db "POKEPONCGB", $0c, $00
 
 Func_6a7b4::
 	ld b, FALSE
@@ -253,7 +253,7 @@ Func_6a7bc:
 	ld hl, sSaveDataContent
 	ld bc, $682
 	call CalculateChecksum
-    ; is the checksum valid?
+	; is the checksum valid?
 	ld hl, sSaveDataChecksum
 	ld a, e
 	cp [hl]
@@ -265,14 +265,14 @@ Func_6a7bc:
 	jr .valid_checksum
 
 .invalid_checksum
-    ; overwrites sSaveData with sBackupSaveData
+	; overwrites sSaveData with sBackupSaveData
 	copy_data wScratch, sBackupSaveData, $684
 	copy_data sSaveData, wScratch, $684
 
 	ld hl, sSaveDataContent
 	ld bc, $682
 	call CalculateChecksum
-    ; is the backup checksum valid?
+	; is the backup checksum valid?
 	ld hl, sSaveDataChecksum
 	ld a, e
 	cp [hl]
@@ -295,7 +295,7 @@ Func_6a7bc:
 	cp [hl]
 	jp nz, .asm_6a8dc
 
-    ; do the magic values match?
+	; do the magic values match?
 	ld hl, SaveDataMagicString
 	ld de, sSaveDataMagic
 	ld bc, 12

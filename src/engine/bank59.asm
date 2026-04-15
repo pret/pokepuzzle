@@ -5,7 +5,7 @@ PtrTable_1678d5:
 	dw NULL
 
 .Data_1678d5:
-    dwb v0Tiles1 tile $50, $00
+	dwb v0Tiles1 tile $50, $00
 	dwb v0Tiles1 tile $51, $00
 	dwb v0Tiles1 tile $52, $00
 	dwb v0Tiles1 tile $53, $00

@@ -99,7 +99,7 @@ Func_640d8:
 	push af
 	push hl
 
-    ; turn on OBJ
+	; turn on OBJ
 	ld hl, rLCDC
 	set B_LCDC_OBJS, [hl]
 

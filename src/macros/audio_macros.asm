@@ -18,14 +18,14 @@ ENDM
 ; note length
 ; \1: length, 1 to 48 in practice, 1 to 108 is valid
 MACRO note_length
-assert 1 <= \1 && \1 <= 108
+ASSERT 1 <= \1 && \1 <= 108
 	db \1
 ENDM
 
 ; noise channel only
 ; \1: noise ID, 0 to 22
 MACRO noise
-assert 0 <= \1 && \1 <= 22
+ASSERT 0 <= \1 && \1 <= 22
 	db \1 + $6d ; PointerTable_81a3f ID
 ENDM
 
@@ -34,8 +34,8 @@ ENDM
 ; \2: octave, 0 to 5
 ; TODO: why is this sometimes used on channel 4?
 MACRO note_pitch
-assert C_ <= \1 && \1 <= B_
-assert 0 <= \2 && \2 <= 5
+ASSERT C_ <= \1 && \1 <= B_
+ASSERT 0 <= \2 && \2 <= 5
 	db (\2 * 12 + \1) + $8a
 ENDM
 

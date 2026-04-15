@@ -1,16 +1,16 @@
 ; Enumerate constants
 
 MACRO const_def
-	if _NARG >= 1
+	IF _NARG >= 1
 		DEF const_value = \1
-	else
+	ELSE
 		DEF const_value = 0
-	endc
-	if _NARG >= 2
+	ENDC
+	IF _NARG >= 2
 		DEF const_inc = \2
-	else
+	ELSE
 		DEF const_inc = 1
-	endc
+	ENDC
 ENDM
 
 MACRO const

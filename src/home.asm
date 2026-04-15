@@ -3302,7 +3302,7 @@ Func_1f38::
 	ld hl, wc833
 	ret
 
-; advances RNG engine without outputing a value
+; advances RNG engine without outputting a value
 UpdateRNG::
 	; if there's input, update once
 	; otherwise, update twice
