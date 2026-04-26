@@ -80,7 +80,7 @@ Func_40087:
 	ret nz
 	call Func_4014a
 	call TickBackgroundPattern
-	call Func_42363
+	call UpdatePlayerPokemonPortraitAnimations
 	call Func_40c87
 	ret
 
@@ -103,7 +103,7 @@ Func_400b5:
 	and a
 	ret nz
 	call Func_4014a
-	call Func_422d6
+	call UpdateBothPokemonPortraitAnimations
 	call Func_409b2
 	call Func_4082c
 	call TickBackgroundPattern
@@ -115,7 +115,7 @@ Func_400ca:
 	and a
 	ret nz
 	call Func_4014a
-	call Func_422d6
+	call UpdateBothPokemonPortraitAnimations
 	call Func_40775
 	call Func_4082c
 	call TickBackgroundPattern
@@ -129,7 +129,7 @@ Func_400e8:
 	and a
 	ret nz
 	call Func_4014a
-	call Func_422d6
+	call UpdateBothPokemonPortraitAnimations
 	ld hl, wScore
 	call Func_4030a
 	ld hl, $c845
@@ -146,7 +146,7 @@ Func_4010c:
 	and a
 	ret nz
 	call Func_4014a
-	call Func_42363
+	call UpdatePlayerPokemonPortraitAnimations
 	call Func_409b2
 	call Func_4082c
 	call TickBackgroundPattern
@@ -163,7 +163,7 @@ Func_40128:
 	call Func_411cc
 	call Func_4014a
 	call TickBackgroundPattern
-	call Func_423aa
+	call UpdateOpponentPokemonPortraitAnimations
 	call Func_40f98
 	ret c
 	ld hl, wScore
@@ -753,7 +753,7 @@ Func_40586:
 	ret
 .asm_40593
 	call Func_4059d
-	call Func_42363
+	call UpdatePlayerPokemonPortraitAnimations
 	call Func_40713
 	ret
 
@@ -817,7 +817,7 @@ Func_405f1:
 	jr nz, .asm_4065c
 
 	; copies 4x4 tilemap and attribute map
-	ld hl, $d820
+	ld hl, wPlayerMonPortraitBGMaps
 	ld de, wPlayerMonTilemap
 	REPT 2 * (4 * 4) - 1
 		ld a, [hli]
@@ -3371,7 +3371,7 @@ Func_42268:
 .asm_4227e
 	ld bc, $5c66
 .asm_42281
-	ld a, [wcea2]
+	ld a, [wBoard]
 	ld l, a
 	ld h, $00
 	push bc
@@ -3385,7 +3385,7 @@ Func_42268:
 	add hl, hl
 	add hl, hl
 	add hl, bc
-	add hl, hl
+	add hl, hl ; *138
 	pop bc
 	add hl, bc
 	ld a, $40
@@ -3425,216 +3425,221 @@ Func_42268:
 .done
 	ret
 
-Func_422d6:
-.loop
-	ld hl, wc9b2
+UpdateBothPokemonPortraitAnimations:
+.start_player
+	ld hl, wPlayerMonPortraitAnimPtr
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
 	ld a, [hli]
 	dec a
-	jr z, .asm_42311
-	ld a, [wc9b5]
+	jr z, .jp_player
+	ld a, [wPlayerMonPortraitAnimTimer]
 	and a
-	jr nz, .asm_422fe
+	jr nz, .tick_down_player
 	ld a, [hli]
-	ld [wc9b5], a
+	ld [wPlayerMonPortraitAnimTimer], a
 	ld a, [hl]
 	swap a
-	add a
+	add a ; *32
 	ld c, a
 	ld b, $00
-	ld hl, $d820
+	ld hl, wPlayerMonPortraitBGMaps
 	add hl, bc
 	ld de, wPlayerMonTilemap
 	ld bc, 2 * (4 * 4)
 	call CopyHLtoDE
-.asm_422fe
-	ld hl, wc9b5
+.tick_down_player
+	ld hl, wPlayerMonPortraitAnimTimer
 	dec [hl]
-	jr nz, .asm_4231c
-	ld hl, wc9b2
+	jr nz, .start_opp
+	; next frame
+	ld hl, wPlayerMonPortraitAnimPtr
 	ld a, [hl]
-	add $03
+	add $3
 	ld [hli], a
 	ld a, [hl]
-	adc $00
+	adc 0
 	ld [hl], a
-	jr .asm_4231c
-.asm_42311
+	jr .start_opp
+.jp_player
 	ld a, [hli]
 	ld b, [hl]
 	ld c, a
-	ld hl, wc9b2
+	ld hl, wPlayerMonPortraitAnimPtr
 	ld a, c
 	ld [hli], a
 	ld [hl], b
-	jr .loop
-.asm_4231c
-	ld hl, wc9b7
+	jr .start_player
+
+.start_opp
+	ld hl, wOpponentMonPortraitAnimPtr
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
 	ld a, [hli]
 	dec a
-	jr z, .asm_42357
-	ld a, [wc9ba]
+	jr z, .jp_opp
+	ld a, [wOpponentMonPortraitAnimTimer]
 	and a
-	jr nz, .asm_42344
+	jr nz, .tick_down_opp
 	ld a, [hli]
-	ld [wc9ba], a
+	ld [wOpponentMonPortraitAnimTimer], a
 	ld a, [hl]
 	swap a
-	add a
+	add a ; *32
 	ld c, a
 	ld b, $00
-	ld hl, $d8c0
+	ld hl, wOpponentMonPortraitBGMaps
 	add hl, bc
 	ld de, wOpponentMonTilemap
 	ld bc, 2 * (4 * 4)
 	call CopyHLtoDE
-.asm_42344
-	ld hl, wc9ba
+.tick_down_opp
+	ld hl, wOpponentMonPortraitAnimTimer
 	dec [hl]
-	jr nz, .asm_42362
-	ld hl, wc9b7
+	jr nz, .done
+	; next frame
+	ld hl, wOpponentMonPortraitAnimPtr
 	ld a, [hl]
-	add $03
+	add $3
 	ld [hli], a
 	ld a, [hl]
-	adc $00
+	adc 0
 	ld [hl], a
-	jr .asm_42362
-.asm_42357
+	jr .done
+.jp_opp
 	ld a, [hli]
 	ld b, [hl]
 	ld c, a
-	ld hl, wc9b7
+	ld hl, wOpponentMonPortraitAnimPtr
 	ld a, c
 	ld [hli], a
 	ld [hl], b
-	jr .asm_4231c
-.asm_42362
+	jr .start_opp
+.done
 	ret
 
-Func_42363:
-.loop
-	ld hl, wc9b2
+UpdatePlayerPokemonPortraitAnimations:
+.start
+	ld hl, wPlayerMonPortraitAnimPtr
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
 	ld a, [hli]
 	dec a
-	jr z, .asm_4239e
-	ld a, [wc9b5]
+	jr z, .jp
+	ld a, [wPlayerMonPortraitAnimTimer]
 	and a
-	jr nz, .asm_4238b
+	jr nz, .tick_down
 	ld a, [hli]
-	ld [wc9b5], a
+	ld [wPlayerMonPortraitAnimTimer], a
 	ld a, [hl]
 	swap a
-	add a
+	add a ; *32
 	ld c, a
 	ld b, $00
-	ld hl, $d820
+	ld hl, wPlayerMonPortraitBGMaps
 	add hl, bc
 	ld de, wPlayerMonTilemap
 	ld bc, 2 * (4 * 4)
 	call CopyHLtoDE
-.asm_4238b
-	ld hl, wc9b5
+.tick_down
+	ld hl, wPlayerMonPortraitAnimTimer
 	dec [hl]
-	jr nz, .asm_423a9
-	ld hl, wc9b2
+	jr nz, .done
+	; next frame
+	ld hl, wPlayerMonPortraitAnimPtr
 	ld a, [hl]
-	add $03
+	add $3
 	ld [hli], a
 	ld a, [hl]
-	adc $00
+	adc 0
 	ld [hl], a
-	jr .asm_423a9
-.asm_4239e
+	jr .done
+.jp
 	ld a, [hli]
 	ld b, [hl]
 	ld c, a
-	ld hl, wc9b2
+	ld hl, wPlayerMonPortraitAnimPtr
 	ld a, c
 	ld [hli], a
 	ld [hl], b
-	jr .loop
-.asm_423a9
+	jr .start
+.done
 	ret
-; 0x423aa
 
-SECTION "Bank 10@63aa", ROMX[$63aa], BANK[$10]
-
-Func_423aa:
-.loop
-	ld hl, wc9b7
+UpdateOpponentPokemonPortraitAnimations:
+.start
+	ld hl, wOpponentMonPortraitAnimPtr
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
 	ld a, [hli]
 	dec a
-	jr z, .asm_423e5
-	ld a, [wc9ba]
+	jr z, .jp
+	ld a, [wOpponentMonPortraitAnimTimer]
 	and a
-	jr nz, .asm_423d2
+	jr nz, .tick_down
 	ld a, [hli]
-	ld [wc9ba], a
+	ld [wOpponentMonPortraitAnimTimer], a
 	ld a, [hl]
 	swap a
-	add a
+	add a ; *32
 	ld c, a
 	ld b, $00
-	ld hl, $d8c0
+	ld hl, wOpponentMonPortraitBGMaps
 	add hl, bc
 	ld de, wOpponentMonTilemap
 	ld bc, 2 * (4 * 4)
 	call CopyHLtoDE
-.asm_423d2
-	ld hl, wc9ba
+.tick_down
+	ld hl, wOpponentMonPortraitAnimTimer
 	dec [hl]
-	jr nz, .asm_423f0
-	ld hl, wc9b7
+	jr nz, .done
+	; next frame
+	ld hl, wOpponentMonPortraitAnimPtr
 	ld a, [hl]
-	add $03
+	add $3
 	ld [hli], a
 	ld a, [hl]
-	adc $00
+	adc 0
 	ld [hl], a
-	jr .asm_423f0
-.asm_423e5
+	jr .done
+.jp
 	ld a, [hli]
 	ld b, [hl]
 	ld c, a
-	ld hl, wc9b7
+	ld hl, wOpponentMonPortraitAnimPtr
 	ld a, c
 	ld [hli], a
 	ld [hl], b
-	jr .loop
-.asm_423f0
+	jr .start
+.done
 	ret
 
 Func_423f1:
-	ld a, $11
-	ld [wc9b2], a
-	ld [wc9b7], a
-	ld a, $64
-	ld [wc9b3], a
-	ld [wc9b8], a
+	; set both portrait animations as idle
+	ld a, LOW(PortraitAnim_Idle)
+	ld [wPlayerMonPortraitAnimPtr + 0], a
+	ld [wOpponentMonPortraitAnimPtr + 0], a
+	ld a, HIGH(PortraitAnim_Idle)
+	ld [wPlayerMonPortraitAnimPtr + 1], a
+	ld [wOpponentMonPortraitAnimPtr + 1], a
+
 	ld a, $10
 	ld [wc9b4], a
 	ld [wc9b9], a
+
 	xor a
-	ld [wc9b5], a
-	ld [wc9ba], a
+	ld [wPlayerMonPortraitAnimTimer], a
+	ld [wOpponentMonPortraitAnimTimer], a
 	ret
 ; 0x42411
 
 SECTION "Bank 10@647d", ROMX[$647d], BANK[$10]
 
-Func_4247d:
+SetPlayerMonHurtAnimation:
 	push bc
 	ld a, [wPlayerMon]
 	ld l, a
@@ -3647,21 +3652,43 @@ Func_4247d:
 	add hl, hl
 	add hl, hl
 	add hl, hl ; *48
-	ld bc, PokemonData + PKMNSTRUCT_UNK12
+	ld bc, PokemonData + PKMNSTRUCT_HURT_ANIM
 	add hl, bc
 	ld a, BANK(PokemonData)
 	call GetFarByte
 	inc hl
-	ld [wc9b2], a
+	ld [wPlayerMonPortraitAnimPtr + 0], a
 	ld a, BANK(PokemonData)
 	call GetFarByte
 	inc hl
-	ld [wc9b3], a
+	ld [wPlayerMonPortraitAnimPtr + 1], a
 	ld a, BANK(PokemonData)
 	call GetFarByte
 	ld [wc9b4], a
 	xor a
-	ld [wc9b5], a
+	ld [wPlayerMonPortraitAnimTimer], a
 	pop bc
 	ret
 ; 0x424b0
+
+SECTION "Bank 10@6411", ROMX[$6411], BANK[$10]
+
+PortraitAnim_Idle:
+.loop
+	db $0, 10, $00
+	dbw $1, .loop
+; 0x42579
+
+SECTION "Bank 10@6561", ROMX[$6561], BANK[$10]
+
+PortraitAnim_Hurt:
+	db $0, 20, $01
+	db $0,  6, $04
+	db $0, 20, $01
+	db $0,  6, $04
+	db $0, 20, $01
+	db $0,  6, $04
+.loop
+	db $0, 10, $00
+	dbw $1, .loop
+; 0x42579

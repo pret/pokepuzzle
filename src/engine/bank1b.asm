@@ -157,22 +157,22 @@ Func_6c085:
 	add hl, bc
 .asm_6c117
 	ld a, [hli]
-	ldboard_a 0, 0, w6dd80
+	ldboard_a 0, 0, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 1, 0, w6dd80
+	ldboard_a 1, 0, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 0, 1, w6dd80
+	ldboard_a 0, 1, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 1, 1, w6dd80
+	ldboard_a 1, 1, wBlockTilemap
 
 	ld a, [hli]
-	ldboard_a 0, 0, w6dec0
+	ldboard_a 0, 0, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 1, 0, w6dec0
+	ldboard_a 1, 0, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 0, 1, w6dec0
+	ldboard_a 0, 1, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 1, 1, w6dec0
+	ldboard_a 1, 1, wBoardAttrmap
 
 	ld bc, w6d058 + 1 + 0 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 1 + 0 * BOARD_VIRTUAL_WIDTH
@@ -254,22 +254,22 @@ Func_6c085:
 	add hl, bc
 .asm_6c1c4
 	ld a, [hli]
-	ldboard_a 2, 0, w6dd80
+	ldboard_a 2, 0, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 3, 0, w6dd80
+	ldboard_a 3, 0, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 2, 1, w6dd80
+	ldboard_a 2, 1, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 3, 1, w6dd80
+	ldboard_a 3, 1, wBlockTilemap
 
 	ld a, [hli]
-	ldboard_a 2, 0, w6dec0
+	ldboard_a 2, 0, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 3, 0, w6dec0
+	ldboard_a 3, 0, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 2, 1, w6dec0
+	ldboard_a 2, 1, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 3, 1, w6dec0
+	ldboard_a 3, 1, wBoardAttrmap
 
 	ld bc, w6d058 + 2 + 0 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 2 + 0 * BOARD_VIRTUAL_WIDTH
@@ -351,21 +351,21 @@ Func_6c085:
 	add hl, bc
 .asm_6c271
 	ld a, [hli]
-	ldboard_a 4, 0, w6dd80
+	ldboard_a 4, 0, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 5, 0, w6dd80
+	ldboard_a 5, 0, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 4, 1, w6dd80
+	ldboard_a 4, 1, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 5, 1, w6dd80
+	ldboard_a 5, 1, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 4, 0, w6dec0
+	ldboard_a 4, 0, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 5, 0, w6dec0
+	ldboard_a 5, 0, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 4, 1, w6dec0
+	ldboard_a 4, 1, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 5, 1, w6dec0
+	ldboard_a 5, 1, wBoardAttrmap
 	ld bc, w6d058 + 3 + 0 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 3 + 0 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 3 + 0 * BOARD_VIRTUAL_WIDTH]
@@ -446,21 +446,21 @@ Func_6c085:
 	add hl, bc
 .asm_6c31e
 	ld a, [hli]
-	ldboard_a 6, 0, w6dd80
+	ldboard_a 6, 0, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 7, 0, w6dd80
+	ldboard_a 7, 0, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 6, 1, w6dd80
+	ldboard_a 6, 1, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 7, 1, w6dd80
+	ldboard_a 7, 1, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 6, 0, w6dec0
+	ldboard_a 6, 0, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 7, 0, w6dec0
+	ldboard_a 7, 0, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 6, 1, w6dec0
+	ldboard_a 6, 1, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 7, 1, w6dec0
+	ldboard_a 7, 1, wBoardAttrmap
 	ld bc, w6d058 + 4 + 0 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 4 + 0 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 4 + 0 * BOARD_VIRTUAL_WIDTH]
@@ -541,21 +541,21 @@ Func_6c085:
 	add hl, bc
 .asm_6c3cb
 	ld a, [hli]
-	ldboard_a 8, 0, w6dd80
+	ldboard_a 8, 0, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 9, 0, w6dd80
+	ldboard_a 9, 0, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 8, 1, w6dd80
+	ldboard_a 8, 1, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 9, 1, w6dd80
+	ldboard_a 9, 1, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 8, 0, w6dec0
+	ldboard_a 8, 0, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 9, 0, w6dec0
+	ldboard_a 9, 0, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 8, 1, w6dec0
+	ldboard_a 8, 1, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 9, 1, w6dec0
+	ldboard_a 9, 1, wBoardAttrmap
 	ld bc, w6d058 + 5 + 0 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 5 + 0 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 5 + 0 * BOARD_VIRTUAL_WIDTH]
@@ -636,21 +636,21 @@ Func_6c085:
 	add hl, bc
 .asm_6c478
 	ld a, [hli]
-	ldboard_a 10, 0, w6dd80
+	ldboard_a 10, 0, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 11, 0, w6dd80
+	ldboard_a 11, 0, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 10, 1, w6dd80
+	ldboard_a 10, 1, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 11, 1, w6dd80
+	ldboard_a 11, 1, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 10, 0, w6dec0
+	ldboard_a 10, 0, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 11, 0, w6dec0
+	ldboard_a 11, 0, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 10, 1, w6dec0
+	ldboard_a 10, 1, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 11, 1, w6dec0
+	ldboard_a 11, 1, wBoardAttrmap
 	ld bc, w6d058 + 0 + 1 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 0 + 1 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 0 + 1 * BOARD_VIRTUAL_WIDTH]
@@ -731,21 +731,21 @@ Func_6c085:
 	add hl, bc
 .asm_6c525
 	ld a, [hli]
-	ldboard_a 0, 2, w6dd80
+	ldboard_a 0, 2, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 1, 2, w6dd80
+	ldboard_a 1, 2, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 0, 3, w6dd80
+	ldboard_a 0, 3, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 1, 3, w6dd80
+	ldboard_a 1, 3, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 0, 2, w6dec0
+	ldboard_a 0, 2, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 1, 2, w6dec0
+	ldboard_a 1, 2, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 0, 3, w6dec0
+	ldboard_a 0, 3, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 1, 3, w6dec0
+	ldboard_a 1, 3, wBoardAttrmap
 	ld bc, w6d058 + 1 + 1 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 1 + 1 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 1 + 1 * BOARD_VIRTUAL_WIDTH]
@@ -826,21 +826,21 @@ Func_6c085:
 	add hl, bc
 .asm_6c5d2
 	ld a, [hli]
-	ldboard_a 2, 2, w6dd80
+	ldboard_a 2, 2, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 3, 2, w6dd80
+	ldboard_a 3, 2, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 2, 3, w6dd80
+	ldboard_a 2, 3, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 3, 3, w6dd80
+	ldboard_a 3, 3, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 2, 2, w6dec0
+	ldboard_a 2, 2, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 3, 2, w6dec0
+	ldboard_a 3, 2, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 2, 3, w6dec0
+	ldboard_a 2, 3, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 3, 3, w6dec0
+	ldboard_a 3, 3, wBoardAttrmap
 	ld bc, w6d058 + 2 + 1 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 2 + 1 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 2 + 1 * BOARD_VIRTUAL_WIDTH]
@@ -921,21 +921,21 @@ Func_6c085:
 	add hl, bc
 .asm_6c67f
 	ld a, [hli]
-	ldboard_a 4, 2, w6dd80
+	ldboard_a 4, 2, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 5, 2, w6dd80
+	ldboard_a 5, 2, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 4, 3, w6dd80
+	ldboard_a 4, 3, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 5, 3, w6dd80
+	ldboard_a 5, 3, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 4, 2, w6dec0
+	ldboard_a 4, 2, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 5, 2, w6dec0
+	ldboard_a 5, 2, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 4, 3, w6dec0
+	ldboard_a 4, 3, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 5, 3, w6dec0
+	ldboard_a 5, 3, wBoardAttrmap
 	ld bc, w6d058 + 3 + 1 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 3 + 1 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 3 + 1 * BOARD_VIRTUAL_WIDTH]
@@ -1016,21 +1016,21 @@ Func_6c085:
 	add hl, bc
 .asm_6c72c
 	ld a, [hli]
-	ldboard_a 6, 2, w6dd80
+	ldboard_a 6, 2, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 7, 2, w6dd80
+	ldboard_a 7, 2, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 6, 3, w6dd80
+	ldboard_a 6, 3, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 7, 3, w6dd80
+	ldboard_a 7, 3, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 6, 2, w6dec0
+	ldboard_a 6, 2, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 7, 2, w6dec0
+	ldboard_a 7, 2, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 6, 3, w6dec0
+	ldboard_a 6, 3, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 7, 3, w6dec0
+	ldboard_a 7, 3, wBoardAttrmap
 	ld bc, w6d058 + 4 + 1 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 4 + 1 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 4 + 1 * BOARD_VIRTUAL_WIDTH]
@@ -1111,21 +1111,21 @@ Func_6c085:
 	add hl, bc
 .asm_6c7d9
 	ld a, [hli]
-	ldboard_a 8, 2, w6dd80
+	ldboard_a 8, 2, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 9, 2, w6dd80
+	ldboard_a 9, 2, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 8, 3, w6dd80
+	ldboard_a 8, 3, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 9, 3, w6dd80
+	ldboard_a 9, 3, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 8, 2, w6dec0
+	ldboard_a 8, 2, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 9, 2, w6dec0
+	ldboard_a 9, 2, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 8, 3, w6dec0
+	ldboard_a 8, 3, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 9, 3, w6dec0
+	ldboard_a 9, 3, wBoardAttrmap
 	ld bc, w6d058 + 5 + 1 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 5 + 1 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 5 + 1 * BOARD_VIRTUAL_WIDTH]
@@ -1206,21 +1206,21 @@ Func_6c085:
 	add hl, bc
 .asm_6c886
 	ld a, [hli]
-	ldboard_a 10, 2, w6dd80
+	ldboard_a 10, 2, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 11, 2, w6dd80
+	ldboard_a 11, 2, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 10, 3, w6dd80
+	ldboard_a 10, 3, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 11, 3, w6dd80
+	ldboard_a 11, 3, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 10, 2, w6dec0
+	ldboard_a 10, 2, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 11, 2, w6dec0
+	ldboard_a 11, 2, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 10, 3, w6dec0
+	ldboard_a 10, 3, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 11, 3, w6dec0
+	ldboard_a 11, 3, wBoardAttrmap
 	ld bc, w6d058 + 0 + 2 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 0 + 2 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 0 + 2 * BOARD_VIRTUAL_WIDTH]
@@ -1301,21 +1301,21 @@ Func_6c085:
 	add hl, bc
 .asm_6c933
 	ld a, [hli]
-	ldboard_a 0, 4, w6dd80
+	ldboard_a 0, 4, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 1, 4, w6dd80
+	ldboard_a 1, 4, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 0, 5, w6dd80
+	ldboard_a 0, 5, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 1, 5, w6dd80
+	ldboard_a 1, 5, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 0, 4, w6dec0
+	ldboard_a 0, 4, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 1, 4, w6dec0
+	ldboard_a 1, 4, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 0, 5, w6dec0
+	ldboard_a 0, 5, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 1, 5, w6dec0
+	ldboard_a 1, 5, wBoardAttrmap
 	ld bc, w6d058 + 1 + 2 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 1 + 2 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 1 + 2 * BOARD_VIRTUAL_WIDTH]
@@ -1396,21 +1396,21 @@ Func_6c085:
 	add hl, bc
 .asm_6c9e0
 	ld a, [hli]
-	ldboard_a 2, 4, w6dd80
+	ldboard_a 2, 4, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 3, 4, w6dd80
+	ldboard_a 3, 4, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 2, 5, w6dd80
+	ldboard_a 2, 5, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 3, 5, w6dd80
+	ldboard_a 3, 5, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 2, 4, w6dec0
+	ldboard_a 2, 4, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 3, 4, w6dec0
+	ldboard_a 3, 4, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 2, 5, w6dec0
+	ldboard_a 2, 5, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 3, 5, w6dec0
+	ldboard_a 3, 5, wBoardAttrmap
 	ld bc, w6d058 + 2 + 2 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 2 + 2 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 2 + 2 * BOARD_VIRTUAL_WIDTH]
@@ -1491,21 +1491,21 @@ Func_6c085:
 	add hl, bc
 .asm_6ca8d
 	ld a, [hli]
-	ldboard_a 4, 4, w6dd80
+	ldboard_a 4, 4, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 5, 4, w6dd80
+	ldboard_a 5, 4, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 4, 5, w6dd80
+	ldboard_a 4, 5, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 5, 5, w6dd80
+	ldboard_a 5, 5, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 4, 4, w6dec0
+	ldboard_a 4, 4, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 5, 4, w6dec0
+	ldboard_a 5, 4, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 4, 5, w6dec0
+	ldboard_a 4, 5, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 5, 5, w6dec0
+	ldboard_a 5, 5, wBoardAttrmap
 	ld bc, w6d058 + 3 + 2 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 3 + 2 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 3 + 2 * BOARD_VIRTUAL_WIDTH]
@@ -1586,21 +1586,21 @@ Func_6c085:
 	add hl, bc
 .asm_6cb3a
 	ld a, [hli]
-	ldboard_a 6, 4, w6dd80
+	ldboard_a 6, 4, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 7, 4, w6dd80
+	ldboard_a 7, 4, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 6, 5, w6dd80
+	ldboard_a 6, 5, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 7, 5, w6dd80
+	ldboard_a 7, 5, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 6, 4, w6dec0
+	ldboard_a 6, 4, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 7, 4, w6dec0
+	ldboard_a 7, 4, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 6, 5, w6dec0
+	ldboard_a 6, 5, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 7, 5, w6dec0
+	ldboard_a 7, 5, wBoardAttrmap
 	ld bc, w6d058 + 4 + 2 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 4 + 2 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 4 + 2 * BOARD_VIRTUAL_WIDTH]
@@ -1681,21 +1681,21 @@ Func_6c085:
 	add hl, bc
 .asm_6cbe7
 	ld a, [hli]
-	ldboard_a 8, 4, w6dd80
+	ldboard_a 8, 4, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 9, 4, w6dd80
+	ldboard_a 9, 4, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 8, 5, w6dd80
+	ldboard_a 8, 5, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 9, 5, w6dd80
+	ldboard_a 9, 5, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 8, 4, w6dec0
+	ldboard_a 8, 4, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 9, 4, w6dec0
+	ldboard_a 9, 4, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 8, 5, w6dec0
+	ldboard_a 8, 5, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 9, 5, w6dec0
+	ldboard_a 9, 5, wBoardAttrmap
 	ld bc, w6d058 + 5 + 2 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 5 + 2 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 5 + 2 * BOARD_VIRTUAL_WIDTH]
@@ -1776,21 +1776,21 @@ Func_6c085:
 	add hl, bc
 .asm_6cc94
 	ld a, [hli]
-	ldboard_a 10, 4, w6dd80
+	ldboard_a 10, 4, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 11, 4, w6dd80
+	ldboard_a 11, 4, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 10, 5, w6dd80
+	ldboard_a 10, 5, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 11, 5, w6dd80
+	ldboard_a 11, 5, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 10, 4, w6dec0
+	ldboard_a 10, 4, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 11, 4, w6dec0
+	ldboard_a 11, 4, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 10, 5, w6dec0
+	ldboard_a 10, 5, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 11, 5, w6dec0
+	ldboard_a 11, 5, wBoardAttrmap
 	ld bc, w6d058 + 0 + 3 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 0 + 3 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 0 + 3 * BOARD_VIRTUAL_WIDTH]
@@ -1871,21 +1871,21 @@ Func_6c085:
 	add hl, bc
 .asm_6cd41
 	ld a, [hli]
-	ldboard_a 0, 6, w6dd80
+	ldboard_a 0, 6, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 1, 6, w6dd80
+	ldboard_a 1, 6, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 0, 7, w6dd80
+	ldboard_a 0, 7, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 1, 7, w6dd80
+	ldboard_a 1, 7, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 0, 6, w6dec0
+	ldboard_a 0, 6, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 1, 6, w6dec0
+	ldboard_a 1, 6, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 0, 7, w6dec0
+	ldboard_a 0, 7, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 1, 7, w6dec0
+	ldboard_a 1, 7, wBoardAttrmap
 	ld bc, w6d058 + 1 + 3 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 1 + 3 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 1 + 3 * BOARD_VIRTUAL_WIDTH]
@@ -1966,21 +1966,21 @@ Func_6c085:
 	add hl, bc
 .asm_6cdee
 	ld a, [hli]
-	ldboard_a 2, 6, w6dd80
+	ldboard_a 2, 6, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 3, 6, w6dd80
+	ldboard_a 3, 6, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 2, 7, w6dd80
+	ldboard_a 2, 7, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 3, 7, w6dd80
+	ldboard_a 3, 7, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 2, 6, w6dec0
+	ldboard_a 2, 6, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 3, 6, w6dec0
+	ldboard_a 3, 6, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 2, 7, w6dec0
+	ldboard_a 2, 7, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 3, 7, w6dec0
+	ldboard_a 3, 7, wBoardAttrmap
 	ld bc, w6d058 + 2 + 3 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 2 + 3 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 2 + 3 * BOARD_VIRTUAL_WIDTH]
@@ -2061,21 +2061,21 @@ Func_6c085:
 	add hl, bc
 .asm_6ce9b
 	ld a, [hli]
-	ldboard_a 4, 6, w6dd80
+	ldboard_a 4, 6, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 5, 6, w6dd80
+	ldboard_a 5, 6, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 4, 7, w6dd80
+	ldboard_a 4, 7, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 5, 7, w6dd80
+	ldboard_a 5, 7, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 4, 6, w6dec0
+	ldboard_a 4, 6, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 5, 6, w6dec0
+	ldboard_a 5, 6, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 4, 7, w6dec0
+	ldboard_a 4, 7, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 5, 7, w6dec0
+	ldboard_a 5, 7, wBoardAttrmap
 	ld bc, w6d058 + 3 + 3 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 3 + 3 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 3 + 3 * BOARD_VIRTUAL_WIDTH]
@@ -2156,21 +2156,21 @@ Func_6c085:
 	add hl, bc
 .asm_6cf48
 	ld a, [hli]
-	ldboard_a 6, 6, w6dd80
+	ldboard_a 6, 6, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 7, 6, w6dd80
+	ldboard_a 7, 6, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 6, 7, w6dd80
+	ldboard_a 6, 7, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 7, 7, w6dd80
+	ldboard_a 7, 7, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 6, 6, w6dec0
+	ldboard_a 6, 6, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 7, 6, w6dec0
+	ldboard_a 7, 6, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 6, 7, w6dec0
+	ldboard_a 6, 7, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 7, 7, w6dec0
+	ldboard_a 7, 7, wBoardAttrmap
 	ld bc, w6d058 + 4 + 3 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 4 + 3 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 4 + 3 * BOARD_VIRTUAL_WIDTH]
@@ -2251,21 +2251,21 @@ Func_6c085:
 	add hl, bc
 .asm_6cff5
 	ld a, [hli]
-	ldboard_a 8, 6, w6dd80
+	ldboard_a 8, 6, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 9, 6, w6dd80
+	ldboard_a 9, 6, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 8, 7, w6dd80
+	ldboard_a 8, 7, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 9, 7, w6dd80
+	ldboard_a 9, 7, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 8, 6, w6dec0
+	ldboard_a 8, 6, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 9, 6, w6dec0
+	ldboard_a 9, 6, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 8, 7, w6dec0
+	ldboard_a 8, 7, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 9, 7, w6dec0
+	ldboard_a 9, 7, wBoardAttrmap
 	ld bc, w6d058 + 5 + 3 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 5 + 3 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 5 + 3 * BOARD_VIRTUAL_WIDTH]
@@ -2346,21 +2346,21 @@ Func_6c085:
 	add hl, bc
 .asm_6d0a2
 	ld a, [hli]
-	ldboard_a 10, 6, w6dd80
+	ldboard_a 10, 6, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 11, 6, w6dd80
+	ldboard_a 11, 6, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 10, 7, w6dd80
+	ldboard_a 10, 7, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 11, 7, w6dd80
+	ldboard_a 11, 7, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 10, 6, w6dec0
+	ldboard_a 10, 6, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 11, 6, w6dec0
+	ldboard_a 11, 6, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 10, 7, w6dec0
+	ldboard_a 10, 7, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 11, 7, w6dec0
+	ldboard_a 11, 7, wBoardAttrmap
 	ld bc, w6d058 + 0 + 4 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 0 + 4 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 0 + 4 * BOARD_VIRTUAL_WIDTH]
@@ -2441,21 +2441,21 @@ Func_6c085:
 	add hl, bc
 .asm_6d14f
 	ld a, [hli]
-	ldboard_a 0, 8, w6dd80
+	ldboard_a 0, 8, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 1, 8, w6dd80
+	ldboard_a 1, 8, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 0, 9, w6dd80
+	ldboard_a 0, 9, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 1, 9, w6dd80
+	ldboard_a 1, 9, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 0, 8, w6dec0
+	ldboard_a 0, 8, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 1, 8, w6dec0
+	ldboard_a 1, 8, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 0, 9, w6dec0
+	ldboard_a 0, 9, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 1, 9, w6dec0
+	ldboard_a 1, 9, wBoardAttrmap
 	ld bc, w6d058 + 1 + 4 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 1 + 4 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 1 + 4 * BOARD_VIRTUAL_WIDTH]
@@ -2536,21 +2536,21 @@ Func_6c085:
 	add hl, bc
 .asm_6d1fc
 	ld a, [hli]
-	ldboard_a 2, 8, w6dd80
+	ldboard_a 2, 8, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 3, 8, w6dd80
+	ldboard_a 3, 8, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 2, 9, w6dd80
+	ldboard_a 2, 9, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 3, 9, w6dd80
+	ldboard_a 3, 9, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 2, 8, w6dec0
+	ldboard_a 2, 8, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 3, 8, w6dec0
+	ldboard_a 3, 8, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 2, 9, w6dec0
+	ldboard_a 2, 9, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 3, 9, w6dec0
+	ldboard_a 3, 9, wBoardAttrmap
 	ld bc, w6d058 + 2 + 4 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 2 + 4 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 2 + 4 * BOARD_VIRTUAL_WIDTH]
@@ -2631,21 +2631,21 @@ Func_6c085:
 	add hl, bc
 .asm_6d2a9
 	ld a, [hli]
-	ldboard_a 4, 8, w6dd80
+	ldboard_a 4, 8, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 5, 8, w6dd80
+	ldboard_a 5, 8, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 4, 9, w6dd80
+	ldboard_a 4, 9, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 5, 9, w6dd80
+	ldboard_a 5, 9, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 4, 8, w6dec0
+	ldboard_a 4, 8, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 5, 8, w6dec0
+	ldboard_a 5, 8, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 4, 9, w6dec0
+	ldboard_a 4, 9, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 5, 9, w6dec0
+	ldboard_a 5, 9, wBoardAttrmap
 	ld bc, w6d058 + 3 + 4 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 3 + 4 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 3 + 4 * BOARD_VIRTUAL_WIDTH]
@@ -2726,21 +2726,21 @@ Func_6c085:
 	add hl, bc
 .asm_6d356
 	ld a, [hli]
-	ldboard_a 6, 8, w6dd80
+	ldboard_a 6, 8, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 7, 8, w6dd80
+	ldboard_a 7, 8, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 6, 9, w6dd80
+	ldboard_a 6, 9, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 7, 9, w6dd80
+	ldboard_a 7, 9, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 6, 8, w6dec0
+	ldboard_a 6, 8, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 7, 8, w6dec0
+	ldboard_a 7, 8, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 6, 9, w6dec0
+	ldboard_a 6, 9, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 7, 9, w6dec0
+	ldboard_a 7, 9, wBoardAttrmap
 	ld bc, w6d058 + 4 + 4 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 4 + 4 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 4 + 4 * BOARD_VIRTUAL_WIDTH]
@@ -2821,21 +2821,21 @@ Func_6c085:
 	add hl, bc
 .asm_6d403
 	ld a, [hli]
-	ldboard_a 8, 8, w6dd80
+	ldboard_a 8, 8, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 9, 8, w6dd80
+	ldboard_a 9, 8, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 8, 9, w6dd80
+	ldboard_a 8, 9, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 9, 9, w6dd80
+	ldboard_a 9, 9, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 8, 8, w6dec0
+	ldboard_a 8, 8, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 9, 8, w6dec0
+	ldboard_a 9, 8, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 8, 9, w6dec0
+	ldboard_a 8, 9, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 9, 9, w6dec0
+	ldboard_a 9, 9, wBoardAttrmap
 	ld bc, w6d058 + 5 + 4 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 5 + 4 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 5 + 4 * BOARD_VIRTUAL_WIDTH]
@@ -2916,21 +2916,21 @@ Func_6c085:
 	add hl, bc
 .asm_6d4b0
 	ld a, [hli]
-	ldboard_a 10, 8, w6dd80
+	ldboard_a 10, 8, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 11, 8, w6dd80
+	ldboard_a 11, 8, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 10, 9, w6dd80
+	ldboard_a 10, 9, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 11, 9, w6dd80
+	ldboard_a 11, 9, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 10, 8, w6dec0
+	ldboard_a 10, 8, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 11, 8, w6dec0
+	ldboard_a 11, 8, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 10, 9, w6dec0
+	ldboard_a 10, 9, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 11, 9, w6dec0
+	ldboard_a 11, 9, wBoardAttrmap
 	ld bc, w6d058 + 0 + 5 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 0 + 5 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 0 + 5 * BOARD_VIRTUAL_WIDTH]
@@ -3011,21 +3011,21 @@ Func_6c085:
 	add hl, bc
 .asm_6d55d
 	ld a, [hli]
-	ldboard_a 0, 10, w6dd80
+	ldboard_a 0, 10, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 1, 10, w6dd80
+	ldboard_a 1, 10, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 0, 11, w6dd80
+	ldboard_a 0, 11, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 1, 11, w6dd80
+	ldboard_a 1, 11, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 0, 10, w6dec0
+	ldboard_a 0, 10, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 1, 10, w6dec0
+	ldboard_a 1, 10, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 0, 11, w6dec0
+	ldboard_a 0, 11, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 1, 11, w6dec0
+	ldboard_a 1, 11, wBoardAttrmap
 	ld bc, w6d058 + 1 + 5 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 1 + 5 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 1 + 5 * BOARD_VIRTUAL_WIDTH]
@@ -3106,21 +3106,21 @@ Func_6c085:
 	add hl, bc
 .asm_6d60a
 	ld a, [hli]
-	ldboard_a 2, 10, w6dd80
+	ldboard_a 2, 10, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 3, 10, w6dd80
+	ldboard_a 3, 10, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 2, 11, w6dd80
+	ldboard_a 2, 11, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 3, 11, w6dd80
+	ldboard_a 3, 11, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 2, 10, w6dec0
+	ldboard_a 2, 10, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 3, 10, w6dec0
+	ldboard_a 3, 10, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 2, 11, w6dec0
+	ldboard_a 2, 11, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 3, 11, w6dec0
+	ldboard_a 3, 11, wBoardAttrmap
 	ld bc, w6d058 + 2 + 5 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 2 + 5 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 2 + 5 * BOARD_VIRTUAL_WIDTH]
@@ -3201,21 +3201,21 @@ Func_6c085:
 	add hl, bc
 .asm_6d6b7
 	ld a, [hli]
-	ldboard_a 4, 10, w6dd80
+	ldboard_a 4, 10, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 5, 10, w6dd80
+	ldboard_a 5, 10, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 4, 11, w6dd80
+	ldboard_a 4, 11, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 5, 11, w6dd80
+	ldboard_a 5, 11, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 4, 10, w6dec0
+	ldboard_a 4, 10, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 5, 10, w6dec0
+	ldboard_a 5, 10, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 4, 11, w6dec0
+	ldboard_a 4, 11, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 5, 11, w6dec0
+	ldboard_a 5, 11, wBoardAttrmap
 	ld bc, w6d058 + 3 + 5 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 3 + 5 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 3 + 5 * BOARD_VIRTUAL_WIDTH]
@@ -3296,21 +3296,21 @@ Func_6c085:
 	add hl, bc
 .asm_6d764
 	ld a, [hli]
-	ldboard_a 6, 10, w6dd80
+	ldboard_a 6, 10, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 7, 10, w6dd80
+	ldboard_a 7, 10, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 6, 11, w6dd80
+	ldboard_a 6, 11, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 7, 11, w6dd80
+	ldboard_a 7, 11, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 6, 10, w6dec0
+	ldboard_a 6, 10, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 7, 10, w6dec0
+	ldboard_a 7, 10, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 6, 11, w6dec0
+	ldboard_a 6, 11, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 7, 11, w6dec0
+	ldboard_a 7, 11, wBoardAttrmap
 	ld bc, w6d058 + 4 + 5 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 4 + 5 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 4 + 5 * BOARD_VIRTUAL_WIDTH]
@@ -3391,21 +3391,21 @@ Func_6c085:
 	add hl, bc
 .asm_6d811
 	ld a, [hli]
-	ldboard_a 8, 10, w6dd80
+	ldboard_a 8, 10, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 9, 10, w6dd80
+	ldboard_a 9, 10, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 8, 11, w6dd80
+	ldboard_a 8, 11, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 9, 11, w6dd80
+	ldboard_a 9, 11, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 8, 10, w6dec0
+	ldboard_a 8, 10, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 9, 10, w6dec0
+	ldboard_a 9, 10, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 8, 11, w6dec0
+	ldboard_a 8, 11, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 9, 11, w6dec0
+	ldboard_a 9, 11, wBoardAttrmap
 	ld bc, w6d058 + 5 + 5 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 5 + 5 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 5 + 5 * BOARD_VIRTUAL_WIDTH]
@@ -3486,21 +3486,21 @@ Func_6c085:
 	add hl, bc
 .asm_6d8be
 	ld a, [hli]
-	ldboard_a 10, 10, w6dd80
+	ldboard_a 10, 10, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 11, 10, w6dd80
+	ldboard_a 11, 10, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 10, 11, w6dd80
+	ldboard_a 10, 11, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 11, 11, w6dd80
+	ldboard_a 11, 11, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 10, 10, w6dec0
+	ldboard_a 10, 10, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 11, 10, w6dec0
+	ldboard_a 11, 10, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 10, 11, w6dec0
+	ldboard_a 10, 11, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 11, 11, w6dec0
+	ldboard_a 11, 11, wBoardAttrmap
 	ld bc, w6d058 + 0 + 6 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 0 + 6 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 0 + 6 * BOARD_VIRTUAL_WIDTH]
@@ -3581,21 +3581,21 @@ Func_6c085:
 	add hl, bc
 .asm_6d96b
 	ld a, [hli]
-	ldboard_a 0, 12, w6dd80
+	ldboard_a 0, 12, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 1, 12, w6dd80
+	ldboard_a 1, 12, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 0, 13, w6dd80
+	ldboard_a 0, 13, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 1, 13, w6dd80
+	ldboard_a 1, 13, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 0, 12, w6dec0
+	ldboard_a 0, 12, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 1, 12, w6dec0
+	ldboard_a 1, 12, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 0, 13, w6dec0
+	ldboard_a 0, 13, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 1, 13, w6dec0
+	ldboard_a 1, 13, wBoardAttrmap
 	ld bc, w6d058 + 1 + 6 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 1 + 6 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 1 + 6 * BOARD_VIRTUAL_WIDTH]
@@ -3676,21 +3676,21 @@ Func_6c085:
 	add hl, bc
 .asm_6da18
 	ld a, [hli]
-	ldboard_a 2, 12, w6dd80
+	ldboard_a 2, 12, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 3, 12, w6dd80
+	ldboard_a 3, 12, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 2, 13, w6dd80
+	ldboard_a 2, 13, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 3, 13, w6dd80
+	ldboard_a 3, 13, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 2, 12, w6dec0
+	ldboard_a 2, 12, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 3, 12, w6dec0
+	ldboard_a 3, 12, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 2, 13, w6dec0
+	ldboard_a 2, 13, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 3, 13, w6dec0
+	ldboard_a 3, 13, wBoardAttrmap
 	ld bc, w6d058 + 2 + 6 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 2 + 6 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 2 + 6 * BOARD_VIRTUAL_WIDTH]
@@ -3771,21 +3771,21 @@ Func_6c085:
 	add hl, bc
 .asm_6dac5
 	ld a, [hli]
-	ldboard_a 4, 12, w6dd80
+	ldboard_a 4, 12, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 5, 12, w6dd80
+	ldboard_a 5, 12, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 4, 13, w6dd80
+	ldboard_a 4, 13, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 5, 13, w6dd80
+	ldboard_a 5, 13, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 4, 12, w6dec0
+	ldboard_a 4, 12, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 5, 12, w6dec0
+	ldboard_a 5, 12, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 4, 13, w6dec0
+	ldboard_a 4, 13, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 5, 13, w6dec0
+	ldboard_a 5, 13, wBoardAttrmap
 	ld bc, w6d058 + 3 + 6 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 3 + 6 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 3 + 6 * BOARD_VIRTUAL_WIDTH]
@@ -3866,21 +3866,21 @@ Func_6c085:
 	add hl, bc
 .asm_6db72
 	ld a, [hli]
-	ldboard_a 6, 12, w6dd80
+	ldboard_a 6, 12, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 7, 12, w6dd80
+	ldboard_a 7, 12, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 6, 13, w6dd80
+	ldboard_a 6, 13, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 7, 13, w6dd80
+	ldboard_a 7, 13, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 6, 12, w6dec0
+	ldboard_a 6, 12, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 7, 12, w6dec0
+	ldboard_a 7, 12, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 6, 13, w6dec0
+	ldboard_a 6, 13, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 7, 13, w6dec0
+	ldboard_a 7, 13, wBoardAttrmap
 	ld bc, w6d058 + 4 + 6 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 4 + 6 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 4 + 6 * BOARD_VIRTUAL_WIDTH]
@@ -3961,21 +3961,21 @@ Func_6c085:
 	add hl, bc
 .asm_6dc1f
 	ld a, [hli]
-	ldboard_a 8, 12, w6dd80
+	ldboard_a 8, 12, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 9, 12, w6dd80
+	ldboard_a 9, 12, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 8, 13, w6dd80
+	ldboard_a 8, 13, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 9, 13, w6dd80
+	ldboard_a 9, 13, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 8, 12, w6dec0
+	ldboard_a 8, 12, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 9, 12, w6dec0
+	ldboard_a 9, 12, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 8, 13, w6dec0
+	ldboard_a 8, 13, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 9, 13, w6dec0
+	ldboard_a 9, 13, wBoardAttrmap
 	ld bc, w6d058 + 5 + 6 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 5 + 6 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 5 + 6 * BOARD_VIRTUAL_WIDTH]
@@ -4056,21 +4056,21 @@ Func_6c085:
 	add hl, bc
 .asm_6dccc
 	ld a, [hli]
-	ldboard_a 10, 12, w6dd80
+	ldboard_a 10, 12, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 11, 12, w6dd80
+	ldboard_a 11, 12, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 10, 13, w6dd80
+	ldboard_a 10, 13, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 11, 13, w6dd80
+	ldboard_a 11, 13, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 10, 12, w6dec0
+	ldboard_a 10, 12, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 11, 12, w6dec0
+	ldboard_a 11, 12, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 10, 13, w6dec0
+	ldboard_a 10, 13, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 11, 13, w6dec0
+	ldboard_a 11, 13, wBoardAttrmap
 	ld bc, w6d058 + 0 + 7 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 0 + 7 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 0 + 7 * BOARD_VIRTUAL_WIDTH]
@@ -4151,21 +4151,21 @@ Func_6c085:
 	add hl, bc
 .asm_6dd79
 	ld a, [hli]
-	ldboard_a 0, 14, w6dd80
+	ldboard_a 0, 14, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 1, 14, w6dd80
+	ldboard_a 1, 14, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 0, 15, w6dd80
+	ldboard_a 0, 15, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 1, 15, w6dd80
+	ldboard_a 1, 15, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 0, 14, w6dec0
+	ldboard_a 0, 14, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 1, 14, w6dec0
+	ldboard_a 1, 14, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 0, 15, w6dec0
+	ldboard_a 0, 15, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 1, 15, w6dec0
+	ldboard_a 1, 15, wBoardAttrmap
 	ld bc, w6d058 + 1 + 7 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 1 + 7 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 1 + 7 * BOARD_VIRTUAL_WIDTH]
@@ -4246,21 +4246,21 @@ Func_6c085:
 	add hl, bc
 .asm_6de26
 	ld a, [hli]
-	ldboard_a 2, 14, w6dd80
+	ldboard_a 2, 14, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 3, 14, w6dd80
+	ldboard_a 3, 14, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 2, 15, w6dd80
+	ldboard_a 2, 15, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 3, 15, w6dd80
+	ldboard_a 3, 15, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 2, 14, w6dec0
+	ldboard_a 2, 14, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 3, 14, w6dec0
+	ldboard_a 3, 14, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 2, 15, w6dec0
+	ldboard_a 2, 15, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 3, 15, w6dec0
+	ldboard_a 3, 15, wBoardAttrmap
 	ld bc, w6d058 + 2 + 7 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 2 + 7 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 2 + 7 * BOARD_VIRTUAL_WIDTH]
@@ -4341,21 +4341,21 @@ Func_6c085:
 	add hl, bc
 .asm_6ded3
 	ld a, [hli]
-	ldboard_a 4, 14, w6dd80
+	ldboard_a 4, 14, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 5, 14, w6dd80
+	ldboard_a 5, 14, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 4, 15, w6dd80
+	ldboard_a 4, 15, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 5, 15, w6dd80
+	ldboard_a 5, 15, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 4, 14, w6dec0
+	ldboard_a 4, 14, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 5, 14, w6dec0
+	ldboard_a 5, 14, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 4, 15, w6dec0
+	ldboard_a 4, 15, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 5, 15, w6dec0
+	ldboard_a 5, 15, wBoardAttrmap
 	ld bc, w6d058 + 3 + 7 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 3 + 7 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 3 + 7 * BOARD_VIRTUAL_WIDTH]
@@ -4436,21 +4436,21 @@ Func_6c085:
 	add hl, bc
 .asm_6df80
 	ld a, [hli]
-	ldboard_a 6, 14, w6dd80
+	ldboard_a 6, 14, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 7, 14, w6dd80
+	ldboard_a 7, 14, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 6, 15, w6dd80
+	ldboard_a 6, 15, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 7, 15, w6dd80
+	ldboard_a 7, 15, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 6, 14, w6dec0
+	ldboard_a 6, 14, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 7, 14, w6dec0
+	ldboard_a 7, 14, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 6, 15, w6dec0
+	ldboard_a 6, 15, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 7, 15, w6dec0
+	ldboard_a 7, 15, wBoardAttrmap
 	ld bc, w6d058 + 4 + 7 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 4 + 7 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 4 + 7 * BOARD_VIRTUAL_WIDTH]
@@ -4531,21 +4531,21 @@ Func_6c085:
 	add hl, bc
 .asm_6e02d
 	ld a, [hli]
-	ldboard_a 8, 14, w6dd80
+	ldboard_a 8, 14, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 9, 14, w6dd80
+	ldboard_a 9, 14, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 8, 15, w6dd80
+	ldboard_a 8, 15, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 9, 15, w6dd80
+	ldboard_a 9, 15, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 8, 14, w6dec0
+	ldboard_a 8, 14, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 9, 14, w6dec0
+	ldboard_a 9, 14, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 8, 15, w6dec0
+	ldboard_a 8, 15, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 9, 15, w6dec0
+	ldboard_a 9, 15, wBoardAttrmap
 	ld bc, w6d058 + 5 + 7 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 5 + 7 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 5 + 7 * BOARD_VIRTUAL_WIDTH]
@@ -4626,21 +4626,21 @@ Func_6c085:
 	add hl, bc
 .asm_6e0da
 	ld a, [hli]
-	ldboard_a 10, 14, w6dd80
+	ldboard_a 10, 14, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 11, 14, w6dd80
+	ldboard_a 11, 14, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 10, 15, w6dd80
+	ldboard_a 10, 15, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 11, 15, w6dd80
+	ldboard_a 11, 15, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 10, 14, w6dec0
+	ldboard_a 10, 14, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 11, 14, w6dec0
+	ldboard_a 11, 14, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 10, 15, w6dec0
+	ldboard_a 10, 15, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 11, 15, w6dec0
+	ldboard_a 11, 15, wBoardAttrmap
 	ld bc, w6d058 + 0 + 8 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 0 + 8 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 0 + 8 * BOARD_VIRTUAL_WIDTH]
@@ -4721,21 +4721,21 @@ Func_6c085:
 	add hl, bc
 .asm_6e187
 	ld a, [hli]
-	ldboard_a 0, 16, w6dd80
+	ldboard_a 0, 16, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 1, 16, w6dd80
+	ldboard_a 1, 16, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 0, 17, w6dd80
+	ldboard_a 0, 17, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 1, 17, w6dd80
+	ldboard_a 1, 17, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 0, 16, w6dec0
+	ldboard_a 0, 16, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 1, 16, w6dec0
+	ldboard_a 1, 16, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 0, 17, w6dec0
+	ldboard_a 0, 17, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 1, 17, w6dec0
+	ldboard_a 1, 17, wBoardAttrmap
 	ld bc, w6d058 + 1 + 8 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 1 + 8 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 1 + 8 * BOARD_VIRTUAL_WIDTH]
@@ -4816,21 +4816,21 @@ Func_6c085:
 	add hl, bc
 .asm_6e234
 	ld a, [hli]
-	ldboard_a 2, 16, w6dd80
+	ldboard_a 2, 16, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 3, 16, w6dd80
+	ldboard_a 3, 16, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 2, 17, w6dd80
+	ldboard_a 2, 17, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 3, 17, w6dd80
+	ldboard_a 3, 17, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 2, 16, w6dec0
+	ldboard_a 2, 16, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 3, 16, w6dec0
+	ldboard_a 3, 16, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 2, 17, w6dec0
+	ldboard_a 2, 17, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 3, 17, w6dec0
+	ldboard_a 3, 17, wBoardAttrmap
 	ld bc, w6d058 + 2 + 8 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 2 + 8 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 2 + 8 * BOARD_VIRTUAL_WIDTH]
@@ -4911,21 +4911,21 @@ Func_6c085:
 	add hl, bc
 .asm_6e2e1
 	ld a, [hli]
-	ldboard_a 4, 16, w6dd80
+	ldboard_a 4, 16, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 5, 16, w6dd80
+	ldboard_a 5, 16, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 4, 17, w6dd80
+	ldboard_a 4, 17, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 5, 17, w6dd80
+	ldboard_a 5, 17, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 4, 16, w6dec0
+	ldboard_a 4, 16, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 5, 16, w6dec0
+	ldboard_a 5, 16, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 4, 17, w6dec0
+	ldboard_a 4, 17, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 5, 17, w6dec0
+	ldboard_a 5, 17, wBoardAttrmap
 	ld bc, w6d058 + 3 + 8 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 3 + 8 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 3 + 8 * BOARD_VIRTUAL_WIDTH]
@@ -5006,21 +5006,21 @@ Func_6c085:
 	add hl, bc
 .asm_6e38e
 	ld a, [hli]
-	ldboard_a 6, 16, w6dd80
+	ldboard_a 6, 16, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 7, 16, w6dd80
+	ldboard_a 7, 16, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 6, 17, w6dd80
+	ldboard_a 6, 17, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 7, 17, w6dd80
+	ldboard_a 7, 17, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 6, 16, w6dec0
+	ldboard_a 6, 16, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 7, 16, w6dec0
+	ldboard_a 7, 16, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 6, 17, w6dec0
+	ldboard_a 6, 17, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 7, 17, w6dec0
+	ldboard_a 7, 17, wBoardAttrmap
 	ld bc, w6d058 + 4 + 8 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 4 + 8 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 4 + 8 * BOARD_VIRTUAL_WIDTH]
@@ -5101,21 +5101,21 @@ Func_6c085:
 	add hl, bc
 .asm_6e43b
 	ld a, [hli]
-	ldboard_a 8, 16, w6dd80
+	ldboard_a 8, 16, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 9, 16, w6dd80
+	ldboard_a 9, 16, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 8, 17, w6dd80
+	ldboard_a 8, 17, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 9, 17, w6dd80
+	ldboard_a 9, 17, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 8, 16, w6dec0
+	ldboard_a 8, 16, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 9, 16, w6dec0
+	ldboard_a 9, 16, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 8, 17, w6dec0
+	ldboard_a 8, 17, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 9, 17, w6dec0
+	ldboard_a 9, 17, wBoardAttrmap
 	ld bc, w6d058 + 5 + 8 * BOARD_VIRTUAL_WIDTH
 	ld hl, w6d150 + 5 + 8 * BOARD_VIRTUAL_WIDTH
 	ld a, [w6d0b0 + 5 + 8 * BOARD_VIRTUAL_WIDTH]
@@ -5196,21 +5196,21 @@ Func_6c085:
 	add hl, bc
 .asm_6e4e8
 	ld a, [hli]
-	ldboard_a 10, 16, w6dd80
+	ldboard_a 10, 16, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 11, 16, w6dd80
+	ldboard_a 11, 16, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 10, 17, w6dd80
+	ldboard_a 10, 17, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 11, 17, w6dd80
+	ldboard_a 11, 17, wBlockTilemap
 	ld a, [hli]
-	ldboard_a 10, 16, w6dec0
+	ldboard_a 10, 16, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 11, 16, w6dec0
+	ldboard_a 11, 16, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 10, 17, w6dec0
+	ldboard_a 10, 17, wBoardAttrmap
 	ld a, [hli]
-	ldboard_a 11, 17, w6dec0
+	ldboard_a 11, 17, wBoardAttrmap
 	ret
 ; 0x6e509
 

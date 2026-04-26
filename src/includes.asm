@@ -10,6 +10,7 @@ INCLUDE "macros/code.asm"
 INCLUDE "macros/gfx.asm"
 INCLUDE "macros/ram.asm"
 
+INCLUDE "constants/board_constants.asm"
 INCLUDE "constants/menu_constants.asm"
 INCLUDE "constants/misc_constants.asm"
 INCLUDE "constants/music_constants.asm"

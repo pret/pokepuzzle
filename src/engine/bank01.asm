@@ -275,6 +275,8 @@ Func_427a:
 .asm_430c
 	xor a
 	ld [wc880], a
+
+	; w6d9a0 -= bc
 	ld hl, wcad0
 	ld a, [hl]
 	sub c
@@ -282,12 +284,13 @@ Func_427a:
 	ld a, [hl]
 	sbc b
 	ld [hld], a
-	ret nc
+	ret nc ; no underflow
+
 	ld d, $00
 .asm_431c
 	inc d
 	ld a, $00
-	add [hl]
+	add [hl] ; wcad0
 	ld [hli], a
 	ld a, $10
 	adc [hl]
@@ -300,6 +303,7 @@ Func_427a:
 	add d
 	ld [hl], a
 	ldh [hSCY], a
+
 	ld bc, $810
 	ld hl, wc864
 	ld a, [hl]
@@ -2480,20 +2484,20 @@ SECTION "Bank 1@6777", ROMX[$6777], BANK[$1]
 Func_6777:
 	ld a, [wSpeedLevel]
 	ld l, a
-	cp $32
+	cp 50
 	jr c, .asm_6787
 	ld a, [wcebc]
 	and a
 	jr nz, .asm_6787
-	ld l, $32
+	ld l, 50
 .asm_6787
 	ld a, l
-	add a
-	ld hl, $d9a0
+	add a ; *2
+	ld hl, w6d9a0
 	add l
 	ld l, a
 	ld a, h
-	adc $00
+	adc 0
 	ld h, a
 	ld a, [hli]
 	ld h, [hl]
@@ -2642,10 +2646,10 @@ Func_688c:
 	ld a, [wc883]
 	and a
 	jr nz, .asm_68a6
-	ld hl, $db30
+	ld hl, w6db30
 	jr .asm_68a9
 .asm_68a6
-	ld hl, $db9c
+	ld hl, w6db9c
 .asm_68a9
 	add hl, bc
 	ld a, [hli]
@@ -2684,10 +2688,10 @@ Func_68c1:
 	ld a, [wc883]
 	and a
 	jr nz, .asm_68db
-	ld hl, $dc08
+	ld hl, w6dc08
 	jr .asm_68de
 .asm_68db
-	ld hl, $dc30
+	ld hl, w6dc30
 .asm_68de
 	add hl, bc
 	ld a, [hli]

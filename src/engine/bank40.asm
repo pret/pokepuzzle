@@ -147,7 +147,7 @@ SECTION "Bank 40@4774", ROMX[$4774], BANK[$40]
 
 Func_100774:
 	ld a, c
-	call Func_100844
+	call GetPokemonDataStruct
 	ld hl, PokemonData + PKMNSTRUCT_UNK25
 	add hl, bc
 	ld a, BANK(PokemonData)
@@ -159,10 +159,10 @@ Func_100774:
 	ld [wc8a1], a
 	ret
 
-Func_10078e:
+GetPokemonBoard:
 	ld a, c
-	call Func_100844
-	ld hl, PokemonData + PKMNSTRUCT_UNK24
+	call GetPokemonDataStruct
+	ld hl, PokemonData + PKMNSTRUCT_BOARD
 	add hl, bc
 	ld a, BANK(PokemonData)
 	call GetFarByte
@@ -172,8 +172,8 @@ Func_10078e:
 ; loads garbage palette corresponding to a given Pokémon
 LoadPokemonGarbagePalette:
 	ld a, c
-	call Func_100844
-	ld hl, PokemonData + PKMNSTRUCT_UNK21
+	call GetPokemonDataStruct
+	ld hl, PokemonData + PKMNSTRUCT_GARBAGE_PALETTE
 	add hl, bc
 	ld a, BANK(PokemonData)
 	call GetFarByte
@@ -196,7 +196,7 @@ LoadPokemonGarbagePalette:
 ; loads garbage gfx corresponding to a given Pokémon
 LoadPokemonGarbageGfx:
 	ld a, c
-	call Func_100844
+	call GetPokemonDataStruct
 	ld hl, PokemonData + PKMNSTRUCT_GARBAGE_GFX
 	add hl, bc
 	ld a, BANK(PokemonData)
@@ -220,7 +220,7 @@ LoadPokemonGarbageGfx:
 
 SECTION "Bank 40@4844", ROMX[$4844], BANK[$40]
 
-Func_100844:
+GetPokemonDataStruct:
 	push hl
 	ld l, a
 	ld h, $00
@@ -237,11 +237,13 @@ Func_100844:
 	pop hl
 	ret
 
-Func_100854:
-	cp $1d
-	jr c, .asm_10085a
-	ld a, $1c
-.asm_10085a
+; input:
+; - a = BOARD_* constant
+GetBoardStruct:
+	cp NUM_BOARDS
+	jr c, .valid_board
+	ld a, NUM_BOARDS - 1
+.valid_board
 	push hl
 	ld l, a
 	ld h, $00
@@ -276,10 +278,10 @@ Func_10086d:
 	pop hl
 	ret
 
-Func_10087b:
-	ld hl, $5c5a
-	ld a, [wcea2]
-	call Func_100854
+LoadBoardPalettes:
+	ld hl, Boards + BOARDSTRUCT_PALETTES
+	ld a, [wBoard]
+	call GetBoardStruct
 	add hl, bc
 	ld a, $40
 	call GetFarByte
@@ -308,22 +310,22 @@ Func_10087b:
 	ret
 
 Func_1008ac:
-	ld a, [wcea2]
+	ld a, [wBoard]
 	ld c, a
 Func_1008b0:
-	ld hl, $5c5d
+	ld hl, Boards + BOARDSTRUCT_BG_PATTERN_GFX
 	ld a, c
-	call Func_100854
+	call GetBoardStruct
 	add hl, bc
-	ld a, $40
+	ld a, BANK(Boards)
 	call GetFarByte
 	inc hl
 	ld c, a
-	ld a, $40
+	ld a, BANK(Boards)
 	call GetFarByte
 	inc hl
 	ld b, a
-	ld a, $40
+	ld a, BANK(Boards)
 	call GetFarByte
 	inc hl
 	ld l, c
@@ -339,22 +341,22 @@ Func_1008b0:
 	ret
 
 Func_1008e1:
-	ld hl, $5c6c
-	ld a, [wcea2]
-	call Func_100854
+	ld hl, Boards + BOARDSTRUCT_GAME_MODES + BOARDGAMEMODESTRUCT_UNK0
+	ld a, [wBoard]
+	call GetBoardStruct
 	add hl, bc
 	ld a, [wGameMode]
 	call Func_10086d
 	add hl, bc
-	ld a, $40
+	ld a, BANK(Boards)
 	call GetFarByte
 	inc hl
 	ld c, a
-	ld a, $40
+	ld a, BANK(Boards)
 	call GetFarByte
 	inc hl
 	ld b, a
-	ld a, $40
+	ld a, BANK(Boards)
 	call GetFarByte
 	inc hl
 	ld l, c
@@ -366,22 +368,22 @@ Func_1008e1:
 	ld c, BANK(v1Tiles2)
 	call Func_93d
 .asm_100914
-	ld hl, $5c6f
-	ld a, [wcea2]
-	call Func_100854
+	ld hl, Boards + BOARDSTRUCT_GAME_MODES + BOARDGAMEMODESTRUCT_UNK3
+	ld a, [wBoard]
+	call GetBoardStruct
 	add hl, bc
 	ld a, [wGameMode]
 	call Func_10086d
 	add hl, bc
-	ld a, $40
+	ld a, BANK(Boards)
 	call GetFarByte
 	inc hl
 	ld c, a
-	ld a, $40
+	ld a, BANK(Boards)
 	call GetFarByte
 	inc hl
 	ld b, a
-	ld a, $40
+	ld a, BANK(Boards)
 	call GetFarByte
 	inc hl
 	ld l, c
@@ -389,29 +391,29 @@ Func_1008e1:
 	inc h
 	dec h
 	jr z, .asm_100947
-	ld de, v0Tiles2 tile $20
-	ld c, $01
+	ld de, v1Tiles2 tile $20
+	ld c, BANK(v1Tiles2)
 	call Func_93d
 .asm_100947
 	ret
 
 Func_100948:
-	ld hl, $5c72
-	ld a, [wcea2]
-	call Func_100854
+	ld hl, Boards + BOARDSTRUCT_GAME_MODES + BOARDGAMEMODESTRUCT_UNK6
+	ld a, [wBoard]
+	call GetBoardStruct
 	add hl, bc
 	ld a, [wGameMode]
 	call Func_10086d
 	add hl, bc
-	ld a, $40
+	ld a, BANK(Boards)
 	call GetFarByte
 	inc hl
 	ld c, a
-	ld a, $40
+	ld a, BANK(Boards)
 	call GetFarByte
 	inc hl
 	ld b, a
-	ld a, $40
+	ld a, BANK(Boards)
 	call GetFarByte
 	inc hl
 	ld l, c
@@ -422,24 +424,24 @@ Func_100948:
 	ld de, w2da80
 	ld c, BANK(w2da80)
 	call Func_93d
-	copy_data_ext v0BGMap1, BANK(v0BGMap1), w2da80, $8, $18, $12
+	copy_box v0BGMap1, w2da80, 0, 0, PUZZLE_HUD_WIDTH, PUZZLE_HUD_HEIGHT
 .asm_10098a
-	ld hl, $5c75
-	ld a, [wcea2]
-	call Func_100854
+	ld hl, Boards + BOARDSTRUCT_GAME_MODES + BOARDGAMEMODESTRUCT_UNK9
+	ld a, [wBoard]
+	call GetBoardStruct
 	add hl, bc
 	ld a, [wGameMode]
 	call Func_10086d
 	add hl, bc
-	ld a, $40
+	ld a, BANK(Boards)
 	call GetFarByte
 	inc hl
 	ld c, a
-	ld a, $40
+	ld a, BANK(Boards)
 	call GetFarByte
 	inc hl
 	ld b, a
-	ld a, $40
+	ld a, BANK(Boards)
 	call GetFarByte
 	inc hl
 	ld l, c
@@ -450,7 +452,7 @@ Func_100948:
 	ld de, w2da80
 	ld c, BANK(w2da80)
 	call Func_93d
-	copy_data_ext v1BGMap1, BANK(v1BGMap1), w2da80, $8, $18, $12
+	copy_box v1BGMap1, w2da80, 0, 0, PUZZLE_HUD_WIDTH, PUZZLE_HUD_HEIGHT
 .asm_1009cc
 	ret
 ; 0x1009cd
@@ -477,6 +479,10 @@ Func_10130e:
 
 INCLUDE "data/pokemon.asm"
 ; 0x10180a
+
+SECTION "Bank 40@5c5a", ROMX[$5c5a], BANK[$40]
+
+INCLUDE "data/boards.asm"
 
 SECTION "Bank 40@6e07", ROMX[$6e07], BANK[$40]
 

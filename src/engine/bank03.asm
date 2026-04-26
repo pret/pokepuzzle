@@ -155,7 +155,7 @@ Func_c0c2:
 	vramswitch
 	; fill BG map with tile $60
 	ld de, v0BGMap0
-	ld bc, $800
+	ld bc, TILEMAP_AREA * 2
 	ld a, $60
 	call FillMemory
 	; fill row 22 with tile $03
@@ -167,8 +167,8 @@ Func_c0c2:
 	ld a, BANK("VRAM1")
 	vramswitch
 	; set BG map with palette 6
-	ld de, v0BGMap0
-	ld bc, $800
+	ld de, v1BGMap0
+	ld bc, TILEMAP_AREA * 2
 	ld a, 6 | BG_BANK1
 	call FillMemory
 	; set row 22 with palette 3
@@ -182,7 +182,7 @@ Func_c0c2:
 
 	call Func_d2e6
 
-	ld de, w6dd80
+	ld de, wBlockTilemap
 	ld bc, $140
 	ld a, $60
 	call FillMemory
@@ -315,8 +315,8 @@ Func_c17b:
 SECTION "Bank 3@42f7", ROMX[$42f7], BANK[$3]
 
 Func_c2f7:
-	copy_data $d820, $06, $5ae8, $12, $80 ; d820, 49ae8
-	copy_data $d8c0, $06, $5b68, $12, $80 ; d8c0, 49b68
+	copy_data wPlayerMonPortraitBGMaps, PortraitBGMap_49ae8, $80
+	copy_data wOpponentMonPortraitBGMaps, PortraitBGMap_49b68, $80
 	copy_data $d960, $06, $5c70, $12, $40 ; d960, 49c70
 
 	ld de, $d8a0
@@ -378,7 +378,7 @@ Func_c37a:
 	ldh a, [hSRAMEnabled]
 	push af
 	enable_sram
-	farcall Func_10087b
+	farcall LoadBoardPalettes
 
 	ld a, [wPlayerMon]
 	call GetPokemonPalette
@@ -425,7 +425,7 @@ Func_c40a:
 	ldh a, [hSRAMEnabled]
 	push af
 	enable_sram
-	farcall Func_10087b
+	farcall LoadBoardPalettes
 
 	ld a, [wPlayerMon]
 	call GetPokemonPalette
@@ -495,7 +495,7 @@ Func_c49a:
 	copy_data $c9d6, $00, $5a70, $12, $8 ; c9d6, 49a70
 	copy_data $c9ee, $00, $5a88, $12, $8 ; c9ee, 49a88
 	copy_data $c9f6, $00, $5a90, $12, $8 ; c9f6, 49a90
-	farcall Func_10087b
+	farcall LoadBoardPalettes
 	farcall Func_1008ac
 	farcall Func_100948
 	ld a, BANK("VRAM1")
@@ -572,7 +572,7 @@ Func_c5c1:
 	ldh a, [hSRAMEnabled]
 	push af
 	enable_sram
-	farcall Func_10087b
+	farcall LoadBoardPalettes
 
 	ld a, [wOpponentMon]
 	ld c, a
@@ -633,7 +633,7 @@ Func_c67d:
 	ldh a, [hSRAMEnabled]
 	push af
 	enable_sram
-	farcall Func_10087b
+	farcall LoadBoardPalettes
 
 	ld a, [wOpponentMon]
 	ld c, a
@@ -716,7 +716,7 @@ Func_c77a:
 	ldh a, [hSRAMEnabled]
 	push af
 	enable_sram
-	farcall Func_10087b
+	farcall LoadBoardPalettes
 
 	ld a, [wOpponentMon]
 	ld c, a
@@ -783,7 +783,7 @@ Func_c83e:
 	ldh a, [hSRAMEnabled]
 	push af
 	enable_sram
-	farcall Func_10087b
+	farcall LoadBoardPalettes
 
 	ld a, [wOpponentMon]
 	ld c, a
@@ -1124,7 +1124,7 @@ Func_cc39:
 	push hl
 	ld a, GAMEMODE_UNK9
 	ld [wGameMode], a
-	farcall Func_10087b
+	farcall LoadBoardPalettes
 	farcall Func_1008ac
 	farcall Func_100948
 	farcall Func_1008e1
@@ -1743,18 +1743,20 @@ Func_d315:
 	call Func_d6cf
 	call Func_d95e
 	call Func_d9b0
+
 	call Func_dfea
-	farcall Func_e1c6 ; unnecessary farcall
-	farcall Func_e23a ; unnecessary farcall
+	farcall PrepareCopyInitialBlockConfiguration ; unnecessary farcall
+	farcall CopyInitialBlockConfiguration ; unnecessary farcall
+
 	ld a, [wStage]
 	farcall_saveregs Func_100561
 	ld [wPlayerMon], a
 	ld [wOpponentMon], a
 	ld a, [wOpponentMon]
 	ld c, a
-	farcall Func_10078e
+	farcall GetPokemonBoard
 	ld a, c
-	ld [wcea2], a
+	ld [wBoard], a
 	ld a, [wOpponentMon]
 	ld c, a
 	farcall Func_100774
@@ -1779,18 +1781,20 @@ Func_d367:
 	call Func_d6cf
 	call Func_d95e
 	call Func_d9b0
+
 	call Func_dfea
-	farcall Func_e1c6 ; unnecessary farcall
-	farcall Func_e23a ; unnecessary farcall
+	farcall PrepareCopyInitialBlockConfiguration ; unnecessary farcall
+	farcall CopyInitialBlockConfiguration ; unnecessary farcall
+
 	ld a, [wStage]
 	farcall_saveregs Func_100561
 	ld [wPlayerMon], a
 	ld [wOpponentMon], a
 	ld a, [wOpponentMon]
 	ld c, a
-	farcall Func_10078e
+	farcall GetPokemonBoard
 	ld a, c
-	ld [wcea2], a
+	ld [wBoard], a
 	ld a, [wOpponentMon]
 	ld c, a
 	farcall Func_100774
@@ -1824,12 +1828,13 @@ Func_d3b9:
 	ld c, l
 	ld b, h
 	add hl, hl
+	add hl, bc ; *6
+	ld bc, InitialBlockColumnHeights_LineClear
 	add hl, bc
-	ld bc, $7329
-	add hl, bc
-	call Func_dffd
-	farcall Func_e1c6 ; unnecessary farcall
-	farcall Func_e23a ; unnecessary farcall
+	call CreateInitialRandomBlockConfiguration
+	farcall PrepareCopyInitialBlockConfiguration ; unnecessary farcall
+	farcall CopyInitialBlockConfiguration ; unnecessary farcall
+
 	ld a, [wStage]
 	swap a
 	and $0f
@@ -1840,9 +1845,9 @@ Func_d3b9:
 	ld [wOpponentMon], a
 	ld a, [wOpponentMon]
 	ld c, a
-	farcall Func_10078e
+	farcall GetPokemonBoard
 	ld a, c
-	ld [wcea2], a
+	ld [wBoard], a
 	ld a, [wOpponentMon]
 	ld c, a
 	farcall Func_100774
@@ -1875,9 +1880,9 @@ Func_d42a:
 	ld [wOpponentMon], a
 	ld a, [wOpponentMon]
 	ld c, a
-	farcall Func_10078e
+	farcall GetPokemonBoard
 	ld a, c
-	ld [wcea2], a
+	ld [wBoard], a
 	ld a, [wOpponentMon]
 	ld c, a
 	farcall Func_100774
@@ -1903,18 +1908,20 @@ Func_d489:
 	call Func_d6cf
 	call Func_d95e
 	call Func_d9b0
+
 	call Func_dfea
-	farcall Func_e1c6 ; unnecessary farcall
-	farcall Func_e23a ; unnecessary farcall
+	farcall PrepareCopyInitialBlockConfiguration ; unnecessary farcall
+	farcall CopyInitialBlockConfiguration ; unnecessary farcall
+
 	ld a, [wStage]
 	farcall_saveregs Func_100561
 	ld [wPlayerMon], a
 	ld [wOpponentMon], a
 	ld a, [wOpponentMon]
 	ld c, a
-	farcall Func_10078e
+	farcall GetPokemonBoard
 	ld a, c
-	ld [wcea2], a
+	ld [wBoard], a
 	ld a, [wOpponentMon]
 	ld c, a
 	farcall Func_100774
@@ -1931,17 +1938,19 @@ Func_d4e1:
 	call Func_d6cf
 	call Func_d95e
 	call Func_d9b0
+
 	call Func_dfea
-	farcall Func_e1c6 ; unnecessary farcall
-	farcall Func_e23a ; unnecessary farcall
+	farcall PrepareCopyInitialBlockConfiguration ; unnecessary farcall
+	farcall CopyInitialBlockConfiguration ; unnecessary farcall
+
 	ld a, [wStage]
 	farcall_saveregs Func_10058a
 	ld [wOpponentMon], a
 	ld a, [wOpponentMon]
 	ld c, a
-	farcall Func_10078e
+	farcall GetPokemonBoard
 	ld a, c
-	ld [wcea2], a
+	ld [wBoard], a
 	ld a, [wOpponentMon]
 	ld c, a
 	farcall Func_100774
@@ -2096,11 +2105,11 @@ Func_d631:
 	add l
 	ld l, a
 	ld h, $00
-	ld bc, $7329
+	ld bc, InitialBlockColumnHeights_LineClear
 	add hl, bc
-	call Func_dffd
-	farcall Func_e1c6 ; unnecessary farcall
-	farcall Func_e23a ; unnecessary farcall
+	call CreateInitialRandomBlockConfiguration
+	farcall PrepareCopyInitialBlockConfiguration ; unnecessary farcall
+	farcall CopyInitialBlockConfiguration ; unnecessary farcall
 
 	ld a, CHIKORITA
 	ld [wPlayerMon], a
@@ -2119,9 +2128,9 @@ Func_d631:
 	ld a, c
 	ld [wOpponentMon], a
 	ld c, a
-	farcall Func_10078e
+	farcall GetPokemonBoard
 	ld a, c
-	ld [wcea2], a
+	ld [wBoard], a
 	ld a, [wOpponentMon]
 	ld c, a
 	farcall Func_100774
@@ -2161,8 +2170,9 @@ Func_d6cf:
 	ld a, $00
 	call FillMemory
 
-	ld de, w6dd80
-	ld bc, $280
+	; clears wBlockTilemap and wBlockAttrmap
+	ld de, wBlockTilemap
+	ld bc, 2 * (BOARD_VIRTUAL_AREA * 4)
 	ld a, $00
 	call FillMemory
 
@@ -2239,7 +2249,7 @@ Func_d6cf:
 	ld [wcadf], a
 	ld [wcae1], a
 	ld [wcae2], a
-	ld [wcae4], a
+	ld [wcae4 + 0], a
 	ld [wcae0], a
 	ld a, $ff
 	ld [wc9af], a
@@ -2247,14 +2257,14 @@ Func_d6cf:
 	ld [wc9b0], a
 	ld [wc9b1], a
 	ld a, $00
-	ld [wc9b2], a
-	ld [wc9b3], a
-	ld [wc9b5], a
+	ld [wPlayerMonPortraitAnimPtr + 0], a
+	ld [wPlayerMonPortraitAnimPtr + 1], a
+	ld [wPlayerMonPortraitAnimTimer], a
 	ld [wc9b6], a
-	ld [wc9b7], a
-	ld [wc9b8], a
+	ld [wOpponentMonPortraitAnimPtr + 0], a
+	ld [wOpponentMonPortraitAnimPtr + 1], a
 	ld [wc9b9], a
-	ld [wc9ba], a
+	ld [wOpponentMonPortraitAnimTimer], a
 	ld [wc9bb], a
 	ld a, [wcebe]
 	ld [wc9bc], a
@@ -2427,6 +2437,7 @@ Func_d95e:
 	ld [wce31], a
 	ld [wce32], a
 	ld [wce33], a
+
 	ld de, wcdf8
 	ld bc, $30
 	ld a, $00
@@ -2495,32 +2506,32 @@ Func_d9c8:
 	ld [wca21], a
 	ld [wca22], a
 
-	ld hl, $63a2
-	ld de, $d9a0
-	ld bc, $c8
+	ld hl, Data_e3a2
+	ld de, w6d9a0
+	ld bc, (MAX_SPEEDLEVEL + 1) * 2
 	call CopyHLtoDE
 
-	ld hl, $646a
-	ld de, $da68
-	ld bc, $c8
+	ld hl, Data_e46a
+	ld de, w6da68
+	ld bc, (MAX_SPEEDLEVEL + 1) * 2
 	call CopyHLtoDE
 
-	ld bc, $db30
+	ld bc, w6db30
 	ld de, Data_e532
 	ld a, $36
 	call Func_def5
 
-	ld bc, $dc08
+	ld bc, w6dc08
 	ld de, $6648
 	ld a, $14
 	call Func_def5
 
-	ld bc, $db9c
+	ld bc, w6db9c
 	ld de, $66b8
 	ld a, $36
 	call Func_def5
 
-	ld bc, $dc30
+	ld bc, w6dc30
 	ld de, $6744
 	ld a, $14
 	call Func_def5
@@ -2601,27 +2612,27 @@ Func_da78:
 	add hl, bc
 	ld a, [hl]
 	ld [de], a
-	ld hl, $63a2
-	ld de, $d9a0
-	ld bc, $c8
+	ld hl, Data_e3a2
+	ld de, w6d9a0
+	ld bc, (MAX_SPEEDLEVEL + 1) * 2
 	call CopyHLtoDE
 	ld hl, $6824
-	ld de, $da68
-	ld bc, $c8
+	ld de, w6da68
+	ld bc, (MAX_SPEEDLEVEL + 1) * 2
 	call CopyHLtoDE
-	ld bc, $db30
+	ld bc, w6db30
 	ld de, $6888
 	ld a, $36
 	call Func_df1c
-	ld bc, $dc08
+	ld bc, w6dc08
 	ld de, $6b26
 	ld a, $14
 	call Func_df1c
-	ld bc, $db9c
+	ld bc, w6db9c
 	ld de, $6c3e
 	ld a, $36
 	call Func_df1c
-	ld bc, $dc30
+	ld bc, w6dc30
 	ld de, $6d10
 	ld a, $14
 	call Func_df1c
@@ -2715,27 +2726,27 @@ Func_db52:
 	add hl, bc
 	ld a, [hl]
 	ld [de], a
-	ld hl, $63a2
-	ld de, $d9a0
-	ld bc, $c8
+	ld hl, Data_e3a2
+	ld de, w6d9a0
+	ld bc, (MAX_SPEEDLEVEL + 1) * 2
 	call CopyHLtoDE
 	ld hl, $6824
-	ld de, $da68
-	ld bc, $c8
+	ld de, w6da68
+	ld bc, (MAX_SPEEDLEVEL + 1) * 2
 	call CopyHLtoDE
-	ld bc, $db30
+	ld bc, w6db30
 	ld de, $6888
 	ld a, $36
 	call Func_df43
-	ld bc, $dc08
+	ld bc, w6dc08
 	ld de, $6b26
 	ld a, $14
 	call Func_df43
-	ld bc, $db9c
+	ld bc, w6db9c
 	ld de, $6c3e
 	ld a, $36
 	call Func_df43
-	ld bc, $dc30
+	ld bc, w6dc30
 	ld de, $6d10
 	ld a, $14
 	call Func_df43
@@ -2811,27 +2822,27 @@ Func_dc49:
 	add hl, bc
 	ld a, [hl]
 	ld [de], a
-	ld hl, $63a2
-	ld de, $d9a0
-	ld bc, $c8
+	ld hl, Data_e3a2
+	ld de, w6d9a0
+	ld bc, (MAX_SPEEDLEVEL + 1) * 2
 	call CopyHLtoDE
-	ld hl, $646a
-	ld de, $da68
-	ld bc, $c8
+	ld hl, Data_e46a
+	ld de, w6da68
+	ld bc, (MAX_SPEEDLEVEL + 1) * 2
 	call CopyHLtoDE
-	ld bc, $db30
+	ld bc, w6db30
 	ld de, $6888
 	ld a, $36
 	call Func_df1c
-	ld bc, $dc08
+	ld bc, w6dc08
 	ld de, $6b26
 	ld a, $14
 	call Func_df1c
-	ld bc, $db9c
+	ld bc, w6db9c
 	ld de, $6c3e
 	ld a, $36
 	call Func_df1c
-	ld bc, $dc30
+	ld bc, w6dc30
 	ld de, $6d10
 	ld a, $14
 	call Func_df1c
@@ -2949,32 +2960,32 @@ Func_dd1a:
 	ld [wca21], a
 	ld [wca22], a
 
-	ld hl, $63a2
-	ld de, $d9a0
-	ld bc, $c8
+	ld hl, Data_e3a2
+	ld de, w6d9a0
+	ld bc, (MAX_SPEEDLEVEL + 1) * 2
 	call CopyHLtoDE
 
 	ld hl, $6e35
-	ld de, $da68
-	ld bc, $c8
+	ld de, w6da68
+	ld bc, (MAX_SPEEDLEVEL + 1) * 2
 	call CopyHLtoDE
 
-	ld bc, $db30
+	ld bc, w6db30
 	ld de, $6efb
 	ld a, $36
 	call Func_df6a
 
-	ld bc, $dc08
+	ld bc, w6dc08
 	ld de, $70f1
 	ld a, $14
 	call Func_df6a
 
-	ld bc, $db9c
+	ld bc, w6db9c
 	ld de, $71c1
 	ld a, $36
 	call Func_df6a
 
-	ld bc, $dc30
+	ld bc, w6dc30
 	ld de, $7275
 	ld a, $14
 	call Func_df6a
@@ -3034,27 +3045,27 @@ Func_de32:
 	ld [wca27 + 1], a
 	ld [wca21], a
 	ld [wca22], a
-	ld hl, $63a2
-	ld de, $d9a0
-	ld bc, $c8
+	ld hl, Data_e3a2
+	ld de, w6d9a0
+	ld bc, (MAX_SPEEDLEVEL + 1) * 2
 	call CopyHLtoDE
 	ld hl, $6e35
-	ld de, $da68
-	ld bc, $c8
+	ld de, w6da68
+	ld bc, (MAX_SPEEDLEVEL + 1) * 2
 	call CopyHLtoDE
-	ld bc, $db30
+	ld bc, w6db30
 	ld de, $6efb
 	ld a, $36
 	call Func_df91
-	ld bc, $dc08
+	ld bc, w6dc08
 	ld de, $70f1
 	ld a, $14
 	call Func_df91
-	ld bc, $db9c
+	ld bc, w6db9c
 	ld de, $71c1
 	ld a, $36
 	call Func_df91
-	ld bc, $dc30
+	ld bc, w6dc30
 	ld de, $7275
 	ld a, $14
 	call Func_df91
@@ -3277,27 +3288,34 @@ Func_dfe2:
 Func_dfea:
 	call Random
 	call Func_e0b9
+	; a = random number in range [0, 13]
 	add a
 	ld c, a
 	add a
 	add c ; *6
 	ld c, a
 	ld b, $00
-	ld hl, $72d5
+	ld hl, InitialBlockColumnHeights_Regular
 	add hl, bc
-	jr Func_dffd ; useless jump
+	jr CreateInitialRandomBlockConfiguration ; useless jump
 
-Func_dffd:
+; this is an algorithm to construct the initial board configuration
+; hl must point to 6-byte data that says what the heights of each columns are
+; these are shuffled around first, so the column heights are in random order
+; then each column is iterated and each block placed (bottom up, left to right)
+; such that no 2 adjacent blocks share the same type
+; the output is in sInitialBlockConfiguration
+CreateInitialRandomBlockConfiguration:
 	ldh a, [hSRAMEnabled]
 	push af
 	enable_sram
 	ldh a, [hSRAMBank]
 	push af
-	ld a, $03
+	ld a, BANK(sInitialBlockConfiguration)
 	sramswitch
 
 	push hl
-	ld de, $a100
+	ld de, sInitialBlockConfiguration
 	ld bc, $55
 	ld a, $00
 	call FillMemory
@@ -3317,10 +3335,10 @@ Func_dffd:
 	ldh [hff8f], a
 
 	; shuffle hff8a
-	ld a, $06
+	ld a, BOARD_WIDTH
 	ldh [hff90], a
 .loop_shuffle
-	; swap 2 random elements of hff8a
+	; swap 2 random column heights
 	call Random_0to5
 	ld e, a
 	ld d, $00
@@ -3343,63 +3361,78 @@ Func_dffd:
 	dec [hl]
 	jr nz, .loop_shuffle
 
-	ld a, $06
+	; column heights are shuffled
+	; iterate through each column
+	ld a, BOARD_WIDTH
 	ldh [hff90], a
 	ld bc, hff8a
-	ld de, $40
-.loop_outer
+	ld de, 8 * 8 ; 8 per row, 8 columns max
+.loop_columns
 	push de
-.loop_inner
-	ld a, [bc]
+.loop_blocks
+	ld a, [bc] ; remaining column height
 	and a
-	jp z, .asm_e0a3
+	jp z, .next_column ; no more blocks to place
+
 	; if wca18 == 6, then get random number in [0, 5]
 	; otherwise, get random number in [0, 4]
 	ld a, [wca18]
 	cp $06
 	jr z, .asm_e072
 	call Random_0to4
-	jr .asm_e075
+	jr .try_next_block
 .asm_e072
 	call Random_0to5
-.asm_e075
+.try_next_block
 	inc a
+	; a is a random (allowed) block type
 	ld hl, wca18
 	cp [hl]
-	jr c, .asm_e080
-	jr z, .asm_e080
-	ld a, $01
-.asm_e080
-	ld hl, $a100
+	jr c, .got_block_type
+	jr z, .got_block_type
+	; wrap back to heart block
+	ld a, BLOCK_HEART
+.got_block_type
+	; we're going to try to place it at sInitialBlockConfiguration + $8 + de
+	; is it adjacent to the same block type?
+	; if so, try with next block type in order
+	; check above it
+	ld hl, sInitialBlockConfiguration + $8 - $8
 	add hl, de
 	cp [hl]
-	jr z, .asm_e075
-	ld hl, $a110
+	jr z, .try_next_block
+	; check below it
+	ld hl, sInitialBlockConfiguration + $8 + $8
 	add hl, de
 	cp [hl]
-	jr z, .asm_e075
-	ld hl, $a107
+	jr z, .try_next_block
+	; check to left
+	ld hl, sInitialBlockConfiguration + $8 - $1
 	add hl, de
 	cp [hl]
-	jr z, .asm_e075
-	ld hl, $a108
+	jr z, .try_next_block
+	; no need to check right, since we're going left to right
+	; place this block
+	ld hl, sInitialBlockConfiguration + $8
 	add hl, de
 	ld [hl], a
+	; go to row above
 	ld a, e
-	sub $08
+	sub $8
 	ld e, a
+	; decrement remaining blocks in column
 	ld a, [bc]
 	dec a
 	ld [bc], a
-	jr .loop_inner
+	jr .loop_blocks
 
-.asm_e0a3
+.next_column
 	pop de
 	inc bc
 	inc de
 	ld hl, hff90
 	dec [hl]
-	jr nz, .loop_outer
+	jr nz, .loop_columns
 
 	pop af
 	sramswitch
@@ -3410,7 +3443,7 @@ Func_dffd:
 
 Func_e0b9:
 	push hl
-	ld hl, $60c6
+	ld hl, .Data
 	add l
 	ld l, a
 	ld a, h
@@ -3419,41 +3452,58 @@ Func_e0b9:
 	ld a, [hl]
 	pop hl
 	ret
-; 0xe0c6
 
-SECTION "Bank 3@61c6", ROMX[$61c6], BANK[$3]
+.Data:
+	db $0, $1, $2, $3, $4, $5, $6, $7, $8, $9, $a, $b, $c, $d, $0, $0
+	db $0, $1, $2, $3, $4, $5, $6, $7, $8, $9, $a, $b, $c, $d, $1, $1
+	db $0, $1, $2, $3, $4, $5, $6, $7, $8, $9, $a, $b, $c, $d, $2, $2
+	db $0, $1, $2, $3, $4, $5, $6, $7, $8, $9, $a, $b, $c, $d, $3, $3
+	db $0, $1, $2, $3, $4, $5, $6, $7, $8, $9, $a, $b, $c, $d, $4, $4
+	db $0, $1, $2, $3, $4, $5, $6, $7, $8, $9, $a, $b, $c, $d, $5, $5
+	db $0, $1, $2, $3, $4, $5, $6, $7, $8, $9, $a, $b, $c, $d, $6, $6
+	db $0, $1, $2, $3, $4, $5, $6, $7, $8, $9, $a, $b, $c, $d, $7, $7
+	db $0, $1, $2, $3, $4, $5, $6, $7, $8, $9, $a, $b, $c, $d, $8, $8
+	db $0, $1, $2, $3, $4, $5, $6, $7, $8, $9, $a, $b, $c, $d, $9, $9
+	db $0, $1, $2, $3, $4, $5, $6, $7, $8, $9, $a, $b, $c, $d, $a, $a
+	db $0, $1, $2, $3, $4, $5, $6, $7, $8, $9, $a, $b, $c, $d, $b, $b
+	db $0, $1, $2, $3, $4, $5, $6, $7, $8, $9, $a, $b, $c, $d, $c, $c
+	db $0, $1, $2, $3, $4, $5, $6, $7, $8, $9, $a, $b, $c, $d, $d, $d
+	db $0, $1, $2, $3, $4, $5, $6, $7, $8, $9, $a, $b, $c, $d, $0, $1
+	db $0, $1, $2, $3, $4, $5, $6, $7, $8, $9, $a, $b, $c, $d, $2, $3
 
-Func_e1c6:
+; copies sInitialBlockConfiguration over to sBlockConfigurationToCopy
+PrepareCopyInitialBlockConfiguration:
 	ldh a, [hSRAMEnabled]
 	push af
 	enable_sram
-	copy_data $a000, $03, $a108, $03, $6
-	copy_data $a006, $03, $a110, $03, $6 ; a006, a110
-	copy_data $a00c, $03, $a118, $03, $6 ; a00c, a118
-	copy_data $a012, $03, $a120, $03, $6 ; a012, a120
-	copy_data $a018, $03, $a128, $03, $6 ; a018, a128
-	copy_data $a01e, $03, $a130, $03, $6 ; a01e, a130
-	copy_data $a024, $03, $a138, $03, $6 ; a024, a138
-	copy_data $a02a, $03, $a140, $03, $6 ; a02a, a140
-	copy_data $a030, $03, $a148, $03, $6 ; a030, a148
+	copy_data sBlockConfigurationToCopy + 0 * BOARD_WIDTH, BANK(sBlockConfigurationToCopy), sInitialBlockConfiguration + $08, BANK(sInitialBlockConfiguration), BOARD_WIDTH
+	copy_data sBlockConfigurationToCopy + 1 * BOARD_WIDTH, BANK(sBlockConfigurationToCopy), sInitialBlockConfiguration + $10, BANK(sInitialBlockConfiguration), BOARD_WIDTH
+	copy_data sBlockConfigurationToCopy + 2 * BOARD_WIDTH, BANK(sBlockConfigurationToCopy), sInitialBlockConfiguration + $18, BANK(sInitialBlockConfiguration), BOARD_WIDTH
+	copy_data sBlockConfigurationToCopy + 3 * BOARD_WIDTH, BANK(sBlockConfigurationToCopy), sInitialBlockConfiguration + $20, BANK(sInitialBlockConfiguration), BOARD_WIDTH
+	copy_data sBlockConfigurationToCopy + 4 * BOARD_WIDTH, BANK(sBlockConfigurationToCopy), sInitialBlockConfiguration + $28, BANK(sInitialBlockConfiguration), BOARD_WIDTH
+	copy_data sBlockConfigurationToCopy + 5 * BOARD_WIDTH, BANK(sBlockConfigurationToCopy), sInitialBlockConfiguration + $30, BANK(sInitialBlockConfiguration), BOARD_WIDTH
+	copy_data sBlockConfigurationToCopy + 6 * BOARD_WIDTH, BANK(sBlockConfigurationToCopy), sInitialBlockConfiguration + $38, BANK(sInitialBlockConfiguration), BOARD_WIDTH
+	copy_data sBlockConfigurationToCopy + 7 * BOARD_WIDTH, BANK(sBlockConfigurationToCopy), sInitialBlockConfiguration + $40, BANK(sInitialBlockConfiguration), BOARD_WIDTH
+	copy_data sBlockConfigurationToCopy + 8 * BOARD_WIDTH, BANK(sBlockConfigurationToCopy), sInitialBlockConfiguration + $48, BANK(sInitialBlockConfiguration), BOARD_WIDTH
 	pop af
 	ldh [hSRAMEnabled], a
 	ld [$100], a
 	ret
 
-Func_e23a:
+; copies sBlockConfigurationToCopy over to wBlocks
+CopyInitialBlockConfiguration:
 	ldh a, [hSRAMEnabled]
 	push af
 	enable_sram
-	copy_data wBlocks + 0 * BOARD_VIRTUAL_WIDTH, BANK(wBlocks), $a000, $03, BOARD_WIDTH
-	copy_data wBlocks + 1 * BOARD_VIRTUAL_WIDTH, BANK(wBlocks), $a006, $03, BOARD_WIDTH
-	copy_data wBlocks + 2 * BOARD_VIRTUAL_WIDTH, BANK(wBlocks), $a00c, $03, BOARD_WIDTH
-	copy_data wBlocks + 3 * BOARD_VIRTUAL_WIDTH, BANK(wBlocks), $a012, $03, BOARD_WIDTH
-	copy_data wBlocks + 4 * BOARD_VIRTUAL_WIDTH, BANK(wBlocks), $a018, $03, BOARD_WIDTH
-	copy_data wBlocks + 5 * BOARD_VIRTUAL_WIDTH, BANK(wBlocks), $a01e, $03, BOARD_WIDTH
-	copy_data wBlocks + 6 * BOARD_VIRTUAL_WIDTH, BANK(wBlocks), $a024, $03, BOARD_WIDTH
-	copy_data wBlocks + 7 * BOARD_VIRTUAL_WIDTH, BANK(wBlocks), $a02a, $03, BOARD_WIDTH
-	copy_data wBlocks + 8 * BOARD_VIRTUAL_WIDTH, BANK(wBlocks), $a030, $03, BOARD_WIDTH
+	copy_data wBlocks + 0 * BOARD_VIRTUAL_WIDTH, BANK(wBlocks), sBlockConfigurationToCopy + 0 * BOARD_WIDTH, BANK(sBlockConfigurationToCopy), BOARD_WIDTH
+	copy_data wBlocks + 1 * BOARD_VIRTUAL_WIDTH, BANK(wBlocks), sBlockConfigurationToCopy + 1 * BOARD_WIDTH, BANK(sBlockConfigurationToCopy), BOARD_WIDTH
+	copy_data wBlocks + 2 * BOARD_VIRTUAL_WIDTH, BANK(wBlocks), sBlockConfigurationToCopy + 2 * BOARD_WIDTH, BANK(sBlockConfigurationToCopy), BOARD_WIDTH
+	copy_data wBlocks + 3 * BOARD_VIRTUAL_WIDTH, BANK(wBlocks), sBlockConfigurationToCopy + 3 * BOARD_WIDTH, BANK(sBlockConfigurationToCopy), BOARD_WIDTH
+	copy_data wBlocks + 4 * BOARD_VIRTUAL_WIDTH, BANK(wBlocks), sBlockConfigurationToCopy + 4 * BOARD_WIDTH, BANK(sBlockConfigurationToCopy), BOARD_WIDTH
+	copy_data wBlocks + 5 * BOARD_VIRTUAL_WIDTH, BANK(wBlocks), sBlockConfigurationToCopy + 5 * BOARD_WIDTH, BANK(sBlockConfigurationToCopy), BOARD_WIDTH
+	copy_data wBlocks + 6 * BOARD_VIRTUAL_WIDTH, BANK(wBlocks), sBlockConfigurationToCopy + 6 * BOARD_WIDTH, BANK(sBlockConfigurationToCopy), BOARD_WIDTH
+	copy_data wBlocks + 7 * BOARD_VIRTUAL_WIDTH, BANK(wBlocks), sBlockConfigurationToCopy + 7 * BOARD_WIDTH, BANK(sBlockConfigurationToCopy), BOARD_WIDTH
+	copy_data wBlocks + 8 * BOARD_VIRTUAL_WIDTH, BANK(wBlocks), sBlockConfigurationToCopy + 8 * BOARD_WIDTH, BANK(sBlockConfigurationToCopy), BOARD_WIDTH
 	pop af
 	ldh [hSRAMEnabled], a
 	ld [$100], a
@@ -3519,9 +3569,214 @@ Data_e39c:
 
 Data_e39f:
 	db $0e, $0b, $07
-; 0xe3a2
 
-SECTION "Bank 3@6532", ROMX[$6532], BANK[$3]
+Data_e3a2:
+	table_width 2
+	dw $0000 ;  0
+	dw $002e ;  1
+	dw $0031 ;  2
+	dw $0037 ;  3
+	dw $0039 ;  4
+	dw $003d ;  5
+	dw $0042 ;  6
+	dw $0047 ;  7
+	dw $004c ;  8
+	dw $0051 ;  9
+	dw $005a ; 10
+	dw $0062 ; 11
+	dw $0069 ; 12
+	dw $0077 ; 13
+	dw $0080 ; 14
+	dw $0088 ; 15
+	dw $0092 ; 16
+	dw $009b ; 17
+	dw $00a6 ; 18
+	dw $00b1 ; 19
+	dw $00bd ; 20
+	dw $00ca ; 21
+	dw $00d7 ; 22
+	dw $00e6 ; 23
+	dw $00f5 ; 24
+	dw $0106 ; 25
+	dw $0119 ; 26
+	dw $012b ; 27
+	dw $0141 ; 28
+	dw $015a ; 29
+	dw $0177 ; 30
+	dw $0196 ; 31
+	dw $01ba ; 32
+	dw $01e0 ; 33
+	dw $0207 ; 34
+	dw $022e ; 35
+	dw $0264 ; 36
+	dw $029a ; 37
+	dw $02c5 ; 38
+	dw $0302 ; 39
+	dw $033b ; 40
+	dw $037d ; 41
+	dw $03b6 ; 42
+	dw $040f ; 43
+	dw $045d ; 44
+	dw $04b7 ; 45
+	dw $04fc ; 46
+	dw $054a ; 47
+	dw $05a1 ; 48
+	dw $0604 ; 49
+	dw $063b ; 50
+	dw $066e ; 51
+	dw $06a1 ; 52
+	dw $06d4 ; 53
+	dw $0707 ; 54
+	dw $073a ; 55
+	dw $076d ; 56
+	dw $07a0 ; 57
+	dw $07d3 ; 58
+	dw $0806 ; 59
+	dw $0839 ; 60
+	dw $086c ; 61
+	dw $089f ; 62
+	dw $08d2 ; 63
+	dw $0905 ; 64
+	dw $0938 ; 65
+	dw $096b ; 66
+	dw $099e ; 67
+	dw $09d1 ; 68
+	dw $0a04 ; 69
+	dw $0a37 ; 70
+	dw $0a6a ; 71
+	dw $0a9d ; 72
+	dw $0ad0 ; 73
+	dw $0b03 ; 74
+	dw $0b37 ; 75
+	dw $0b6a ; 76
+	dw $0b9d ; 77
+	dw $0bd0 ; 78
+	dw $0c03 ; 79
+	dw $0c36 ; 80
+	dw $0c69 ; 81
+	dw $0c9c ; 82
+	dw $0ccf ; 83
+	dw $0d02 ; 84
+	dw $0d35 ; 85
+	dw $0d68 ; 86
+	dw $0d9b ; 87
+	dw $0dce ; 88
+	dw $0e01 ; 89
+	dw $0e34 ; 90
+	dw $0e67 ; 91
+	dw $0e9a ; 92
+	dw $0ecd ; 93
+	dw $0f00 ; 94
+	dw $0f33 ; 95
+	dw $0f66 ; 96
+	dw $0f99 ; 97
+	dw $0fcc ; 98
+	dw $1000 ; 99
+	assert_table_length MAX_SPEEDLEVEL + 1
+
+Data_e46a:
+	table_width 2
+	dw $0000 ;  0
+	dw $0009 ;  1
+	dw $000c ;  2
+	dw $000c ;  3
+	dw $000c ;  4
+	dw $000c ;  5
+	dw $000c ;  6
+	dw $000e ;  7
+	dw $000e ;  8
+	dw $0010 ;  9
+	dw $0010 ; 10
+	dw $0018 ; 11
+	dw $0018 ; 12
+	dw $0018 ; 13
+	dw $0018 ; 14
+	dw $0018 ; 15
+	dw $0016 ; 16
+	dw $0014 ; 17
+	dw $0012 ; 18
+	dw $0010 ; 19
+	dw $0010 ; 20
+	dw $0024 ; 21
+	dw $0024 ; 22
+	dw $0024 ; 23
+	dw $0024 ; 24
+	dw $0024 ; 25
+	dw $0024 ; 26
+	dw $0024 ; 27
+	dw $0024 ; 28
+	dw $0024 ; 29
+	dw $0024 ; 30
+	dw $0027 ; 31
+	dw $0027 ; 32
+	dw $0027 ; 33
+	dw $0027 ; 34
+	dw $0027 ; 35
+	dw $0027 ; 36
+	dw $0027 ; 37
+	dw $0027 ; 38
+	dw $0027 ; 39
+	dw $0027 ; 40
+	dw $002d ; 41
+	dw $002d ; 42
+	dw $002d ; 43
+	dw $002d ; 44
+	dw $002d ; 45
+	dw $002d ; 46
+	dw $002d ; 47
+	dw $002d ; 48
+	dw $002d ; 49
+	dw $002d ; 50
+	dw $002d ; 51
+	dw $002d ; 52
+	dw $002d ; 53
+	dw $002d ; 54
+	dw $002d ; 55
+	dw $002d ; 56
+	dw $002d ; 57
+	dw $002d ; 58
+	dw $002d ; 59
+	dw $002d ; 60
+	dw $002d ; 61
+	dw $002d ; 62
+	dw $002d ; 63
+	dw $002d ; 64
+	dw $002d ; 65
+	dw $002d ; 66
+	dw $002d ; 67
+	dw $002d ; 68
+	dw $002d ; 69
+	dw $002d ; 70
+	dw $002d ; 71
+	dw $002d ; 72
+	dw $002d ; 73
+	dw $002d ; 74
+	dw $002d ; 75
+	dw $002d ; 76
+	dw $002d ; 77
+	dw $002d ; 78
+	dw $002d ; 79
+	dw $002d ; 80
+	dw $002d ; 81
+	dw $002d ; 82
+	dw $002d ; 83
+	dw $002d ; 84
+	dw $002d ; 85
+	dw $002d ; 86
+	dw $002d ; 87
+	dw $002d ; 88
+	dw $002d ; 89
+	dw $002d ; 90
+	dw $002d ; 91
+	dw $002d ; 92
+	dw $002d ; 93
+	dw $002d ; 94
+	dw $002d ; 95
+	dw $002d ; 96
+	dw $002d ; 97
+	dw $002d ; 98
+	dw $002d ; 99
+	assert_table_length MAX_SPEEDLEVEL + 1
 
 Data_e532:
 	dw $65a0
@@ -3616,3 +3871,44 @@ Data_ed96:
 Data_ed9d:
 	db $0e, $0c, $0b, $0a, $09, $08, $08
 ; 0xeda4
+
+SECTION "Bank 3@72d5", ROMX[$72d5], BANK[$3]
+
+InitialBlockColumnHeights_Regular:
+	db 5, 3, 4, 4, 4, 4
+	db 3, 3, 5, 5, 4, 4
+	db 4, 4, 4, 3, 3, 6
+	db 4, 5, 4, 5, 2, 4
+	db 5, 4, 5, 0, 5, 5
+	db 5, 0, 5, 5, 5, 4
+	db 4, 5, 5, 0, 5, 5
+	db 3, 5, 4, 4, 4, 4
+	db 4, 4, 4, 5, 3, 4
+	db 5, 2, 5, 5, 5, 2
+	db 5, 3, 5, 5, 1, 5
+	db 4, 5, 5, 5, 5, 0
+	db 5, 1, 2, 6, 5, 5
+	db 4, 6, 2, 5, 5, 2
+
+InitialBlockColumnHeights_LineClear:
+	db 3, 4, 2, 3, 4, 2
+	db 5, 2, 2, 2, 4, 3
+	db 3, 4, 5, 5, 4, 3
+	db 3, 3, 4, 4, 4, 6
+	db 5, 4, 5, 5, 6, 5
+	db 5, 3, 3, 4, 3, 3
+	db 5, 4, 4, 3, 5, 3
+	db 3, 4, 5, 6, 4, 2
+	db 4, 3, 5, 6, 3, 6
+	db 5, 4, 3, 6, 5, 6
+	db 4, 2, 4, 4, 3, 4
+	db 5, 3, 5, 4, 3, 4
+	db 6, 5, 4, 3, 4, 5
+	db 4, 4, 6, 6, 5, 5
+	db 7, 6, 4, 5, 5, 6
+	db 4, 3, 3, 4, 3, 4
+	db 4, 5, 4, 4, 3, 4
+	db 4, 5, 6, 1, 6, 5
+	db 4, 5, 4, 7, 7, 3
+	db 7, 4, 5, 7, 5, 5
+	db 7, 5, 7, 3, 6, 5

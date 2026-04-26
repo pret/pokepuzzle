@@ -517,15 +517,17 @@ wc9af:: ds 1 ; c9af
 
 wc9b0:: ds 1 ; c9b0
 wc9b1:: ds 1 ; c9b1
-wc9b2:: ds 1 ; c9b2
-wc9b3:: ds 1 ; c9b3
+
+wPlayerMonPortraitAnimPtr:: ds 2 ; c9b2
 wc9b4:: ds 1 ; c9b4
-wc9b5:: ds 1 ; c9b5
+wPlayerMonPortraitAnimTimer:: ds 1 ; c9b5
+
 wc9b6:: ds 1 ; c9b6
-wc9b7:: ds 1 ; c9b7
-wc9b8:: ds 1 ; c9b8
+
+wOpponentMonPortraitAnimPtr:: ds 2 ; c9b7
 wc9b9:: ds 1 ; c9b9
-wc9ba:: ds 1 ; c9ba
+wOpponentMonPortraitAnimTimer:: ds 1 ; c9ba
+
 wc9bb:: ds 1 ; c9bb
 wc9bc:: ds 1 ; c9bc
 wc9bd:: ds 1 ; c9bd
@@ -578,8 +580,7 @@ wcadf:: ds 1 ; cadf
 wcae0:: ds 1 ; cae0
 wcae1:: ds 1 ; cae1
 wcae2:: ds 2 ; cae2
-wcae4:: ds 1 ; cae4
-wcae5:: ds 1 ; cae5
+wcae4:: ds 2 ; cae4
 wcae6:: ds 1 ; cae6
 wcae7:: ds 1 ; cae7
 wcae8:: ds 1 ; cae8
@@ -753,7 +754,9 @@ wcea0:: ds 1 ; cea0
 
 ; which game mode (GAMEMODE_* constant)
 wGameMode:: ds 1 ; cea1
-wcea2:: ds 1 ; cea2
+
+; which board (BOARD_* constant)
+wBoard:: ds 1 ; cea2
 
 wPlayerMon:: ds 1 ; cea3
 wOpponentMon::  ds 1 ; cea4
@@ -1046,10 +1049,29 @@ w6d150:: ds BOARD_VIRTUAL_AREA ; d150
 w6d300:: ; d300
 	ds $300
 
-	ds $dd80 - $d600
+	ds $d820 - $d600
 
-w6dd80:: ds BOARD_VIRTUAL_AREA * 4 ; dd80
-w6dec0:: ds BOARD_VIRTUAL_AREA * 4 ; dec0
+; holds player mon's tilemaps and attrmaps of all portrait frames
+wPlayerMonPortraitBGMaps:: ds 4 * 2 * (4 * 4) ; d820
+	ds $20
+; holds opponent mon's tilemaps and attrmaps of all portrait frames
+wOpponentMonPortraitBGMaps:: ds 4 * 2 * (4 * 4) ; d8c0
+
+	ds $d9a0 - $d940
+
+w6d9a0:: ds (MAX_SPEEDLEVEL + 1) * 2 ; d9a0
+w6da68:: ds (MAX_SPEEDLEVEL + 1) * 2 ; da68
+w6db30:: ds $36 ; db30
+	ds $db9c - $db66
+w6db9c:: ds $36 ; db9c
+	ds $dc08 - $dbd2
+w6dc08:: ds $14 ; dc08
+	ds $dc30 - $dc1c
+w6dc30:: ds $14 ; dc30
+	ds $dd80 - $dc44
+
+wBlockTilemap:: ds BOARD_VIRTUAL_AREA * 4 ; dd80
+wBoardAttrmap:: ds BOARD_VIRTUAL_AREA * 4 ; dec0
 
 SECTION "Scratch WRAM", WRAMX
 

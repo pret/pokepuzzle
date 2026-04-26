@@ -186,5 +186,99 @@ Gfx_496a0: INCBIN "gfx/gfx_496a0.2bpp"
 SECTION "Bank 12@5cb0", ROMX[$5cb0], BANK[$12]
 Gfx_49cb0: INCBIN "gfx/gfx_49cb0.2bpp"
 Gfx_49dd0: INCBIN "gfx/gfx_49dd0.2bpp"
+
+SECTION "Bank 12@5ae8", ROMX[$5ae8], BANK[$12]
+
+PortraitBGMap_49ae8:
+	; tiles
+	db $80, $81, $82, $83
+	db $84, $85, $86, $87
+	db $88, $89, $8a, $8b
+	db $8c, $8d, $8e, $8f
+	; attributes
+	db 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1
+	db 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1
+	db 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1
+	db 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1
+
+	; tiles
+	db $90, $91, $92, $93
+	db $94, $95, $96, $97
+	db $98, $99, $9a, $9b
+	db $9c, $9d, $9e, $9f
+	; attributes
+	db 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1
+	db 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1
+	db 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1
+	db 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1
+
+	; tiles
+	db $a0, $a1, $a2, $a3
+	db $a4, $a5, $a6, $a7
+	db $a8, $a9, $aa, $ab
+	db $ac, $ad, $ae, $af
+	; attributes
+	db 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1
+	db 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1
+	db 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1
+	db 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1
+
+	; tiles
+	db $b0, $b1, $b2, $b3
+	db $b4, $b5, $b6, $b7
+	db $b8, $b9, $ba, $bb
+	db $bc, $bd, $be, $bf
+	; attributes
+	db 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1
+	db 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1
+	db 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1
+	db 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1
+
+PortraitBGMap_49b68:
+	; tiles
+	db $c0, $c1, $c2, $c3
+	db $c4, $c5, $c6, $c7
+	db $c8, $c9, $ca, $cb
+	db $cc, $cd, $ce, $cf
+	; attributes
+	db 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1
+	db 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1
+	db 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1
+	db 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1
+
+	; tiles
+	db $d0, $d1, $d2, $d3
+	db $d4, $d5, $d6, $d7
+	db $d8, $d9, $da, $db
+	db $dc, $dd, $de, $df
+	; attributes
+	db 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1
+	db 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1
+	db 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1
+	db 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1
+
+	; tiles
+	db $e0, $e1, $e2, $e3
+	db $e4, $e5, $e6, $e7
+	db $e8, $e9, $ea, $eb
+	db $ec, $ed, $ee, $ef
+	; attributes
+	db 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1
+	db 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1
+	db 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1
+	db 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1
+
+	; tiles
+	db $f0, $f1, $f2, $f3
+	db $f4, $f5, $f6, $f7
+	db $f8, $f9, $fa, $fb
+	db $fc, $fd, $fe, $ff
+	; attributes
+	db 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1
+	db 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1
+	db 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1
+	db 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1, 5 | BG_BANK1
+; 0x49be8
+
 SECTION "Bank 12@5f10", ROMX[$5f10], BANK[$12]
 StageNumbersGfx: INCBIN "gfx/stage_numbers.2bpp"

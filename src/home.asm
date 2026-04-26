@@ -2906,9 +2906,9 @@ Func_19bf::
 	vramswitch
 
 	ld hl, rVDMA_SRC_HIGH
-	ld a, HIGH(w6dd80)
+	ld a, HIGH(wBlockTilemap)
 	ld [hli], a ; rVDMA_SRC_HIGH
-	ld a, LOW(w6dd80)
+	ld a, LOW(wBlockTilemap)
 	ld [hli], a ; rVDMA_SRC_LOW
 	ld a, $98
 	ld [hli], a ; rVDMA_DEST_HIGH

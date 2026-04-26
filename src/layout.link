@@ -76,10 +76,26 @@ ROMX $36
 	"Bank 36"
 ROMX $38
 	"Bank 38"
+ROMX $39
+	"Bank 39"
 ROMX $40
 	"Bank 40"
 ROMX $43
 	"Bank 43"
+ROMX $45
+	"Bank 45"
+ROMX $46
+	"Bank 46"
+ROMX $47
+	"Bank 47"
+ROMX $4f
+	"Bank 4F"
+ROMX $50
+	"Bank 50"
+ROMX $51
+	"Bank 51"
+ROMX $52
+	"Bank 52"
 ROMX $53
 	"Bank 53"
 ROMX $59

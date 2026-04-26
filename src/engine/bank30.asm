@@ -220,7 +220,7 @@ Func_c0310:
 	push hl
 	push bc
 	push de
-	ld a, [wcea2]
+	ld a, [wBoard]
 	add a
 	ld l, a
 	ld h, $00
@@ -237,7 +237,7 @@ Func_c0326:
 	push hl
 	push bc
 	push de
-	ld a, [wcea2]
+	ld a, [wBoard]
 	add a
 	ld l, a
 	ld h, $00

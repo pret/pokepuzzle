@@ -155,14 +155,14 @@ Func_64114:
 	ld hl, $5001
 	ld a, $19
 	call Func_93d
-	copy_data_ext v0BGMap0, $0, s3a000, $14, $c, $12
+	copy_box v0BGMap0, s3a000, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT
 
 	ld de, s3a000
 	ld c, BANK(s3a000)
 	ld hl, $50e1
 	ld a, $19
 	call Func_93d
-	copy_data_ext v1BGMap0, $1, s3a000, $14, $c, $12
+	copy_box v1BGMap0, s3a000, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT
 
 	ld de, wBGPals
 	ld c, $00
@@ -250,12 +250,12 @@ Func_64237:
 	ld de, s3a000
 	ld c, BANK(s3a000)
 	decompress PtrTable_64274, $3
-	copy_data_ext $986b, $00, s3a000, $8, $18, $9
+	copy_box v0BGMap0, s3a000, 11, 3, 8, 9
 	ld a, [$df8a]
 	ld de, s3b000
 	ld c, BANK(s3a000)
 	decompress PtrTable_64286, $3
-	copy_data_ext $986b, $01, s3b000, $8, $18, $9
+	copy_box v1BGMap0, s3b000, 11, 3, 8, 9
 	ret
 
 PtrTable_64274:

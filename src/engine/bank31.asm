@@ -1658,7 +1658,7 @@ Func_c5c44:
 	jr z, .asm_c5c5b
 	; is Line Clear mode and wceac != 0
 	ld a, $0b
-	ld [wcea2], a
+	ld [wBoard], a
 	ld a, $00
 	ld [wPlayerMon], a
 .asm_c5c5b
@@ -1985,7 +1985,7 @@ Func_c6256:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	ld a, [wcea2]
+	ld a, [wBoard]
 	jp hl
 
 .PtrTable:
@@ -2120,7 +2120,7 @@ Func_c6353:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	ld a, [wcea2]
+	ld a, [wBoard]
 	jp hl
 
 .PtrTable:
@@ -2718,7 +2718,7 @@ Func_c67e5:
 	ret
 
 Func_c6867:
-	ld a, [wcea2]
+	ld a, [wBoard]
 	ld l, a
 	ld h, $00
 	push bc
@@ -3183,7 +3183,7 @@ GameState_LoadPanelDePonMenu::
 	ld a, $58
 	call Func_93d
 
-	copy_data_ext v0BGMap0, $0, v0BGMap1, $14, $c, $12
+	copy_box v0BGMap0, v0BGMap1, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT
 
 	ld hl, wBGPals
 	ld a, $ff

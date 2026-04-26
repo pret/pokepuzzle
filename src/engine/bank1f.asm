@@ -50,11 +50,11 @@ Func_7c051:
 	ld a, $05
 	fill_mem $14, $80c
 
-	copy_data_ext $9900, $00, Tilemap_14d1d3, SCREEN_WIDTH, $c, 10
-	copy_data_ext $9900, $01, Attrmap_14d33b, SCREEN_WIDTH, $c, 10
+	copy_box v0BGMap0, Tilemap_14d1d3, 0, 8, SCREEN_WIDTH, 10
+	copy_box v1BGMap0, Attrmap_14d33b, 0, 8, SCREEN_WIDTH, 10
 
 	ld de, v0Tiles1
-	ld c, $00
+	ld c, BANK(v0Tiles1)
 	ld hl, $4a52
 	ld a, $53
 	call Func_93d

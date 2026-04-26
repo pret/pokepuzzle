@@ -8131,35 +8131,32 @@ Func_7bd18:
 	cp [hl]
 	ret c
 	ld [hl], a
-	add a
-	ld hl, $7d5f
+	add a ; *2
+	ld hl, .PtrTable
 	add l
 	ld l, a
 	ld a, h
 	adc $00
 	ld h, a
 	ld a, [hli]
-	ld [wcae4], a
+	ld [wcae4 + 0], a
 	ld a, [hl]
-	ld [wcae5], a
+	ld [wcae4 + 1], a
 	ld a, $01
 	ld [wcadf], a
 	ld a, $01
 	ld [wc8d5], a
-	farcall Func_4247d
+
+	farcall SetPlayerMonHurtAnimation
 	ret
 
-	ld [hl], h
-	ld b, c
-	adc c
-	ld b, c
-	sbc [hl]
-	ld b, c
-	cp c
-	ld b, c
-	and $41
-	dec hl
-	ld b, d
+.PtrTable:
+	dw $4174
+	dw $4189
+	dw $419e
+	dw $41b9
+	dw $41e6
+	dw $422b
 
 Func_7bd6b:
 	ld hl, $d000
