@@ -1,5 +1,8 @@
-SECTION "Bank 1d@6bcd", ROMX[$6bcd], BANK[$1d]
+SECTION "Bank 1d@6bc7", ROMX[$6bc7], BANK[$1d]
 
+Func_76bc7:
+	call Func_f03
+	call Func_f6a
 Func_76bcd:
 	ld a, [wcd6f]
 	cp $ff

@@ -26,7 +26,7 @@ Func_64000::
 	farcall Func_46dda
 	ld a, [wGameMode]
 	ld [$df8a], a
-	cp $0f
+	cp GAMEMODE_UNKF
 	jr nz, .asm_6404b
 	ld a, $02
 	ld [$df8a], a
@@ -34,12 +34,12 @@ Func_64000::
 	ld a, [wGameLevel]
 	ld a, [wSpeedLevel]
 	ld a, [wc86d]
-	ld a, [wc86c]
-	ld a, [wc86b]
-	ld a, [wc842 + 0]
-	ld a, [wc842 + 1]
-	ld a, [wc842 + 2]
-	ld a, [wceab]
+	ld a, [wGameClockMinutes]
+	ld a, [wGameClockSeconds]
+	ld a, [wScore + 0]
+	ld a, [wScore + 1]
+	ld a, [wScore + 2]
+	ld a, [wStage]
 	ld a, $1c
 	ld [wcdc4], a
 
@@ -155,14 +155,14 @@ Func_64114:
 	ld hl, $5001
 	ld a, $19
 	call Func_93d
-	copy_data_ext v0BGMap0, $0, s3a000, $14, $c, $12
+	copy_box v0BGMap0, s3a000, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT
 
 	ld de, s3a000
 	ld c, BANK(s3a000)
 	ld hl, $50e1
 	ld a, $19
 	call Func_93d
-	copy_data_ext v1BGMap0, $1, s3a000, $14, $c, $12
+	copy_box v1BGMap0, s3a000, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT
 
 	ld de, wBGPals
 	ld c, $00
@@ -250,12 +250,12 @@ Func_64237:
 	ld de, s3a000
 	ld c, BANK(s3a000)
 	decompress PtrTable_64274, $3
-	copy_data_ext $986b, $00, s3a000, $8, $18, $9
+	copy_box v0BGMap0, s3a000, 11, 3, 8, 9
 	ld a, [$df8a]
 	ld de, s3b000
 	ld c, BANK(s3a000)
 	decompress PtrTable_64286, $3
-	copy_data_ext $986b, $01, s3b000, $8, $18, $9
+	copy_box v1BGMap0, s3b000, 11, 3, 8, 9
 	ret
 
 PtrTable_64274:

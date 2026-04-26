@@ -251,9 +251,6 @@ ATimesHL:
 	pop de
 	pop af
 	ret
-; 0x42d
-
-SECTION "Bank 0@42d", ROM0[$42d]
 
 ReadJoypad::
 	ld a, [wc59e]
@@ -353,9 +350,13 @@ ReadJoypad::
 
 .no_soft_reset
 	ret
-; 0x4bb
 
-SECTION "Bank 0@4c4", ROM0[$4c4]
+TurnLCDOn::
+	ldh a, [hLCDC]
+	set B_LCDC_ENABLE, a
+	ldh [hLCDC], a
+	ldh [rLCDC], a
+	ret
 
 TurnLCDOff::
 	ldh a, [rLCDC]
@@ -1297,9 +1298,21 @@ Func_967::
 	pop bc
 	call Func_93d
 	ret
-; 0x9a0
 
-SECTION "Bank 0@9b0", ROM0[$9b0]
+; performs a general HDMA from hl to de,
+; with (c + 1) bytes
+GeneralHDMA::
+	ld a, h
+	ldh [rVDMA_SRC_HIGH], a
+	ld a, l
+	ldh [rVDMA_SRC_LOW], a
+	ld a, d
+	ldh [rVDMA_DEST_HIGH], a
+	ld a, e
+	ldh [rVDMA_DEST_LOW], a
+	ld a, c
+	ldh [rVDMA_LEN], a
+	ret
 
 ; if we're not in CGB, skip
 ; if clock speed is already equal to b, skip
@@ -1324,9 +1337,9 @@ SetClockSpeed:
 GameStateTable:
 	table_width 3
 	dab Func_10018 ; GAMESTATE_00
-	dwb $4000, $03 ; GAMESTATE_01
+	dab Func_c000 ; GAMESTATE_01
 	dwb $404e, $03 ; GAMESTATE_02
-	dwb $4000, $14 ; GAMESTATE_03
+	dab Func_50000 ; GAMESTATE_03
 	dwb $401f, $14 ; GAMESTATE_04
 	dab Func_4003 ; GAMESTATE_05
 	dwb $570a, $14 ; GAMESTATE_06
@@ -2832,6 +2845,13 @@ Func_1939::
 	ret
 ; 0x194d
 
+SECTION "Bank 0@1968", ROM0[$1968]
+
+Bankswitch:
+	bankswitch
+	ret
+; 0x196e
+
 SECTION "Bank 0@1983", ROM0[$1983]
 
 ; calls a:hl, but only inside bank1
@@ -2844,18 +2864,51 @@ Bank1Farcall::
 
 .jp_hl
 	jp hl
-; 0x1994
 
-SECTION "Bank 0@19bf", ROM0[$19bf]
+; copies bc bytes from a:hl to de
+FarCopyHLtoDE::
+	push bc
+	ld b, a
+	ldh a, [hROMBank]
+	ld c, a
+	ld a, b
+	call Bankswitch
+	ld a, c
+	pop bc
+	push af
+	call CopyHLtoDE
+	pop af
+	call Bankswitch
+	ret
 
-Func_19bf:
+; performs a general HDMA transfer
+; from a:hl to de of (c + 1) * 16 bytes
+FarGeneralHDMA::
+	push bc
+	ld b, a
+	ldh a, [hROMBank]
+	ld c, a
+	ld a, b
+	call Bankswitch
+	ld a, c
+	pop bc
+	push af
+	call GeneralHDMA
+	pop af
+	call Bankswitch
+	ret
+
+Func_19bc::
+	jp DoFrame
+
+Func_19bf::
 	xor a
 	vramswitch
 
 	ld hl, rVDMA_SRC_HIGH
-	ld a, $dd
+	ld a, HIGH(wBlockTilemap)
 	ld [hli], a ; rVDMA_SRC_HIGH
-	ld a, $80
+	ld a, LOW(wBlockTilemap)
 	ld [hli], a ; rVDMA_SRC_LOW
 	ld a, $98
 	ld [hli], a ; rVDMA_DEST_HIGH
@@ -3156,14 +3209,17 @@ Func_19bf:
 	ret
 ; 0x1ba2
 
-SECTION "Bank 0@1c6e", ROM0[$1c6e]
+SECTION "Bank 0@1c68", ROM0[$1c68]
 
-Func_1c6e::
+UpdateBackgroundPatternTile::
+	ld a, BANK("VRAM1")
+	vramswitch
+UpdateBackgroundPatternTile_SkipVRAMSwitch::
 	ldh a, [hWRAMBank]
 	push af
-	ld a, $04
+	ld a, BANK(wBackgroundPatternTiles)
 	wramswitch
-	ld hl, wc8ee + 1
+	ld hl, wBackgroundPatternTilePtr + 1
 	ld a, [hld]
 	ld c, [hl]
 	ld b, a
@@ -3172,9 +3228,9 @@ Func_1c6e::
 	ld [hli], a ; rVDMA_SRC_HIGH
 	ld a, c
 	ld [hli], a ; rVDMA_SRC_LOW
-	ld a, HIGH(v0Tiles2 tile $60)
+	ld a, HIGH(v1Tiles2 tile $60)
 	ld [hli], a ; rVDMA_DEST_HIGH
-	ld a, LOW(v0Tiles2 tile $60)
+	ld a, LOW(v1Tiles2 tile $60)
 	ld [hli], a ; rVDMA_DEST_LOW
 	xor a ; 1 tile
 	ld [hl], a ; rVDMA_LEN
@@ -3188,26 +3244,26 @@ Func_1c92::
 	or [hl]
 	inc hl
 	or [hl]
-	jr z, .asm_1ca0
+	jr z, Func_1ca0
 	scf
 	ret
-
-	ld hl, wc86c
-.asm_1ca0
+Func_1c9d::
+	ld hl, wGameClockMinutes
+Func_1ca0:
 	inc hl
-	ld a, [hl]
+	ld a, [hl] ; wc86d
 	swap a
 	ld l, a
 	ld h, $00
 	add hl, hl
-	add hl, hl
-	ld bc, $5420
+	add hl, hl ; *64 (4 tiles)
+	ld bc, Gfx_49420
 	add hl, bc
 	ld c, l
 	ld b, h
 	ldh a, [hROMBank]
 	push af
-	ld a, $12
+	ld a, BANK(Gfx_49420)
 	bankswitch
 	xor a
 	vramswitch
@@ -3226,41 +3282,165 @@ Func_1c92::
 	bankswitch
 	and a
 	ret
-; 0x1cd6
+
+Func_1cd6::
+	ld bc, wc8da
+	ld hl, wc8db
+	ld a, [bc]
+	cp [hl]
+	jr z, .asm_1d13
+	ld [hl], a
+	swap a
+	ld l, a
+	ld h, $00
+	add hl, hl
+	ld c, l
+	ld b, h
+	add hl, hl
+	add hl, bc
+	ld bc, $56a0
+	add hl, bc
+	ld c, l
+	ld b, h
+	ld a, $12
+	ld [rROMB0 + $100], a
+	ld a, $01
+	vramswitch
+	ld hl, rHDMA1
+	ld a, b
+	ld [hli], a
+	ld a, c
+	ld [hli], a
+	ld a, $95
+	ld [hli], a
+	ld a, $40
+	ld [hli], a
+	ld a, $05
+	ld [hl], a
+	ldh a, [hROMBank]
+	ld [rROMB0 + $100], a
+	and a
+	ret
+.asm_1d13
+	scf
+	ret
+
+Func_1d15::
+	call Is2PlayerGameMode
+	ret nz
+	ld hl, wca16
+	ld a, [hli]
+	ld [$c9fa], a
+	ld a, [hl]
+	ld [$c9fb], a
+	ret
+; 0x1d15
 
 SECTION "Bank 0@1d25", ROM0[$1d25]
 
-Func_1d25::
+; returns z if Game Mode is either
+; GAMEMODE_2P_VS, GAMEMODE_2P_TIME_ZONE or GAMEMODE_2P_LINE_CLEAR
+Is2PlayerGameMode::
 	ld a, [wGameMode]
-	cp $06
+	cp GAMEMODE_2P_VS
 	ret z
-	cp $07
+	cp GAMEMODE_2P_TIME_ZONE
 	ret z
-	cp $08
+	cp GAMEMODE_2P_LINE_CLEAR
 	ret
 
 Func_1d31::
 	ld a, [wGameMode]
-	cp $05
+	cp GAMEMODE_CHALLENGE
 	ret z
-	cp $0d
+	cp GAMEMODE_UNKD
 .asm_1d39
 	jr z, .asm_1d39
 	ret
 
 Func_1d3c::
 	ld a, [wGameMode]
-	cp $0f
+	cp GAMEMODE_UNKF
 	jr z, .asm_1d48
-	cp $0d
+	cp GAMEMODE_UNKD
 .invalid
 	jr z, .invalid
 	ret
 .asm_1d48
-	ld a, GAMELEVEL_HARD
+	ld a, GAMEMODE_LINE_CLEAR
 	ld [wGameMode], a
 	ret
 ; 0x1d4e
+
+SECTION "Bank 0@1d81", ROM0[$1d81]
+
+Func_1d81::
+	farcall Func_68c73
+	ret
+; 0x1d88
+
+SECTION "Bank 0@1ea7", ROM0[$1ea7]
+
+Func_1ea7::
+	ldh a, [hWRAMBank]
+	push af
+	ld a, $02
+	wramswitch
+	dec bc
+	inc b
+	inc c
+.asm_1eb3
+	ld a, [hli]
+	ld [de], a
+	inc de
+	dec c
+	jr nz, .asm_1eb3
+	dec b
+	jr nz, .asm_1eb3
+	pop af
+	wramswitch
+	ret
+; 0x1ec2
+
+SECTION "Bank 0@1ec2", ROM0[$1ec2]
+
+; input:
+; - [hff8a] = index in pointer table
+; - bc = pointer table
+Func_1ec2::
+	push bc
+	ldh a, [hff8a]
+	add a ; *2
+	ld c, a
+	ld b, $00
+	pop hl
+	add hl, bc
+	ld a, [hli]
+	ld b, [hl]
+	ld c, a
+.loop
+	ld a, [bc]
+	inc bc
+	inc a ; == $ff?
+	jr z, .done
+	push bc
+	dec a
+	ld l, a
+	ld h, $00
+	add hl, hl
+	add hl, hl
+	add hl, hl
+	add hl, hl ; *16
+	ld bc, FontGfx
+	add hl, bc
+	ld a, BANK(FontGfx)
+	ld bc, TILE_SIZE
+	call FarCopyHLtoDE
+	pop bc
+	jr .loop
+.done
+	ret
+; 0x1eec
 
 SECTION "Bank 0@1f12", ROM0[$1f12]
 
@@ -3296,7 +3476,7 @@ Func_1f38::
 	ld a, [wcead]
 	and a
 	jr nz, .asm_1f42
-	ld hl, wceab
+	ld hl, wStage
 	ret
 .asm_1f42
 	ld hl, wc833
@@ -3369,60 +3549,62 @@ Random::
 
 SECTION "Bank 0@1fa7", ROM0[$1fa7]
 
-Func_1fa7::
+; outputs a random number in range [0, 4]
+Random_0to4::
 	call Random
-Func_1faa:
+Random_0to4_GotSample:
 	cp 20 percent
-	jr c, .asm_1fc6
+	jr c, .zero
 	cp 40 percent
-	jr c, .asm_1fc3
+	jr c, .one
 	cp 60 percent
-	jr c, .asm_1fc0
+	jr c, .two
 	cp 80 percent
-	jr c, .asm_1fbd
-	ld a, $04
+	jr c, .three
+	ld a, 4
 	ret
-.asm_1fbd
-	ld a, $03
+.three
+	ld a, 3
 	ret
-.asm_1fc0
-	ld a, $02
+.two
+	ld a, 2
 	ret
-.asm_1fc3
-	ld a, $01
+.one
+	ld a, 1
 	ret
-.asm_1fc6
+.zero
 	xor a
 	ret
 
-Func_1fc8::
+; outputs a random number in range [0, 5]
+Random_0to5::
 	call Random
-Func_1fcb::
+Random_0To5_GotSample::
 	cp 17 percent
-	jr c, .asm_1fee
+	jr c, .zero
 	cp 34 percent
-	jr c, .asm_1feb
+	jr c, .one
 	cp 51 percent - 1
-	jr c, .asm_1fe8
+	jr c, .two
 	cp 68 percent - 1
-	jr c, .asm_1fe5
+	jr c, .three
 	cp 84 percent
-	jr c, .asm_1fe2
-	ld a, $05
+	jr c, .four
+	ld a, 5
 	ret
-.asm_1fe2
-	ld a, $04
+.four
+	ld a, 4
 	ret
-.asm_1fe5
-	ld a, $03
+.three
+	ld a, 3
 	ret
-.asm_1fe8
-	ld a, $02
+.two
+	ld a, 2
 	ret
-.asm_1feb
-	ld a, $01
+.one
+	ld a, 1
 	ret
-.asm_1fee
+.zero
 	xor a
 	ret
 
@@ -3573,10 +3755,10 @@ Func_20d4::
 	push af
 	ld a, $01
 	sramswitch
-	ld hl, $a686
-	ld bc, $1831
+	ld hl, sUnkData
+	ld bc, sUnkDataEnd - sUnkData
 	call CalculateChecksum
-	ld hl, $a684
+	ld hl, sUnkChecksum
 	ld a, e
 	ld [hli], a
 	ld [hl], d
@@ -3590,14 +3772,14 @@ Func_20d4::
 
 SECTION "Bank 0@212f", ROM0[$212f]
 
-; copy c bytes from de to hl, to or from SRAM
-Func_212f::
+; copy c bytes from de to hl, to or from SRAM1
+CopySRAM1::
 	ldh a, [hSRAMEnabled]
 	push af
 	enable_sram
 	ldh a, [hSRAMBank]
 	push af
-	ld a, $01
+	ld a, BANK("SRAM1")
 	sramswitch
 	ld b, 0
 .loop
@@ -3615,6 +3797,102 @@ Func_212f::
 	ld [$100], a
 	ret
 ; 0x215a
+
+SECTION "Bank 0@2380", ROM0[$2380]
+
+Func_2380::
+	ldh a, [hSRAMEnabled]
+	push af
+	enable_sram
+	ldh a, [hSRAMBank]
+	push af
+	ld a, $01
+	sramswitch
+	ld a, [wcdc3]
+	ld c, a
+	add a
+	add c
+	add a
+	add c
+	ld c, a
+	ld b, $00
+	ld hl, sSaveDataUnk108
+	add hl, bc
+	ld e, l
+	ld d, h
+	ld hl, wcdc4
+	ld bc, $7
+	call CopyHLtoDE
+	pop af
+	sramswitch
+	pop af
+	ldh [hSRAMEnabled], a
+	ld [$100], a
+	ret
+; 0x23bb
+
+SECTION "Bank 0@2470", ROM0[$2470]
+
+Func_2470::
+	ldh a, [hSRAMEnabled]
+	push af
+	enable_sram
+	ldh a, [hSRAMBank]
+	push af
+	ld a, $01
+	sramswitch
+	ld a, [wcdc3]
+	ld c, a
+	add a
+	add c
+	add a
+	add a
+	add c
+	ld c, a
+	ld b, $00
+	ld hl, sSaveDataUnk17D
+	add hl, bc
+	ld e, l
+	ld d, h
+	ld hl, wcdc4
+	ld bc, $d
+	call CopyHLtoDE
+	pop af
+	sramswitch
+	pop af
+	ldh [hSRAMEnabled], a
+	ld [$100], a
+	ret
+
+Func_24ac::
+	ldh a, [hSRAMEnabled]
+	push af
+	enable_sram
+	ldh a, [hSRAMBank]
+	push af
+	ld a, $01
+	sramswitch
+	ld a, [wcdc3]
+	ld c, a
+	add a
+	add c
+	add a
+	add a
+	add c
+	ld c, a
+	ld b, $00
+	ld hl, sSaveDataUnk17D
+	add hl, bc
+	ld de, wcdc4
+	ld bc, $d
+	call CopyHLtoDE
+	pop af
+	sramswitch
+	pop af
+	ldh [hSRAMEnabled], a
+	ld [$100], a
+	ret
+; 0x24e6
 
 SECTION "Bank 0@25ab", ROM0[$25ab]
 
@@ -3668,8 +3946,8 @@ Func_25ab::
 	and a
 	jr nz, .asm_260c
 .asm_25fa
-	ld a, $01
-	ld [wcdc6], a
+	ld a, TRUE
+	ld [wUsedHint], a
 	pop af
 	sramswitch
 	pop af
@@ -3685,8 +3963,8 @@ Func_25ab::
 .asm_2614
 	pop de
 .asm_2615
-	xor a
-	ld [wcdc6], a
+	xor a ; FALSE
+	ld [wUsedHint], a
 	pop af
 	sramswitch
 	pop af
@@ -3704,7 +3982,7 @@ Func_2626::
 	sramswitch
 	call Func_26d4
 	ld a, [hl]
-	ld [wcdc7], a
+	ld [wRemainingHints], a
 	ld a, [wcdc3]
 	push bc
 	ld b, a
@@ -3725,16 +4003,16 @@ Func_2626::
 .asm_265c
 	add hl, bc
 	ld d, $0c
-	xor a
-	ld [wcdc6], a
+	xor a ; FALSE
+	ld [wUsedHint], a
 	ld a, [wcdc4]
 	ld e, a
 .asm_2667
 	ld a, [hli]
 	cp e
 	jr nz, .asm_2672
-	ld a, $01
-	ld [wcdc6], a
+	ld a, TRUE
+	ld [wUsedHint], a
 	jr .asm_2677
 .asm_2672
 	dec d
@@ -3830,10 +4108,10 @@ Func_2a99:
 	ld [wce97], a
 	ld [wce98], a
 	ld [wce99], a
-	ld [$dad1], a
+	ld [w1dad1], a
 	ld [wce9b], a
 	ld [wcead], a
-	ld [wceab], a
+	ld [wStage], a
 	ld a, $01
 	ld [wc897], a
 	ld hl, hGameState
@@ -3860,7 +4138,7 @@ Func_2b03:
 	ld a, $00
 	sramswitch
 .loop
-	call Func_2b30
+	call .Func_2b30
 	call Func_2cd9
 	ldh a, [hGameState]
 	cp GAMESTATE_1A
@@ -3872,7 +4150,7 @@ Func_2b03:
 	ld [$100], a
 	ret
 
-Func_2b30:
+.Func_2b30:
 	ld a, [wce34]
 	ld e, a
 	ld d, $00
@@ -4152,9 +4430,9 @@ SECTION "Bank 0@2e04", ROM0[$2e04]
 Func_2e04:
 	ldh a, [hWRAMBank]
 	push af
-	ld a, $01
+	ld a, BANK(w1daa1)
 	wramswitch
-	ld de, $daa1
+	ld de, w1daa1
 	ld bc, $50f
 	call ClearMemory
 	pop af
@@ -4306,11 +4584,11 @@ SECTION "Bank 0@3266", ROM0[$3266]
 
 Func_3266::
 	call Random
-	jp Func_1faa
+	jp Random_0to4_GotSample
 
 Func_326c::
 	call Random
-	jp Func_1fcb
+	jp Random_0To5_GotSample
 
 Func_3272::
 	push hl

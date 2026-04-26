@@ -1,0 +1,48 @@
+	const_def
+	const BOARD_NORMAL   ; $00
+	const BOARD_FIRE     ; $01
+	const BOARD_WATER    ; $02
+	const BOARD_ELECTRIC ; $03
+	const BOARD_GRASS    ; $04
+	const BOARD_FIGHTING ; $05
+	const BOARD_POISON   ; $06
+	const BOARD_FLYING   ; $07
+	const BOARD_PSYCHIC  ; $08
+	const BOARD_BUG      ; $09
+	const BOARD_GHOST    ; $0a
+	const BOARD_DRAGON   ; $0b
+	const BOARD_DARK     ; $0c
+	const BOARD_STEEL    ; $0d
+	const BOARD_0E       ; $0e
+	const BOARD_0F       ; $0f
+	const BOARD_10       ; $10
+	const BOARD_11       ; $11
+	const BOARD_12       ; $12
+	const BOARD_13       ; $13
+	const BOARD_14       ; $14
+	const BOARD_15       ; $15
+	const BOARD_16       ; $16
+	const BOARD_17       ; $17
+	const BOARD_18       ; $18
+	const BOARD_19       ; $19
+	const BOARD_1A       ; $1a
+	const BOARD_1B       ; $1b
+	const BOARD_1C       ; $1c
+DEF NUM_BOARDS EQU const_value
+
+RSRESET
+DEF BOARDGAMEMODESTRUCT_UNK0 RB 3
+DEF BOARDGAMEMODESTRUCT_UNK3 RB 3
+DEF BOARDGAMEMODESTRUCT_UNK6 RB 3
+DEF BOARDGAMEMODESTRUCT_UNK9 RB 3
+DEF BOARDGAMEMODE_STRUCT_SIZE EQU _RS
+
+RSRESET
+DEF BOARDSTRUCT_PALETTES       RB 3
+DEF BOARDSTRUCT_BG_PATTERN_GFX RB 3
+DEF BOARDSTRUCT_UNK06          RB 3
+DEF BOARDSTRUCT_UNK09          RB 3
+DEF BOARDSTRUCT_UNK0C          RB 3
+DEF BOARDSTRUCT_UNK0F          RB 3
+DEF BOARDSTRUCT_GAME_MODES     RB 9 * BOARDGAMEMODE_STRUCT_SIZE
+DEF BOARD_STRUCT_SIZE EQU _RS

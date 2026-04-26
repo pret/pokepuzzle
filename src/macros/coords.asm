@@ -45,3 +45,8 @@ MACRO lda_coord
 		ld a, [(\2) * TILEMAP_WIDTH + (\1) + \3]
 	ENDC
 ENDM
+
+MACRO ldboard_a
+; x, y
+	ld [(\2) * $10 + (\1) + (\3)], a
+ENDM

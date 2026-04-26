@@ -220,7 +220,7 @@ Func_c0310:
 	push hl
 	push bc
 	push de
-	ld a, [wcea2]
+	ld a, [wBoard]
 	add a
 	ld l, a
 	ld h, $00
@@ -237,7 +237,7 @@ Func_c0326:
 	push hl
 	push bc
 	push de
-	ld a, [wcea2]
+	ld a, [wBoard]
 	add a
 	ld l, a
 	ld h, $00
@@ -391,7 +391,7 @@ Func_c042a:
 	ld a, [wGameMode]
 	cp GAMEMODE_TIME_ZONE
 	jr z, .asm_c049e
-	cp GAMEMODE_UNK7
+	cp GAMEMODE_2P_TIME_ZONE
 	jr z, .asm_c049e
 	cp GAMEMODE_PUZZLE
 	ret z
@@ -433,9 +433,9 @@ Func_c042a:
 	ld a, [wGameMode]
 	cp GAMEMODE_CHALLENGE
 	jr z, .asm_c0493
-	cp GAMEMODE_UNK6
+	cp GAMEMODE_2P_VS
 	jr z, .asm_c0493
-	cp GAMEMODE_UNK7
+	cp GAMEMODE_2P_TIME_ZONE
 	jr z, .asm_c0493
 	ld a, $00
 	ld [w1d866], a
@@ -617,7 +617,7 @@ Func_c059f:
 	jr z, .asm_c05af
 	cp GAMEMODE_TIME_ZONE
 	jr z, .asm_c05af
-	cp GAMEMODE_UNK7
+	cp GAMEMODE_2P_TIME_ZONE
 	jr z, .asm_c05af
 	ret
 .asm_c05af
@@ -5518,7 +5518,7 @@ Func_c20d1:
 	pop hl
 .asm_c2282
 	ld a, [wGameMode]
-	cp GAMEMODE_UNK6
+	cp GAMEMODE_2P_VS
 	jr nz, .asm_c229c
 	ld a, [$d84c]
 	cp $02
@@ -5864,8 +5864,8 @@ Func_c244b:
 	dec a
 	jp z, .asm_c24ae ; GAMEMODE_CHALLENGE
 	dec a
-	jp z, .asm_c24d3 ; GAMEMODE_UNK6
-	jp .asm_c24d3 ; GAMEMODE_UNK7
+	jp z, .asm_c24d3 ; GAMEMODE_2P_VS
+	jp .asm_c24d3 ; GAMEMODE_2P_TIME_ZONE
 
 .asm_c2472
 	ret
@@ -7233,7 +7233,7 @@ Func_c31fe:
 	ret z
 	cp GAMEMODE_CHALLENGE
 	ret z
-	cp GAMEMODE_UNK6
+	cp GAMEMODE_2P_VS
 	ret z
 	ld hl, w1d58c
 	set 4, [hl]
@@ -7286,9 +7286,9 @@ Func_c325c:
 	ret z
 	cp GAMEMODE_CHALLENGE
 	ret z
-	cp GAMEMODE_UNK6
+	cp GAMEMODE_2P_VS
 	ret z
-	cp GAMEMODE_UNK7
+	cp GAMEMODE_2P_TIME_ZONE
 	ret z
 	call Func_c32d9
 	ld a, [wGameMode]
@@ -7315,9 +7315,9 @@ Func_c328d:
 	ret z
 	cp GAMEMODE_CHALLENGE
 	ret z
-	cp GAMEMODE_UNK6
+	cp GAMEMODE_2P_VS
 	ret z
-	cp GAMEMODE_UNK7
+	cp GAMEMODE_2P_TIME_ZONE
 	ret z
 	call Func_c32d9
 	ld a, [$d8b8]
@@ -7356,9 +7356,9 @@ Func_c32d9:
 	ret z
 	cp GAMEMODE_CHALLENGE
 	ret z
-	cp GAMEMODE_UNK6
+	cp GAMEMODE_2P_VS
 	ret z
-	cp GAMEMODE_UNK7
+	cp GAMEMODE_2P_TIME_ZONE
 	ret z
 	ld hl, w1d58c
 	set 3, [hl]
@@ -7449,10 +7449,10 @@ Func_c336a:
 	ld bc, $73ac
 	jr .asm_c3397
 .asm_c3397
-	ld a, [wcea3]
+	ld a, [wPlayerMon]
 	add a
 	add a
-	add a
+	add a ; *8
 	ld l, a
 	ld h, $00
 	add hl, bc
