@@ -5254,7 +5254,7 @@ Data_6f01c:
 	db $8c, $8d, $9c, $9d, 3 | BG_BANK0, 3 | BG_BANK0, 3 | BG_BANK0, 3 | BG_BANK0
 	; BLOCK_08
 	db $aa, $ab, $ba, $bb, 1 | BG_BANK0, 1 | BG_BANK0, 1 | BG_BANK0, 1 | BG_BANK0
-	
+
 	; NONE
 	db $60, $60, $60, $60, 6 | BG_BANK1, 6 | BG_BANK1, 6 | BG_BANK1, 6 | BG_BANK1
 	; BLOCK_HEART

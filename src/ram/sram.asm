@@ -8,9 +8,9 @@ sSaveData:: save_data_struct sSaveData ; a000
 
 sUnkChecksum:: ds 2 ; a684
 sUnkData:: ; a686
-    ds $ab36 - $a686
+	ds $ab36 - $a686
 s1ab36:: ds 1 ; ab36
-    ds $beb7 - $ab37
+	ds $beb7 - $ab37
 sUnkDataEnd::
 
 SECTION "SRAM2", SRAM

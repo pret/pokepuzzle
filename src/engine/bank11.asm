@@ -963,7 +963,7 @@ Func_45e20:
 	ldcoord_a 5, 7, v1BGMap1
 	ld a, [hli]
 	ldcoord_a 6, 7, v1BGMap1
-	
+
 	; color in player's Pokémon portrait at coordinate (2, 10)
 	ld hl, wPlayerMonAttrmap
 	ld a, [hli]
@@ -1441,7 +1441,7 @@ Func_4613c:
 
 	ld a, BANK("VRAM1")
 	vramswitch
-    
+
 	; color in opponent's attack meter at coordinate (0, 0)
 	ld hl, wOpponentAttackMeterAttrmap
 	ld a, [hli]
@@ -1715,7 +1715,7 @@ Func_46338:
 	ldcoord_a 6, 12, v0BGMap1
 
 	; prints player's won matches at coordinate (3, 6)
-    ld hl, wc99b
+	ld hl, wc99b
 	ld a, [hli]
 	ldcoord_a 3, 6, v0BGMap1
 	ld a, [hli]
@@ -1726,7 +1726,7 @@ Func_46338:
 	ldcoord_a 6, 6, v0BGMap1
 
 	; prints opponent's won matches at coordinate (3, 13)
-    ld hl, wc9a3
+	ld hl, wc9a3
 	ld a, [hli]
 	ldcoord_a 3, 13, v0BGMap1
 	ld a, [hli]
@@ -1861,8 +1861,8 @@ Func_46338:
 	ld a, [hli]
 	ldcoord_a 6, 12, v1BGMap1
 
-    ; color in player's won matches at coordinate (3, 6)
-    ld hl, wc99f
+	; color in player's won matches at coordinate (3, 6)
+	ld hl, wc99f
 	ld a, [hli]
 	ldcoord_a 3, 6, v1BGMap1
 	ld a, [hli]
@@ -1872,8 +1872,8 @@ Func_46338:
 	ld a, [hli]
 	ldcoord_a 6, 6, v1BGMap1
 
-    ; color in opponent's won matches at coordinate (3, 13)
-    ld hl, wc9a7
+	; color in opponent's won matches at coordinate (3, 13)
+	ld hl, wc9a7
 	ld a, [hli]
 	ldcoord_a 3, 13, v1BGMap1
 	ld a, [hli]
@@ -2123,7 +2123,7 @@ Func_4657f:
 	ld a, [hli]
 	ldcoord_a 6, 13, v1BGMap1
 
-    ; color in player's won matches at coordinate (3, 1)
+	; color in player's won matches at coordinate (3, 1)
 	ld hl, wc99f
 	ld a, [hli]
 	ldcoord_a 3, 1, v1BGMap1
@@ -2134,7 +2134,7 @@ Func_4657f:
 	ld a, [hli]
 	ldcoord_a 6, 1, v1BGMap1
 
-    ; color in oppponent's won matches at coordinate (3, 14)
+	; color in oppponent's won matches at coordinate (3, 14)
 	ld hl, wc9a7
 	ld a, [hli]
 	ldcoord_a 3, 14, v1BGMap1
@@ -2500,7 +2500,7 @@ Func_468dc:
 	ldcoord_a 5, 2, v1BGMap1
 	ld a, [hli]
 	ldcoord_a 6, 2, v1BGMap1
-    
+
 	ld hl, $d7a9
 	ld a, [hli]
 	ldcoord_a 1, 3, v1BGMap1

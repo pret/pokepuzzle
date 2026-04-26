@@ -3253,7 +3253,7 @@ Func_dfb7:
 
 .Table:
 	table_width 1
-    db $00 ; GAMELEVEL_EASY
+	db $00 ; GAMELEVEL_EASY
 	db $01 ; GAMELEVEL_NORMAL
 	db $02 ; GAMELEVEL_HARD
 	db $02 ; GAMELEVEL_S_HARD

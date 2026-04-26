@@ -660,7 +660,7 @@ Func_5048a:
 	ld [hli], a
 	ld a, $47
 	ld [hl], a
-	
+
 	xor a
 	ld [wcdaf], a
 	ld [wcdb0], a
