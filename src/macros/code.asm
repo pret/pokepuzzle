@@ -78,13 +78,19 @@ MACRO? safe_copy_data
 	db  \6 ; iterations
 ENDM
 
-MACRO? copy_data_ext
+; \1 = destination
+; \2 = source
+; \3 = x
+; \4 = y
+; \5 = width
+; \6 = height
+MACRO? copy_box
 	call Func_802
-	dwb \1, \2 ; destination
-	dab \3 ; source
-	dw  \4 ; length
-	dw  \5 ; interval
-	dw  \6 ; iterations
+	dwb (\1) + (\3) + (\4) * TILEMAP_WIDTH, BANK(\1)
+	dab \2
+	dw  \5
+	dw  TILEMAP_WIDTH - (\5)
+	dw  \6 ; height
 ENDM
 
 MACRO? func_621
