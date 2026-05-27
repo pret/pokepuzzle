@@ -4198,7 +4198,7 @@ Func_779ba:
 	copy_data wBGPals, Pals_dac50, 3 palettes
 
 	farcall Func_5449d
-	
+
 	ld a, $02
 	ld [wcdad], a
 	jp Func_779b3

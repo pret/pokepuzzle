@@ -1945,7 +1945,7 @@ Func_4657f:
 	ld a, [hli]
 	ldcoord_a 6, 1, v0BGMap1
 
-	; prints oppponent's won matches at coordinate (3, 14)
+	; prints opponent's won matches at coordinate (3, 14)
 	ld hl, wc9a3
 	ld a, [hli]
 	ldcoord_a 3, 14, v0BGMap1
@@ -2040,7 +2040,7 @@ Func_4657f:
 	ld a, [hli]
 	ldcoord_a 6, 1, v1BGMap1
 
-	; color in oppponent's won matches at coordinate (3, 14)
+	; color in opponent's won matches at coordinate (3, 14)
 	ld hl, wc9a7
 	ld a, [hli]
 	ldcoord_a 3, 14, v1BGMap1

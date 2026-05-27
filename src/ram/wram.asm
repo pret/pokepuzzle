@@ -1086,7 +1086,7 @@ UNION
 	ds $100
 
 w6d400:: ds BOARD_VIRTUAL_AREA ; d400
-	
+
 	ds $d580 - $d450
 
 w6d580:: ds BOARD_VIRTUAL_AREA ; d580
