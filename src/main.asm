@@ -22,6 +22,18 @@ SECTION "Bank 11", ROMX
 
 INCLUDE "engine/bank11.asm"
 
+SECTION "Bank 12", ROMX
+
+INCLUDE "engine/bank12.asm"
+
+SECTION "Bank 14", ROMX
+
+INCLUDE "engine/bank14.asm"
+
+SECTION "Bank 15", ROMX
+
+INCLUDE "engine/bank15.asm"
+
 SECTION "Bank 19", ROMX
 
 INCLUDE "engine/bank19.asm"
@@ -29,6 +41,14 @@ INCLUDE "engine/bank19.asm"
 SECTION "Bank 1A", ROMX
 
 INCLUDE "engine/bank1a.asm"
+
+SECTION "Bank 1B", ROMX
+
+INCLUDE "engine/bank1b.asm"
+
+SECTION "Bank 1C", ROMX
+
+INCLUDE "engine/bank1c.asm"
 
 SECTION "Bank 1D", ROMX
 
