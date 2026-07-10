@@ -133,7 +133,7 @@ Func_400e8:
 	call UpdateBothPokemonPortraitAnimations
 	ld hl, wScore
 	call Func_4030a
-	ld hl, $c845
+	ld hl, wc845
 	call Func_402b2
 	call TickBackgroundPattern
 	call Func_41d72
@@ -476,19 +476,21 @@ Func_4030a:
 
 Func_403aa:
 	ld a, $03
-	ld [wSpeedLevelTilemap], a
-	ld [$c926], a
-	ld a, $05
-	ld [wSpeedLevelAttrmap], a
-	ld [$c929], a
-	ld [$c92a], a
-	ld [$c92c], a
+	ld [wSpeedLevelTilemap + 0], a
+	ld [wSpeedLevelTilemap + 5], a
+	ld a, 5 | BG_BANK0
+	ld [wSpeedLevelAttrmap + 0], a
+	ld [wSpeedLevelAttrmap + 2], a
+	ld [wSpeedLevelAttrmap + 3], a
+	ld [wSpeedLevelAttrmap + 5], a
+
 	ld a, $43
-	ld [$c922], a
-	ld [$c925], a
-	ld a, $0d
-	ld [$c928], a
-	ld [$c92b], a
+	ld [wSpeedLevelTilemap + 1], a
+	ld [wSpeedLevelTilemap + 4], a
+	ld a, 5 | BG_BANK1
+	ld [wSpeedLevelAttrmap + 1], a
+	ld [wSpeedLevelAttrmap + 4], a
+
 	ld hl, wc9b0
 	ld a, [hl]
 	and a
@@ -635,11 +637,13 @@ Func_4043d:
 	ld a, $03
 .asm_40496
 	ld [hli], a
+	
 	ld a, $05
-	ld [$c9a0], a
-	ld [$c9a1], a
-	ld [$c9a8], a
-	ld [$c9a9], a
+	ld [wc99f + 1], a
+	ld [wc99f + 2], a
+	ld [wc9a7 + 1], a
+	ld [wc9a7 + 2], a
+
 	ld a, [wGameMode]
 	cp GAMEMODE_2P_TIME_ZONE
 	jr z, .asm_404b1
@@ -652,29 +656,29 @@ Func_4043d:
 	and a
 	jr nz, .asm_404d7
 	ld a, c
-	ld [$c99b], a
-	ld [$c99e], a
-	ld [$c9a3], a
-	ld [$c9a6], a
+	ld [wc99b + 0], a
+	ld [wc99b + 3], a
+	ld [wc9a3 + 0], a
+	ld [wc9a3 + 3], a
 	ld a, $0d
-	ld [$c99f], a
-	ld [$c9a2], a
-	ld [$c9a7], a
-	ld [$c9aa], a
+	ld [wc99f + 0], a
+	ld [wc99f + 3], a
+	ld [wc9a7 + 0], a
+	ld [wc9a7 + 3], a
 	jr .asm_404f6
 .asm_404d7
 	ld a, c
-	ld [$c99b], a
-	ld [$c9a3], a
+	ld [wc99b + 0], a
+	ld [wc9a3 + 0], a
 	ld a, $03
-	ld [$c99e], a
-	ld [$c9a6], a
+	ld [wc99b + 3], a
+	ld [wc9a3 + 3], a
 	ld a, $0d
-	ld [$c99f], a
-	ld [$c9a7], a
+	ld [wc99f + 0], a
+	ld [wc9a7 + 0], a
 	ld a, $05
-	ld [$c9a2], a
-	ld [$c9aa], a
+	ld [wc99f + 3], a
+	ld [wc9a7 + 3], a
 .asm_404f6
 	ld a, [wcebe]
 	and a
@@ -682,10 +686,10 @@ Func_4043d:
 	dec a
 	jr z, .asm_40503
 	ld a, b
-	ld [$c99e], a
+	ld [wc99b + 3], a
 .asm_40503
 	ld a, b
-	ld [$c99b], a
+	ld [wc99b + 0], a
 .asm_40507
 	ld a, [wcebf]
 	and a
@@ -693,10 +697,10 @@ Func_4043d:
 	dec a
 	jr z, .asm_40514
 	ld a, b
-	ld [$c9a6], a
+	ld [wc9a3 + 3], a
 .asm_40514
 	ld a, b
-	ld [$c9a3], a
+	ld [wc9a3 + 0], a
 .asm_40518
 	ret
 
@@ -883,14 +887,14 @@ Func_405f1:
 	ld a, $03 ; tile ID
 	ld [hli], a
 	ld [hl], a
-	ld hl, wPlayerMonTilemap + $4
+	ld hl, wPlayerMonTilemap + 4
 	ld [hli], a
 	ld [hl], a
 	ld a, 5 ; palette index
 	ld hl, wPlayerMonAttrmap
 	ld [hli], a
 	ld [hl], a
-	ld hl, wPlayerMonAttrmap + $4
+	ld hl, wPlayerMonAttrmap + 4
 	ld [hli], a
 	ld [hl], a
 	ret
@@ -927,7 +931,7 @@ Func_405f1:
 	ld a, $03 ; tile ID
 .asm_406ec
 	ld [hl], a
-	ld hl, wPlayerMonTilemap + $4
+	ld hl, wPlayerMonTilemap + 4
 	ld a, d
 	inc a
 	jr z, .asm_406f8
@@ -950,7 +954,7 @@ Func_405f1:
 	ld hl, wPlayerMonAttrmap
 	ld [hli], a
 	ld [hl], a
-	ld hl, wPlayerMonAttrmap + $4
+	ld hl, wPlayerMonAttrmap + 4
 	ld [hli], a
 	ld [hl], a
 	ret
@@ -1036,91 +1040,91 @@ Func_40775:
 	ld hl, $6db6
 	add hl, bc
 	ld a, [hl]
-	ld [wOpponentLifeGaugeTilemap + $0], a
+	ld [wOpponentLifeGaugeTilemap + 0], a
 	ld hl, $6e46
 	add hl, bc
 	ld a, [hl]
-	ld [wOpponentLifeGaugeAttrmap + $0], a
+	ld [wOpponentLifeGaugeAttrmap + 0], a
 	ld a, [wc8b5]
 	ld c, a
 	ld hl, $6db6
 	add hl, bc
 	ld a, [hl]
-	ld [$c96e], a
+	ld [wOpponentLifeGaugeTilemap + 1], a
 	ld hl, $6e46
 	add hl, bc
 	ld a, [hl]
-	ld [$c977], a
+	ld [wOpponentLifeGaugeAttrmap + 1], a
 	ld a, [wc8b6]
 	ld c, a
 	ld hl, $6db6
 	add hl, bc
 	ld a, [hl]
-	ld [$c96f], a
+	ld [wOpponentLifeGaugeTilemap + 2], a
 	ld hl, $6e46
 	add hl, bc
 	ld a, [hl]
-	ld [$c978], a
+	ld [wOpponentLifeGaugeAttrmap + 2], a
 	ld a, [wc8b7]
 	ld c, a
 	ld hl, $6db6
 	add hl, bc
 	ld a, [hl]
-	ld [$c970], a
+	ld [wOpponentLifeGaugeTilemap + 3], a
 	ld hl, $6e46
 	add hl, bc
 	ld a, [hl]
-	ld [$c979], a
+	ld [wOpponentLifeGaugeAttrmap + 3], a
 	ld a, [wc8b8]
 	ld c, a
 	ld hl, $6db6
 	add hl, bc
 	ld a, [hl]
-	ld [$c971], a
+	ld [wOpponentLifeGaugeTilemap + 4], a
 	ld hl, $6e46
 	add hl, bc
 	ld a, [hl]
-	ld [$c97a], a
+	ld [wOpponentLifeGaugeAttrmap + 4], a
 	ld a, [wc8b9]
 	ld c, a
 	ld hl, $6db6
 	add hl, bc
 	ld a, [hl]
-	ld [$c972], a
+	ld [wOpponentLifeGaugeTilemap + 5], a
 	ld hl, $6e46
 	add hl, bc
 	ld a, [hl]
-	ld [$c97b], a
+	ld [wOpponentLifeGaugeAttrmap + 5], a
 	ld a, [wc8ba]
 	ld c, a
 	ld hl, $6db6
 	add hl, bc
 	ld a, [hl]
-	ld [$c973], a
+	ld [wOpponentLifeGaugeTilemap + 6], a
 	ld hl, $6e46
 	add hl, bc
 	ld a, [hl]
-	ld [$c97c], a
+	ld [wOpponentLifeGaugeAttrmap + 6], a
 	ld a, [wc8bb]
 	ld c, a
 	ld hl, $6db6
 	add hl, bc
 	ld a, [hl]
-	ld [$c974], a
+	ld [wOpponentLifeGaugeTilemap + 7], a
 	ld hl, $6e46
 	add hl, bc
 	ld a, [hl]
-	ld [$c97d], a
+	ld [wOpponentLifeGaugeAttrmap + 7], a
 	ld a, [wc8bc]
 	ld c, a
 	ld hl, $6db6
 	add hl, bc
 	ld a, [hl]
-	ld [$c975], a
+	ld [wOpponentLifeGaugeTilemap + 8], a
 	ld hl, $6e46
 	add hl, bc
 	ld a, [hl]
-	ld [$c97e], a
+	ld [wOpponentLifeGaugeAttrmap + 8], a
 	ret
 
 Func_4082c:
@@ -1134,15 +1138,15 @@ Func_4082c:
 	ld hl, $6ed6
 	add hl, bc
 	ld a, [hli]
-	ld [wOpponentAttackMeterTilemap + $0], a
+	ld [wOpponentAttackMeterTilemap + 0], a
 	ld a, [hl]
-	ld [wOpponentAttackMeterTilemap + $1], a
+	ld [wOpponentAttackMeterTilemap + 1], a
 	ld hl, $6f1e
 	add hl, bc
 	ld a, [hli]
-	ld [wOpponentAttackMeterAttrmap + $0], a
+	ld [wOpponentAttackMeterAttrmap + 0], a
 	ld a, [hl]
-	ld [wOpponentAttackMeterAttrmap + $1], a
+	ld [wOpponentAttackMeterAttrmap + 1], a
 .asm_40852
 	ldh a, [hff8b]
 	and a
@@ -1151,15 +1155,15 @@ Func_4082c:
 	ld hl, $6ed6
 	add hl, bc
 	ld a, [hli]
-	ld [$c981], a
+	ld [wOpponentAttackMeterTilemap + 2], a
 	ld a, [hl]
-	ld [$c982], a
+	ld [wOpponentAttackMeterTilemap + 3], a
 	ld hl, $6f1e
 	add hl, bc
 	ld a, [hli]
-	ld [$c98f], a
+	ld [wOpponentAttackMeterAttrmap + 2], a
 	ld a, [hl]
-	ld [$c990], a
+	ld [wOpponentAttackMeterAttrmap + 3], a
 .asm_40870
 	ldh a, [hff8c]
 	and a
@@ -1168,15 +1172,15 @@ Func_4082c:
 	ld hl, $6ed6
 	add hl, bc
 	ld a, [hli]
-	ld [$c983], a
+	ld [wOpponentAttackMeterTilemap + 4], a
 	ld a, [hl]
-	ld [$c984], a
+	ld [wOpponentAttackMeterTilemap + 5], a
 	ld hl, $6f1e
 	add hl, bc
 	ld a, [hli]
-	ld [$c991], a
+	ld [wOpponentAttackMeterAttrmap + 4], a
 	ld a, [hl]
-	ld [$c992], a
+	ld [wOpponentAttackMeterAttrmap + 5], a
 .asm_4088e
 	ldh a, [hff8d]
 	and a
@@ -1185,15 +1189,15 @@ Func_4082c:
 	ld hl, $6ed6
 	add hl, bc
 	ld a, [hli]
-	ld [$c985], a
+	ld [wOpponentAttackMeterTilemap + 6], a
 	ld a, [hl]
-	ld [$c986], a
+	ld [wOpponentAttackMeterTilemap + 7], a
 	ld hl, $6f1e
 	add hl, bc
 	ld a, [hli]
-	ld [$c993], a
+	ld [wOpponentAttackMeterAttrmap + 6], a
 	ld a, [hl]
-	ld [$c994], a
+	ld [wOpponentAttackMeterAttrmap + 7], a
 .asm_408ac
 	ldh a, [hff8e]
 	and a
@@ -1202,15 +1206,15 @@ Func_4082c:
 	ld hl, $6ed6
 	add hl, bc
 	ld a, [hli]
-	ld [$c987], a
+	ld [wOpponentAttackMeterTilemap + 8], a
 	ld a, [hl]
-	ld [$c988], a
+	ld [wOpponentAttackMeterTilemap + 9], a
 	ld hl, $6f1e
 	add hl, bc
 	ld a, [hli]
-	ld [$c995], a
+	ld [wOpponentAttackMeterAttrmap + 8], a
 	ld a, [hl]
-	ld [$c996], a
+	ld [wOpponentAttackMeterAttrmap + 9], a
 .asm_408ca
 	ldh a, [hff8f]
 	and a
@@ -1219,15 +1223,15 @@ Func_4082c:
 	ld hl, $6ed6
 	add hl, bc
 	ld a, [hli]
-	ld [$c989], a
+	ld [wOpponentAttackMeterTilemap + 10], a
 	ld a, [hl]
-	ld [$c98a], a
+	ld [wOpponentAttackMeterTilemap + 11], a
 	ld hl, $6f1e
 	add hl, bc
 	ld a, [hli]
-	ld [$c997], a
+	ld [wOpponentAttackMeterAttrmap + 10], a
 	ld a, [hl]
-	ld [$c998], a
+	ld [wOpponentAttackMeterAttrmap + 11], a
 .asm_408e8
 	ldh a, [hff90]
 	and a
@@ -1236,15 +1240,15 @@ Func_4082c:
 	ld hl, $6ed6
 	add hl, bc
 	ld a, [hli]
-	ld [$c98b], a
+	ld [wOpponentAttackMeterTilemap + 12], a
 	ld a, [hl]
-	ld [$c98c], a
+	ld [wOpponentAttackMeterTilemap + 13], a
 	ld hl, $6f1e
 	add hl, bc
 	ld a, [hli]
-	ld [$c999], a
+	ld [wOpponentAttackMeterAttrmap + 12], a
 	ld a, [hl]
-	ld [$c99a], a
+	ld [wOpponentAttackMeterAttrmap + 13], a
 .asm_40906
 	ret
 
@@ -1363,23 +1367,23 @@ Func_409b2:
 	ld de, $49f6
 	add hl, de
 	ld a, [hli]
-	ld [wOpponentLifeGaugeTilemap + $0], a
+	ld [wOpponentLifeGaugeTilemap + 0], a
 	ld a, [hli]
-	ld [wOpponentLifeGaugeTilemap + $1], a
+	ld [wOpponentLifeGaugeTilemap + 1], a
 	ld a, [hli]
-	ld [wOpponentLifeGaugeTilemap + $2], a
+	ld [wOpponentLifeGaugeTilemap + 2], a
 	ld a, [hli]
-	ld [wOpponentLifeGaugeTilemap + $3], a
+	ld [wOpponentLifeGaugeTilemap + 3], a
 	ld a, [hli]
-	ld [wOpponentLifeGaugeTilemap + $4], a
+	ld [wOpponentLifeGaugeTilemap + 4], a
 	ld a, [hli]
-	ld [wOpponentLifeGaugeTilemap + $5], a
+	ld [wOpponentLifeGaugeTilemap + 5], a
 	ld a, [hli]
-	ld [wOpponentLifeGaugeTilemap + $6], a
+	ld [wOpponentLifeGaugeTilemap + 6], a
 	ld a, [hli]
-	ld [wOpponentLifeGaugeTilemap + $7], a
+	ld [wOpponentLifeGaugeTilemap + 7], a
 	ld a, [hli]
-	ld [wOpponentLifeGaugeTilemap + $8], a
+	ld [wOpponentLifeGaugeTilemap + 8], a
 	ret
 ; 0x409f6
 
@@ -2399,9 +2403,9 @@ Func_411cc:
 	ld d, [hl]
 	ld e, a
 	ld hl, $d72a
-	ld a, [wcd44]
+	ld a, [wcd44 + 0]
 	ld c, a
-	ld a, [$cd45]
+	ld a, [wcd44 + 1]
 	ld b, a
 	ld a, e
 	sub c
@@ -2410,9 +2414,9 @@ Func_411cc:
 	sbc b
 	ld d, a
 	jp c, .asm_41255
-	ld a, [wcd44]
+	ld a, [wcd44 + 0]
 	ld c, a
-	ld a, [$cd45]
+	ld a, [wcd44 + 1]
 	ld b, a
 	ld a, e
 	sub c
@@ -2421,9 +2425,9 @@ Func_411cc:
 	sbc b
 	ld d, a
 	jp c, .asm_41271
-	ld a, [wcd44]
+	ld a, [wcd44 + 0]
 	ld c, a
-	ld a, [$cd45]
+	ld a, [wcd44 + 1]
 	ld b, a
 	ld a, e
 	sub c
@@ -2432,9 +2436,9 @@ Func_411cc:
 	sbc b
 	ld d, a
 	jp c, .asm_4128e
-	ld a, [wcd44]
+	ld a, [wcd44 + 0]
 	ld c, a
-	ld a, [$cd45]
+	ld a, [wcd44 + 1]
 	ld b, a
 	ld a, e
 	sub c
@@ -2443,9 +2447,9 @@ Func_411cc:
 	sbc b
 	ld d, a
 	jp c, .asm_412ab
-	ld a, [wcd44]
+	ld a, [wcd44 + 0]
 	ld c, a
-	ld a, [$cd45]
+	ld a, [wcd44 + 1]
 	ld b, a
 	ld a, e
 	sub c
@@ -2456,9 +2460,9 @@ Func_411cc:
 	jp .asm_412c8
 
 .asm_41255
-	ld a, [wcd44]
+	ld a, [wcd44 + 0]
 	ld c, a
-	ld a, [$cd45]
+	ld a, [wcd44 + 1]
 	ld b, a
 	ld a, e
 	add c
@@ -2478,9 +2482,9 @@ Func_411cc:
 	ret ; stray ret
 
 .asm_41271
-	ld a, [wcd44]
+	ld a, [wcd44 + 0]
 	ld c, a
-	ld a, [$cd45]
+	ld a, [wcd44 + 1]
 	ld b, a
 	ld a, e
 	add c
@@ -2499,9 +2503,9 @@ Func_411cc:
 	jp .asm_412e5
 
 .asm_4128e
-	ld a, [wcd44]
+	ld a, [wcd44 + 0]
 	ld c, a
-	ld a, [$cd45]
+	ld a, [wcd44 + 1]
 	ld b, a
 	ld a, e
 	add c
@@ -2520,9 +2524,9 @@ Func_411cc:
 	jp .asm_412e5
 
 .asm_412ab
-	ld a, [wcd44]
+	ld a, [wcd44 + 0]
 	ld c, a
-	ld a, [$cd45]
+	ld a, [wcd44 + 1]
 	ld b, a
 	ld a, e
 	add c
@@ -2541,9 +2545,9 @@ Func_411cc:
 	jp .asm_412e5
 
 .asm_412c8
-	ld a, [wcd44]
+	ld a, [wcd44 + 0]
 	ld c, a
-	ld a, [$cd45]
+	ld a, [wcd44 + 1]
 	ld b, a
 	ld a, e
 	add c
@@ -2565,9 +2569,9 @@ Func_411cc:
 	ld a, d
 	or e
 	jp z, .asm_41364
-	ld a, [wcd42]
+	ld a, [wcd42 + 0]
 	ld c, a
-	ld a, [$cd43]
+	ld a, [wcd42 + 1]
 	ld b, a
 	ld a, e
 	sub c
@@ -2576,9 +2580,9 @@ Func_411cc:
 	sbc b
 	ld d, a
 	jp c, .asm_41367
-	ld a, [wcd42]
+	ld a, [wcd42 + 0]
 	ld c, a
-	ld a, [$cd43]
+	ld a, [wcd42 + 1]
 	ld b, a
 	ld a, e
 	sub c
@@ -2587,9 +2591,9 @@ Func_411cc:
 	sbc b
 	ld d, a
 	jp c, .asm_4136a
-	ld a, [wcd42]
+	ld a, [wcd42 + 0]
 	ld c, a
-	ld a, [$cd43]
+	ld a, [wcd42 + 1]
 	ld b, a
 	ld a, e
 	sub c
@@ -2598,9 +2602,9 @@ Func_411cc:
 	sbc b
 	ld d, a
 	jp c, .asm_4136d
-	ld a, [wcd42]
+	ld a, [wcd42 + 0]
 	ld c, a
-	ld a, [$cd43]
+	ld a, [wcd42 + 1]
 	ld b, a
 	ld a, e
 	sub c
@@ -2609,9 +2613,9 @@ Func_411cc:
 	sbc b
 	ld d, a
 	jp c, .asm_41370
-	ld a, [wcd42]
+	ld a, [wcd42 + 0]
 	ld c, a
-	ld a, [$cd43]
+	ld a, [wcd42 + 1]
 	ld b, a
 	ld a, e
 	sub c
@@ -2620,9 +2624,9 @@ Func_411cc:
 	sbc b
 	ld d, a
 	jp c, .asm_41373
-	ld a, [wcd42]
+	ld a, [wcd42 + 0]
 	ld c, a
-	ld a, [$cd43]
+	ld a, [wcd42 + 1]
 	ld b, a
 	ld a, e
 	sub c
@@ -2631,9 +2635,9 @@ Func_411cc:
 	sbc b
 	ld d, a
 	jp c, .asm_41376
-	ld a, [wcd42]
+	ld a, [wcd42 + 0]
 	ld c, a
-	ld a, [$cd43]
+	ld a, [wcd42 + 1]
 	ld b, a
 	ld a, e
 	sub c

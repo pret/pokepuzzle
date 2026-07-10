@@ -547,6 +547,17 @@ Func_69a7d:
 	ret
 ; 0x69b08
 
+SECTION "Bank 1a@5d1c", ROMX[$5d1c], BANK[$1a]
+
+Func_69d1c:
+	ld hl, $5d24
+	add hl, bc
+	ld a, [hli]
+	ld c, [hl]
+	ld b, a
+	ret
+; 0x69d24
+
 SECTION "Bank 1a@6209", ROMX[$6209], BANK[$1a]
 
 Func_6a209:
@@ -1497,6 +1508,34 @@ Func_6af04::
 	ret
 ; 0x6af13
 
+SECTION "Bank 1a@7038", ROMX[$7038], BANK[$1a]
+
+Func_6b038:
+	call Func_2706
+	ld a, [wcdc3]
+	cp $ff
+	jp z, .asm_6b0d5
+	copy_data wGameLevel, wcdc3, $1
+	copy_data $c837, $00, $cdc4, $00, $1 ; c837, cdc4
+	copy_data wc836, wcdc5, $1
+	copy_data $deea, $01, $cdc6, $00, $8 ; deea, cdc6
+	copy_data $defd, $01, $cdd0, $00, $1 ; defd, cdd0
+	copy_data $deff, $01, $cdd1, $00, $1 ; deff, cdd1
+	copy_data $df22, $01, $cdd2, $00, $1 ; df22, cdd2
+	copy_data $ddb7, $01, $cdd3, $00, $1 ; ddb7, cdd3
+	copy_data $df0b, $01, $cdd4, $00, $1 ; df0b, cdd4
+	copy_data $df11, $01, $cdd5, $00, $1 ; df11, cdd5
+	copy_data $df0c, $01, $cdd6, $00, $1 ; df0c, cdd6
+	copy_data $df14, $01, $cdd7, $00, $1 ; df14, cdd7
+	copy_data $defc, $01, $cdd8, $00, $1 ; defc, cdd8
+	ld b, $00
+	ret
+
+.asm_6b0d5
+	ld b, $01
+	ret
+; 0x6b0d8
+
 SECTION "Bank 1a@71cd", ROMX[$71cd], BANK[$1a]
 
 Func_6b1cd:
@@ -1533,8 +1572,8 @@ Func_6b2ab:
 	ld a, b
 	ld [wcdc3], a
 	ld a, c
-	ld [$cdcc], a
-	ld [$c8e1], a
+	ld [wcdcc], a
+	ld [wc8e1], a
 	call Func_6a2ec
 	call SetSaveDataChecksumAndBackup
 	ret
@@ -1661,4 +1700,260 @@ Func_6b3d1:
 	ldh [hSRAMEnabled], a
 	ld [$100], a
 	ret
-; 0x6b3ed
+
+Func_6b3ed:
+	ld hl, wc86a
+	call Func_6bd57
+	ld hl, $beba
+	ld a, e
+	ld [hli], a
+	ld [hl], d
+	ld a, [wGameMode]
+	cp $01
+	jr z, .asm_6b40c
+	cp $07
+	jr z, .asm_6b40c
+	ld hl, wc86a
+	ld de, wc86e
+	jr .asm_6b412
+.asm_6b40c
+	ld hl, wc86e
+	ld de, wc86a
+.asm_6b412
+	push de
+	push hl
+	push de
+	push hl
+	pop hl
+	call Func_6bd88
+	ld hl, hff8a
+	ld a, e
+	ld [hli], a
+	ld [hl], d
+	pop hl
+	call Func_6bd88
+	ldh a, [hff8a]
+	sub e
+	ld e, a
+	ldh a, [hff8b]
+	sbc d
+	ld d, a
+	ld hl, $bebe
+	ld a, e
+	ld [hli], a
+	ld [hl], d
+	pop hl
+	call Func_6bd57
+	ld hl, hff8a
+	ld a, e
+	ld [hli], a
+	ld [hl], d
+	pop hl
+	call Func_6bd57
+	ldh a, [hff8a]
+	sub e
+	ld e, a
+	ldh a, [hff8b]
+	sbc d
+	ld d, a
+	ld hl, $bebc
+	ld a, e
+	ld [hli], a
+	ld [hl], d
+	ret
+
+Func_6b44f:
+	ldh a, [hSRAMEnabled]
+	push af
+	enable_sram
+	ldh a, [hSRAMBank]
+	push af
+	ld a, $01
+	sramswitch
+	ld a, b
+	ld [sUnkDataEnd], a
+	call Func_6b3ed
+	call Func_1f38
+	ld a, [hl]
+	ld b, a
+	and $0f
+	ld [$bec7], a
+	ld a, b
+	and $f0
+	swap a
+	ld [$bec8], a
+	ld a, [wc834]
+	ld b, a
+	and $0f
+	ld [$bec9], a
+	ld a, b
+	and $f0
+	swap a
+	ld [$beca], a
+	call Func_6b4b5
+	farcall Func_5d2af
+	call Func_6b4fd
+	call SetSaveDataChecksumAndBackup
+	ld a, [wc899]
+	and a
+	jr nz, .asm_6b4a8
+	ld a, [sUnkDataEnd]
+	dec a
+	jr nz, .asm_6b4a8
+.asm_6b4a8
+	pop af
+	sramswitch
+	pop af
+	ldh [hSRAMEnabled], a
+	ld [$100], a
+	ret
+
+Func_6b4b5:
+	ld a, [wGameMode]
+	cp $05
+	jr z, .asm_6b4c1
+	cp $0d
+.asm_6b4be
+	jr z, .asm_6b4be
+	ret
+.asm_6b4c1
+	ld a, [wc888]
+	and a
+	jr z, .asm_6b4d1
+	farcall Func_b8085
+	call Func_6b4d8
+	ret
+.asm_6b4d1
+	farcall Func_b8083
+	ret
+
+Func_6b4d8:
+	ld a, [wGameLevel]
+	cp $04
+	jr z, .asm_6b4e9
+	farcall_saveregs Func_10112f
+	and a
+	jr z, .asm_6b4e9
+	ret
+.asm_6b4e9
+	call Func_6b4ed
+	ret
+
+Func_6b4ed:
+	ld a, [$c837]
+	cp $63
+	jr c, .asm_6b4f8
+	ld a, $63
+	jr .asm_6b4f9
+.asm_6b4f8
+	inc a
+.asm_6b4f9
+	ld [$c837], a
+	ret
+
+Func_6b4fd:
+	ldh a, [hSRAMEnabled]
+	push af
+	enable_sram
+	ldh a, [hSRAMBank]
+	push af
+	ld a, $01
+	sramswitch
+	copy_data $bec4, $01, $c842, $00, $3 ; bec4, c842
+	ld a, [sUnkDataEnd]
+	add a
+	ld c, a
+	ld b, $00
+	ld hl, $7547
+	add hl, bc
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	ld a, [$beb8]
+	add a
+	ld c, a
+	ld b, $00
+	add hl, bc
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	ld bc, $753a
+	push bc
+	jp hl
+; 0x6b53a
+
+SECTION "Bank 1a@7d57", ROMX[$7d57], BANK[$1a]
+
+Func_6bd57:
+	inc hl
+	ld a, [hli]
+	ld e, a
+	xor a
+	ld d, a
+	ld c, a
+	ld a, [hli]
+	ld b, a
+.asm_6bd5f
+	ld a, b
+	and a
+	jr z, .asm_6bd72
+	dec b
+	ld a, e
+	add $3c
+	ld e, a
+	ld a, d
+	adc $00
+	ld d, a
+	ld a, c
+	adc $00
+	ld c, a
+	jr .asm_6bd5f
+.asm_6bd72
+	ld a, [hl]
+	ld b, a
+.asm_6bd74
+	ld a, b
+	and a
+	jr z, .asm_6bd87
+	dec b
+	ld a, e
+	add $10
+	ld e, a
+	ld a, d
+	adc $0e
+	ld d, a
+	ld a, c
+	adc $00
+	ld c, a
+	jr .asm_6bd74
+.asm_6bd87
+	ret
+
+Func_6bd88:
+	inc hl
+	inc hl
+	ld a, [hli]
+	ld e, a
+	xor a
+	ld d, a
+	ld c, a
+	ld a, [hli]
+	ld b, a
+.asm_6bd91
+	ld a, b
+	and a
+	jr z, .asm_6bda4
+	dec b
+	ld a, e
+	add $3c
+	ld e, a
+	ld a, d
+	adc $00
+	ld d, a
+	ld a, c
+	adc $00
+	ld c, a
+	jr .asm_6bd91
+.asm_6bda4
+	ret
+; 0x6bda5

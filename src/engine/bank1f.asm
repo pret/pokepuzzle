@@ -57,7 +57,7 @@ Func_7c051:
 	ld c, BANK(v0Tiles1)
 	ld hl, $4a52
 	ld a, $53
-	call Func_93d
+	call Decompress
 
 	copy_data wBGPals, Pals_14d0f3, 8 palettes
 	call FlushPalettes
@@ -200,3 +200,37 @@ Func_7c18a:
 	ld l, a
 	jp hl
 ; 0x7c199
+
+SECTION "Bank 1f@6014", ROMX[$6014], BANK[$1f]
+
+Func_7e014:
+	ld a, $41
+	ld [wce36], a
+	ld a, $0e
+	ld [wce34], a
+	ld a, GAMESTATE_1A
+	ldh [hGameState], a
+	xor a
+	ldh [$ffbb], a
+	ldh a, [hWRAMBank]
+	push af
+	ld a, $01
+	wramswitch
+	ld a, [$dd89]
+	ld [$dd87], a
+	inc a
+	ld [$dd88], a
+	ld hl, $dd95
+	dec [hl]
+	ld a, $01
+	ld [$dd93], a
+	ld a, $77
+	ld [$ddae], a
+	ld a, $20
+	ld [$ddaf], a
+	xor a
+	ld [$ddaa], a
+	pop af
+	wramswitch
+	ret
+; 0x7e055

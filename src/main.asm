@@ -14,6 +14,10 @@ SECTION "Bank 4", ROMX
 
 INCLUDE "engine/bank04.asm"
 
+SECTION "Bank F", ROMX
+
+INCLUDE "engine/bank0f.asm"
+
 SECTION "Bank 10", ROMX
 
 INCLUDE "engine/bank10.asm"
@@ -33,6 +37,10 @@ INCLUDE "engine/bank14.asm"
 SECTION "Bank 15", ROMX
 
 INCLUDE "engine/bank15.asm"
+
+SECTION "Bank 17", ROMX
+
+INCLUDE "engine/bank17.asm"
 
 SECTION "Bank 19", ROMX
 
@@ -77,6 +85,14 @@ INCLUDE "audio/music/paneldepon3.asm"
 SECTION "Panel de Pon 1", ROMX[$5365], BANK[$24]
 
 INCLUDE "audio/music/paneldepon1.asm"
+
+SECTION "Bank 2A", ROMX
+
+INCLUDE "engine/bank2a.asm"
+
+SECTION "Bank 2E", ROMX
+
+INCLUDE "engine/bank2e.asm"
 
 SECTION "Bank 30", ROMX
 

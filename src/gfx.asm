@@ -36,6 +36,15 @@ SECTION "Bank 38", ROMX
 BlocksGfx:: INCBIN "gfx/blocks.2bpp"
 Gfx_e1000:: INCBIN "gfx/gfx_e1000.2bpp"
 
+SECTION "Bank 38@5860", ROMX[$5860], BANK[$38]
+
+Pals_e1860::
+	rgb 22, 22, 22
+	rgb  0,  0, 18
+	rgb  0,  9, 31
+	rgb  3, 12, 31
+; 0xe1868
+
 SECTION "Bank 38@5880", ROMX[$5880], BANK[$38]
 
 Pals_e1880::

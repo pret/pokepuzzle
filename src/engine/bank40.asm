@@ -214,7 +214,7 @@ LoadPokemonGarbageGfx:
 	ld h, d
 	ld de, v1Tiles2
 	ld c, BANK(v1Tiles2)
-	call Func_93d
+	call Decompress
 	ret
 ; 0x1007ec
 
@@ -332,7 +332,7 @@ Func_1008b0:
 	ld h, b
 	ld de, wBackgroundPatternTiles
 	ld c, BANK(wBackgroundPatternTiles)
-	call Func_93d
+	call Decompress
 
 	ld a, LOW(wBackgroundPatternTiles)
 	ld [wBackgroundPatternTilePtr + 0], a
@@ -366,7 +366,7 @@ Func_1008e1:
 	jr z, .asm_100914
 	ld de, v1Tiles2 tile $60
 	ld c, BANK(v1Tiles2)
-	call Func_93d
+	call Decompress
 .asm_100914
 	ld hl, Boards + BOARDSTRUCT_GAME_MODES + BOARDGAMEMODESTRUCT_UNK3
 	ld a, [wBoard]
@@ -393,7 +393,7 @@ Func_1008e1:
 	jr z, .asm_100947
 	ld de, v1Tiles2 tile $20
 	ld c, BANK(v1Tiles2)
-	call Func_93d
+	call Decompress
 .asm_100947
 	ret
 
@@ -423,7 +423,7 @@ Func_100948:
 	jr z, .asm_10098a
 	ld de, w2da80
 	ld c, BANK(w2da80)
-	call Func_93d
+	call Decompress
 	copy_box v0BGMap1, w2da80, 0, 0, PUZZLE_HUD_WIDTH, PUZZLE_HUD_HEIGHT
 .asm_10098a
 	ld hl, Boards + BOARDSTRUCT_GAME_MODES + BOARDGAMEMODESTRUCT_UNK9
@@ -451,11 +451,308 @@ Func_100948:
 	jr z, .asm_1009cc
 	ld de, w2da80
 	ld c, BANK(w2da80)
-	call Func_93d
+	call Decompress
 	copy_box v1BGMap1, w2da80, 0, 0, PUZZLE_HUD_WIDTH, PUZZLE_HUD_HEIGHT
 .asm_1009cc
 	ret
 ; 0x1009cd
+
+SECTION "Bank 40@4fa5", ROMX[$4fa5], BANK[$40]
+
+Func_100fa5:
+	push bc
+	ld c, a
+	ldh a, [hWRAMBank]
+	push af
+	ld a, $01
+	wramswitch
+	ld a, c
+	ld c, $00
+	call Func_100fbd
+	pop af
+	wramswitch
+	pop bc
+	ret
+
+Func_100fbd:
+	cp $02
+	jp z, Func_100feb
+	cp $03
+	jp z, Func_101001
+	cp $00
+	jp z, Func_101017
+	cp $0d
+	jp z, Func_10102d
+	cp $0e
+	jp z, Func_101043
+	cp $0f
+	jp z, Func_101059
+	cp $0c
+	jp z, Func_10106f
+	cp $11
+	jp z, Func_101085
+	cp $08
+	jp z, Func_10109b
+	ret
+
+Func_100feb:
+	ld a, c
+	push af
+	rrca
+	jr nc, .asm_100ff7
+	ld a, [$deeb]
+	set 2, a
+	jr .asm_100ffc
+.asm_100ff7
+	ld a, [$deeb]
+	res 2, a
+.asm_100ffc
+	ld [$deeb], a
+	pop af
+	ret
+
+Func_101001:
+	ld a, c
+	push af
+	rrca
+	jr nc, .asm_10100d
+	ld a, [$deeb]
+	set 3, a
+	jr .asm_101012
+.asm_10100d
+	ld a, [$deeb]
+	res 3, a
+.asm_101012
+	ld [$deeb], a
+	pop af
+	ret
+
+Func_101017:
+	ld a, c
+	push af
+	rrca
+	jr nc, .asm_101023
+	ld a, [$deeb]
+	set 4, a
+	jr .asm_101028
+.asm_101023
+	ld a, [$deeb]
+	res 4, a
+.asm_101028
+	ld [$deeb], a
+	pop af
+	ret
+
+Func_10102d:
+	ld a, c
+	push af
+	rrca
+	jr nc, .asm_101039
+	ld a, [$deea]
+	set 0, a
+	jr .asm_10103e
+.asm_101039
+	ld a, [$deea]
+	res 0, a
+.asm_10103e
+	ld [$deea], a
+	pop af
+	ret
+
+Func_101043:
+	ld a, c
+	push af
+	rrca
+	jr nc, .asm_10104f
+	ld a, [$deea]
+	set 1, a
+	jr .asm_101054
+.asm_10104f
+	ld a, [$deea]
+	res 1, a
+.asm_101054
+	ld [$deea], a
+	pop af
+	ret
+
+Func_101059:
+	ld a, c
+	push af
+	rrca
+	jr nc, .asm_101065
+	ld a, [$deea]
+	set 2, a
+	jr .asm_10106a
+.asm_101065
+	ld a, [$deea]
+	res 2, a
+.asm_10106a
+	ld [$deea], a
+	pop af
+	ret
+
+Func_10106f:
+	ld a, c
+	push af
+	rrca
+	jr nc, .asm_10107b
+	ld a, [$deea]
+	set 3, a
+	jr .asm_101080
+.asm_10107b
+	ld a, [$deea]
+	res 3, a
+.asm_101080
+	ld [$deea], a
+	pop af
+	ret
+
+Func_101085:
+	ld a, c
+	push af
+	rrca
+	jr nc, .asm_101091
+	ld a, [$deea]
+	set 4, a
+	jr .asm_101096
+.asm_101091
+	ld a, [$deea]
+	res 4, a
+.asm_101096
+	ld [$deea], a
+	pop af
+	ret
+
+Func_10109b:
+	ld a, c
+	push af
+	rrca
+	jr nc, .asm_1010a7
+	ld a, [$deea]
+	set 5, a
+	jr .asm_1010ac
+.asm_1010a7
+	ld a, [$deea]
+	res 5, a
+.asm_1010ac
+	ld [$deea], a
+	pop af
+	ret
+
+Func_1010b1:
+	push bc
+	ld c, a
+	ldh a, [hWRAMBank]
+	push af
+	ld a, $01
+	wramswitch
+	ld a, c
+	call Func_1010c9
+	ld c, a
+	pop af
+	wramswitch
+	ld a, c
+	pop bc
+	ret
+
+Func_1010c9:
+	cp $02
+	jp z, Func_1010f9
+	cp $03
+	jp z, Func_1010ff
+	cp $00
+	jp z, Func_101105
+	cp $0d
+	jp z, Func_10110b
+	cp $0e
+	jp z, Func_101111
+	cp $0f
+	jp z, Func_101117
+	cp $0c
+	jp z, Func_10111d
+	cp $11
+	jp z, Func_101123
+	cp $08
+	jp z, Func_101129
+	ld a, $01
+	ret
+
+Func_1010f9:
+	ld a, [$deeb]
+	and $04
+	ret
+
+Func_1010ff:
+	ld a, [$deeb]
+	and $08
+	ret
+
+Func_101105:
+	ld a, [$deeb]
+	and $10
+	ret
+
+Func_10110b:
+	ld a, [$deea]
+	and $01
+	ret
+
+Func_101111:
+	ld a, [$deea]
+	and $02
+	ret
+
+Func_101117:
+	ld a, [$deea]
+	and $04
+	ret
+
+Func_10111d:
+	ld a, [$deea]
+	and $08
+	ret
+
+Func_101123:
+	ld a, [$deea]
+	and $10
+	ret
+
+Func_101129:
+	ld a, [$deea]
+	and $20
+	ret
+
+Func_10112f:
+	ld c, $00
+	ld a, $02
+	call Func_101160
+	ld a, $03
+	call Func_101160
+	ld a, $00
+	call Func_101160
+	ld a, $0d
+	call Func_101160
+	ld a, $0e
+	call Func_101160
+	ld a, $0f
+	call Func_101160
+	ld a, $0c
+	call Func_101160
+	ld a, $11
+	call Func_101160
+	ld a, $08
+	call Func_101160
+	ld a, c
+	ret
+
+Func_101160:
+	call Func_1010b1
+	and a
+	jr z, .asm_101167
+	inc c
+.asm_101167
+	ret
+; 0x101168
 
 SECTION "Bank 40@530e", ROMX[$530e], BANK[$40]
 

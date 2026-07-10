@@ -139,7 +139,7 @@ Func_64114:
 	ld c, $00
 	ld hl, $553c
 	ld a, $19
-	call Func_93d
+	call Decompress
 	ld b, $00
 	ld de, v0Tiles1 tile $3c
 	ld a, $00
@@ -148,33 +148,33 @@ Func_64114:
 	ld c, $00
 	ld hl, $56e3
 	ld a, $19
-	call Func_93d
+	call Decompress
 
 	ld de, s3a000
 	ld c, BANK(s3a000)
 	ld hl, $5001
 	ld a, $19
-	call Func_93d
+	call Decompress
 	copy_box v0BGMap0, s3a000, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT
 
 	ld de, s3a000
 	ld c, BANK(s3a000)
 	ld hl, $50e1
 	ld a, $19
-	call Func_93d
+	call Decompress
 	copy_box v1BGMap0, s3a000, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT
 
 	ld de, wBGPals
 	ld c, $00
 	ld hl, $5df6
 	ld a, $19
-	call Func_93d
+	call Decompress
 
 	ld de, wOBPals
 	ld c, $00
 	ld hl, $5e33
 	ld a, $19
-	call Func_93d
+	call Decompress
 
 	copy_data wBGPals palette 6 + $4, $00, $5e5f, $19, $4 ; 65e5f
 
@@ -186,7 +186,7 @@ Func_6419d:
 	ld c, BANK(s3a000)
 	ld hl, $553c
 	ld a, $19
-	call Func_93d
+	call Decompress
 	ret
 
 Func_641ab:

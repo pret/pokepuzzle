@@ -40,6 +40,8 @@ ROMX $04
 	"Bank 4"
 ROMX $0a
 	"Bank A"
+ROMX $0f
+	"Bank F"
 ROMX $10
 	"Bank 10"
 ROMX $11
@@ -52,6 +54,8 @@ ROMX $14
 	"Bank 14"
 ROMX $15
 	"Bank 15"
+ROMX $17
+	"Bank 17"
 ROMX $19
 	"Bank 19"
 ROMX $1a
@@ -70,6 +74,10 @@ ROMX $20
 	"Audio Engine"
 ROMX $21
 	"Bank 21"
+ROMX $2a
+	"Bank 2A"
+ROMX $2e
+	"Bank 2E"
 ROMX $30
 	"Bank 30"
 ROMX $31

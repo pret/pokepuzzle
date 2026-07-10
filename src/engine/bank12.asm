@@ -13,15 +13,15 @@ Func_49182:
 	jr z, .asm_4919e
 	cp $01
 	jr nz, Func_491dd
-	ld a, [$c8ec]
+	ld a, [wc8ec]
 	ldh [rSCY], a
-	ld a, $18
-	ld [$c343], a
+	ld a, $18 ; jr
+	ld [wHBlankHandler + $1], a
 	ld a, $58
-	ld [$c344], a
+	ld [wHBlankHandler + $2], a
 	jr Func_491dd
 .asm_4919e
-	ld a, [$c8e7]
+	ld a, [wc8e7]
 	ldh [rSCY], a
 	jr Func_491dd
 	ldh a, [rLY]
@@ -78,19 +78,19 @@ Func_491dd:
 	ld a, [hl]
 	ld [$ff00+c], a
 
-	ld bc, $c3e0
-	ld hl, $c3a0
+	ld bc, wc3e0
+	ld hl, wHBlankHandler + $5e
 	ld a, [bc]
 	ld [hl], a
 	inc bc
-	ld hl, $c3a8
+	ld hl, wHBlankHandler + $66
 	ld a, [bc]
 	ld [hli], a
 	inc bc
 	ld a, [bc]
 	ld [hl], a
 	inc bc
-	ld hl, $c3c1
+	ld hl, wHBlankHandler + $7f
 	ld a, [bc]
 	add [hl]
 	ld [hli], a
@@ -102,7 +102,23 @@ Func_491dd:
 	pop hl
 	pop af
 	reti
-; 0x49220
+
+Func_49220:
+	ld hl, wHBlankHandler + $1
+	ld a, $18 ; jr
+	ld [hli], a
+	ld [hl], $20
+	ld a, [wcdc0]
+	ld [wHBlankHandler + $2a], a
+	ret
+
+Func_4922f:
+	ld hl, wHBlankHandler + $1
+	ld a, $18 ; jr
+	ld [hli], a
+	ld [hl], $58
+	ret
+; 0x49238
 
 SECTION "Bank 12@5265", ROMX[$5265], BANK[$12]
 
@@ -136,19 +152,19 @@ Func_49265:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	ld de, $c3e0
+	ld de, wc3e0
 	call CopyHLtoDE
 
-	ld hl, $c3e0
+	ld hl, wc3e0
 	ld a, [hli]
-	ld [$c3a0], a
+	ld [wHBlankHandler + $5e], a
 	ld a, [hli]
-	ld bc, $c3a8
+	ld bc, wHBlankHandler + $66
 	ld [bc], a
 	inc bc
 	ld a, [hl]
 	ld [bc], a
-	ld hl, $c3c1
+	ld hl, wHBlankHandler + $7f
 	ld a, $05
 	add [hl]
 	ld [hli], a

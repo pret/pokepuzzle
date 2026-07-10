@@ -1210,9 +1210,9 @@ Func_8ef::
 	ret
 
 ; input:
-; - a:hl = ?
+; - a:hl = compressed data
 ; - c:de = destination
-Func_93d::
+Decompress::
 	ld b, a
 	ldh a, [hVRAMBank]
 	push af
@@ -1232,7 +1232,7 @@ Func_93d::
 	pop bc
 
 	ld a, b ; bank
-	call Decompress
+	call _Decompress
 
 	pop af
 	wramswitch
@@ -1296,7 +1296,7 @@ Func_967::
 	ld a, b
 	pop de
 	pop bc
-	call Func_93d
+	call Decompress
 	ret
 
 ; performs a general HDMA from hl to de,
@@ -1342,7 +1342,7 @@ GameStateTable:
 	dab Func_50000 ; GAMESTATE_03
 	dwb $401f, $14 ; GAMESTATE_04
 	dab Func_4003 ; GAMESTATE_05
-	dwb $570a, $14 ; GAMESTATE_06
+	dab Func_5170a ; GAMESTATE_06
 	dwb $4000, $1d ; GAMESTATE_07
 	dwb $4140, $1d ; GAMESTATE_08
 	dwb $57fb, $18 ; GAMESTATE_09
@@ -1659,7 +1659,7 @@ SetDecompressDest:
 ; input:
 ; - a:hl = compressed data
 ; - de   = destination
-Decompress:
+_Decompress:
 	ld c, a
 	ldh a, [hROMBank]
 	push af
@@ -1667,7 +1667,7 @@ Decompress:
 	bankswitch
 	call SetDecompressSource
 	call SetDecompressDest
-	call _Decompress
+	call .Decompress
 	pop af
 	bankswitch
 	ret
@@ -1686,8 +1686,8 @@ Decompress:
 ;   %1110xxxx %xxxxxxxx: repeat next byte (%xxxx_xxxxxxxx + 3) times
 ; - if command byte top bits are %11110, then read value
 ;   %11110xxx: repeat next byte (%xxxx + 3) times
-; - if command byte top bits are %111110, then we're done
-_Decompress:
+; - if command byte top bits are %11111, then we're done
+.Decompress:
 .loop
 	ld a, [hli]
 	bit 7, a
@@ -2134,22 +2134,22 @@ Func_f6a::
 	ld hl, wc32e
 	ld a, [de]
 	inc e
-	ld [hli], a
+	ld [hli], a ; wc32e
 	ld a, [de]
 	inc e
-	ld [hli], a
+	ld [hli], a ; wc32f
 	ld a, [de]
 	inc e
-	ld [hli], a
+	ld [hli], a ; wc32f
 	ld a, e
 	ld [wc33d], a
 	ret
 .asm_f87
 	ld hl, wc32e
 	xor a
-	ld [hli], a
-	ld [hli], a
-	ld [hli], a
+	ld [hli], a ; wc32e
+	ld [hli], a ; wc32f
+	ld [hli], a ; wc330
 	ret
 ; 0xf8f
 
@@ -3330,9 +3330,9 @@ Func_1d15::
 	ret nz
 	ld hl, wca16
 	ld a, [hli]
-	ld [$c9fa], a
+	ld [wc9f6 palette 0 color 2 + 0], a
 	ld a, [hl]
-	ld [$c9fb], a
+	ld [wc9f6 palette 0 color 2 + 1], a
 	ret
 ; 0x1d15
 
@@ -3442,7 +3442,25 @@ Func_1ec2::
 	ret
 ; 0x1eec
 
-SECTION "Bank 0@1f12", ROM0[$1f12]
+SECTION "Bank 0@1f01", ROM0[$1f01]
+
+Func_1f01::
+	push bc
+	ld c, a
+	add a
+	add c
+	ld c, a ; *3
+	ld b, $00
+	add hl, bc
+	ld a, [hli]
+	ld c, a
+	ld a, [hli]
+	ld b, a
+	ld a, [hl]
+	ld l, c
+	ld h, b
+	pop bc
+	ret
 
 Func_1f12::
 	push bc
@@ -4047,6 +4065,19 @@ Func_26d4:
 	ret
 ; 0x26ea
 
+SECTION "Bank 0@2706", ROM0[$2706]
+
+Func_2706::
+	ldh a, [hSRAMEnabled]
+	push af
+	enable_sram
+	copy_data wcdc3, sSaveDataUnk42A, $16
+	pop af
+	ldh [hSRAMEnabled], a
+	ld [$100], a
+	ret
+; 0x2722
+
 SECTION "Bank 0@2a3c", ROM0[$2a3c]
 
 Func_2a3c::
@@ -4439,7 +4470,45 @@ Func_2e04:
 	pop af
 	wramswitch
 	ret
-; 0x2e1c
+
+Func_2e1c::
+	ld a, $01
+	wramswitch
+	ld a, [wGameMode]
+	ld c, a
+	ld b, $00
+	ld hl, .Data
+	add hl, bc
+	ld a, [hl]
+	ld [wce36], a
+	ld a, $0e
+	ld [wce34], a
+	ld a, GAMESTATE_1A
+	ldh [hGameState], a
+	xor a
+	ldh [hVBlankTrampolinePtr + 1], a
+	ret
+
+.Data:
+	table_width 1
+	db $4f ; GAMEMODE_MARATHON
+	db $60 ; GAMEMODE_TIME_ZONE
+	db $7e ; GAMEMODE_LINE_CLEAR
+	db $91 ; GAMEMODE_PUZZLE
+	db $a2 ; GAMEMODE_GARBAGE
+	db $71 ; GAMEMODE_CHALLENGE
+	db $b3 ; GAMEMODE_2P_VS
+	db $bc ; GAMEMODE_2P_TIME_ZONE
+	db $c5 ; GAMEMODE_2P_LINE_CLEAR
+	db $f0 ; GAMEMODE_UNK9
+	db $a7 ; GAMEMODE_UNKA
+	db $f5 ; GAMEMODE_UNKB
+	db $3e ; GAMEMODE_UNKC
+	db $01 ; GAMEMODE_UNKD
+	db $e0 ; GAMEMODE_UNKE
+	db $a7 ; GAMEMODE_UNKF
+	assert_table_length NUM_GAME_MODES
+; 0x2e4d
 
 SECTION "Bank 0@3097", ROM0[$3097]
 

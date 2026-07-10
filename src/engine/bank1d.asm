@@ -1676,9 +1676,9 @@ Func_75a5d:
 	ld c, $00
 	ret
 .asm_75a71
-	ld hl, $ccfb
+	ld hl, wccfb
 	add hl, de
-	ld a, [$cd07]
+	ld a, [wcd07]
 	ld [hl], a
 	ld c, a
 	ld b, $00
@@ -3109,16 +3109,16 @@ Func_75a5d:
 	ret
 .asm_76418
 	ld [hl], $ff
-	ld hl, $cd07
+	ld hl, wcd07
 	ld a, [hl]
 	add b
 	inc a
 	ld [hl], a
-	ld hl, $cce3
+	ld hl, wcce3
 	add hl, de
 	xor a
 	ld [hl], a
-	ld hl, $ccd7
+	ld hl, wccd7
 	add hl, de
 	ld [hl], a
 	ld [wc87b], a
@@ -3126,13 +3126,13 @@ Func_75a5d:
 	add hl, de
 	inc a
 	ld [hl], a
-	ld hl, $ccbf
+	ld hl, wccbf
 	add hl, de
 	ld [hl], c
-	ld hl, $cccb
+	ld hl, wcccb
 	add hl, de
 	ld [hl], b
-	ld hl, $ccef
+	ld hl, wccef
 	add hl, de
 	ldh a, [hff8a]
 	and a
@@ -3140,7 +3140,7 @@ Func_75a5d:
 	ld a, [wc88a]
 .asm_7644b
 	ld [hl], a
-	ld hl, $ccfb
+	ld hl, wccfb
 	add hl, de
 	ld c, [hl]
 	ld b, $00
@@ -3155,9 +3155,9 @@ Func_7645b:
 	ld [wcd68], a
 	ld [wcd69], a
 	ld [wcd6a], a
-	ld [$cd6b], a
-	ld [$cd6c], a
-	ld [$cd6d], a
+	ld [wcd6b], a
+	ld [wcd6c], a
+	ld [wcd6d], a
 	ld [wcd6e], a
 	ld [wcd6f], a
 	ld [wcd70], a
@@ -3165,68 +3165,68 @@ Func_7645b:
 	ld [wcd72], a
 	ld [wcd73], a
 	ld a, $00
-	ld [$cd7b], a
-	ld [$cd7c], a
-	ld [$cd7d], a
-	ld [$cd7e], a
-	ld [$cd7f], a
-	ld [$cd80], a
-	ld [$cd81], a
-	ld [$cd82], a
+	ld [wcd7b + 0], a
+	ld [wcd7b + 1], a
+	ld [wcd7b + 2], a
+	ld [wcd7e], a
+	ld [wcd7f + 0], a
+	ld [wcd7f + 1], a
+	ld [wcd7f + 2], a
+	ld [wcd82], a
 	ld a, $00
-	ld [$cd96], a
-	ld [$cd97], a
-	ld [$cd98], a
-	ld [$cd99], a
-	ld [$cd9a], a
-	ld [$cd9b], a
-	ld [$cd9c], a
-	ld [$cd9d], a
-	ld [$cd9e], a
-	ld [$cd9f], a
-	ld [$cda0], a
-	ld [$cda1], a
-	ld [$cda2], a
-	ld [$cda3], a
-	ld [$cda4], a
-	ld [$cda5], a
-	ld [$cda6], a
-	ld [$cda7], a
-	ld [$cda8], a
-	ld [$cda9], a
+	ld [wcd96 + 0], a
+	ld [wcd96 + 1], a
+	ld [wcd96 + 2], a
+	ld [wcd96 + 3], a
+	ld [wcd96 + 4], a
+	ld [wcd96 + 5], a
+	ld [wcd96 + 6], a
+	ld [wcd96 + 7], a
+	ld [wcd96 + 8], a
+	ld [wcd9f], a
+	ld [wcda0 + 0], a
+	ld [wcda0 + 1], a
+	ld [wcda0 + 2], a
+	ld [wcda0 + 3], a
+	ld [wcda0 + 4], a
+	ld [wcda0 + 5], a
+	ld [wcda0 + 6], a
+	ld [wcda0 + 7], a
+	ld [wcda0 + 8], a
+	ld [wcda9], a
 	ret
 
 Func_764da:
 	ld a, $00
-	ld [$cd74], a
-	ld [$cd75], a
-	ld [$cd76], a
-	ld [$cd77], a
-	ld [$cd78], a
-	ld [$cd79], a
+	ld [wcd74 + 0], a
+	ld [wcd74 + 1], a
+	ld [wcd74 + 2], a
+	ld [wcd77 + 0], a
+	ld [wcd77 + 1], a
+	ld [wcd77 + 2], a
 	ld a, $01
-	ld [$cd7a], a
+	ld [wcd7a], a
 	ld a, $00
-	ld [$cd83], a
-	ld [$cd84], a
-	ld [$cd85], a
-	ld [$cd86], a
-	ld [$cd87], a
-	ld [$cd88], a
-	ld [$cd89], a
-	ld [$cd8a], a
-	ld [$cd8b], a
-	ld [$cd8c], a
-	ld [$cd8d], a
-	ld [$cd8e], a
-	ld [$cd8f], a
-	ld [$cd90], a
-	ld [$cd91], a
-	ld [$cd92], a
-	ld [$cd93], a
-	ld [$cd94], a
+	ld [wcd83 + 0], a
+	ld [wcd83 + 1], a
+	ld [wcd83 + 2], a
+	ld [wcd83 + 3], a
+	ld [wcd83 + 4], a
+	ld [wcd83 + 5], a
+	ld [wcd83 + 6], a
+	ld [wcd83 + 7], a
+	ld [wcd83 + 8], a
+	ld [wcd8c + 0], a
+	ld [wcd8c + 1], a
+	ld [wcd8c + 2], a
+	ld [wcd8c + 3], a
+	ld [wcd8c + 4], a
+	ld [wcd8c + 5], a
+	ld [wcd8c + 6], a
+	ld [wcd8c + 7], a
+	ld [wcd8c + 8], a
 	ld a, $01
-	ld [$cd95], a
+	ld [wcd95], a
 	ld a, $00
 	ld [wc8be], a
 	ld [wc8bf], a
@@ -3253,12 +3253,129 @@ Func_764da:
 	ld [wc8d3], a
 	ld [wc8d2], a
 	ld a, $ff
-	ld [$cdaa], a
-	ld [$cdab], a
+	ld [wcdaa], a
+	ld [wcdab], a
 	ld a, $00
-	ld [$cdac], a
+	ld [wcdac], a
 	ret
 ; 0x76586
+
+SECTION "Bank 1d@6996", ROMX[$6996], BANK[$1d]
+
+Func_76996:
+	call Is2PlayerGameMode
+	jr nz, .asm_769a3
+	push bc
+	call Func_f03
+	call Func_f6a
+	pop bc
+.asm_769a3
+	call Is2PlayerGameMode
+	jr z, .asm_769c4
+	ld a, b
+	and a
+	jr nz, .asm_769be
+	ldh a, [hJoypadPressed]
+	and $09
+	jr nz, .asm_769c1
+	ldh a, [hJoypadPressed]
+	and $02
+	jr z, .asm_769be
+	xor a
+	ld [wcd6d], a
+	jr .asm_769c1
+.asm_769be
+	ld b, $00
+	ret
+.asm_769c1
+	ld b, $01
+	ret
+.asm_769c4
+	ld a, [wcd6f]
+	and a
+	jr nz, .asm_76a2a
+	ld a, [wc330]
+	and $80
+	jr z, .asm_769ed
+	ld a, [wc32e]
+	ld [wcd6d], a
+	ld a, $02
+	ld [wcd6f], a
+	ld a, [wcd6d]
+	ld hl, wc334
+	or [hl]
+	ld [hl], a
+	ld hl, wc336
+	ld a, $80
+	or [hl]
+	ld [hl], a
+	jr .asm_76a20
+.asm_769ed
+	ld a, [wc898]
+	and a
+	jr nz, .asm_76a20
+	ld a, b
+	and a
+	jr nz, .asm_76a20
+	ldh a, [hJoypadPressed]
+	and $09
+	jr nz, .asm_76a09
+	ldh a, [hJoypadPressed]
+	and $02
+	jr z, .asm_76a20
+	xor a
+	ld [wcd6d], a
+	jr .asm_76a09
+.asm_76a09
+	ld a, $01
+	ld [wcd6f], a
+	ld a, [wcd6d]
+	ld [wcd6a], a
+	ld hl, wc334
+	or [hl]
+	ld [hl], a
+	ld hl, wc336
+	ld a, $80
+	or [hl]
+	ld [hl], a
+.asm_76a20
+	xor a
+	ld hl, wc32e
+	ld [hli], a ; wc32e
+	ld [hli], a ; wc32f
+	ld [hl], a  ; wc330
+	ld b, $00
+	ret
+.asm_76a2a
+	ld a, [wcd6f]
+	cp $02
+	jr z, .asm_76a41
+	ld a, [wc330]
+	and $80
+	jr nz, .asm_76a3b
+	ld b, $00
+	ret
+.asm_76a3b
+	ld a, [wc32e]
+	ld [wcd6d], a
+.asm_76a41
+	ld a, [wcd6a]
+	cp $ff
+	jr z, .asm_76a51
+	ld hl, wcd6d
+	cp [hl]
+	jr z, .asm_76a51
+	ld a, $01
+	ld [hl], a
+.asm_76a51
+	xor a
+	ld hl, wc32e
+	ld [hli], a ; wc32e
+	ld [hli], a ; wc32f
+	ld [hl], a  ; wc330
+	ld b, $01
+	ret
+; 0x76a5b
 
 SECTION "Bank 1d@6bc7", ROMX[$6bc7], BANK[$1d]
 
@@ -3289,9 +3406,9 @@ Func_76bcd:
 	ld [wcd71], a
 	xor a
 	ld hl, wc32e
-	ld [hli], a
-	ld [hli], a
-	ld [hl], a
+	ld [hli], a ; wc32e
+	ld [hli], a ; wc32f
+	ld [hl], a  ; wc330
 .asm_76c01
 	ld a, [wcd6f]
 	cp $04
@@ -3427,7 +3544,7 @@ Func_76cc0:
 	call Func_76e97
 	jp Func_76ebd
 .asm_76cfd
-	ld a, [$cdac]
+	ld a, [wcdac]
 	and a
 	jr z, .asm_76d0e
 	ld a, $08
@@ -3668,12 +3785,12 @@ Func_76ebd:
 	ld a, [wc330]
 	and $80
 	jr z, .asm_76f25
-	ld a, [$c32f]
+	ld a, [wc32f]
 	and $3f
 	jr z, .asm_76f25
 	xor a
-	ld [$cda9], a
-	ld hl, $cd6c
+	ld [wcda9], a
+	ld hl, wcd6c
 	ld a, [hl]
 	ld c, a
 	ld b, $00
@@ -3683,28 +3800,28 @@ Func_76ebd:
 	xor a
 	ld [hl], a
 	inc a
-	ld [$cda9], a
+	ld [wcda9], a
 	ld a, [wGameMode]
 	cp GAMEMODE_2P_LINE_CLEAR
 	jr nz, .asm_76f1a
 	ld a, [wc32e]
-	ld [$cdab], a
+	ld [wcdab], a
 .asm_76f1a
-	ld hl, $cda0
+	ld hl, wcda0
 	add hl, bc
-	ld a, [$c32f]
+	ld a, [wc32f]
 	and $3f
 	dec a
 	ld [hl], a
 .asm_76f25
-	ld hl, $cd6b
+	ld hl, wcd6b
 	ld c, [hl]
 	inc [hl]
 	ld a, c
 	cp $09
 	jr c, .asm_76f3c
 	xor a
-	ld [$cd9f], a
+	ld [wcd9f], a
 	ld a, c
 	cp $28
 	jr c, .asm_76f69
@@ -3713,13 +3830,13 @@ Func_76ebd:
 	jr .asm_76f69
 .asm_76f3c
 	ld a, $01
-	ld [$cd9f], a
+	ld [wcd9f], a
 	ld b, $00
-	ld hl, $cd96
+	ld hl, wcd96
 	add hl, bc
 	ld a, [hl]
 	inc a
-	ld hl, $c335
+	ld hl, wc334 + 1
 	and $3f
 	or [hl]
 	ld [hl], a
@@ -3729,7 +3846,7 @@ Func_76ebd:
 	ld a, c
 	cp $08
 	jr nz, .asm_76f62
-	ld a, [$cdaa]
+	ld a, [wcdaa]
 	ld [wc334], a
 .asm_76f62
 	ld hl, wc336
@@ -3743,12 +3860,12 @@ Func_76f6a:
 	ld a, [wc330]
 	and $80
 	jr z, .asm_76f96
-	ld a, [$c32f]
+	ld a, [wc32f]
 	and $80
 	jr z, .asm_76f96
 	xor a
-	ld [$cd82], a
-	ld hl, $cd6c
+	ld [wcd82], a
+	ld hl, wcd6c
 	ld a, [hl]
 	ld c, a
 	ld b, $00
@@ -3758,21 +3875,21 @@ Func_76f6a:
 	xor a
 	ld [hl], a
 	inc a
-	ld [$cd82], a
+	ld [wcd82], a
 .asm_76f8e
-	ld hl, $cd7f
+	ld hl, wcd7f
 	add hl, bc
 	ld a, [wc32e]
 	ld [hl], a
 .asm_76f96
-	ld hl, $cd6b
+	ld hl, wcd6b
 	ld c, [hl]
 	inc [hl]
 	ld a, c
 	cp $03
 	jr c, .asm_76fad
 	xor a
-	ld [$cd7e], a
+	ld [wcd7e], a
 	ld a, c
 	cp $10
 	jr c, .asm_76fc8
@@ -3781,9 +3898,9 @@ Func_76f6a:
 	jr .asm_76fc8
 .asm_76fad
 	ld a, $01
-	ld [$cd7e], a
+	ld [wcd7e], a
 	ld b, $00
-	ld hl, $cd7b
+	ld hl, wcd7b
 	add hl, bc
 	ld a, [hl]
 	ld hl, wc334
@@ -3839,11 +3956,11 @@ Func_76ff5:
 	ret
 .asm_77005
 	ld hl, wc8aa
-	ld de, $cd83
+	ld de, wcd83
 	ld bc, $9
 	call CopyHLtoDE
 
-	ld hl, $cd8c
+	ld hl, wcd8c
 	ld de, wc8b4
 	ld bc, $9
 	call CopyHLtoDE
@@ -3856,19 +3973,19 @@ Func_76ff5:
 
 	xor a
 	ld hl, wc32e
-	ld [hli], a
-	ld [hli], a
-	ld [hl], a
+	ld [hli], a ; wc32e
+	ld [hli], a ; wc32f
+	ld [hl], a  ; wc330
 	ret
 
 .asm_77034
 	ld hl, wScore
-	ld de, $cd74
+	ld de, wcd74
 	ld bc, $3
 	call CopyHLtoDE
 
-	ld hl, $cd77
-	ld de, $c845
+	ld hl, wcd77
+	ld de, wc845
 	ld bc, $3
 	call CopyHLtoDE
 
@@ -3880,18 +3997,18 @@ Func_76ff5:
 
 	xor a
 	ld hl, wc32e
-	ld [hli], a
-	ld [hli], a
-	ld [hl], a
+	ld [hli], a ; wc32e
+	ld [hli], a ; wc32f
+	ld [hl], a  ; wc330
 	ret
 
 .asm_77063
 	ld hl, wc8aa
-	ld de, $cd83
+	ld de, wcd83
 	ld bc, $9
 	call CopyHLtoDE
 
-	ld hl, $cd8c
+	ld hl, wcd8c
 	ld de, wc8b4
 	ld bc, $9
 	call CopyHLtoDE
@@ -3904,9 +4021,9 @@ Func_76ff5:
 
 	xor a
 	ld hl, wc32e
-	ld [hli], a
-	ld [hli], a
-	ld [hl], a
+	ld [hli], a ; wc32e
+	ld [hli], a ; wc32f
+	ld [hl], a  ; wc330
 	ret
 
 Func_77092:
@@ -3917,7 +4034,7 @@ Func_77092:
 	ld a, [wc8d5]
 	and a
 	jr z, .asm_770b0
-	ld hl, $c335
+	ld hl, wc334 + 1
 	ld a, $80
 	or [hl]
 	ld [hl], a
@@ -3928,28 +4045,28 @@ Func_77092:
 	xor a
 	ld [wc8d5], a
 .asm_770b0
-	ld a, [$cd9f]
+	ld a, [wcd9f]
 	and a
 	jr nz, .asm_770dd
-	ld hl, $cd83
+	ld hl, wcd83
 	ld a, [hli]
-	ld [$cd96], a
+	ld [wcd96 + 0], a
 	ld a, [hli]
-	ld [$cd97], a
+	ld [wcd96 + 1], a
 	ld a, [hli]
-	ld [$cd98], a
+	ld [wcd96 + 2], a
 	ld a, [hli]
-	ld [$cd99], a
+	ld [wcd96 + 3], a
 	ld a, [hli]
-	ld [$cd9a], a
+	ld [wcd96 + 4], a
 	ld a, [hli]
-	ld [$cd9b], a
+	ld [wcd96 + 5], a
 	ld a, [hli]
-	ld [$cd9c], a
+	ld [wcd96 + 6], a
 	ld a, [hli]
-	ld [$cd9d], a
+	ld [wcd96 + 7], a
 	ld a, [hli]
-	ld [$cd9e], a
+	ld [wcd96 + 8], a
 .asm_770dd
 	ret
 
@@ -3961,7 +4078,7 @@ Func_770de:
 	ld a, [wc8d6]
 	and a
 	jr z, .asm_770f8
-	ld hl, $c335
+	ld hl, wc334 + 1
 	ld a, $40
 	or [hl]
 	ld [hl], a
@@ -3970,16 +4087,16 @@ Func_770de:
 	or $80
 	ld [hl], a
 .asm_770f8
-	ld a, [$cd7e]
+	ld a, [wcd7e]
 	and a
 	jr nz, .asm_7710d
-	ld hl, $cd74
+	ld hl, wcd74
 	ld a, [hli]
-	ld [$cd7b], a
+	ld [wcd7b + 0], a
 	ld a, [hli]
-	ld [$cd7c], a
+	ld [wcd7b + 1], a
 	ld a, [hli]
-	ld [$cd7d], a
+	ld [wcd7b + 2], a
 .asm_7710d
 	ret
 
@@ -3989,29 +4106,29 @@ Func_7710e:
 	and a
 	ret nz
 	ld a, [wc8e6]
-	ld [$cdaa], a
-	ld a, [$cd9f]
+	ld [wcdaa], a
+	ld a, [wcd9f]
 	and a
 	jr nz, .asm_77147
-	ld hl, $cd83
+	ld hl, wcd83
 	ld a, [hli]
-	ld [$cd96], a
+	ld [wcd96 + 0], a
 	ld a, [hli]
-	ld [$cd97], a
+	ld [wcd96 + 1], a
 	ld a, [hli]
-	ld [$cd98], a
+	ld [wcd96 + 2], a
 	ld a, [hli]
-	ld [$cd99], a
+	ld [wcd96 + 3], a
 	ld a, [hli]
-	ld [$cd9a], a
+	ld [wcd96 + 4], a
 	ld a, [hli]
-	ld [$cd9b], a
+	ld [wcd96 + 5], a
 	ld a, [hli]
-	ld [$cd9c], a
+	ld [wcd96 + 6], a
 	ld a, [hli]
-	ld [$cd9d], a
+	ld [wcd96 + 7], a
 	ld a, [hli]
-	ld [$cd9e], a
+	ld [wcd96 + 8], a
 .asm_77147
 	ret
 
@@ -4024,15 +4141,15 @@ Func_77148:
 	jr z, .asm_771a6
 	cp $ff
 	jr z, .asm_77188
-	ld hl, $cbf0
+	ld hl, wcbf0
 	ld [hl], a
 	ld b, a
 	farcall Func_9f92
-	ld hl, $cbee
+	ld hl, wcbee
 	ld a, e
 	ld [hli], a
 	ld [hl], d
-	ld hl, $cbec
+	ld hl, wcbec
 	ld a, $6c
 	ld [hli], a
 	ld a, [wc330]
@@ -4048,48 +4165,48 @@ Func_77148:
 .asm_77188
 	inc a
 	jr nz, .asm_771a6
-	ld hl, $cbec
+	ld hl, wcbec
 	ld a, $38
 	ld [hli], a
 	ld [hl], $70
-	ld hl, $cbee
+	ld hl, wcbee
 	ld [hli], a
 	ld [hl], a
-	ld hl, $cbf0
+	ld hl, wcbf0
 	ld a, $ff
 	ld [hli], a
-	ld [hl], $00
+	ld [hl], $00 ; wcbf1
 	farcall Func_8000
 .asm_771a6
-	ld a, [$c32f]
+	ld a, [wc32f]
 	and $80
 	jr z, .asm_771b3
 	farcall SetEnemyMonHurtAnimation
 .asm_771b3
-	ld a, [$cda9]
+	ld a, [wcda9]
 	and a
 	jr z, .asm_771e4
-	ld hl, $cda0
+	ld hl, wcda0
 	ld a, [hli]
-	ld [$cd8c], a
+	ld [wcd8c + 0], a
 	ld a, [hli]
-	ld [$cd8d], a
+	ld [wcd8c + 1], a
 	ld a, [hli]
-	ld [$cd8e], a
+	ld [wcd8c + 2], a
 	ld a, [hli]
-	ld [$cd8f], a
+	ld [wcd8c + 3], a
 	ld a, [hli]
-	ld [$cd90], a
+	ld [wcd8c + 4], a
 	ld a, [hli]
-	ld [$cd91], a
+	ld [wcd8c + 5], a
 	ld a, [hli]
-	ld [$cd92], a
+	ld [wcd8c + 6], a
 	ld a, [hli]
-	ld [$cd93], a
+	ld [wcd8c + 7], a
 	ld a, [hli]
-	ld [$cd94], a
+	ld [wcd8c + 8], a
 	ld a, [hli]
-	ld [$cd95], a
+	ld [wcd95], a
 .asm_771e4
 	ret
 
@@ -4097,23 +4214,23 @@ Func_771e5:
 	ld a, [wc330]
 	and $80
 	ret z
-	ld a, [$c32f]
+	ld a, [wc32f]
 	and $40
 	jr z, .asm_771f8
 	farcall Func_4244a
 .asm_771f8
-	ld a, [$cd82]
+	ld a, [wcd82]
 	and a
 	jr z, .asm_77211
-	ld hl, $cd7f
+	ld hl, wcd7f
 	ld a, [hli]
-	ld [$cd77], a
+	ld [wcd77 + 0], a
 	ld a, [hli]
-	ld [$cd78], a
+	ld [wcd77 + 1], a
 	ld a, [hli]
-	ld [$cd79], a
+	ld [wcd77 + 2], a
 	ld a, [hli]
-	ld [$cd7a], a
+	ld [wcd7a], a
 .asm_77211
 	ret
 
@@ -4121,30 +4238,30 @@ Func_77212:
 	ld a, [wc330]
 	and $80
 	ret z
-	ld a, [$cda9]
+	ld a, [wcda9]
 	and a
 	jr z, .asm_77249
-	ld hl, $cda0
+	ld hl, wcda0
 	ld a, [hli]
-	ld [$cd8c], a
+	ld [wcd8c + 0], a
 	ld a, [hli]
-	ld [$cd8d], a
+	ld [wcd8c + 1], a
 	ld a, [hli]
-	ld [$cd8e], a
+	ld [wcd8c + 2], a
 	ld a, [hli]
-	ld [$cd8f], a
+	ld [wcd8c + 3], a
 	ld a, [hli]
-	ld [$cd90], a
+	ld [wcd8c + 4], a
 	ld a, [hli]
-	ld [$cd91], a
+	ld [wcd8c + 5], a
 	ld a, [hli]
-	ld [$cd92], a
+	ld [wcd8c + 6], a
 	ld a, [hli]
-	ld [$cd93], a
+	ld [wcd8c + 7], a
 	ld a, [hli]
-	ld [$cd94], a
+	ld [wcd8c + 8], a
 	ld a, [hli]
-	ld [$cd95], a
+	ld [wcd95], a
 .asm_77249
 	ret
 ; 0x7724a
@@ -4192,7 +4309,7 @@ Func_779ba:
 	ld c, BANK(w6d300)
 	ld hl, $5b32
 	ld a, $36
-	call Func_93d
+	call Decompress
 
 	; load block palettes
 	copy_data wBGPals, Pals_dac50, 3 palettes
