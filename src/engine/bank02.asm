@@ -1,6 +1,6 @@
 Func_8000:
 	ld de, NULL
-	ld hl, $cbf3
+	ld hl, wcbf3
 .asm_8006
 	ld a, [hli]
 	and a
@@ -21,12 +21,14 @@ Func_8000:
 	ld a, [hli]
 	ld c, [hl]
 	ld b, a
-	ld hl, $cc0b
+
+	ld hl, wcc0b
 	add hl, de
 	xor a
 	ld [hli], a
 	ld [hl], b
-	ld hl, $cc23
+
+	ld hl, wcc23
 	add hl, de
 	xor a
 	ld [hli], a
@@ -35,21 +37,24 @@ Func_8000:
 	ld l, a
 	ld a, [wcbee + 1]
 	ld h, a
+
 	ld bc, $525e
 	add hl, bc
 	ld a, [hli]
 	ld b, [hl]
 	ld c, a
-	ld hl, $cc3b
+	ld hl, wcc3b
 	add hl, de
 	ld a, c
 	ld [hli], a
 	ld [hl], b
-	ld hl, $cc53
+
+	ld hl, wcc53
 	add hl, de
 	xor a
 	ld [hl], a
-	ld hl, $cc6b
+
+	ld hl, wcc6b
 	add hl, de
 	ld a, [wcbf0]
 	ld [hli], a
@@ -59,29 +64,29 @@ Func_8000:
 	ld [hl], $01
 	ret
 .asm_8057
-	ld hl, $cbe9
+	ld hl, wcbe9
 	ld a, [hl]
 	cp $02
 	jr c, .asm_8075
-	ld hl, $cbea
+	ld hl, wcbea
 	ld c, [hl]
 	ld b, $00
-	ld hl, $cc54
+	ld hl, wcc53 + 1
 	add hl, bc
 	ld [hl], $01
 	ld a, [wcbeb]
-	ld [$cbea], a
+	ld [wcbea], a
 	ld a, $01
 	jr .asm_8076
 .asm_8075
 	inc [hl]
 .asm_8076
-	ld hl, $cbea
+	ld hl, wcbea
 	ld c, a
 	ld b, $00
 	add hl, bc
 	ld [hl], e
-	ld hl, $cc54
+	ld hl, wcc53 + 1
 	add hl, de
 	xor a
 	ld [hl], a
@@ -91,7 +96,7 @@ Func_8000:
 Func_808b:
 	ld de, NULL
 Func_808e:
-	ld hl, $cbf3
+	ld hl, wcbf3
 	add hl, de
 	ld a, [hli]
 	and a
@@ -113,45 +118,45 @@ Func_808e:
 	ld a, [hl]
 	cp $80
 	jr nz, .asm_80e7
-	ld hl, $cbf3
+	ld hl, wcbf3
 	add hl, de
 	inc [hl]
 	inc hl
 	xor a
 	ld [hl], a
-	ld hl, $cc53
+	ld hl, wcc53
 	add hl, de
 	xor a
 	ld [hli], a
 	ld a, [hl]
 	and a
 	jp nz, .asm_80d0
-	ld hl, $cbe9
+	ld hl, wcbe9
 	dec [hl]
 	ld a, [wcbeb]
-	ld [$cbea], a
+	ld [wcbea], a
 .asm_80d0
-	ld hl, $cc0c
+	ld hl, wcc0b + 1
 	add hl, de
 	ld a, [hl]
 	add $10
 	ld b, a
-	ld hl, $cc24
+	ld hl, wcc23 + 1
 	add hl, de
 	ld a, [hl]
 	ld c, a
-	ld hl, $cc9b
+	ld hl, wcc9b
 	add hl, de
 	ld [hl], $08
 	jp Func_843a
 .asm_80e7
 	ld c, a
-	ld hl, $cc24
+	ld hl, wcc23 + 1
 	add hl, de
 	ld a, [hl]
 	add c
 	ld [hl], a
-	ld hl, $cc54
+	ld hl, wcc53 + 1
 	add hl, de
 	ld a, [hl]
 	and a
@@ -190,7 +195,7 @@ Func_8135:
 	cp $ff
 	jr z, .asm_8184
 	ld a, [hl]
-	ld hl, $cc9b
+	ld hl, wcc9b
 	add hl, de
 	add [hl]
 	and $3f
@@ -207,7 +212,7 @@ Func_8135:
 	ld a, [hli]
 	ld c, a
 	ld b, [hl]
-	ld hl, $cc0b
+	ld hl, wcc0b
 	add hl, de
 	ld a, [hl]
 	add c
@@ -219,7 +224,7 @@ Func_8135:
 	ld a, [hli]
 	ld c, a
 	ld b, [hl]
-	ld hl, $cc23
+	ld hl, wcc23
 	add hl, de
 	ld a, [hl]
 	add c
@@ -230,14 +235,14 @@ Func_8135:
 	call Func_8327
 	jp Func_841c
 .asm_8184
-	ld hl, $cbf3
+	ld hl, wcbf3
 	add hl, de
 	inc [hl]
 	ld hl, $cbf4
 	add hl, de
 	xor a
 	ld [hl], a
-	ld hl, $cc53
+	ld hl, wcc53
 	add hl, de
 	xor a
 	ld [hl], a
@@ -247,11 +252,11 @@ Func_8135:
 SECTION "Bank 2@428c", ROMX[$428c], BANK[$2]
 
 Func_828c:
-	ld hl, $cc0c
+	ld hl, wcc0b + 1
 	add hl, de
 	ld a, [hl]
 	ldh [hff8a], a
-	ld hl, $cc24
+	ld hl, wcc23 + 1
 	add hl, de
 	ld a, [hl]
 	ldh [hff8b], a
@@ -273,7 +278,7 @@ Func_828c:
 	add hl, bc
 	ld c, [hl]
 	ld b, a
-	ld hl, $cc0b
+	ld hl, wcc0b
 	add hl, de
 	ld a, [hl]
 	add $00
@@ -282,7 +287,7 @@ Func_828c:
 	adc b
 	ld [hl], a
 	ld b, a
-	ld hl, $cc23
+	ld hl, wcc23
 	add hl, de
 	ld a, [hl]
 	add $00
@@ -302,24 +307,24 @@ Func_828c:
 	call Func_8327
 	jp Func_841c
 .asm_82e6
-	ld hl, $cbf3
+	ld hl, wcbf3
 	add hl, de
 	inc [hl]
 	ld hl, $cbf4
 	add hl, de
 	xor a
 	ld [hl], a
-	ld hl, $cc53
+	ld hl, wcc53
 	add hl, de
 	xor a
 	ld [hl], a
-	ld hl, $cc6b
+	ld hl, wcc6b
 	add hl, de
 	ld a, [hl]
 	cp $ff
 	jr nz, .asm_8311
 	ld [wc900], a
-	ld hl, $cbf2
+	ld hl, wcbf2
 	ld b, [hl]
 	ld [hl], $00
 	farcall Func_4cb3
@@ -329,7 +334,7 @@ Func_828c:
 	cp $80
 	ld a, [hl]
 	and $3f
-	ld [$cbf2], a
+	ld [wcbf2], a
 	ld a, [hl]
 	ldh [hff8a], a
 	farcall Func_6c8c
@@ -338,7 +343,7 @@ Func_828c:
 
 Func_8327:
 .asm_8327
-	ld hl, $cc53
+	ld hl, wcc53
 	add hl, de
 	ld a, [hl]
 	add a
@@ -349,7 +354,7 @@ Func_8327:
 	ld a, [hli]
 	or [hl]
 	jr nz, .asm_833f
-	ld hl, $cc53
+	ld hl, wcc53
 	add hl, de
 	ld [hl], a
 	jr .asm_8327
@@ -361,12 +366,12 @@ Func_8327:
 	ld a, [hli]
 	ld b, [hl]
 	ld c, a
-	ld hl, $cc3b
+	ld hl, wcc3b
 	add hl, de
 	ld a, c
 	ld [hli], a
 	ld [hl], b
-	ld hl, $cc53
+	ld hl, wcc53
 	add hl, de
 	inc [hl]
 	ret
@@ -430,7 +435,7 @@ Func_8395:
 
 Func_83b3:
 	inc [hl]
-	ld hl, $cc53
+	ld hl, wcc53
 	add hl, de
 	ld a, [hl]
 	add a
@@ -448,17 +453,17 @@ Func_83b3:
 	ld a, [hli]
 	ld b, [hl]
 	ld c, a
-	ld hl, $cc3b
+	ld hl, wcc3b
 	add hl, de
 	ld a, c
 	ld [hli], a
 	ld [hl], b
-	ld hl, $cc53
+	ld hl, wcc53
 	add hl, de
 	inc [hl]
 	jp Func_841c
 .asm_83db
-	ld hl, $cbf3
+	ld hl, wcbf3
 	add hl, de
 	xor a
 	ld [hl], a
@@ -468,18 +473,18 @@ Func_83b3:
 SECTION "Bank 2@441c", ROMX[$441c], BANK[$2]
 
 Func_841c:
-	ld hl, $cc6b
+	ld hl, wcc6b
 	add hl, de
 	ld a, [hl]
 	inc a
 	jr z, Func_843a
-	ld hl, $cc0c
+	ld hl, wcc0b + 1
 	add hl, de
 	ld b, [hl]
-	ld hl, $cc24
+	ld hl, wcc23 + 1
 	add hl, de
 	ld c, [hl]
-	ld hl, $cc3b
+	ld hl, wcc3b
 	add hl, de
 	ld a, [hli]
 	ld h, [hl]
@@ -557,7 +562,7 @@ Func_8ce2:
 	push bc
 	push de
 	ld de, NULL
-	ld hl, $cae9
+	ld hl, wcae9
 .asm_8cea
 	ld a, [hli]
 	and a
@@ -574,9 +579,10 @@ Func_8ce2:
 .asm_8cf9
 	xor a
 	ld [hld], a
-	inc a
+	inc a ; $1
 	ld [hl], a
-	ld hl, $cb09
+
+	ld hl, wcb09
 	add hl, de
 	xor a
 	ld [hli], a
@@ -585,7 +591,8 @@ Func_8ce2:
 	ld a, b
 	sub [hl]
 	ld [hl], a
-	ld hl, $cb29
+
+	ld hl, wcb29
 	add hl, de
 	xor a
 	ld [hli], a
@@ -595,12 +602,14 @@ Func_8ce2:
 	sub [hl]
 	ld [hl], a
 	pop bc
-	ld hl, $cba9
+
+	ld hl, wcba9
 	add hl, de
 	ld a, c
 	ld [hli], a
 	ld [hl], b
-	ld hl, $cbc9
+
+	ld hl, wcbc9
 	add hl, de
 	ld a, [wcae8]
 	ld [hli], a
@@ -609,17 +618,18 @@ Func_8ce2:
 	jr z, .asm_8d2f
 	call Func_8ff4
 	jr .asm_8d49
+
 .asm_8d2f
-	ld hl, $cae9
+	ld hl, wcae9
 	add hl, de
 	inc [hl]
-	ld hl, $cb69
+	ld hl, wcb69
 	add hl, de
 	ld [hl], $18
-	ld hl, $cb89
+	ld hl, wcb89
 	add hl, de
 	ld [hl], $00
-	ld hl, $cba9
+	ld hl, wcba9
 	add hl, de
 	ld a, $8b
 	ld [hli], a
@@ -630,7 +640,7 @@ Func_8ce2:
 	ld a, [hli]
 	ld b, [hl]
 	ld c, a
-	ld hl, $cb49
+	ld hl, wcb49
 	add hl, de
 	ld a, c
 	ld [hli], a
@@ -641,7 +651,7 @@ Func_8ce2:
 Func_8d59:
 	ld de, NULL
 Func_8d5c:
-	ld hl, $cae9
+	ld hl, wcae9
 	add hl, de
 	ld a, [hl]
 	and a

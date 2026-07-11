@@ -8,7 +8,8 @@ Func_4003::
 	ld a, BANK(Func_44000)
 	ld hl, Func_44000
 	call Bank1Farcall
-.asm_4013
+
+.loop
 	xor a
 	ld [wcdf2], a
 
@@ -105,10 +106,13 @@ Func_4003::
 	ld [hl], a
 .asm_40c2
 	call Func_413e
+
+	; loop while wc887 == 0
 	ld a, [wc887]
 	cp $00
-	jp z, .asm_4013
-	ld a, [wc887]
+	jp z, .loop
+
+	ld a, [wc887] ; unnecessary load
 	cp $01
 	jr z, .asm_40e2
 	cp $02
@@ -2548,7 +2552,7 @@ Func_5146:
 	ld bc, NULL
 .asm_5149
 	push bc
-	ld hl, $ccfb
+	ld hl, wccfb
 	add hl, bc
 	ld e, [hl]
 	ld d, $00
@@ -2589,7 +2593,7 @@ Func_5162:
 	ld a, $02
 	ld [hl], a
 .asm_518a:
-	ld hl, $cce3
+	ld hl, wcce3
 	add hl, bc
 	inc [hl]
 	ld a, [wca1a]
@@ -2607,7 +2611,7 @@ Func_5162:
 	jp .asm_522f
 
 .asm_51a7:
-	ld hl, $cce3
+	ld hl, wcce3
 	add hl, bc
 	inc [hl]
 	ld a, [wca1b]
@@ -2621,7 +2625,7 @@ Func_5162:
 	jp .asm_522f
 
 .asm_51be:
-	ld hl, $cce3
+	ld hl, wcce3
 	add hl, bc
 	inc [hl]
 	ld a, [wca1c]
@@ -2630,20 +2634,20 @@ Func_5162:
 	xor a
 	ld [hl], a
 	call Func_526a
-	ld hl, $ccd7
+	ld hl, wccd7
 	add hl, bc
 	ld a, [hl]
 	call Func_53da
-	ld hl, $ccbf
+	ld hl, wccbf
 	add hl, bc
 	ld a, [hl]
-	ld hl, $ccd7
+	ld hl, wccd7
 	add hl, bc
 	inc [hl]
 	cp [hl]
 	jp nz, .asm_522f
 	ld a, [hl]
-	ld hl, $cccb
+	ld hl, wcccb
 	add hl, bc
 	cp [hl]
 	jr nz, .asm_51f5
@@ -2659,7 +2663,7 @@ Func_5162:
 	jp .asm_522f
 
 .asm_5201:
-	ld hl, $cce3
+	ld hl, wcce3
 	add hl, bc
 	inc [hl]
 	ld a, [wca1c]
@@ -2669,10 +2673,10 @@ Func_5162:
 	ld [hl], a
 	call Func_5293
 	call Func_53da
-	ld hl, $cccb
+	ld hl, wcccb
 	add hl, bc
 	ld a, [hl]
-	ld hl, $ccd7
+	ld hl, wccd7
 	add hl, bc
 	inc [hl]
 	cp [hl]
@@ -2740,7 +2744,7 @@ Func_5250:
 Func_526a:
 	push bc
 	push de
-	ld hl, $ccd7
+	ld hl, wccd7
 	add hl, bc
 	ld a, [hl]
 	add e
@@ -2768,7 +2772,7 @@ Func_526a:
 Func_5293:
 	push bc
 	push de
-	ld hl, $ccd7
+	ld hl, wccd7
 	add hl, bc
 	ld a, [hl]
 	add e
@@ -2808,7 +2812,7 @@ Func_5293:
 	add a
 	add c
 	ld c, a
-	farcall $76a7, $02 ; Func_b6a7
+	farcall Func_b6a7
 	ld hl, wBlocks
 	add hl, de
 	ldh a, [hff8a]
@@ -2841,7 +2845,7 @@ Func_5293:
 	ret
 
 Func_5304:
-	ld hl, $ccfb
+	ld hl, wccfb
 	add hl, bc
 	ld e, [hl]
 	ld d, $00
@@ -2877,7 +2881,7 @@ Func_5304:
 	ret
 
 Func_5336:
-	ld hl, $ccfb
+	ld hl, wccfb
 	add hl, bc
 	ld e, [hl]
 	ld d, $00
@@ -2981,7 +2985,7 @@ Func_5387:
 	add a
 	add b
 	ld b, a
-	farcall $76c5, $02 ; Func_b6c5
+	farcall Func_b6c5
 .asm_53d7:
 	pop de
 	pop bc
@@ -2996,7 +3000,7 @@ Func_53da:
 	ret
 .asm_53e5
 	push de
-	ld hl, $ccef
+	ld hl, wccef
 	add hl, bc
 	ld a, [hl]
 	cp $04
@@ -3008,7 +3012,7 @@ Func_53da:
 	add a
 	ld e, a
 	ld d, $00
-	ld hl, $ccd7
+	ld hl, wccd7
 	add hl, bc
 	ld a, [hl]
 	cp $08
@@ -3026,7 +3030,7 @@ Func_53da:
 	pop de
 	ret
 .asm_5411
-	ld hl, $ccef
+	ld hl, wccef
 	add hl, bc
 	ld a, [hl]
 	cp $02
@@ -3795,7 +3799,7 @@ Func_6969:
 
 Func_6995:
 	push hl
-	ld hl, $cacb
+	ld hl, wcacb
 	ld a, [hl]
 	add $01
 	ld [hli], a

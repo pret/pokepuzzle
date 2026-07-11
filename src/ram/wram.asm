@@ -28,8 +28,8 @@ wc327:: ds 3 ; c327
 
 	ds $4
 
-wc32e:: ds 2 ; c32e
-
+wc32e:: ds 1 ; c32e
+wc32f:: ds 1 ; c32f
 wc330:: ds 1 ; c330
 
 	ds $3
@@ -47,9 +47,12 @@ wc33d:: ds 1 ; c33d
 	ds $c342 - $c33e
 
 ; invoked on H-Blank interrupt
-wHBlankHandler:: ds 1 ; c342
+wHBlankHandler:: ; c342
+	ds $9e
 
-	ds $c492 - $c343
+wc3e0:: ds 5 ; c3e0
+
+	ds $c492 - $c3e5
 
 ; invoked on V-Blank interrupt, holds:
 ; 	jp <func>
@@ -66,7 +69,11 @@ wOBPals:: ds 8 palettes ; c4d5
 
 wc51a:: ds 3 palettes ; c51a
 
-	ds $c59e - $c532
+	ds $c55a - $c532
+
+wc55a:: ds 8 palettes ; c55a
+
+	ds $c59e - $c59a
 
 wc59e:: ds 1 ; c59e
 
@@ -282,8 +289,7 @@ wc7c9:: ds 1 ; c7c9
 	ds $c7cb - $c7ca
 
 wc7cb:: ds 1 ; c7cb
-
-	ds $c7cd - $c7cc
+wc7cc:: ds 1 ; c7cc
 
 wc7cd:: ds 1 ; c7cd
 wc7ce:: ds 1 ; c7ce
@@ -328,7 +334,8 @@ wRNG1:: ds 2 ; c83c
 wRNG2:: ds 1 ; c83d
 	ds $c842 - $c83f
 wScore:: ds 3 ; c842
-	ds $c864 - $c845
+wc845:: ds 3 ; c845
+	ds $c864 - $c848
 wc864:: ds 1 ; c864
 wCursorX:: ds 1 ; c865
 wCursorY:: ds 1 ; c866
@@ -453,24 +460,28 @@ wc8dd:: ds 1 ; c8dd
 wc8de:: ds 1 ; c8de
 wc8df:: ds 1 ; c8df
 wc8e0:: ds 1 ; c8e0
-	ds $c8e2 - $c8e1
+wc8e1:: ds 1 ; c8e1
 wc8e2:: ds 2 ; c8e2
 wc8e4:: ds 1 ; c8e4
 wc8e5:: ds 1 ; c8e5
 wc8e6:: ds 1 ; c8e6
-	ds $c8e8 - $c8e7
+wc8e7:: ds 1 ; c8e7
 wc8e8:: ds 1 ; c8e8
 wc8e9:: ds 1 ; c8e9
 wc8ea:: ds 1 ; c8ea
 wc8eb:: ds 1 ; c8eb
-	ds $c8ed - $c8ec
+wc8ec:: ds 1 ; c8ec
 wc8ed:: ds 1 ; c8ed
 
 ; points to a tile in wBackgroundPatternTiles,
 ; which will be drawn during next V-Blank
 wBackgroundPatternTilePtr:: ds 2 ; c8ee
 
-	ds $c8fa - $c8f0
+	ds $c8f4 - $c8f0
+
+wc8f4:: ds 3 ; c8f4
+wc8f7:: ds 3 ; c8f7
+
 wc8fa:: ds 1 ; c8fa
 wc8fb:: ds 1 ; c8fb
 wc8fc:: ds 1 ; c8fc
@@ -539,10 +550,11 @@ wc9bd:: ds 1 ; c9bd
 wc9be:: ds 1 palettes ; c9be
 wc9c6:: ds 1 palettes ; c9c6
 wc9ce:: ds 1 palettes ; c9ce
-	ds $c9e6 - $c9d6
+wc9d6:: ds 1 palettes ; c9d6
+wc9de:: ds 1 palettes ; c9de
 wc9e6:: ds 1 palettes ; c9e6
 wc9ee:: ds 1 palettes ; c9ee
-	ds $c9fe - $c9f6
+wc9f6:: ds 1 palettes ; c9f6
 wc9fe:: ds 1 palettes ; c9fe
 wca06:: ds 1 palettes ; ca06
 wca0e:: ds 1 palettes ; ca0e
@@ -569,7 +581,7 @@ wca8f:: ds 1 ; ca8f
 	ds $cac9 - $ca90
 wcac9:: ds 1 ; cac9
 wcaca:: ds 1 ; caca
-	ds $cacf - $cacb
+wcacb:: ds 4 ; cacb
 wcacf:: ds 1 ; cacf
 wcad0:: ds 2 ; cad0
 wcad2:: ds 1 ; cad2
@@ -593,18 +605,43 @@ wcae6:: ds 1 ; cae6
 wcae7:: ds 1 ; cae7
 wcae8:: ds 1 ; cae8
 
-	ds $cbeb - $cae9
+wcae9:: ds $10 * $2 ; cae9
+wcb09:: ds $10 * $2 ; cb09
+wcb29:: ds $10 * $2 ; cb29
+wcb49:: ds $10 * $2 ; cb49
+wcb69:: ds $10 * $2 ; cb69
+wcb89:: ds $10 * $2 ; cb89
+wcba9:: ds $10 * $2 ; cba9
+wcbc9:: ds $10 * $2 ; cbc9
+
+wcbe9:: ds 1 ; cbe9
+wcbea:: ds 1 ; cbea
 
 wcbeb:: ds 1 ; cbeb
 wcbec:: ds 2 ; cbec
 wcbee:: ds 2 ; cbee
+
 wcbf0:: ds 1 ; cbf0
+wcbf1:: ds 1 ; cbf1
 
-	ds $ccb3 - $cbf1
+wcbf2:: ds 1 ; cbf2
+wcbf3:: ds $c * $2 ; cbf3
+wcc0b:: ds $c * $2 ; cc0b
+wcc23:: ds $c * $2 ; cc23
+wcc3b:: ds $c * $2 ; cc3b
+wcc53:: ds $c * $2 ; cc53
+wcc6b:: ds $c * $2 ; cc6b
+	ds $cc9b - $cc83
+wcc9b:: ds $c * $2 ; cc9b
 
-wccb3:: ds 9 ; ccb3
-
-	ds $cd08 - $ccbc
+wccb3:: ds $c ; ccb3
+wccbf:: ds $c ; ccbf
+wcccb:: ds $c ; cccb
+wccd7:: ds $c ; ccd7
+wcce3:: ds $c ; cce3
+wccef:: ds $c ; ccef
+wccfb:: ds $c ; ccfb
+wcd07:: ds 1 ; cd07
 
 wcd08:: ds 1 ; cd08
 wcd09:: ds 2 ; cd09
@@ -667,16 +704,36 @@ wcd67:: ds 1 ; cd67
 wcd68:: ds 1 ; cd68
 wcd69:: ds 1 ; cd69
 wcd6a:: ds 1 ; cd6a
-	ds $cd6e - $cd6b
+wcd6b:: ds 1 ; cd6b
+wcd6c:: ds 1 ; cd6c
+wcd6d:: ds 1 ; cd6d
 wcd6e:: ds 1 ; cd6e
 wcd6f:: ds 1 ; cd6f
 wcd70:: ds 1 ; cd70
 wcd71:: ds 1 ; cd71
 wcd72:: ds 1 ; cd72
 wcd73:: ds 1 ; cd73
-	ds $cdab - $cd74
+
+wcd74:: ds 3 ; cd74
+wcd77:: ds 3 ; cd77
+wcd7a:: ds 1 ; cd7a
+wcd7b:: ds 3 ; cd7b
+wcd7e:: ds 1 ; cd7e
+wcd7f:: ds 3 ; cd7f
+wcd82:: ds 1 ; cd82
+
+wcd83:: ds 9 ; cd83
+wcd8c:: ds 9 ; cd8c
+wcd95:: ds 1 ; cd95
+wcd96:: ds 9 ; cd96
+wcd9f:: ds 1 ; cd9f
+wcda0:: ds 9 ; cda0
+wcda9:: ds 1 ; cda9
+wcdaa:: ds 1 ; cdaa
+
 wcdab:: ds 1 ; cdab
-	ds $1
+wcdac:: ds 1 ; cdac
+
 wcdad:: ds 2 ; cdad
 wcdaf:: ds 1 ; cdaf
 wcdb0:: ds 1 ; cdb0
@@ -707,7 +764,11 @@ wUsedHint:: ds 1 ; cdc6
 ; how many hints remaining for current puzzle round
 wRemainingHints:: ds 1 ; cdc7
 
-	ds $cdea - $cdc8
+	ds $cdcc - $cdc8
+
+wcdcc:: ds 1 ; cdcc
+	
+	ds $cdea - $cdcd
 
 wcdea:: ds 1 ; cdea
 wcdeb:: ds 1 ; cdeb
@@ -739,7 +800,8 @@ wce32:: ds 1 ; ce32
 wce33:: ds 1 ; ce33
 wce34:: ds 1 ; ce34
 wce35:: ds 1 ; ce35
-	ds $ce38 - $ce36
+wce36:: ds 1 ; ce36
+	ds $ce38 - $ce37
 wce38:: ds 1 ; ce38
 	ds $ce3a - $ce39
 wce3a:: ds 1 ; ce3a

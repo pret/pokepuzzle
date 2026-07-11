@@ -145,9 +145,18 @@ Func_10c011:
 	dwb v0Tiles1 tile $3e, BANK(v0Tiles1)
 	dwb v0Tiles1 tile $3f, BANK(v0Tiles1)
 	dab NULL
-; 0x10c153
 
-SECTION "Bank 43@4169", ROMX[$4169], BANK[$43]
+Func_10c153:
+	ldh a, [hWRAMBank]
+	push af
+	ld a, $02
+	wramswitch
+	xor a
+	ld [wcf0c], a
+	ld [w2dd10], a
+	pop af
+	wramswitch
+	ret
 
 Func_10c169:
 	xor a

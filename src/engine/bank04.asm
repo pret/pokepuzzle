@@ -1487,7 +1487,7 @@ Func_10e41:
 	ld c, BANK(s3a000)
 	ld hl, $6ca0
 	ld a, $32
-	call Func_93d
+	call Decompress
 	push hl
 	ld hl, $4e57
 	call Func_692

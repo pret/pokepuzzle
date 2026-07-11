@@ -216,7 +216,7 @@ Func_c17b:
 	ld c, BANK(s3a000)
 	ld hl, $5f6a
 	ld a, $36
-	call Func_93d
+	call Decompress
 
 	copy_data $9a80, $00, $a000, $03, $14 ; 9a80, a000
 	copy_data $9aa0, $00, $a020, $03, $14 ; 9aa0, a020
@@ -225,7 +225,7 @@ Func_c17b:
 	ld c, BANK(s3a000)
 	ld hl, $5fb3
 	ld a, $36
-	call Func_93d
+	call Decompress
 
 	copy_data $9a80, $01, $a000, $03, $14 ; 9a80, a000
 	copy_data $9aa0, $01, $a020, $03, $14 ; 9aa0, a020
@@ -256,7 +256,7 @@ Func_c17b:
 	ld c, BANK(s3a000)
 	ld hl, $4000
 	ld a, $39
-	call Func_93d
+	call Decompress
 
 	ldh a, [hSRAMBank]
 	push af
@@ -277,7 +277,7 @@ Func_c17b:
 	ld c, $01
 	ld hl, $4000
 	ld a, $12
-	call Func_93d
+	call Decompress
 	copy_data v1Tiles0, Gfx_482f5, $20 tiles ; 8000, 482f5
 	jr .asm_c2b1
 
@@ -286,7 +286,7 @@ Func_c17b:
 	ld c, $01
 	ld hl, $54c6
 	ld a, $13
-	call Func_93d
+	call Decompress
 	copy_data $8aa0, $00, Gfx_4dbac tile $0, BANK(Gfx_4dbac), $2 tiles
 	copy_data $8ba0, $00, Gfx_4dbac tile $2, BANK(Gfx_4dbac), $2 tiles
 	copy_data $86c0, $00, Gfx_4dbac tile $4, BANK(Gfx_4dbac), $2 tiles
@@ -393,9 +393,9 @@ Func_c37a:
 	ld de, wca06
 	call FarCopyHLtoDE
 
-	copy_data $c9be, $00, $5a60, $12, $8 ; c9be, 49a60
-	copy_data $c9c6, $00, $5a68, $12, $8 ; c9c6, 49a68
-	copy_data $c9d6, $00, $5a70, $12, $8 ; c9d6, 49a70
+	copy_data wc9be, BANK(wc9be), $5a60, $12, 1 palettes ; c9be, 49a60
+	copy_data wc9c6, BANK(wc9c6), $5a68, $12, 1 palettes ; c9c6, 49a68
+	copy_data wc9d6, BANK(wc9d6), $5a70, $12, 1 palettes ; c9d6, 49a70
 	farcall Func_1008ac
 	farcall Func_100948
 	ld a, BANK("VRAM1")
@@ -410,7 +410,7 @@ Func_c37a:
 	ld h, b
 	ld de, s3a000
 	ld c, BANK(s3a000)
-	call Func_93d
+	call Decompress
 	copy_data v1Tiles1, s3a000, $40 tiles
 
 	pop af
@@ -440,9 +440,9 @@ Func_c40a:
 	ld de, wca06
 	call FarCopyHLtoDE
 
-	copy_data $c9be, $00, $5a60, $12, $8 ; c9be, 49a60
-	copy_data $c9c6, $00, $5a68, $12, $8 ; c9c6, 49a68
-	copy_data $c9d6, $00, $5a70, $12, $8 ; c9d6, 49a70
+	copy_data wc9be, BANK(wc9be), $5a60, $12, 1 palettes ; c9be, 49a60
+	copy_data wc9c6, BANK(wc9c6), $5a68, $12, 1 palettes ; c9c6, 49a68
+	copy_data wc9d6, BANK(wc9d6), $5a70, $12, 1 palettes ; c9d6, 49a70
 	farcall Func_1008ac
 	farcall Func_100948
 	ld a, BANK("VRAM1")
@@ -457,7 +457,7 @@ Func_c40a:
 	ld h, b
 	ld de, s3a000
 	ld c, BANK(s3a000)
-	call Func_93d
+	call Decompress
 	copy_data v1Tiles1, s3a000, $40 tiles
 
 	pop af
@@ -469,7 +469,7 @@ Func_c49a:
 	ldh a, [hSRAMEnabled]
 	push af
 	enable_sram
-	copy_data $c4b5, $00, $5a60, $12, $8 ; c4b5, 49a60
+	copy_data wBGPals palette 4, BANK(wBGPals), $5a60, $12, 1 palettes ; c4b5, 49a60
 
 	ld a, [wPlayerMon]
 	call GetPokemonPalette
@@ -487,11 +487,11 @@ Func_c49a:
 	ld de, wca06
 	call FarCopyHLtoDE
 
-	copy_data $c9be, $00, $5a60, $12, $8 ; c9be, 49a60
-	copy_data $c9c6, $00, $5a68, $12, $8 ; c9c6, 49a68
-	copy_data $c9d6, $00, $5a70, $12, $8 ; c9d6, 49a70
-	copy_data $c9ee, $00, $5a88, $12, $8 ; c9ee, 49a88
-	copy_data $c9f6, $00, $5a90, $12, $8 ; c9f6, 49a90
+	copy_data wc9be, BANK(wc9be), $5a60, $12, 1 palettes ; c9be, 49a60
+	copy_data wc9c6, BANK(wc9c6), $5a68, $12, 1 palettes ; c9c6, 49a68
+	copy_data wc9d6, BANK(wc9d6), $5a70, $12, 1 palettes ; c9d6, 49a70
+	copy_data wc9ee, BANK(wc9ee), $5a88, $12, 1 palettes ; c9ee, 49a88
+	copy_data wc9f6, BANK(wc9f6), $5a90, $12, 1 palettes ; c9f6, 49a90
 	farcall LoadBoardPalettes
 	farcall Func_1008ac
 	farcall Func_100948
@@ -504,7 +504,7 @@ Func_c49a:
 	ld h, b
 	ld de, s3a000
 	ld c, BANK(s3a000)
-	call Func_93d
+	call Decompress
 	copy_data v1Tiles1, s3a000, $40 tiles
 	ld a, [wGameMode]
 	cp GAMEMODE_LINE_CLEAR
@@ -516,7 +516,7 @@ Func_c49a:
 	ld c, BANK(s3a000)
 	ld hl, $459d
 	ld a, $39
-	call Func_93d
+	call Decompress
 	copy_data $9380, $01, $a000, $03, $50 ; 9380, a000
 .asm_c566
 	call Func_c570
@@ -591,9 +591,9 @@ Func_c5c1:
 	ld de, wca06
 	call FarCopyHLtoDE
 
-	copy_data $c9be, $00, $5a60, $12, $8 ; c9be, 49a60
-	copy_data $c9c6, $00, $5a68, $12, $8 ; c9c6, 49a68
-	copy_data $c9d6, $00, $5a70, $12, $8 ; c9d6, 49a70
+	copy_data wc9be, BANK(wc9be), $5a60, $12, 1 palettes ; c9be, 49a60
+	copy_data wc9c6, BANK(wc9c6), $5a68, $12, 1 palettes ; c9c6, 49a68
+	copy_data wc9d6, BANK(wc9d6), $5a70, $12, 1 palettes ; c9d6, 49a70
 	farcall Func_1008ac
 	farcall Func_100948
 	ld a, $01
@@ -608,7 +608,7 @@ Func_c5c1:
 	ld h, b
 	ld de, s3a000
 	ld c, BANK(s3a000)
-	call Func_93d
+	call Decompress
 	copy_data v1Tiles1, s3a000, $40 tiles
 
 	ld a, [wOpponentMon]
@@ -619,7 +619,7 @@ Func_c5c1:
 	ld c, BANK(s3a000)
 	ld hl, $454e
 	ld a, $39
-	call Func_93d
+	call Decompress
 	copy_data $93d0, $01, $a000, $03, $60 ; 93d0, a000
 	pop af
 	ldh [hSRAMEnabled], a
@@ -652,9 +652,9 @@ Func_c67d:
 	ld de, wc9ee
 	call FarCopyHLtoDE
 
-	copy_data $c9be, $00, $5a60, $12, $8 ; c9be, 49a60
-	copy_data $c9c6, $00, $5a68, $12, $8 ; c9c6, 49a68
-	copy_data $c9d6, $00, $5a70, $12, $8 ; c9d6, 49a70
+	copy_data wc9be, BANK(wc9be), $5a60, $12, 1 palettes ; c9be, 49a60
+	copy_data wc9c6, BANK(wc9c6), $5a68, $12, 1 palettes ; c9c6, 49a68
+	copy_data wc9d6, BANK(wc9d6), $5a70, $12, 1 palettes ; c9d6, 49a70
 	farcall Func_1008ac
 	farcall Func_100948
 	copy_data $91a0, $00, $5be8, $12, $40 ; 91a0, 49be8
@@ -691,7 +691,7 @@ Func_c67d:
 	ld h, b
 	ld de, s3a000
 	ld c, BANK(s3a000)
-	call Func_93d
+	call Decompress
 	copy_data v1Tiles1, s3a000, $40 tiles
 
 	; load opponent Pokémon's portrait graphics
@@ -701,7 +701,7 @@ Func_c67d:
 	ld h, b
 	ld de, s3a000
 	ld c, BANK(s3a000)
-	call Func_93d
+	call Decompress
 	copy_data $8c00, $01, $a000, $03, $40 tiles ; 8c00, a000
 
 	pop af
@@ -735,9 +735,9 @@ Func_c77a:
 	ld de, wc9ee
 	call FarCopyHLtoDE
 
-	copy_data $c9d6, $00, $5a70, $12, $8 ; c9d6, 49a70
-	copy_data $c9ce, $00, $5aa0, $12, $8 ; c9ce, 49aa0
-	copy_data $c9f6, $00, $5aa8, $12, $8 ; c9f6, 49aa8
+	copy_data wc9d6, BANK(wc9d6), $5a70, $12, 1 palettes ; c9d6, 49a70
+	copy_data wc9ce, BANK(wc9ce), $5aa0, $12, 1 palettes ; c9ce, 49aa0
+	copy_data wc9f6, BANK(wc9f6), $5aa8, $12, 1 palettes ; c9f6, 49aa8
 	farcall Func_1008ac
 	xor a
 	vramswitch
@@ -757,7 +757,7 @@ Func_c77a:
 	ld h, b
 	ld de, s3a000
 	ld c, BANK(s3a000)
-	call Func_93d
+	call Decompress
 	copy_data v1Tiles1, s3a000, $40 tiles
 
 	; load opponent Pokémon's portrait graphics
@@ -767,7 +767,7 @@ Func_c77a:
 	ld h, b
 	ld de, s3a000
 	ld c, BANK(s3a000)
-	call Func_93d
+	call Decompress
 	copy_data $8c00, $01, $a000, $03, $40 tiles ; 8c00, a000
 
 	call Func_cf9b
@@ -802,11 +802,11 @@ Func_c83e:
 	ld de, wc9ee
 	call FarCopyHLtoDE
 
-	copy_data $c9be, $00, $5a60, $12, $8 ; c9be, 49a60
-	copy_data $c9d6, $00, $5a70, $12, $8 ; c9d6, 49a70
-	copy_data $c9ce, $00, $5aa0, $12, $8 ; c9ce, 49aa0
-	copy_data $c9f6, $00, $5aa8, $12, $8 ; c9f6, 49aa8
-	copy_data $c9de, $00, $5ab8, $12, $8 ; c9de, 49ab8
+	copy_data wc9be, BANK(wc9be), $5a60, $12, 1 palettes ; c9be, 49a60
+	copy_data wc9d6, BANK(wc9d6), $5a70, $12, 1 palettes ; c9d6, 49a70
+	copy_data wc9ce, BANK(wc9ce), $5aa0, $12, 1 palettes ; c9ce, 49aa0
+	copy_data wc9f6, BANK(wc9f6), $5aa8, $12, 1 palettes ; c9f6, 49aa8
+	copy_data wc9de, BANK(wc9de), $5ab8, $12, 1 palettes ; c9de, 49ab8
 	farcall Func_1008ac
 	xor a
 	vramswitch
@@ -826,7 +826,7 @@ Func_c83e:
 	ld h, b
 	ld de, s3a000
 	ld c, BANK(s3a000)
-	call Func_93d
+	call Decompress
 	copy_data v1Tiles1, s3a000, $40 tiles
 
 	; load opponent Pokémon's portrait graphics
@@ -836,7 +836,7 @@ Func_c83e:
 	ld h, b
 	ld de, s3a000
 	ld c, BANK(s3a000)
-	call Func_93d
+	call Decompress
 	copy_data $8c00, $01, $a000, $03, $40 tiles ; 8c00, a000
 
 	call Func_cf9b
@@ -863,12 +863,12 @@ Func_c918:
 	jr .asm_c948
 
 .asm_c93d
-	copy_data $c9e6, $00, $72f9, $10, $8 ; c9e6, 432f9
+	copy_data wc9e6, BANK(wc9e6), $72f9, $10, 1 palettes ; c9e6, 432f9
 .asm_c948
 	ld c, CHIKORITA
 	farcall LoadPokemonGarbagePalette
 
-	copy_data $c9d6, $00, $5a70, $12, $8 ; c9d6, 49a70
+	copy_data wc9d6, BANK(wc9d6), $5a70, $12, 1 palettes ; c9d6, 49a70
 	ld c, $1b
 	farcall Func_1008b0
 	copy_data $91a0, $00, $5be8, $12, $40 ; 91a0, 49be8
@@ -883,35 +883,35 @@ Func_c918:
 	ld h, b
 	ld de, s3a000
 	ld c, BANK(s3a000)
-	call Func_93d
+	call Decompress
 	copy_data v1Tiles1, s3a000, $40 tiles
 
 	ld de, s3a000
 	ld c, BANK(s3a000)
 	ld hl, $51c4
 	ld a, $37
-	call Func_93d
+	call Decompress
 	copy_data $8c00, $01, $a000, $03, $40 tiles ; 8c00, a000
 
 	ld de, s3a000
 	ld c, BANK(s3a000)
 	ld hl, $54de
 	ld a, $37
-	call Func_93d
+	call Decompress
 	copy_data $9200, $01, $a000, $03, $180 ; 9200, a000
 
 	ld de, s3a000
 	ld c, BANK(s3a000)
 	ld hl, $5629
 	ld a, $37
-	call Func_93d
+	call Decompress
 	copy_data $9600, $01, $a000, $03, $200 ; 9600, a000
 
 	ld de, s3a000
 	ld c, BANK(s3a000)
 	ld hl, $57d7
 	ld a, $37
-	call Func_93d
+	call Decompress
 	ld a, $00
 	func_621 $9c00, $00, $4bdb, $03, $3, $8, $18, $12 ; 9c00, cbdb
 
@@ -919,7 +919,7 @@ Func_c918:
 	ld c, BANK(s3a000)
 	ld hl, $586a
 	ld a, $37
-	call Func_93d
+	call Decompress
 	ld a, $00
 	func_621 $9c00, $01, $4bdb, $03, $3, $8, $18, $12 ; 9c00, cbdb
 	jr .asm_ca92
@@ -929,21 +929,21 @@ Func_c918:
 	ld c, BANK(s3a000)
 	ld hl, $58b7
 	ld a, $37
-	call Func_93d
+	call Decompress
 	copy_data v1Tiles1, s3a000, $800
 
 	ld de, s3a000
 	ld c, BANK(s3a000)
 	ld hl, $5ecb
 	ld a, $37
-	call Func_93d
+	call Decompress
 	copy_data $9610, $01, $a000, $03, $e0 ; 9610, a000
 
 	ld de, s3a000
 	ld c, BANK(s3a000)
 	ld hl, $5f8d
 	ld a, $37
-	call Func_93d
+	call Decompress
 	ld a, $00
 	func_621 $9c00, $00, $4bdb, $03, $3, $8, $18, $12 ; 9c00, cbdb
 
@@ -951,7 +951,7 @@ Func_c918:
 	ld c, BANK(s3a000)
 	ld hl, $6021
 	ld a, $37
-	call Func_93d
+	call Decompress
 	ld a, $00
 	func_621 $9c00, $01, $4bdb, $03, $3, $8, $18, $12 ; 9c00, cbdb
 
@@ -961,15 +961,15 @@ Func_c918:
 	jp z, .asm_caff
 	dec a
 	jp z, .asm_cb67
-	copy_data $c4c5, $00, $72b9, $10, $10 ; c4c5, 432b9
-	copy_data $c9fe, $00, $72b9, $10, $8 ; c9fe, 432b9
-	copy_data $ca06, $00, $72d1, $10, $8 ; ca06, 432d1
+	copy_data wBGPals palette 6, BANK(wBGPals), $72b9, $10, 2 palettes ; c4c5, 432b9
+	copy_data wc9fe, BANK(wc9fe), $72b9, $10, 1 palettes ; c9fe, 432b9
+	copy_data wca06, BANK(wca06), $72d1, $10, 1 palettes ; ca06, 432d1
 
 	ld de, s3a000
 	ld c, BANK(s3a000)
 	ld hl, $5889
 	ld a, $37
-	call Func_93d
+	call Decompress
 	ld a, $00
 	func_621 $9c22, $00, $4bdb, $03, $3, $6, $0, $1 ; 9c22, cbdb
 
@@ -977,21 +977,21 @@ Func_c918:
 	ld c, BANK(s3a000)
 	ld hl, $58a0
 	ld a, $37
-	call Func_93d
+	call Decompress
 	ld a, $00
 	func_621 $9c22, $01, $4bdb, $03, $3, $6, $0, $1 ; 9c22, cbdb
 	jp .asm_cbcc
 
 .asm_caff
-	copy_data $c4c5, $00, $72d9, $10, $10 ; c4c5, 432d9
-	copy_data $c9fe, $00, $72d9, $10, $8 ; c9fe, 432d9
-	copy_data $ca06, $00, $72f1, $10, $8 ; ca06, 432f1
+	copy_data wBGPals palette 6, BANK(wBGPals), $72d9, $10, 2 palettes ; c4c5, 432d9
+	copy_data wc9fe, BANK(wc9fe), $72d9, $10, 1 palettes ; c9fe, 432d9
+	copy_data wca06, BANK(wca06), $72f1, $10, 1 palettes ; ca06, 432f1
 
 	ld de, s3a000
 	ld c, BANK(s3a000)
 	ld hl, $5889
 	ld a, $37
-	call Func_93d
+	call Decompress
 	ld a, [wGameLevel]
 	sub $02
 	func_621 $9c22, $00, $4bde, $03, $3, $6, $0, $1 ; 9c22, cbde
@@ -1000,22 +1000,22 @@ Func_c918:
 	ld c, BANK(s3a000)
 	ld hl, $58a0
 	ld a, $37
-	call Func_93d
+	call Decompress
 	ld a, [wGameLevel]
 	sub $02
 	func_621 $9c22, $01, $4bde, $03, $3, $6, $0, $1 ; 9c22, cbde
 	jp .asm_cbcc
 
 .asm_cb67
-	copy_data $c4c5, $00, $7301, $10, $10 ; c4c5, 43301
-	copy_data $c9fe, $00, $7301, $10, $8 ; c9fe, 43301
-	copy_data $ca06, $00, $72d1, $10, $8 ; ca06, 432d1
+	copy_data wBGPals palette 6, BANK(wBGPals), $7301, $10, 2 palettes ; c4c5, 43301
+	copy_data wc9fe, BANK(wc9fe), $7301, $10, 1 palettes ; c9fe, 43301
+	copy_data wca06, BANK(wca06), $72d1, $10, 1 palettes ; ca06, 432d1
 
 	ld de, s3a000
 	ld c, BANK(s3a000)
 	ld hl, $604f
 	ld a, $37
-	call Func_93d
+	call Decompress
 	ld a, [wGameLevel]
 	sub $02
 	func_621 $9c43, $00, $4be7, $03, $3, $5, $0, $1 ; 9c43, cbe7
@@ -1024,7 +1024,7 @@ Func_c918:
 	ld c, BANK(s3a000)
 	ld hl, $605f
 	ld a, $37
-	call Func_93d
+	call Decompress
 	ld a, [wGameLevel]
 	sub $02
 	func_621 $9c43, $01, $4be7, $03, $3, $5, $0, $1 ; 9c43, cbe7
@@ -1048,13 +1048,13 @@ Func_cbf0:
 	farcall Func_1008b0
 	ld a, $13
 	ld bc, $64d0
-	ld hl, $c8f4
+	ld hl, wc8f4
 	ld [hl], c
 	inc hl
 	ld [hl], b
 	inc hl
 	ld [hl], a
-	ld hl, $c8f7
+	ld hl, wc8f7
 	ld [hl], c
 	inc hl
 	ld [hl], b
@@ -1093,16 +1093,16 @@ Func_cc39:
 	ld h, b
 	ld de, s3a000
 	ld c, BANK(s3a000)
-	call Func_93d
+	call Decompress
 	copy_data $8c00, $01, $a000, $03, $400 ; 8c00, a000
 
 	ldh a, [hSRAMEnabled]
 	push af
 	enable_sram
-	copy_data $c9be, $00, $5a60, $12, $8 ; c9be, 49a60
-	copy_data $c9c6, $00, $5a68, $12, $8 ; c9c6, 49a68
-	copy_data $c9d6, $00, $5a70, $12, $8 ; c9d6, 49a70
-	copy_data $c9f6, $00, $5a78, $12, $8 ; c9f6, 49a78
+	copy_data wc9be, BANK(wc9be), $5a60, $12, 1 palettes ; c9be, 49a60
+	copy_data wc9c6, BANK(wc9c6), $5a68, $12, 1 palettes ; c9c6, 49a68
+	copy_data wc9d6, BANK(wc9d6), $5a70, $12, 1 palettes ; c9d6, 49a70
+	copy_data wc9f6, BANK(wc9f6), $5a78, $12, 1 palettes ; c9f6, 49a78
 
 	xor a
 	vramswitch
@@ -1305,29 +1305,29 @@ Func_ce3b:
 	jp z, .asm_ce7c
 	cp GAMEMODE_UNKF
 	jp z, .asm_cec1
-	copy_data $c4ad, $00, $5818, $38, $8 ; c4ad, e1818
-	copy_data $c4d5, $00, $5840, $38, $30 ; c4d5, e1840
-	copy_data $c505, $00, $46f5, $12, $10 ; c505, 486f5
-	copy_data $c9fe, $00, $5c68, $12, $8 ; c9fe, 49c68
+	copy_data wBGPals palette 3, BANK(wBGPals), $5818, $38, 1 palettes ; c4ad, e1818
+	copy_data wOBPals palette 0, BANK(wOBPals), $5840, $38, 6 palettes ; c4d5, e1840
+	copy_data wOBPals palette 6, BANK(wOBPals), $46f5, $12, 2 palettes ; c505, 486f5
+	copy_data wc9fe, BANK(wc9fe), $5c68, $12, 1 palettes ; c9fe, 49c68
 	jp .asm_cf0e
 
 .asm_ce7c
-	copy_data $c495, $00, $5880, $38, $18 ; c495, e1880
-	copy_data $c49d, $00, $5c34, $13, $4 ; c49d, 4dc34
-	copy_data $c4ad, $00, $5c44, $13, $28 ; c4ad, 4dc44
-	copy_data $c4d5, $00, $5840, $38, $30 ; c4d5, e1840
-	copy_data $c505, $00, $5878, $38, $8 ; c505, e1878
-	copy_data $c50d, $00, $46fd, $12, $8 ; c50d, 486fd
+	copy_data wBGPals palette 0, BANK(wBGPals), $5880, $38, 3 palettes ; c495, e1880
+	copy_data wBGPals palette 1 color 0, BANK(wBGPals), $5c34, $13, 2 colors ; c49d, 4dc34
+	copy_data wBGPals palette 3, BANK(wBGPals), $5c44, $13, 5 palettes ; c4ad, 4dc44
+	copy_data wOBPals palette 0, BANK(wOBPals), $5840, $38, 6 palettes ; c4d5, e1840
+	copy_data wOBPals palette 6, BANK(wOBPals), $5878, $38, 1 palettes ; c505, e1878
+	copy_data wOBPals palette 7, BANK(wOBPals), $46fd, $12, 1 palettes ; c50d, 486fd
 	jp .asm_cf0e
 
 .asm_cec1
-	copy_data $c4ad, $00, $5818, $38, $8 ; c4ad, e1818
-	copy_data $c4b5, $00, $42d5, $12, $20 ; c4b5, 482d5
-	copy_data $c4d5, $00, $5840, $38, $30 ; c4d5, e1840
-	copy_data $c505, $00, $46f5, $12, $10 ; c505, 486f5
-	copy_data $ca06, $00, $5a60, $12, $8 ; ca06, 49a60
-	copy_data $ca0e, $00, $5a68, $12, $8 ; ca0e, 49a68
-	copy_data $c9fe, $00, $5c68, $12, $8 ; c9fe, 49c68
+	copy_data wBGPals palette 3, BANK(wBGPals), $5818, $38, 1 palettes ; c4ad, e1818
+	copy_data wBGPals palette 4, BANK(wBGPals), $42d5, $12, 4 palettes ; c4b5, 482d5
+	copy_data wOBPals palette 0, BANK(wOBPals), $5840, $38, 6 palettes ; c4d5, e1840
+	copy_data wOBPals palette 6, BANK(wOBPals), $46f5, $12, 2 palettes ; c505, 486f5
+	copy_data wca06, BANK(wca06), $5a60, $12, 1 palettes ; ca06, 49a60
+	copy_data wca0e, BANK(wca0e), $5a68, $12, 1 palettes ; ca0e, 49a68
+	copy_data wc9fe, BANK(wc9fe), $5c68, $12, 1 palettes ; c9fe, 49c68
 
 .asm_cf0e
 	ld a, [wGameMode]
@@ -1340,8 +1340,8 @@ Func_ce3b:
 .asm_cf1d
 	ld hl, $5a78
 	add hl, bc
-	ld bc, $8
-	ld de, $c9de
+	ld bc, 1 palettes
+	ld de, wc9de
 	ld a, $12
 	call FarCopyHLtoDE
 
@@ -1463,7 +1463,7 @@ Func_cfbd:
 	ld c, BANK(s3a000)
 	ld hl, $6410
 	ld a, $12
-	call Func_93d
+	call Decompress
 	ld a, [wGameLevel]
 	call ATimes96
 	ld hl, s3a000
@@ -1477,7 +1477,7 @@ Func_cfbd:
 	ld c, BANK(s3a000)
 	ld hl, $659f
 	ld a, $12
-	call Func_93d
+	call Decompress
 	ld a, [wGameLevel]
 	call ATimes64
 	ld hl, s3a000
@@ -1491,7 +1491,7 @@ Func_cfbd:
 	ld c, BANK(s3a000)
 	ld hl, $66cf
 	ld a, $12
-	call Func_93d
+	call Decompress
 	ld a, [wcea7]
 	call ATimes32
 	ld hl, s3a000
@@ -1512,7 +1512,7 @@ Func_cfbd:
 	ld c, BANK(s3a000)
 	ld hl, $674d
 	ld a, $12
-	call Func_93d
+	call Decompress
 	ld a, [wcea7]
 	call ATimes32
 	ld hl, s3a000
@@ -2015,7 +2015,7 @@ Func_d590:
 	ld [hli], a
 	ld [hl], a
 
-	ld hl, $c845
+	ld hl, wc845
 	xor a
 	ld [hli], a
 	ld [hli], a
@@ -2148,13 +2148,13 @@ Func_d631:
 	ld a, $67
 	ld [wcd3f], a
 	ld a, $0c
-	ld [wcd42], a
+	ld [wcd42 + 0], a
 	ld a, $00
-	ld [$cd43], a
+	ld [wcd42 + 1], a
 	ld a, $64
-	ld [wcd44], a
+	ld [wcd44 + 0], a
 	ld a, $00
-	ld [$cd45], a
+	ld [wcd44 + 1], a
 	xor a ; CHIKORITA
 	ld [wPlayerMon], a
 	ret
@@ -2181,7 +2181,7 @@ Func_d6cf:
 	ld a, $00
 	call FillMemory
 
-	ld de, $cbe9
+	ld de, wcbe9
 	ld bc, $ca
 	ld a, $00
 	call FillMemory

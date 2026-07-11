@@ -1181,25 +1181,25 @@ Func_c5676:
 	ld c, $03
 	ld hl, $60eb
 	ld a, $32
-	call Func_93d
+	call Decompress
 
 	ld de, $a840
 	ld c, $03
 	ld hl, $60eb
 	ld a, $32
-	call Func_93d
+	call Decompress
 
 	ld de, $a930
 	ld c, $03
 	ld hl, $60eb
 	ld a, $32
-	call Func_93d
+	call Decompress
 
 	ld de, $acb0
 	ld c, $03
 	ld hl, $680e
 	ld a, $32
-	call Func_93d
+	call Decompress
 
 	pop af
 	ldh [hSRAMEnabled], a
@@ -1213,13 +1213,13 @@ Func_c5676:
 	ld c, $03
 	ld hl, $6c29
 	ld a, $32
-	call Func_93d
+	call Decompress
 
 	ld de, s3a000
 	ld c, BANK(s3a000)
 	ld hl, $6374
 	ld a, $32
-	call Func_93d
+	call Decompress
 
 	pop af
 	ldh [hSRAMEnabled], a
@@ -2102,7 +2102,7 @@ Func_c6353:
 	ld c, BANK(v0Tiles1)
 	ld hl, $4800
 	ld a, $32
-	call Func_93d
+	call Decompress
 
 	ld a, [wGameMode]
 	cp GAMEMODE_PUZZLE
@@ -2266,14 +2266,14 @@ Func_c64d5:
 	ld c, BANK(v0Tiles2)
 	ld hl, $4cd8
 	ld a, $32
-	call Func_93d
+	call Decompress
 	jr .asm_c64f8
 .asm_c64eb
 	ld de, v0Tiles2 tile $60
 	ld c, BANK(v0Tiles2)
 	ld hl, $4e08
 	ld a, $32
-	call Func_93d
+	call Decompress
 .asm_c64f8
 	ld a, [wGameMode]
 	cp GAMEMODE_MARATHON
@@ -2549,7 +2549,7 @@ Func_c65f4:
 	ld c, BANK(v0Tiles2)
 	ld hl, $5971
 	ld a, $32
-	call Func_93d
+	call Decompress
 
 	copy_data v0Tiles2 tile $04, $00, $5c41, $32, $90 ; c9c41
 	copy_data v0Tiles2 tile $47, $00, $5cd1, $32, $90 ; c9cd1
@@ -2558,7 +2558,7 @@ Func_c65f4:
 	ld c, BANK(s3a000)
 	ld hl, $6c29
 	ld a, $32
-	call Func_93d
+	call Decompress
 	push hl
 	ld hl, .Data_c675d
 	call Func_692
@@ -2580,14 +2580,14 @@ Func_c65f4:
 	ld c, $00
 	ld hl, $5971
 	ld a, $32
-	call Func_93d
+	call Decompress
 	jr .asm_c678c
 .asm_c677f
 	ld de, v0Tiles2 tile $20
 	ld c, $00
 	ld hl, $5971
 	ld a, $32
-	call Func_93d
+	call Decompress
 .asm_c678c
 	call Func_c6799
 	call Func_c67e5
@@ -2823,7 +2823,7 @@ Func_c6903:
 	ld c, $00
 	ld hl, $68b7
 	ld a, $32
-	call Func_93d
+	call Decompress
 
 	ld a, [wGameMode]
 	cp GAMEMODE_TIME_ZONE
@@ -2841,7 +2841,7 @@ Func_c6903:
 	ld c, $00
 	ld hl, $697a
 	ld a, $32
-	call Func_93d
+	call Decompress
 	ret
 
 .asm_c6937
@@ -2849,7 +2849,7 @@ Func_c6903:
 	ld c, $00
 	ld hl, $697a
 	ld a, $32
-	call Func_93d
+	call Decompress
 	ld a, [wceaa]
 	and a
 	jr nz, .asm_c694b
@@ -3181,7 +3181,7 @@ GameState_LoadPanelDePonMenu::
 	ld c, $00
 	ld hl, $43a1
 	ld a, $58
-	call Func_93d
+	call Decompress
 
 	copy_box v0BGMap0, v0BGMap1, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT
 

@@ -181,7 +181,7 @@ Func_500c6:
 	ld a, HIGH(VBlank_5020f)
 	ldh [hVBlankTrampolinePtr + 1], a
 
-	copy_data $c4e5, $00, $549d, $14, $20 ; c4e5, 5149d
+	copy_data wOBPals palette 2, BANK(wOBPals), $549d, $14, 4 palettes ; c4e5, 5149d
 
 	ldh a, [hSRAMEnabled]
 	push af
@@ -190,7 +190,7 @@ Func_500c6:
 	ld c, BANK(s3a000)
 	ld hl, $4e6c
 	ld a, $14
-	call Func_93d
+	call Decompress
 	pop af
 	ldh [hSRAMEnabled], a
 	ld [$100], a
@@ -325,7 +325,7 @@ Func_50250:
 	ld c, BANK(w6d300)
 	ld hl, $5065
 	ld a, $14
-	call Func_93d
+	call Decompress
 	jp Func_50051
 
 .asm_5027e
@@ -333,7 +333,7 @@ Func_50250:
 	ld c, BANK(w6d300)
 	ld hl, $52a1
 	ld a, $14
-	call Func_93d
+	call Decompress
 	jp Func_50051
 
 .asm_5028e
@@ -353,7 +353,7 @@ Func_50250:
 	ld a, HIGH(VBlank_5030e)
 	ldh [hVBlankTrampolinePtr + 1], a
 
-	copy_data $c4e5, $00, $54bd, $14, $20 ; c4e5, 514bd
+	copy_data wOBPals palette 2, BANK(wOBPals), $54bd, $14, 4 palettes ; c4e5, 514bd
 
 	ld de, $d300
 	ld bc, $400
@@ -621,12 +621,12 @@ Func_5048a:
 	ld c, $03
 	ld hl, $4e6c
 	ld a, $14
-	call Func_93d
+	call Decompress
 	pop af
 	ldh [hSRAMEnabled], a
 	ld [$100], a
 
-	copy_data $c4e5, $00, $549d, $14, $20 ; c4e5, 5149d
+	copy_data wOBPals palette 2, BANK(wOBPals), $549d, $14, 4 palettes ; c4e5, 5149d
 
 	ld a, [wGameMode]
 	cp GAMEMODE_PUZZLE
@@ -850,7 +850,7 @@ VBlank_5069f:
 	ldcoord_a 4, 7, v0BGMap1
 	ldcoord_a 5, 7, v0BGMap1
 
-	ld a, $01
+	ld a, BANK("VRAM1")
 	vramswitch
 	ld a, 5 | BG_BANK0
 	ldcoord_a 4, 5, v1BGMap1
@@ -879,7 +879,7 @@ VBlank_506d6:
 	ld a, $59
 	ldcoord_a 5, 7, v0BGMap1
 
-	ld a, $01
+	ld a, BANK("VRAM1")
 	vramswitch
 	ld a, 5 | BG_BANK1
 	ldcoord_a 4, 5, v1BGMap1
@@ -936,7 +936,7 @@ Func_5074c:
 	ld c, $03
 	ld hl, $545f
 	ld a, $14
-	call Func_93d
+	call Decompress
 	pop af
 	ldh [hSRAMEnabled], a
 	ld [$100], a
@@ -996,11 +996,11 @@ Func_507ce:
 	ld hl, $484d
 	add hl, bc
 	ld a, [hli]
-	ld [$c4d7], a
+	ld [wOBPals palette 0 color 1 + 0], a
 	ld a, [hli]
-	ld [$c4d9], a
+	ld [wOBPals palette 0 color 2 + 0], a
 	ld a, [hl]
-	ld [$c4db], a
+	ld [wOBPals palette 0 color 3 + 0], a
 	ld a, [wcdb3]
 	ld b, a
 	ld a, [wcdb4]
@@ -1213,8 +1213,8 @@ VBlank_5095e:
 	ret
 
 Func_50990:
-	copy_data $c4d5, $00, $5840, $38, $10 ; c4d5, e1840
-	copy_data $c4e5, $00, $549d, $14, $20 ; c4e5, 5149d
+	copy_data wOBPals palette 0, BANK(wOBPals), $5840, $38, 2 palettes ; c4d5, e1840
+	copy_data wOBPals palette 2, BANK(wOBPals), $549d, $14, 4 palettes ; c4e5, 5149d
 
 	ldh a, [hSRAMEnabled]
 	push af
@@ -1223,7 +1223,7 @@ Func_50990:
 	ld c, $03
 	ld hl, $4e6c
 	ld a, $14
-	call Func_93d
+	call Decompress
 	pop af
 	ldh [hSRAMEnabled], a
 	ld [$100], a
@@ -1394,7 +1394,7 @@ Func_50aff:
 	ld a, HIGH(VBlank_50b4a)
 	ldh [hVBlankTrampolinePtr + 1], a
 
-	copy_data $c4d5, $00, $5840, $38, $30 ; c4d5, e1840
+	copy_data wOBPals palette 0, BANK(wOBPals), $5840, $38, 6 palettes ; c4d5, e1840
 
 	ldh a, [hSRAMEnabled]
 	push af
@@ -1403,7 +1403,7 @@ Func_50aff:
 	ld c, $03
 	ld hl, $4f95
 	ld a, $14
-	call Func_93d
+	call Decompress
 	pop af
 	ldh [hSRAMEnabled], a
 	ld [$100], a
@@ -1640,7 +1640,7 @@ Func_50cc1:
 	and a
 	jr nz, .asm_50ce3
 	ld a, $20
-	ld [$c7cc], a
+	ld [wc7cc], a
 .asm_50ce3
 	and a
 	ret
@@ -1649,7 +1649,7 @@ Func_50cc1:
 	and a
 	jr nz, .asm_50cf0
 	ld a, $21
-	ld [$c7cc], a
+	ld [wc7cc], a
 .asm_50cf0
 	scf
 	ret
@@ -1877,6 +1877,958 @@ Func_50d80:
 	ret
 ; 0x50e6c
 
+SECTION "Bank 14@570a", ROMX[$570a], BANK[$14]
+
+Func_5170a::
+	farcall Func_68ebb
+	farcall Func_7645b
+	ld a, $ff
+	ld [wcd6a], a
+	call Func_5266c
+	call Func_5276b
+	ld hl, wcdad
+	ld a, LOW(Func_51750)
+	ld [hli], a
+	ld a, HIGH(Func_51750)
+	ld [hl], a
+	xor a
+	ld [wcdaf], a
+	ld [wcdb0], a
+Func_51731:
+	ld hl, wcdad
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	jp hl
+
+Func_51738:
+	ld de, NULL
+	farcall Func_40ef8
+	farcall Func_40519
+	call JpDoFrame
+	jp Func_51731
+; 0x5174d
+
+SECTION "Bank 14@5750", ROMX[$5750], BANK[$14]
+
+Func_51750:
+	ld a, [wcdaf]
+	and a
+	jr z, .Func_51768
+	dec a
+	jp z, .Func_51803
+	dec a
+	jp z, .Func_51840
+	dec a
+	jp z, .Func_518a9
+	dec a
+	jp z, .Func_51ab3
+	debug_loop
+
+.Func_51768:
+	ld a, [wc7ce]
+	and a
+	jr nz, .asm_51773
+	ld a, $03
+	ld [wc7cb], a
+.asm_51773
+	call Func_1426
+	farcall Func_40000
+	ld a, [wc896]
+	and a
+	jr nz, .asm_51788
+	farcall Func_40968
+.asm_51788
+	ld hl, wPlayerMonPortraitBGMaps
+	ld de, wPlayerMonTilemap
+	ld bc, $20
+	call CopyHLtoDE
+	ld hl, wOpponentMonPortraitBGMaps
+	ld de, wOpponentMonTilemap
+	ld bc, $20
+	call CopyHLtoDE
+
+	ld hl, Pals_52c1c
+	ld de, wOBPals
+	ld bc, 1 palettes
+	call CopyHLtoDE
+
+	copy_data wOBPals palette 4, BANK(wOBPals), Pals_e1860, BANK(Pals_e1860), 1 palettes
+
+	ld a, $0a
+	ld [$c4db], a
+	ld a, $00
+	ld [$c4dc], a
+	ld a, $00
+	ld [$c4e3], a
+	ld a, $40
+	ld [$c4e4], a
+	ld a, $e0
+	ld [$c4eb], a
+	ld a, $00
+	ld [$c4ec], a
+	ld a, $a5
+	ld [$c4f3], a
+	ld a, $00
+	ld [$c4f4], a
+
+	ld a, LOW(.VBlank_517f6)
+	ldh [hVBlankTrampolinePtr + 0], a
+	ld a, BANK(.VBlank_517f6)
+	ldh [hVBlankTrampolineBank], a
+	ld a, HIGH(.VBlank_517f6)
+	ldh [hVBlankTrampolinePtr + 1], a
+	ld hl, wcdaf
+	inc [hl]
+	xor a
+	ld [wcdb0], a
+	jp Func_51738
+
+.VBlank_517f6:
+	farcall Func_45cc4
+	call FlushPalettes
+	call Func_1d15
+	ret
+
+.Func_51803:
+	call Is2PlayerGameMode
+	jr z, .hide_blocks
+	cp GAMEMODE_PUZZLE
+	jr z, .hide_blocks
+	cp GAMEMODE_UNKF
+	jr z, .hide_blocks
+	cp GAMEMODE_UNKD
+.asm_51812
+	jr z, .asm_51812
+	ld a, [wGameLevel]
+	cp GAMELEVEL_EASY
+	jr z, .dont_hide_blocks
+	cp GAMELEVEL_SLOW
+	jr z, .dont_hide_blocks
+.hide_blocks
+	call HideBlocks
+.dont_hide_blocks
+	ld a, LOW(.VBlank_51839)
+	ldh [hVBlankTrampolinePtr + 0], a
+	ld a, BANK(.VBlank_51839)
+	ldh [hVBlankTrampolineBank], a
+	ld a, HIGH(.VBlank_51839)
+	ldh [hVBlankTrampolinePtr + 1], a
+	ld hl, wcdaf
+	inc [hl]
+	xor a
+	ld [wcdb0], a
+	jp Func_51738
+
+.VBlank_51839:
+	call Func_19bf
+	call Func_1d15
+	ret
+
+.Func_51840:
+	ldh a, [hSRAMEnabled]
+	push af
+	enable_sram
+	ld de, s3b000
+	ld c, $03
+	ld hl, $6bdb
+	ld a, $14
+	call Decompress
+	pop af
+	ldh [hSRAMEnabled], a
+	ld [$100], a
+
+	ld a, LOW(.VBlank_51874)
+	ldh [hVBlankTrampolinePtr + 0], a
+	ld a, BANK(.VBlank_51874)
+	ldh [hVBlankTrampolineBank], a
+	ld a, HIGH(.VBlank_51874)
+	ldh [hVBlankTrampolinePtr + 1], a
+	ld hl, wcdaf
+	inc [hl]
+	xor a
+	ld [wcdb0], a
+	jp Func_51738
+
+.VBlank_51874:
+	ld a, BANK("VRAM1")
+	vramswitch
+	ldh a, [hSRAMEnabled]
+	push af
+	enable_sram
+	ldh a, [hSRAMBank]
+	push af
+	ld a, BANK(s3b000)
+	sramswitch
+	ld c, 8
+	ld hl, s3b000
+	ld de, v0Tiles1 tile $20
+	call GeneralHDMA
+	pop af
+	sramswitch
+	pop af
+	ldh [hSRAMEnabled], a
+	ld [$100], a
+	call Func_1d15
+	ret
+
+.Func_518a9:
+	ld a, [wc898]
+	and a
+	jp nz, .asm_518c8
+	ld a, [wc896]
+	and a
+	jr nz, .asm_518ca
+	ld a, [wGameMode]
+	cp GAMEMODE_PUZZLE
+	jr z, .asm_518da
+	cp GAMEMODE_UNKF
+	jr z, .asm_518e2
+	call Is2PlayerGameMode
+	jr z, .asm_518d1
+	jr .asm_518d6
+.asm_518c8
+	jr .asm_5193d
+.asm_518ca
+	ld a, [wGameMode]
+	cp GAMEMODE_UNKF
+	jr z, .asm_518de
+.asm_518d1
+	ld b, $00
+	jp .asm_518e4
+.asm_518d6
+	ld b, $01
+	jr .asm_518e4
+.asm_518da
+	ld b, $02
+	jr .asm_518e4
+.asm_518de
+	ld b, $03
+	jr .asm_518e4
+.asm_518e2
+	ld b, $04
+.asm_518e4
+	ld a, LOW(.VBlank_51986)
+	ldh [hVBlankTrampolinePtr + 0], a
+	ld a, BANK(.VBlank_51986)
+	ldh [hVBlankTrampolineBank], a
+	ld a, HIGH(.VBlank_51986)
+	ldh [hVBlankTrampolinePtr + 1], a
+	ldh a, [hSRAMEnabled]
+	push af
+	enable_sram
+	ld a, b
+	push af
+	push af
+	ld hl, .PtrTable_51959
+	call Func_1f01
+	ld de, s3b000
+	ld c, $03
+	call Decompress
+	pop af
+	ld hl, .PtrTable_51968
+	call Func_1f01
+	ld de, $b400
+	ld c, $03
+	call Decompress
+	pop af
+	ld hl, .PtrTable_51977
+	call Func_1f01
+	ld [wcdc0], a
+	ld a, l
+	ld [wcdb4], a
+	ld a, h
+	ld [wcdb5], a
+	pop af
+	ldh [hSRAMEnabled], a
+	ld [$100], a
+
+	ld hl, wcdaf
+	inc [hl]
+	xor a
+	ld [wcdb0], a
+	jp Func_51738
+
+.asm_5193d
+	ld a, LOW(.VBlank_5198c)
+	ldh [hVBlankTrampolinePtr + 0], a
+	ld a, BANK(.VBlank_5198c)
+	ldh [hVBlankTrampolineBank], a
+	ld a, HIGH(.VBlank_5198c)
+	ldh [hVBlankTrampolinePtr + 1], a
+	ld a, $01
+	ld [wcdb4], a
+	ld hl, wcdaf
+	inc [hl]
+	xor a
+	ld [wcdb0], a
+	jp Func_51738
+
+.PtrTable_51959:
+	dwb $6c24, $14 ; $0
+	dwb $6c5d, $14 ; $1
+	dwb $6c97, $14 ; $2
+	dwb $6c24, $14 ; $3
+	dwb $6c5d, $14 ; $4
+
+.PtrTable_51968:
+	dwb $6c49, $14 ; $0
+	dwb $6c7c, $14 ; $1
+	dwb $6cc5, $14 ; $2
+	dwb $6c49, $14 ; $3
+	dwb $6c7c, $14 ; $4
+
+.PtrTable_51977:
+	db $01, $00, $62 ; $0
+	db $02, $01, $6f ; $1
+	db $03, $02, $7a ; $2
+	db $01, $03, $62 ; $3
+	db $02, $04, $6f ; $4
+
+.VBlank_51986:
+	farcall Func_49220
+.VBlank_5198c:
+	ldh a, [hSRAMEnabled]
+	push af
+	enable_sram
+	ldh a, [hSRAMBank]
+	push af
+	ld a, $03
+	sramswitch
+	xor a
+	vramswitch
+	ld a, HIGH(s3b000)
+	ldh [rHDMA1], a
+	ld a, LOW(s3b000)
+	ldh [rHDMA2], a
+	ld a, $9b
+	ldh [rHDMA3], a
+	ld a, $00
+	ldh [rHDMA4], a
+	xor a
+	ldh [rHDMA5], a
+	ld a, $b0
+	ldh [rHDMA1], a
+	ld a, $10
+	ldh [rHDMA2], a
+	ld a, $20
+	ldh [rHDMA4], a
+	xor a
+	ldh [rHDMA5], a
+	ld a, $b0
+	ldh [rHDMA1], a
+	ld a, $20
+	ldh [rHDMA2], a
+	ld a, $40
+	ldh [rHDMA4], a
+	xor a
+	ldh [rHDMA5], a
+	ld a, $b0
+	ldh [rHDMA1], a
+	ld a, $30
+	ldh [rHDMA2], a
+	ld a, $60
+	ldh [rHDMA4], a
+	xor a
+	ldh [rHDMA5], a
+	ld a, $b0
+	ldh [rHDMA1], a
+	ld a, $40
+	ldh [rHDMA2], a
+	ld a, $80
+	ldh [rHDMA4], a
+	xor a
+	ldh [rHDMA5], a
+	ld a, $b0
+	ldh [rHDMA1], a
+	ld a, $50
+	ldh [rHDMA2], a
+	ld a, $a0
+	ldh [rHDMA4], a
+	xor a
+	ldh [rHDMA5], a
+	ld a, $b0
+	ldh [rHDMA1], a
+	ld a, $60
+	ldh [rHDMA2], a
+	ld a, $c0
+	ldh [rHDMA4], a
+	xor a
+	ldh [rHDMA5], a
+	ld a, $b0
+	ldh [rHDMA1], a
+	ld a, $70
+	ldh [rHDMA2], a
+	ld a, $e0
+	ldh [rHDMA4], a
+	xor a
+	ldh [rHDMA5], a
+
+	ld a, $01
+	vramswitch
+	ld a, $b4
+	ldh [rHDMA1], a
+	ld a, $00
+	ldh [rHDMA2], a
+	ld a, $9b
+	ldh [rHDMA3], a
+	ld a, $00
+	ldh [rHDMA4], a
+	xor a
+	ldh [rHDMA5], a
+	ld a, $b4
+	ldh [rHDMA1], a
+	ld a, $10
+	ldh [rHDMA2], a
+	ld a, $20
+	ldh [rHDMA4], a
+	xor a
+	ldh [rHDMA5], a
+	ld a, $b4
+	ldh [rHDMA1], a
+	ld a, $20
+	ldh [rHDMA2], a
+	ld a, $40
+	ldh [rHDMA4], a
+	xor a
+	ldh [rHDMA5], a
+	ld a, $b4
+	ldh [rHDMA1], a
+	ld a, $30
+	ldh [rHDMA2], a
+	ld a, $60
+	ldh [rHDMA4], a
+	xor a
+	ldh [rHDMA5], a
+	ld a, $b4
+	ldh [rHDMA1], a
+	ld a, $40
+	ldh [rHDMA2], a
+	ld a, $80
+	ldh [rHDMA4], a
+	xor a
+	ldh [rHDMA5], a
+	ld a, $b4
+	ldh [rHDMA1], a
+	ld a, $50
+	ldh [rHDMA2], a
+	ld a, $a0
+	ldh [rHDMA4], a
+	xor a
+	ldh [rHDMA5], a
+	ld a, $b4
+	ldh [rHDMA1], a
+	ld a, $60
+	ldh [rHDMA2], a
+	ld a, $c0
+	ldh [rHDMA4], a
+	xor a
+	ldh [rHDMA5], a
+	ld a, $b4
+	ldh [rHDMA1], a
+	ld a, $70
+	ldh [rHDMA2], a
+	ld a, $e0
+	ldh [rHDMA4], a
+	xor a
+	ldh [rHDMA5], a
+	pop af
+	sramswitch
+	pop af
+	ldh [hSRAMEnabled], a
+	ld [$100], a
+
+	call Func_1d15
+	ret
+
+.Func_51ab3:
+	ld a, LOW(.VBlank_51ae2)
+	ldh [hVBlankTrampolinePtr + 0], a
+	ld a, BANK(.VBlank_51ae2)
+	ldh [hVBlankTrampolineBank], a
+	ld a, HIGH(.VBlank_51ae2)
+	ldh [hVBlankTrampolinePtr + 1], a
+	ld a, [wcdc1]
+	ld [wcdb3], a
+	xor a
+	ld [wcdb1], a
+	ld [wcdb6], a
+	ld [wcdb7], a
+	ld hl, wcdad
+	ld a, LOW(.Func_51ae6)
+	ld [hli], a
+	ld a, HIGH(.Func_51ae6)
+	ld [hl], a
+	xor a
+	ld [wcdaf], a
+	ld [wcdb0], a
+	jp Func_51738
+
+.VBlank_51ae2:
+	call Func_1d15
+	ret
+
+.Func_51ae6:
+	ld a, [wcdb6]
+	ld b, a
+	ld a, [wcdb3]
+	ld [wcd6d], a
+	farcall Func_76996
+	ld a, [wcd6d]
+	ld [wcdb3], a
+	ld a, b
+	and a
+	jp z, .asm_51b3a
+	ld a, [wcd6d]
+	dec a
+	jp nz, .asm_51c67
+	ld a, [wGameMode]
+	cp GAMEMODE_UNKF
+	jr z, .asm_51b12
+	jp .asm_51c67
+.asm_51b12
+	ld a, [wceac]
+	and a
+	jp z, .asm_51c67
+	ld a, [wc7ce]
+	and a
+	jr nz, .asm_51b24
+	ld a, $28
+	ld [wc7cd], a
+.asm_51b24
+	jr .asm_51b78
+	ld a, [wceac]
+	and a
+	jp nz, .asm_51c67
+	ld a, [wc7ce]
+	and a
+	jr nz, .asm_51b38
+	ld a, $28
+	ld [wc7cd], a
+.asm_51b38
+	jr .asm_51b78
+.asm_51b3a
+	ldh a, [hJoypadDown]
+	and PAD_SELECT
+	jr z, .asm_51b78
+	ldh a, [hJoypadPressed]
+	and PAD_SELECT
+	jr z, .asm_51b51
+	ld a, [wc7ce]
+	and a
+	jr nz, .asm_51b51
+	ld a, $04
+	ld [wc7cb], a
+.asm_51b51
+	ld a, LOW(.VBlank_51c5d)
+	ldh [hVBlankTrampolinePtr + 0], a
+	ld a, BANK(.VBlank_51c5d)
+	ldh [hVBlankTrampolineBank], a
+	ld a, HIGH(.VBlank_51c5d)
+	ldh [hVBlankTrampolinePtr + 1], a
+
+	ld a, $01
+	ld [wcdb6], a
+	jp Func_51738
+
+	ld hl, wcdad
+	ld a, LOW(Func_520af)
+	ld [hli], a
+	ld a, HIGH(Func_520af)
+	ld [hl], a
+	xor a
+	ld [wcdaf], a
+	ld [wcdb0], a
+	jp Func_51738
+
+.asm_51b78
+	ld hl, wcdb1
+	inc [hl]
+	xor a
+	ld [wcdb6], a
+	ld a, [wc898]
+	and a
+	jr nz, .asm_51bd4
+	ld a, LOW(.VBlank_51c53)
+	ldh [hVBlankTrampolinePtr + 0], a
+	ld a, BANK(.VBlank_51c53)
+	ldh [hVBlankTrampolineBank], a
+	ld a, HIGH(.VBlank_51c53)
+	ldh [hVBlankTrampolinePtr + 1], a
+	ld hl, wcdb7
+	ld a, [hl]
+	and a
+	jr nz, .asm_51b9b
+	ld a, $28
+.asm_51b9b
+	dec a
+	ld [hl], a
+	ld a, [wcdb5]
+	ldh [hff8a], a
+	ld a, [wcdb3]
+	ldh [hff8e], a
+	ld a, [wcdb7]
+	ldh [hff8f], a
+	ld a, $18
+	ldh [hff90], a
+	ld a, $56
+	ldh [hff91], a
+	call Func_52785
+	ld hl, wcdb1
+	ld a, [hl]
+	and $10
+	jr nz, .asm_51bd4
+	ld a, [wcdb3]
+	add a
+	add a
+	ld e, a
+	add a
+	add e ; *12
+	ld e, a
+	lb bc, 16, 85 ; (x, y)
+	ld a, e
+	add c
+	ld c, a
+	ld hl, $6d66
+	call Func_2f8
+.asm_51bd4
+	ld hl, wcdb1
+	ld a, [hl]
+	sra a
+	call Func_526ba
+	lb bc, 36, 64 ; (x, y)
+	add c
+	ld c, a
+	ld hl, $6d51
+	call Func_2f8
+	ld a, [wc898]
+	and a
+	jr nz, .asm_51c50
+	ldh a, [hJoypadHeld]
+	and PAD_UP
+	jr z, .asm_51c20
+	ld hl, wcdb3
+	ld a, [hl]
+	and a
+	jr z, .asm_51c09
+	dec [hl]
+	ld a, [wc7ce]
+	and a
+	jr nz, .asm_51c07
+	ld a, $02
+	ld [wc7cb], a
+.asm_51c07
+	jr .asm_51c50
+.asm_51c09
+	ldh a, [hJoypadPressed]
+	and PAD_UP
+	jr z, .asm_51c20
+	ld a, [wcdb4]
+	ld [hl], a
+	ld a, [wc7ce]
+	and a
+	jr nz, .asm_51c1e
+	ld a, $02
+	ld [wc7cb], a
+.asm_51c1e
+	jr .asm_51c50
+.asm_51c20
+	ldh a, [hJoypadHeld]
+	and PAD_DOWN
+	jr z, .asm_51c50
+	ld hl, wcdb3
+	ld a, [wcdb4]
+	cp [hl]
+	jr z, .asm_51c3d
+	inc [hl]
+	ld a, [wc7ce]
+	and a
+	jr nz, .asm_51c3b
+	ld a, $02
+	ld [wc7cb], a
+.asm_51c3b
+	jr .asm_51c50
+.asm_51c3d
+	ldh a, [hJoypadPressed]
+	and PAD_DOWN
+	jr z, .asm_51c50
+	ld a, [wc7ce]
+	and a
+	jr nz, .asm_51c4e
+	ld a, $02
+	ld [wc7cb], a
+.asm_51c4e
+	xor a
+	ld [hl], a
+.asm_51c50
+	jp Func_51738
+
+.VBlank_51c53:
+	farcall Func_49220
+	call Func_1d15
+	ret
+
+.VBlank_51c5d:
+	farcall Func_4922f
+	call Func_1d15
+	ret
+
+.asm_51c67
+	ld a, [wcdb3]
+	add a
+	ld c, a
+	ld b, $00
+	ld a, [wcdb4]
+	dec a
+	jr z, .asm_51c7c
+	dec a
+	jr z, .asm_51c81
+	dec a
+	jr z, .asm_51c86
+.asm_51c7a
+	jr .asm_51c7a
+.asm_51c7c
+	ld hl, .PtrTable_51c8e
+	jr .asm_51c89
+.asm_51c81
+	ld hl, .PtrTable_51c92
+	jr .asm_51c89
+.asm_51c86
+	ld hl, .PtrTable_51c98
+.asm_51c89
+	add hl, bc
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	jp hl
+
+.PtrTable_51c8e:
+	dw .Func_51ca0
+	dw .Func_51d45
+
+.PtrTable_51c92:
+	dw .Func_51ca0
+	dw .Func_51d45
+	dw $5d94
+
+.PtrTable_51c98:
+	dw .Func_51ca0
+	dw .Func_51cca
+	dw .Func_51d45
+	dw $5d94
+
+.Func_51ca0:
+	ld hl, wcdad
+	ld a, $c2
+	ld [hli], a
+	ld a, $5d
+	ld [hl], a
+	xor a
+	ld [wcdaf], a
+	ld [wcdb0], a
+	ld a, $b8
+	ldh [hVBlankTrampolinePtr], a
+	ld a, $14
+	ldh [hVBlankTrampolineBank], a
+	ld a, $5d
+	ldh [$ffbb], a
+	ld a, [wc7ce]
+	and a
+	jr nz, .asm_51cc7
+	ld a, $03
+	ld [wc7cb], a
+.asm_51cc7
+	jp Func_51738
+
+.Func_51cca:
+	ld de, wcae8
+	ld bc, $101
+	ld a, $00
+	call FillMemory
+
+	ld de, wccb3
+	ld bc, $55
+	ld a, $00
+	call FillMemory
+
+	ld de, w2d000
+	ld bc, $700
+	ld a, $00
+	call FillMemory
+
+	ld hl, $d048
+	ld a, $01
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hl], a
+	farcall Func_68a0f
+	farcall Func_68a37
+	farcall Func_68b26
+	farcall Func_6c085
+	ld a, [wc8dc]
+	ld [wc8da], a
+	xor a
+	ld [wc8db], a
+	call Func_5266c
+	ld hl, wcdad
+	ld a, $c2
+	ld [hli], a
+	ld a, $5d
+	ld [hl], a
+	xor a
+	ld [wcdaf], a
+	ld [wcdb0], a
+	ld a, $b8
+	ldh [hVBlankTrampolinePtr], a
+	ld a, $14
+	ldh [hVBlankTrampolineBank], a
+	ld a, $5d
+	ldh [$ffbb], a
+	ld a, [wc7ce]
+	and a
+	jr nz, .asm_51d42
+	ld a, $03
+	ld [wc7cb], a
+.asm_51d42
+	jp Func_51738
+
+.Func_51d45:
+	call Func_1d3c
+	call Is2PlayerGameMode
+	jr z, .asm_51d65
+	cp GAMEMODE_PUZZLE
+	jr z, .asm_51d6d
+	cp GAMEMODE_LINE_CLEAR
+	jr z, .asm_51d75
+	cp GAMEMODE_MARATHON
+	jr z, .asm_51d7d
+	cp GAMEMODE_CHALLENGE
+	jr z, .asm_51d8c
+.asm_51d5d
+	farcall Func_2e1c
+	jr .asm_51da0
+.asm_51d65
+	farcall Func_a8a2e
+	jr .asm_51da0
+.asm_51d6d
+	ld b, $00
+	farcall Func_6b44f
+.asm_51d75
+	farcall Func_a8a45
+	jr .asm_51da0
+.asm_51d7d
+	ld a, [wGameLevel]
+	cp GAMELEVEL_SLOW
+	jr nz, .asm_51d5d
+	farcall Func_7e014
+	jr .asm_51da0
+.asm_51d8c
+	farcall Func_a8b11
+	jr .asm_51da0
+	farcall Func_46ba5
+	farcall Func_3d775
+.asm_51da0
+	ld a, LOW(.VBlank_51db8)
+	ldh [hVBlankTrampolinePtr], a
+	ld a, BANK(.VBlank_51db8)
+	ldh [hVBlankTrampolineBank], a
+	ld a, HIGH(.VBlank_51db8)
+	ldh [$ffbb], a
+	ld a, [wc7ce]
+	and a
+	jr nz, .asm_51db7
+	ld a, $03
+	ld [wc7cb], a
+.asm_51db7
+	ret
+
+.VBlank_51db8:
+	farcall Func_4922f
+	call Func_1d15
+	ret
+; 0x51dc2
+
+SECTION "Bank 14@60af", ROMX[$60af], BANK[$14]
+
+Func_520af:
+	ld hl, wcdaf
+	ld a, [hl]
+	add a
+	ld c, a
+	ld b, $00
+	ld hl, $60bf
+	add hl, bc
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	jp hl
+; 0x520bf
+
+SECTION "Bank 14@664f", ROMX[$664f], BANK[$14]
+
+; set block tiles/attributes same as background,
+; effectively hiding them
+HideBlocks:
+	ld hl, wBlockTilemap
+	ld bc, BOARD_VIRTUAL_AREA * 4 - 1
+.loop_tilemap
+	ld a, $60 ; background tile
+	ld [hli], a
+	dec bc
+	ld a, b
+	or c
+	jr nz, .loop_tilemap
+	ld hl, wBoardAttrmap
+	ld bc, BOARD_VIRTUAL_AREA * 4 - 1
+.loop_attrmap
+	ld a, 6 | BG_BANK1
+	ld [hli], a
+	dec bc
+	ld a, b
+	or c
+	jr nz, .loop_attrmap
+	ret
+
+; backs up wBlockTilemap and wBoardAttrmap
+Func_5266c:
+	ldh a, [hWRAMBank]
+	push af
+	ld bc, (BOARD_VIRTUAL_AREA * 4) * 2
+.loop
+	ld hl, wBlockTilemap - $1
+	ld a, BANK(wBlockTilemap)
+	wramswitch
+	add hl, bc
+	ld e, [hl]
+	ld hl, w2da80 - $1
+	ld a, BANK(w2da80)
+	wramswitch
+	add hl, bc
+	ld [hl], e
+	dec bc
+	ld a, b
+	or c
+	jr nz, .loop
+	pop af
+	wramswitch
+	ret
+; 0x52693
+
+SECTION "Bank 14@66ba", ROMX[$66ba], BANK[$14]
+
+Func_526ba:
+	and $1f
+	ld c, a
+	ld b, $00
+	ld hl, $66c5
+	add hl, bc
+	ld a, [hl]
+	ret
+; 0x526c5
+
 SECTION "Bank 14@66e5", ROMX[$66e5], BANK[$14]
 
 Func_526e5:
@@ -1890,3 +2842,150 @@ Func_526e5:
 	ld [$100], a
 	ret
 ; 0x5270c
+
+SECTION "Bank 14@676b", ROMX[$676b], BANK[$14]
+
+Func_5276b:
+	ld bc, 8 palettes
+	ld hl, wOBPals
+	ld de, wc55a
+	call CopyHLtoDE
+	ret
+; 0x52778
+
+SECTION "Bank 14@6785", ROMX[$6785], BANK[$14]
+
+Func_52785:
+	ldh a, [hSRAMEnabled]
+	push af
+	enable_sram
+	ldh a, [hSRAMBank]
+	push af
+	ld a, $03
+	sramswitch
+	ldh a, [hff8a]
+	add a
+	ld c, a
+	ld b, $00
+	ld hl, $684a
+	add hl, bc
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	xor a
+	ldh [hff8c], a
+	ldh [hff8d], a
+.asm_527ab
+	push hl
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	or h
+	jp z, .asm_5283c
+	xor a
+	ldh [hff94], a
+	ld a, [hli]
+	ld c, a
+	ld de, $6894
+.asm_527bb
+	ldh a, [hff8e]
+	ld b, a
+	ldh a, [hff8d]
+	cp b
+	jp nz, .asm_527e6
+	push hl
+	push bc
+	ldh a, [hff94]
+	ld b, a
+	ldh a, [hff8f]
+	add b
+	add a
+	ld c, a
+	ld b, $00
+	farcall Func_69d1c
+	ld a, b
+	ldh [hff92], a
+	ld a, c
+	ldh [hff93], a
+	pop bc
+	pop hl
+	ldh a, [hff94]
+	add $03
+	ldh [hff94], a
+	jr .asm_527eb
+.asm_527e6
+	xor a
+	ldh [hff92], a
+	ldh [hff93], a
+.asm_527eb
+	ld a, [hli]
+	cp $ff
+	jp z, .asm_5282b
+	ld [$b003], a
+	ld a, [de]
+	ld [s3b000], a
+	inc de
+	ldh a, [hff8c]
+	ld b, a
+	ldh a, [hff92]
+	add b
+	ld b, a
+	ld a, [de]
+	add b
+	ld [$b001], a
+	inc de
+	ldh a, [hff93]
+	ld b, a
+	ld a, [de]
+	add b
+	ld [$b002], a
+	inc de
+	inc de
+	ld a, [de]
+	add c
+	ld [$b004], a
+	inc de
+	push bc
+	push de
+	push hl
+	ldh a, [hff90]
+	ld b, a
+	ldh a, [hff91]
+	ld c, a
+	ld hl, s3b000
+	call Func_2f8
+	pop hl
+	pop de
+	pop bc
+	jp .asm_527bb
+
+.asm_5282b
+	pop hl
+	inc hl
+	inc hl
+	ldh a, [hff8c]
+	add $0c
+	ldh [hff8c], a
+	ldh a, [hff8d]
+	inc a
+	ldh [hff8d], a
+	jp .asm_527ab
+
+.asm_5283c
+	pop hl
+	pop af
+	sramswitch
+	pop af
+	ldh [hSRAMEnabled], a
+	ld [$100], a
+	ret
+; 0x5284a
+
+SECTION "Bank 14@6c1c", ROMX[$6c1c], BANK[$14]
+
+Pals_52c1c:
+	rgb  0,  0,  0
+	rgb 31, 24,  0
+	rgb 31, 31, 17
+	rgb  0,  0,  0
+; 0x52c24

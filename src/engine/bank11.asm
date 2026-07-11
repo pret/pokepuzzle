@@ -2437,6 +2437,49 @@ Func_46aa6:
 	ret
 ; 0x46abe
 
+SECTION "Bank 11@6ba5", ROMX[$6ba5], BANK[$11]
+
+Func_46ba5:
+	ldh a, [hSRAMEnabled]
+	push af
+	enable_sram
+	ldh a, [hSRAMBank]
+	push af
+	ld a, $01
+	sramswitch
+	ld a, $02
+	ld [s1ab36], a
+	copy_data s1ab37, hSCX, $1
+	copy_data s1ab38, hSCY, $1
+	copy_data s1ab39, hWX, $1
+	copy_data s1ab3a, hWY, $1
+	copy_data $ab3b, $01, $defd, $01, $1 ; ab3b, defd
+	copy_data $ab3c, $01, $deff, $01, $1 ; ab3c, deff
+	copy_data $ab3d, $01, $df22, $01, $1 ; ab3d, df22
+	copy_data $ab3e, $01, $deea, $01, $8 ; ab3e, deea
+	copy_data $ab47, $01, $df11, $01, $1 ; ab47, df11
+	copy_data $ab48, $01, $df0c, $01, $1 ; ab48, df0c
+	copy_data $ab49, $01, $ddb7, $01, $1 ; ab49, ddb7
+	copy_data $ab4a, $01, $df0b, $01, $1 ; ab4a, df0b
+	copy_data s1ab4b, wcea9, $1
+	copy_data s1ab4c, wcef3, $2
+	copy_data s1ab4e, wcef5, $1
+	copy_data s1ab4f, wcef6, $2
+	copy_data s1ab51, wcef8, $1
+	copy_data s1ab52, wcef9, $1
+	copy_data s1ab53, wcefa, $1
+	copy_data s1ab54, wcea0, $24
+	copy_data s1ab78, wc833, $590
+	copy_data s1b0e4, wBlocks, $d80
+	call Func_20d4
+	pop af
+	sramswitch
+	pop af
+	ldh [hSRAMEnabled], a
+	ld [$100], a
+	ret
+; 0x46cc0
+
 SECTION "Bank 11@6dda", ROMX[$6dda], BANK[$11]
 
 Func_46dda:

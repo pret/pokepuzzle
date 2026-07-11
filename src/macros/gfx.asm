@@ -19,6 +19,8 @@ DEF palblue  EQUS "(1 << B_COLOR_BLUE) *"
 
 DEF palettes EQUS "* PAL_SIZE"
 DEF palette  EQUS "+ PAL_SIZE *"
+DEF color    EQUS "+ COLOR_SIZE *"
+DEF colors   EQUS "* COLOR_SIZE"
 
 DEF tiles EQUS "* TILE_SIZE"
 DEF tile  EQUS "+ TILE_SIZE *"
