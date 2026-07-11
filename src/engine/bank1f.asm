@@ -211,7 +211,7 @@ Func_7e014:
 	ld a, GAMESTATE_1A
 	ldh [hGameState], a
 	xor a
-	ldh [$ffbb], a
+	ldh [hVBlankTrampolinePtr + 1], a
 	ldh a, [hWRAMBank]
 	push af
 	ld a, $01

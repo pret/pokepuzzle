@@ -2627,11 +2627,11 @@ Func_51750:
 	ld [wcdaf], a
 	ld [wcdb0], a
 	ld a, $b8
-	ldh [hVBlankTrampolinePtr], a
+	ldh [hVBlankTrampolinePtr + 0], a
 	ld a, $14
 	ldh [hVBlankTrampolineBank], a
 	ld a, $5d
-	ldh [$ffbb], a
+	ldh [hVBlankTrampolinePtr + 1], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_51cc7
@@ -2682,11 +2682,11 @@ Func_51750:
 	ld [wcdaf], a
 	ld [wcdb0], a
 	ld a, $b8
-	ldh [hVBlankTrampolinePtr], a
+	ldh [hVBlankTrampolinePtr + 0], a
 	ld a, $14
 	ldh [hVBlankTrampolineBank], a
 	ld a, $5d
-	ldh [$ffbb], a
+	ldh [hVBlankTrampolinePtr + 1], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_51d42
@@ -2732,11 +2732,11 @@ Func_51750:
 	farcall Func_3d775
 .asm_51da0
 	ld a, LOW(.VBlank_51db8)
-	ldh [hVBlankTrampolinePtr], a
+	ldh [hVBlankTrampolinePtr + 0], a
 	ld a, BANK(.VBlank_51db8)
 	ldh [hVBlankTrampolineBank], a
 	ld a, HIGH(.VBlank_51db8)
-	ldh [$ffbb], a
+	ldh [hVBlankTrampolinePtr + 1], a
 	ld a, [wc7ce]
 	and a
 	jr nz, .asm_51db7

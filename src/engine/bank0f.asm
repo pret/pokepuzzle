@@ -6,7 +6,7 @@ Func_3d775:
 	ld a, GAMESTATE_1A
 	ldh [hGameState], a
 	xor a
-	ldh [$ffbb], a
+	ldh [hVBlankTrampolinePtr + 1], a
 	ret
 ; 0x3d782
 
