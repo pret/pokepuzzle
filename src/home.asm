@@ -1813,7 +1813,7 @@ _Decompress:
 
 SECTION "Bank 0@d91", ROM0[$d91]
 
-Func_d91:
+Func_d91::
 	call Func_daf
 	di
 	ld a, $00
@@ -1880,25 +1880,28 @@ Func_daf:
 
 SECTION "Bank 0@e20", ROM0[$e20]
 
-Func_e20:
-	ldh a, [hfff0]
+; increments [hSerialTimeOutCounter] by 1
+; if value overflows, return with z set
+TickSerialTimeOutCounter:
+	ldh a, [hSerialTimeOutCounter]
 	inc a
-	ret z
-	ldh [hfff0], a
+	ret z ; overflow
+	ldh [hSerialTimeOutCounter], a
 	ret
 
-Func_e27:
-	ld a, $04
+CommunicationError:
+	ld a, BANK(_CommunicationError)
 	bankswitch
-	jp $425e
+	jp _CommunicationError
 
 Func_e31::
 	call Func_e3f
 	ldh a, [hffeb]
 	and a
 	jr z, .asm_e3e
-	call Func_e20
-	jr z, Func_e27
+	; if there's serial time out, show Communication Error
+	call TickSerialTimeOutCounter
+	jr z, CommunicationError
 .asm_e3e
 	ret
 
@@ -1941,7 +1944,7 @@ SerialHandler:
 	ld a, $01
 	ldh [hffee], a
 	xor a
-	ldh [hfff0], a
+	ldh [hSerialTimeOutCounter], a
 	ldh a, [hffeb]
 	and a
 	jr nz, .asm_eae

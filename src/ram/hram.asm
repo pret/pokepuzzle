@@ -101,4 +101,4 @@ hffec:: ds 1 ; ffec
 hffed:: ds 1 ; ffed
 hffee:: ds 1 ; ffee
 hffef:: ds 1 ; ffef
-hfff0:: ds 1 ; fff0
+hSerialTimeOutCounter:: ds 1 ; wSerialTimeOutCounter
