@@ -132,8 +132,8 @@ _CommunicationError::
 
 	call Func_1030f
 
-	ld b, $5c
-	ld de, $4a29
+	ld b, BANK(Text_170a29)
+	ld de, Text_170a29
 	farcall Func_10c011
 .asm_102e0
 	ld a, [wcf0c]

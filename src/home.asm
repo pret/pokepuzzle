@@ -3434,9 +3434,9 @@ Func_1ec2::
 	add hl, hl
 	add hl, hl
 	add hl, hl ; *16
-	ld bc, FontGfx
+	ld bc, FontPdPGfx
 	add hl, bc
-	ld a, BANK(FontGfx)
+	ld a, BANK(FontPdPGfx)
 	ld bc, TILE_SIZE
 	call FarCopyHLtoDE
 	pop bc
@@ -4934,11 +4934,11 @@ Func_3397::
 	vramswitch
 	ret
 
-; gets next byte in w2dd21:w2dd1f
-Func_33f5::
+; gets next byte in wTextDataBank:wTextDataPtr
+GetNextTextByte::
 	ldh a, [hROMBank]
 	push af
-	ld hl, w2dd21
+	ld hl, wTextDataBank
 	ld a, [hld]
 	bankswitch
 	ld a, [hld]
@@ -4947,9 +4947,9 @@ Func_33f5::
 	ld a, [hli]
 	ld e, a
 	ld a, l
-	ld [w2dd1f + 0], a
+	ld [wTextDataPtr + 0], a
 	ld a, h
-	ld [w2dd1f + 1], a
+	ld [wTextDataPtr + 1], a
 	pop af
 	bankswitch
 	ld a, e
@@ -4964,7 +4964,7 @@ Func_3416::
 	inc c
 	ldh a, [hROMBank]
 	push af
-.asm_341b
+.null
 	ld hl, w2dd14
 	ld a, [hld]
 	bankswitch
@@ -4976,8 +4976,8 @@ Func_3416::
 	ld e, a
 	ld a, [hli]
 	ld d, a
-	and a
-	jr z, .asm_341b
+	and a ; NULL?
+	jr z, .null
 	dec c
 	jr nz, .loop_ptrs
 	pop af
@@ -4993,7 +4993,7 @@ Func_3438::
 	ld hl, w2dd1e
 	ld a, [hld]
 	bankswitch
-	ld a, [hld]
+	ld a, [hld] ; w2dd1c
 	ld l, [hl]
 	ld h, a
 	ld a, [hli]
@@ -5036,15 +5036,15 @@ Func_3438::
 Func_347d::
 	ld a, [wcf0c]
 	dec a
-	jp z, .asm_348f
+	jp z, .copy_1_tile
 	dec a
-	jp z, .asm_34b9
+	jp z, .copy_2_tiles
 	dec a
-	jp z, .asm_3500
+	jp z, .show_tile
 	debug_loop
 	ret ; unreachable
 
-.asm_348f
+.copy_1_tile
 	; transfers 16 bytes (1 tile)
 	; from wc300 to wcf0f:wcf0d
 	ldh a, [hVRAMBank]
@@ -5071,7 +5071,7 @@ Func_347d::
 	vramswitch
 	ret
 
-.asm_34b9
+.copy_2_tiles
 	ldh a, [hVRAMBank]
 	push af
 
@@ -5118,7 +5118,7 @@ Func_347d::
 	vramswitch
 	ret
 
-.asm_3500
+.show_tile
 	ldh a, [hVRAMBank]
 	push af
 

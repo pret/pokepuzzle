@@ -924,7 +924,7 @@ wcefa:: ds 1 ; cefa
 
 	ds $cf0b - $cefb
 
-wcf0b:: ds 1 ; cf0b
+wLanguage:: ds 1 ; cf0b
 
 wcf0c:: ds 1 ; cf0c
 wcf0d:: ds 1 ; cf0d
@@ -1077,17 +1077,17 @@ w2dd14:: ds 1 ; dd14
 w2dd15:: ds 2 ; dd15
 w2dd17:: ds 1 ; dd17
 
-w2dd18:: ds 1 ; dd18
+wFont:: ds 1 ; dd18
 
 w2dd19:: ds 1 ; dd19
-w2dd1a:: ds 1 ; dd1a
+wTextFillColor:: ds 1 ; dd1a
 w2dd1b:: ds 1 ; dd1b
 
 w2dd1c:: ds 2 ; dd1c
 w2dd1e:: ds 1 ; dd1e
 
-w2dd1f:: ds 2 ; dd1f
-w2dd21:: ds 1 ; dd21
+wTextDataPtr:: ds 2 ; dd1f
+wTextDataBank:: ds 1 ; dd21
 
 w2dd22:: ds 2 ; dd22
 
@@ -1098,7 +1098,7 @@ w2dd27:: ds 1 ; dd27
 w2dd28:: ; dd28
 	ds 3 * $3
 
-w2dd31:: ds 1 ; dd31
+wCharToPrint:: ds 1 ; dd31
 
 w2dd32:: ds 1 ; dd32
 w2dd33:: ds 1 ; dd33

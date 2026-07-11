@@ -114,6 +114,10 @@ SECTION "Bank 59", ROMX
 
 INCLUDE "engine/bank59.asm"
 
+SECTION "Bank 5C", ROMX
+
+INCLUDE "engine/bank5c.asm"
+
 SECTION "Panel de Pon 2", ROMX[$4000], BANK[$60]
 
 INCLUDE "audio/music/paneldepon2.asm"

@@ -2958,8 +2958,8 @@ GameState_LoadGBCompatibility::
 	fill_mem $0, $4, $100
 
 	; load font graphics
-	copy_data v0Tiles2, $00, FontGfx tile $00, BANK(FontGfx), $80 tiles
-	copy_data v0Tiles1, $00, FontGfx tile $80, BANK(FontGfx), $80 tiles
+	copy_data v0Tiles2, $00, FontPdPGfx tile $00, BANK(FontPdPGfx), $80 tiles
+	copy_data v0Tiles1, $00, FontPdPGfx tile $80, BANK(FontPdPGfx), $80 tiles
 
 	call Func_c7aa9
 
@@ -3174,8 +3174,8 @@ GameState_LoadPanelDePonMenu::
 	ld a, $80
 	fill_mem $0, $4, $100
 
-	copy_data v0Tiles2, $00, FontGfx tile $00, BANK(FontGfx), $80 tiles
-	copy_data v0Tiles1, $00, FontGfx tile $80, BANK(FontGfx), $80 tiles
+	copy_data v0Tiles2, $00, FontPdPGfx tile $00, BANK(FontPdPGfx), $80 tiles
+	copy_data v0Tiles1, $00, FontPdPGfx tile $80, BANK(FontPdPGfx), $80 tiles
 
 	ld de, v0BGMap1
 	ld c, $00
@@ -4037,11 +4037,11 @@ GameState_PanelDePonMenu::
 	ret
 
 Func_c7aa9:
-	ld a, [wcf0b]
+	ld a, [wLanguage]
 	ld de, v0Tiles2
 	ld c, $00
 	decompress PtrTable_c7ac8, $6
-	ld a, [wcf0b]
+	ld a, [wLanguage]
 	ld de, v0BGMap0
 	ld c, $00
 	decompress PtrTable_c7acb, $6

@@ -1,3 +1,6 @@
+DEF FALSE EQU 0
+DEF TRUE  EQU 1
+
 	const_def
 	const GAMESTATE_00 ; $00
 	const GAMESTATE_01 ; $01
@@ -36,6 +39,3 @@
 	const GAMESTATE_22 ; $22
 	const GAMESTATE_23 ; $23
 DEF NUM_GAME_STATES EQU const_value
-
-DEF FALSE EQU 0
-DEF TRUE  EQU 1

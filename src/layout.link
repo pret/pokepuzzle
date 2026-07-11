@@ -112,6 +112,8 @@ ROMX $53
 	"Bank 53"
 ROMX $59
 	"Bank 59"
+ROMX $5c
+	"Bank 5C"
 ROMX $61
 	"Music 1"
 ROMX $62

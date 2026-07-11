@@ -1,4 +1,4 @@
-SETCHARMAP ascii
+PUSHC ascii
 
 SECTION "Bank 1a@4a0f", ROMX[$4a0f], BANK[$1a]
 
@@ -1957,3 +1957,5 @@ Func_6bd88:
 .asm_6bda4
 	ret
 ; 0x6bda5
+
+POPC
