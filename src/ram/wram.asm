@@ -15,8 +15,8 @@ SECTION "WRAM0", WRAM0
 wc100:: ds $100 ; c100
 wc200:: ds $100 ; c200
 
-wc300:: ds TILE_SIZE ; c300
-wc310:: ds TILE_SIZE ; c310
+wTextTile1:: ds TILE_SIZE ; c300
+wTextTile2:: ds TILE_SIZE ; c310
 
 wc320:: ds 1 ; c320
 wc321:: ds 2 ; c321
@@ -922,17 +922,20 @@ wcef8:: ds 1 ; cef8
 wcef9:: ds 1 ; cef9
 wcefa:: ds 1 ; cefa
 
-	ds $cf0b - $cefb
+	ds $1
+
+wcefc:: ds 1 ; cefc
+wcefd:: ds 1 ; cefd
+
+	ds $cf0b - $cefe
 
 wLanguage:: ds 1 ; cf0b
 
-wcf0c:: ds 1 ; cf0c
-wcf0d:: ds 1 ; cf0d
-wcf0e:: ds 1 ; cf0e
-wcf0f:: ds 1 ; cf0f
-wcf10:: ds 1 ; cf10
-wcf11:: ds 1 ; cf11
-wcf12:: ds 1 ; cf12
+wPendingTextGfxOperation:: ds 1 ; cf0c
+wTextTile1DestPtr::  ds 2 ; cf0d
+wTextTile1DestBank:: ds 1 ; cf0f
+wTextTile2DestPtr::  ds 2 ; cf10
+wTextTile2DestBank:: ds 1 ; cf12
 wcf13:: ds 2 ; cf13
 wcf15:: ds 1 ; cf15
 wcf16:: ds 1 ; cf16
@@ -1066,9 +1069,12 @@ w2da80:: ; da80
 
 	ds $dd00 - $dae0
 
+SECTION "Text RAM", WRAMX
+
 w2dd00:: ds 2 * TILE_HEIGHT ; dd00
 
-w2dd10:: ds 1 ; dd10
+; TXPROC_* constant
+wTextProcessMode:: ds 1 ; dd10
 w2dd11:: ds 1 ; dd11
 
 w2dd12:: ds 2 ; dd12
@@ -1081,7 +1087,7 @@ wFont:: ds 1 ; dd18
 
 w2dd19:: ds 1 ; dd19
 wTextFillColor:: ds 1 ; dd1a
-w2dd1b:: ds 1 ; dd1b
+wTextDelay:: ds 1 ; dd1b
 
 w2dd1c:: ds 2 ; dd1c
 w2dd1e:: ds 1 ; dd1e
@@ -1089,7 +1095,7 @@ w2dd1e:: ds 1 ; dd1e
 wTextDataPtr:: ds 2 ; dd1f
 wTextDataBank:: ds 1 ; dd21
 
-w2dd22:: ds 2 ; dd22
+wTextDelayTimer:: ds 2 ; dd22
 
 w2dd24:: ds 2 ; dd24
 w2dd26:: ds 1 ; dd26
@@ -1105,7 +1111,10 @@ w2dd33:: ds 1 ; dd33
 w2dd34:: ds 1 ; dd34
 w2dd35:: ds 1 ; dd35
 
-	ds $dd3a - $dd36
+w2dd36:: ds 1 ; dd36
+w2dd37:: ds 1 ; dd37
+w2dd38:: ds 1 ; dd38
+w2dd39:: ds 1 ; dd39
 
 w2dd3a:: ds 2 ; dd3a
 w2dd3c:: ds 1 ; dd3c

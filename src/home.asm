@@ -559,7 +559,7 @@ Func_58d::
 	push af
 
 	ld a, c
-	ldh [$ff8c], a
+	ldh [$ff8c], a ; fill byte
 	ld a, d
 	call Func_8ef
 	push de
@@ -4299,9 +4299,9 @@ Func_2c1e:
 .asm_2c43
 	call hTransferVirtualOAM
 
-	ld a, [wcf0c]
+	ld a, [wPendingTextGfxOperation]
 	and a
-	call nz, Func_347d
+	call nz, ProcessPendingTextGfxOperation
 
 	call wce4b
 	call wce48
@@ -4956,7 +4956,7 @@ GetNextTextByte::
 	ret
 
 ; input:
-; - a = ?
+; - a = which line
 ; output:
 ; - de = ?
 Func_3416::
@@ -5033,31 +5033,31 @@ Func_3438::
 	bankswitch
 	ret
 
-Func_347d::
-	ld a, [wcf0c]
-	dec a
+ProcessPendingTextGfxOperation::
+	ld a, [wPendingTextGfxOperation]
+	dec a ; cp PUSH_1_TEXT_TILE
 	jp z, .copy_1_tile
-	dec a
+	dec a ; cp PUSH_2_TEXT_TILES
 	jp z, .copy_2_tiles
-	dec a
+	dec a ; cp SHOW_TEXT_TILE
 	jp z, .show_tile
 	debug_loop
 	ret ; unreachable
 
 .copy_1_tile
 	; transfers 16 bytes (1 tile)
-	; from wc300 to wcf0f:wcf0d
+	; from wTextTile1 to wTextTile1DestBank:wTextTile1DestPtr
 	ldh a, [hVRAMBank]
 	push af
-	ld hl, wcf0f
+	ld hl, wTextTile1DestBank
 	ld a, [hld]
 	vramswitch
 	ld a, [hld]
 	ld l, [hl]
 	ld h, a
-	ld a, HIGH(wc300)
+	ld a, HIGH(wTextTile1)
 	ldh [rVDMA_SRC_HIGH], a
-	ld a, LOW(wc300)
+	ld a, LOW(wTextTile1)
 	ldh [rVDMA_SRC_LOW], a
 	ld a, h
 	ldh [rVDMA_DEST_HIGH], a
@@ -5066,7 +5066,7 @@ Func_347d::
 	ld a, $00
 	ldh [rVDMA_LEN], a
 	xor a
-	ld [wcf0c], a
+	ld [wPendingTextGfxOperation], a
 	pop af
 	vramswitch
 	ret
@@ -5076,16 +5076,16 @@ Func_347d::
 	push af
 
 	; transfers 16 bytes (1 tile)
-	; from wc300 to wcf0f:wcf0d
-	ld hl, wcf0f
+	; from wTextTile1 to wTextTile1DestBank:wTextTile1DestPtr
+	ld hl, wTextTile1DestBank
 	ld a, [hld]
 	vramswitch
 	ld a, [hld]
 	ld l, [hl]
 	ld h, a
-	ld a, HIGH(wc300)
+	ld a, HIGH(wTextTile1)
 	ldh [rVDMA_SRC_HIGH], a
-	ld a, LOW(wc300)
+	ld a, LOW(wTextTile1)
 	ldh [rVDMA_SRC_LOW], a
 	ld a, h
 	ldh [rVDMA_DEST_HIGH], a
@@ -5095,16 +5095,16 @@ Func_347d::
 	ldh [rVDMA_LEN], a
 
 	; transfers 16 bytes (1 tile)
-	; from wc310 to wcf12:wcf10
-	ld hl, wcf12
+	; from wTextTile2 to wTextTile2DestBank:wTextTile2DestPtr
+	ld hl, wTextTile2DestBank
 	ld a, [hld]
 	vramswitch
 	ld a, [hld]
 	ld l, [hl]
 	ld h, a
-	ld a, HIGH(wc310)
+	ld a, HIGH(wTextTile2)
 	ldh [rVDMA_SRC_HIGH], a
-	ld a, LOW(wc310)
+	ld a, LOW(wTextTile2)
 	ldh [rVDMA_SRC_LOW], a
 	ld a, h
 	ldh [rVDMA_DEST_HIGH], a
@@ -5113,7 +5113,7 @@ Func_347d::
 	ld a, $00
 	ldh [rVDMA_LEN], a
 	xor a
-	ld [wcf0c], a
+	ld [wPendingTextGfxOperation], a
 	pop af
 	vramswitch
 	ret
@@ -5137,7 +5137,7 @@ Func_347d::
 	ld a, [wcf15]
 	ld [hl], a
 	xor a
-	ld [wcf0c], a
+	ld [wPendingTextGfxOperation], a
 
 	pop af
 	vramswitch

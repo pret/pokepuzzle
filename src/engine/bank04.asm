@@ -132,20 +132,19 @@ _CommunicationError::
 
 	call Func_1030f
 
-	ld b, BANK(Text_170a29)
-	ld de, Text_170a29
-	farcall Func_10c011
-.asm_102e0
-	ld a, [wcf0c]
+	ldbde_tx Text_CommunicationError
+	farcall PrepareTextProcessing
+.loop_process_text
+	ld a, [wPendingTextGfxOperation]
 	and a
-	call nz, Func_347d
-	farcall_saveregs Func_10c22b
-	jr c, .asm_102e0
-	ld a, [wcf0c]
+	call nz, ProcessPendingTextGfxOperation
+	farcall_saveregs ProcessText
+	jr c, .loop_process_text
+	ld a, [wPendingTextGfxOperation]
 	and a
-	call nz, Func_347d
+	call nz, ProcessPendingTextGfxOperation
 
-	; turns LCD on wit only BG enabled
+	; turns LCD on with only BG enabled
 	ld a, LCDC_BG_ON | LCDC_ON
 	ldh [rLCDC], a
 	ldh [hLCDC], a

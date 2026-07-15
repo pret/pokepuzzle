@@ -190,54 +190,53 @@ Func_6419d:
 	ret
 
 Func_641ab:
-	ld b, $59
-	ld de, $7957
-	farcall Func_10c011
+	ldbde_tx Text_Data
+	farcall PrepareTextProcessing
 .asm_641b6
-	ld a, [wcf0c]
+	ld a, [wPendingTextGfxOperation]
 	and a
-	call nz, Func_347d
-	farcall_saveregs Func_10c22b
+	call nz, ProcessPendingTextGfxOperation
+	farcall_saveregs ProcessText
 	jr c, .asm_641b6
-	ld a, [wcf0c]
+	ld a, [wPendingTextGfxOperation]
 	and a
-	call nz, Func_347d
-	ld b, $59
-	ld de, $7980
-	farcall Func_10c011
+	call nz, ProcessPendingTextGfxOperation
+
+	ldbde_tx Text_Saved
+	farcall PrepareTextProcessing
 .asm_641d7
-	ld a, [wcf0c]
+	ld a, [wPendingTextGfxOperation]
 	and a
-	call nz, Func_347d
-	farcall_saveregs Func_10c22b
+	call nz, ProcessPendingTextGfxOperation
+	farcall_saveregs ProcessText
 	jr c, .asm_641d7
-	ld a, [wcf0c]
+	ld a, [wPendingTextGfxOperation]
 	and a
-	call nz, Func_347d
-	ld b, $59
-	ld de, $79ab
-	farcall Func_10c011
+	call nz, ProcessPendingTextGfxOperation
+
+	ldbde_tx Text_Continue
+	farcall PrepareTextProcessing
 .asm_641f8
-	ld a, [wcf0c]
+	ld a, [wPendingTextGfxOperation]
 	and a
-	call nz, Func_347d
-	farcall_saveregs Func_10c22b
+	call nz, ProcessPendingTextGfxOperation
+	farcall_saveregs ProcessText
 	jr c, .asm_641f8
-	ld a, [wcf0c]
+	ld a, [wPendingTextGfxOperation]
 	and a
-	call nz, Func_347d
-	ld b, $59
-	ld de, $79d7
-	farcall Func_10c011
+	call nz, ProcessPendingTextGfxOperation
+
+	ldbde_tx Text_Quit
+	farcall PrepareTextProcessing
 .asm_64219
-	ld a, [wcf0c]
+	ld a, [wPendingTextGfxOperation]
 	and a
-	call nz, Func_347d
-	farcall_saveregs Func_10c22b
+	call nz, ProcessPendingTextGfxOperation
+	farcall_saveregs ProcessText
 	jr c, .asm_64219
-	ld a, [wcf0c]
+	ld a, [wPendingTextGfxOperation]
 	and a
-	call nz, Func_347d
+	call nz, ProcessPendingTextGfxOperation
 	ret
 
 Func_64230:
