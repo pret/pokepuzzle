@@ -7,7 +7,10 @@ MACRO? tx_unk_fe
 ENDM
 
 MACRO? text1
-	db TX_FONT1, \#
+	db TX_FONT1
+	PUSHC font1
+		db \#
+	POPC
 ENDM
 
 MACRO? text2
@@ -22,74 +25,72 @@ MACRO? tx_clear
 	db TX_CLEAR
 ENDM
 
-DEF TX_UNKF8 EQU $f8
-MACRO? tx_unk_f8
-	db TX_UNKF8
+MACRO? tx_set_vram_tiles
+	db TX_SET_VRAM_TILES
 	dab \1 ; ?
 ENDM
 
-DEF TX_UNKF7 EQU $f7
-MACRO? tx_unk_f7
-	db TX_UNKF7
+MACRO? tx_color
+	db TX_COLOR
+	db \1 ; ?
 ENDM
 
-DEF TX_FILL_COLOR EQU $f6
-MACRO? tx_unk_f6
+MACRO? tx_fill_color
 	db TX_FILL_COLOR
+	db \1 ; color index
 ENDM
 
-DEF TX_UNKF5 EQU $f5
-MACRO? tx_unk_f5
-	db TX_UNKF5
+MACRO? tx_set_delay
+	db TX_SET_DELAY
+	db \1 ; delay amount
 ENDM
 
-DEF TX_UNKF4 EQU $f4
-MACRO? tx_unk_f4
-	db TX_UNKF4
+MACRO? tx_allow_speedup
+	db TX_ALLOW_SPEEDUP
+	db \1 ; TRUE or FALSE
 ENDM
 
-DEF TX_UNKF3 EQU $f3
-MACRO? tx_unk_f3
-	db TX_UNKF3
+MACRO? tx_jump
+	db TX_JUMP
+	dab \1 ; address
 ENDM
 
-DEF TX_UNKF2 EQU $f2
-MACRO? tx_unk_f2
-	db TX_UNKF2
+MACRO? tx_lang_branch
+	db TX_LANGUAGE_BRANCH
 	dab \1 ; japanese
 	dab \2 ; english
 	REPT 4
-		; other languages?
+		; other languages
+		; (all set to the English text)
 		dab \2
 	ENDR
 ENDM
 
-DEF TX_UNKF1 EQU $f1
-MACRO? tx_unk_f1
-	db TX_UNKF1
+MACRO? tx_exec
+	db TX_EXEC
+	dab \1 ; function
 ENDM
 
-DEF TX_UNKF0 EQU $f0
-MACRO? tx_unk_f0
-	db TX_UNKF0
+MACRO? tx_condition
+	db TX_CONDITION
+	dab \1 ; function
 ENDM
 
-DEF TX_UNKEF EQU $ef
 MACRO? tx_unk_ef
 	db TX_UNKEF
+	dab \1 ; ?
 ENDM
 
-DEF TX_UNKEE EQU $ee
-MACRO? tx_unk_ee
-	db TX_UNKEE
+MACRO? tx_wait
+	db TX_WAIT
+	db \1 ; number of seconds
 ENDM
 
-DEF TX_UNKED EQU $ed
-MACRO? tx_unk_ed
-	db TX_UNKED
+MACRO? tx_call
+	db TX_CALL
+	dab \1 ; function
 ENDM
 
-DEF TX_UNKEC EQU $ec
-MACRO? tx_unk_ec
-	db TX_UNKEC
+MACRO? tx_ret
+	db TX_RET
 ENDM

@@ -132,3 +132,8 @@ MACRO? debug_loop
 :
 	jr :-
 ENDM
+
+MACRO? ldbde_tx
+	ld b, BANK(\1)
+	ld de, \1
+ENDM

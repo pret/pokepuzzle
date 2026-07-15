@@ -2922,6 +2922,27 @@ SECTION "Bank 31@6f51", ROMX[$6f51], BANK[$31]
 Unknown_c6f51:
 	vc_hook 845_2_Register
 
+SECTION "Bank 31@722e", ROMX[$722e], BANK[$31]
+
+Func_c722e:
+	push hl
+	push bc
+	push de
+	ld c, e
+	ldh a, [hSRAMBank]
+	push af
+	ld a, $00
+	sramswitch
+	ld de, $a178
+	farcall Func_100497
+	pop af
+	sramswitch
+	pop de
+	pop bc
+	pop hl
+	ret
+; 0xc724f
+
 SECTION "Bank 31@727a", ROMX[$727a], BANK[$31]
 
 GameState_LoadGBCompatibility::

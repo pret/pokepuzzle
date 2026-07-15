@@ -234,3 +234,49 @@ Func_7e014:
 	wramswitch
 	ret
 ; 0x7e055
+
+SECTION "Bank 1f@61ce", ROMX[$61ce], BANK[$1f]
+
+Func_7e1ce::
+	ld a, $ed
+	ld [wcf13], a
+	ld a, $98
+	ld [$cf14], a
+	ldh a, [hJoypadPressed]
+	and $01
+	jr nz, .asm_7e20e
+	ldh a, [hffb7]
+	and $1f
+	cp $00
+	jr z, .asm_7e1ec
+	cp $10
+	jr z, .Func_7e1fd
+	scf
+	ret
+.asm_7e1ec
+	ld a, $66 ; tile
+	ld [wcf15], a
+	ld a, 3 | BG_BANK0 ; attributes
+	ld [wcf16], a
+	ld a, SHOW_TEXT_TILE
+	ld [wPendingTextGfxOperation], a
+	scf
+	ret
+.Func_7e1fd
+	ld a, $62 ; tile
+	ld [wcf15], a
+	ld a, 3 | BG_BANK0 ; attributes
+	ld [wcf16], a
+	ld a, SHOW_TEXT_TILE
+	ld [wPendingTextGfxOperation], a
+	scf
+	ret
+.asm_7e20e
+	call .Func_7e1fd
+	ld a, LOW(1)
+	ld [wTextDelayTimer + 0], a
+	ld a, HIGH(0)
+	ld [wTextDelayTimer + 1], a
+	and a
+	ret
+; 0x7e21d
