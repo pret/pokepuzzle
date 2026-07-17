@@ -8,10 +8,10 @@ Func_106aea:
 Func_106aef::
 	ld a, [wcefc]
 	and a
-	jr z, .asm_106af7
+	jr z, .no_carry
 	scf
 	ret
-.asm_106af7
+.no_carry
 	and a
 	ret
 ; 0x106af9
@@ -41,32 +41,32 @@ Func_106b59:
 	ld a, BANK(PokemonData)
 	call GetFarByte
 	inc hl
-	ld [$cf01], a
+	ld [wCopySource + 0], a
 	ld a, BANK(PokemonData)
 	call GetFarByte
 	inc hl
-	ld [$cf02], a
+	ld [wCopySource + 1], a
 	ld a, BANK(PokemonData)
 	call GetFarByte
-	ld [$cf03], a
+	ld [wCopySourceBank], a
+	ld a, LOW(v1Tiles1 tile $77)
+	ld [wCopyDest + 0], a
+	ld a, HIGH(v1Tiles1 tile $77)
+	ld [wCopyDest + 1], a
+	ld a, BANK(v1Tiles1)
+	ld [wCopyDestBank], a
+	ld a, 3 tiles
+	ld [wCopyLen + 0], a
+	xor a
+	ld [wCopyLen + 1], a
+	xor a
+	ld [wCopyInterval + 0], a
+	ld [wCopyInterval + 1], a
+	ld a, 1
+	ld [wCopyIterations + 0], a
+	xor a
+	ld [wCopyIterations + 1], a
 
-	ld a, $70
-	ld [$cefe], a
-	ld a, $8f
-	ld [$ceff], a
-	ld a, $01
-	ld [$cf00], a
-	ld a, $30
-	ld [$cf04], a
-	xor a
-	ld [$cf05], a
-	xor a
-	ld [$cf06], a
-	ld [$cf07], a
-	ld a, $01
-	ld [$cf08], a
-	xor a
-	ld [$cf09], a
 	call Func_106aea
 	ld a, LOW(VBlank_106bbd)
 	ldh [hVBlankTrampolinePtr + 0], a
@@ -123,7 +123,7 @@ VBlank_106bf6:
 
 VBlank_106c0d:
 	push hl
-	ld hl, $cefe
+	ld hl, wCopyDest
 	call Func_692
 	pop hl
 	call Func_106c5c
@@ -137,7 +137,7 @@ VBlank_106c0d:
 
 VBlank_106c25:
 	push hl
-	ld hl, $cefe
+	ld hl, wCopyDest
 	call Func_692
 	pop hl
 	call Func_106c5c
@@ -151,7 +151,7 @@ VBlank_106c25:
 
 VBlank_106c3d:
 	push hl
-	ld hl, $cefe
+	ld hl, wCopyDest
 	call Func_692
 	pop hl
 	call Func_106c5c
@@ -170,26 +170,26 @@ VBlank_106c55:
 	ret
 
 Func_106c5c:
-	ld hl, $cefe
+	ld hl, wCopyDest
 	ld a, [hl]
-	add $30
+	add LOW(3 tiles)
 	ld [hli], a
 	ld a, [hl]
-	adc $00
+	adc HIGH(3 tiles)
 	ld [hli], a
-	ld hl, $cf01
+	ld hl, wCopySource
 	ld a, [hl]
-	add $30
+	add LOW(3 tiles)
 	ld [hli], a
 	ld a, [hl]
-	adc $00
+	adc HIGH(3 tiles)
 	ld [hli], a
 	ret
 
 Func_106c73:
 	ldh a, [hVRAMBank]
 	push af
-	ld a, $01
+	ld a, BANK("VRAM1")
 	vramswitch
 	ld a, $00
 	ld d, $00

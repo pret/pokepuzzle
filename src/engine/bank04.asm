@@ -132,7 +132,7 @@ _CommunicationError::
 
 	call Func_1030f
 
-	ldbde_tx Text_CommunicationError
+	ldtx_bde Text_CommunicationError
 	farcall PrepareTextProcessing
 .loop_process_text
 	ld a, [wPendingTextGfxOperation]
@@ -165,18 +165,19 @@ _CommunicationError::
 	jr .infinite_loop
 
 Func_1030f:
-	ld b, $00
+	ld b, BANK(v0Tiles0)
 	ld de, v0Tiles0
 	ld a, $00
-	fill_mem $0, $18, $100
-	ld b, $00
+	fill_mem $180 tiles
+	ld b, BANK(v0BGMap0)
 	ld de, v0BGMap0
 	ld a, $00
-	fill_mem $0, $4, $100
-	ld b, $01
-	ld de, v0BGMap0
+	fill_mem TILEMAP_AREA
+	ld b, BANK(v1BGMap0)
+	ld de, v1BGMap0
 	ld a, $00
-	fill_mem $0, $4, $100
+	fill_mem TILEMAP_AREA
+
 	hlbgcoord 0, 7
 	ld b, $01
 	ld de, $c

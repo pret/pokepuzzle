@@ -105,14 +105,14 @@ ENDM
 
 MACRO? fill_mem
 	call Func_58d
-	IF _NARG == 2
-		db \1 ; num iterations
-		db $00
-		dw \2 ; length
+	IF _NARG == 1
+		dw \1 ; length
+		db $00 ; interval
+		db 1 ; num iterations
 	ELSE
-		db \1 ; num iterations
+		dw \1 ; length
 		db \2 ; interval
-		dw \3 ; length
+		db \3 ; num iterations
 	ENDC
 ENDM
 
@@ -133,7 +133,7 @@ MACRO? debug_loop
 	jr :-
 ENDM
 
-MACRO? ldbde_tx
+MACRO? ldtx_bde
 	ld b, BANK(\1)
 	ld de, \1
 ENDM

@@ -20,11 +20,11 @@ PrepareTextProcessing::
 	ld b, BANK(wPendingTextGfxOperation)
 	ld de, wPendingTextGfxOperation
 	ld a, $00
-	fill_mem $b, $100
+	fill_mem $b
 	ld b, BANK("Text RAM")
 	ld de, STARTOF("Text RAM")
 	ld a, $00
-	fill_mem SIZEOF("Text RAM"), $100
+	fill_mem SIZEOF("Text RAM")
 	pop de
 	pop bc
 
@@ -59,7 +59,7 @@ PrepareTextProcessing::
 
 	ld a, $03
 	ld [w2dd19], a
-	ld a, $01
+	ld a, 1
 	ld [wTextDelay], a
 
 	call Func_10c1a6

@@ -43,12 +43,12 @@ Func_7c051:
 	ld b, BANK(v0BGMap0)
 	ld de, v0BGMap0
 	ld a, $d9
-	fill_mem $14, $80c
+	fill_mem SCREEN_WIDTH, TILEMAP_WIDTH - SCREEN_WIDTH, $08
 
 	ld b, BANK(v1BGMap0)
 	ld de, v1BGMap0
 	ld a, $05
-	fill_mem $14, $80c
+	fill_mem SCREEN_WIDTH, TILEMAP_WIDTH - SCREEN_WIDTH, $08
 
 	copy_box v0BGMap0, Tilemap_14d1d3, 0, 8, SCREEN_WIDTH, 10
 	copy_box v1BGMap0, Attrmap_14d33b, 0, 8, SCREEN_WIDTH, 10
