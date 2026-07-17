@@ -2972,11 +2972,11 @@ GameState_LoadGBCompatibility::
 	ld b, BANK(v1BGMap0)
 	ld de, v1BGMap0
 	ld a, $00
-	fill_mem $0, $4, $100
+	fill_mem TILEMAP_AREA
 	ld b, BANK(v0BGMap0)
 	ld de, v0BGMap0
 	ld a, $80
-	fill_mem $0, $4, $100
+	fill_mem TILEMAP_AREA
 
 	; load font graphics
 	copy_data v0Tiles2, $00, FontPdPGfx tile $00, BANK(FontPdPGfx), $80 tiles
@@ -3186,14 +3186,14 @@ GameState_LoadPanelDePonMenu::
 	ldh [hVBlankTrampolinePtr + 1], a
 	ei
 
-	ld b, $01
-	ld de, v0BGMap0
+	ld b, BANK(v1BGMap0)
+	ld de, v1BGMap0
 	ld a, $00
-	fill_mem $0, $4, $100
-	ld b, $00
+	fill_mem TILEMAP_AREA
+	ld b, BANK(v0BGMap0)
 	ld de, v0BGMap0
 	ld a, $80
-	fill_mem $0, $4, $100
+	fill_mem TILEMAP_AREA
 
 	copy_data v0Tiles2, $00, FontPdPGfx tile $00, BANK(FontPdPGfx), $80 tiles
 	copy_data v0Tiles1, $00, FontPdPGfx tile $80, BANK(FontPdPGfx), $80 tiles

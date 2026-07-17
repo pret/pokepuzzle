@@ -927,7 +927,15 @@ wcefa:: ds 1 ; cefa
 wcefc:: ds 1 ; cefc
 wcefd:: ds 1 ; cefd
 
-	ds $cf0b - $cefe
+wCopyDest::       ds 2 ; cefe
+wCopyDestBank::   ds 1 ; cf00
+wCopySource::     ds 2 ; cf01
+wCopySourceBank:: ds 1 ; cf03
+wCopyLen::        ds 2 ; cf04
+wCopyInterval::   ds 2 ; cf06
+wCopyIterations:: ds 2 ; cf08
+
+	ds $1
 
 wLanguage:: ds 1 ; cf0b
 

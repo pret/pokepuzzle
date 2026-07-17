@@ -140,10 +140,10 @@ Func_64114:
 	ld hl, $553c
 	ld a, $19
 	call Decompress
-	ld b, $00
+	ld b, BANK(v0Tiles1)
 	ld de, v0Tiles1 tile $3c
 	ld a, $00
-	fill_mem $40, $4, $100
+	fill_mem $44 tiles
 	ld de, v0Tiles2
 	ld c, $00
 	ld hl, $56e3
@@ -190,7 +190,7 @@ Func_6419d:
 	ret
 
 Func_641ab:
-	ldbde_tx Text_Data
+	ldtx_bde Text_Data
 	farcall PrepareTextProcessing
 .asm_641b6
 	ld a, [wPendingTextGfxOperation]
@@ -202,7 +202,7 @@ Func_641ab:
 	and a
 	call nz, ProcessPendingTextGfxOperation
 
-	ldbde_tx Text_Saved
+	ldtx_bde Text_Saved
 	farcall PrepareTextProcessing
 .asm_641d7
 	ld a, [wPendingTextGfxOperation]
@@ -214,7 +214,7 @@ Func_641ab:
 	and a
 	call nz, ProcessPendingTextGfxOperation
 
-	ldbde_tx Text_Continue
+	ldtx_bde Text_Continue
 	farcall PrepareTextProcessing
 .asm_641f8
 	ld a, [wPendingTextGfxOperation]
@@ -226,7 +226,7 @@ Func_641ab:
 	and a
 	call nz, ProcessPendingTextGfxOperation
 
-	ldbde_tx Text_Quit
+	ldtx_bde Text_Quit
 	farcall PrepareTextProcessing
 .asm_64219
 	ld a, [wPendingTextGfxOperation]
