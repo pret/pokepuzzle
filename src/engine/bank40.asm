@@ -1,3 +1,42 @@
+SECTION "Bank 40@4497", ROMX[$4497], BANK[$40]
+
+Func_100497:
+	ldh a, [hWRAMBank]
+	push af
+	ld a, $00
+	wramswitch
+	ld a, c
+	call GetPokemonDataStruct
+	ld hl, PokemonData + (PKMNSTRUCT_PALETTE + 2)
+	add hl, bc
+	ld a, BANK(PokemonData)
+	call GetFarByte
+	dec hl
+	ld b, a
+	ld a, BANK(PokemonData)
+	call GetFarByte
+	dec hl
+	ld c, a
+	ld a, BANK(PokemonData)
+	call GetFarByte
+	dec hl
+
+	ld l, a
+	ld h, c
+
+	REPT 1 palettes
+		ld a, b
+		call GetFarByte
+		inc hl
+		ld [de], a
+		inc de
+	ENDR
+
+	pop af
+	wramswitch
+	ret
+; 0x1004fc
+
 SECTION "Bank 40@4561", ROMX[$4561], BANK[$40]
 
 ; converts a into a playable Pokémon constant

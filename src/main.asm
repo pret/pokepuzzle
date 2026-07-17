@@ -10,6 +10,10 @@ SECTION "Bank 3", ROMX
 
 INCLUDE "engine/bank03.asm"
 
+SECTION "Bank 5", ROMX
+
+INCLUDE "engine/bank05.asm"
+
 SECTION "Bank 4", ROMX
 
 INCLUDE "engine/bank04.asm"
@@ -106,13 +110,9 @@ SECTION "Bank 40", ROMX
 
 INCLUDE "engine/bank40.asm"
 
-SECTION "Bank 43", ROMX
+SECTION "Bank 41", ROMX
 
-INCLUDE "engine/bank43.asm"
-
-SECTION "Bank 59", ROMX
-
-INCLUDE "engine/bank59.asm"
+INCLUDE "engine/bank41.asm"
 
 SECTION "Panel de Pon 2", ROMX[$4000], BANK[$60]
 

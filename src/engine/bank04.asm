@@ -52,6 +52,160 @@ Func_10018::
 	ret
 ; 0x10041
 
+SECTION "Bank 4@425e", ROMX[$425e], BANK[$4]
+
+; draws a black screen with "Communication Error" message
+; there is no way to exit this screen
+_CommunicationError::
+	di
+	xor a
+	ldh [rLCDC], a
+	ldh [rIF], a
+	ldh [rIE], a
+	ldh [hIE], a
+	ldh [hLCDC], a
+
+	; reset stack pointer
+	ld sp, wStack - 1
+
+	; reset all banks
+	xor a
+	ldh [hSRAMEnabled], a
+	ld [$100], a
+	ldh [hHighROMBank], a
+	ld [$3100], a
+	sramswitch
+	vramswitch
+	wramswitch
+
+	; reset h-blank/v-blank handlers
+	xor a
+	ldh [rRP], a
+	ldh [hVBlankPending], a
+	ldh [hVirtualOAMSize], a
+	ldh [hVBlankTrampolinePtr + 0], a
+	ldh [hVBlankTrampolinePtr + 1], a
+
+	; set default scroll
+	ldh [rSCX], a
+	ldh [hSCX], a
+	ld a, $08
+	ldh [rSCY], a
+	ldh [hSCY], a
+
+	; stub h-blank handler
+	ld a, $d9 ; reti
+	ld [wHBlankHandler], a
+
+	; default v-blank handler
+	ld hl, wVBlankHandler
+	ld [hl], $c3 ; jp
+	inc hl
+	ld [hl], LOW(VBlankHandler)
+	inc hl
+	ld [hl], HIGH(VBlankHandler)
+
+	call Func_137a
+	call ClearOAM
+	call Func_d91
+
+	; fills BGP with black color
+	ld e, $00 ; black
+	ld d, $00 ;
+	ld a, 0 | BGPI_AUTOINC
+	ldh [rBGPI], a
+	ld c, 8 palettes / 2
+.loop_black_pals
+	ld a, e
+	ldh [rBGPD], a
+	ld a, d
+	ldh [rBGPD], a
+	dec c
+	jr nz, .loop_black_pals
+	; sets 3rd color in palette 0 to white (text color)
+	ld a, palette 0 color 3 | BGPI_AUTOINC
+	ldh [rBGPI], a
+	ld a, $ff
+	ldh [rBGPD], a
+	ld a, $7f
+	ldh [rBGPD], a
+
+	call Func_1030f
+
+	ldtx_bde Text_CommunicationError
+	farcall PrepareTextProcessing
+.loop_process_text
+	ld a, [wPendingTextGfxOperation]
+	and a
+	call nz, ProcessPendingTextGfxOperation
+	farcall_saveregs ProcessText
+	jr c, .loop_process_text
+	ld a, [wPendingTextGfxOperation]
+	and a
+	call nz, ProcessPendingTextGfxOperation
+
+	; turns LCD on with only BG enabled
+	ld a, LCDC_BG_ON | LCDC_ON
+	ldh [rLCDC], a
+	ldh [hLCDC], a
+
+	; re-enables v-blank
+	ldh a, [hIE]
+	or IE_VBLANK
+	ld b, a
+	xor a
+	ldh [rIF], a
+	ld a, b
+	ldh [hIE], a
+	ldh [rIE], a
+	ei
+
+.infinite_loop
+	call DoFrame
+	jr .infinite_loop
+
+Func_1030f:
+	ld b, BANK(v0Tiles0)
+	ld de, v0Tiles0
+	ld a, $00
+	fill_mem $180 tiles
+	ld b, BANK(v0BGMap0)
+	ld de, v0BGMap0
+	ld a, $00
+	fill_mem TILEMAP_AREA
+	ld b, BANK(v1BGMap0)
+	ld de, v1BGMap0
+	ld a, $00
+	fill_mem TILEMAP_AREA
+
+	hlbgcoord 0, 7
+	ld b, $01
+	ld de, $c
+	call Func_10363
+	call Func_10363
+	call Func_10363
+	call Func_10363
+	call Func_10363
+	call Func_10363
+	call Func_10363
+	call Func_10363
+	call Func_10363
+	call Func_10363
+	call Func_10363
+	ret
+
+Func_10363:
+	ld c, $14
+.asm_10365
+	ld a, b
+	ld [hli], a
+	inc b
+	dec c
+	jr nz, .asm_10365
+	add hl, de
+	ret
+; 0x1036d
+
 SECTION "Bank 4@44b4", ROMX[$44b4], BANK[$4]
 
 Func_104b4:

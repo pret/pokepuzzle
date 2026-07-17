@@ -4,7 +4,8 @@ rom_obj := \
 	src/gfx.o \
 	src/home.o \
 	src/main.o \
-	src/ram.o
+	src/ram.o \
+	src/text.o
 
 ### Build tools
 

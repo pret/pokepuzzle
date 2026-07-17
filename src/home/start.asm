@@ -137,7 +137,7 @@ Reset:
 
 	ei
 	farcall Func_109c0
-	farcall Func_10c000
+	farcall InitTextEngine
 
 .loop
 	call DoGameState

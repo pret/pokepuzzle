@@ -38,6 +38,8 @@ ROMX $03
 	"Bank 3"
 ROMX $04
 	"Bank 4"
+ROMX $05
+	"Bank 5"
 ROMX $0a
 	"Bank A"
 ROMX $0f
@@ -92,8 +94,10 @@ ROMX $39
 	"Bank 39"
 ROMX $40
 	"Bank 40"
+ROMX $41
+	"Bank 41"
 ROMX $43
-	"Bank 43"
+	"Text Engine"
 ROMX $45
 	"Bank 45"
 ROMX $46
@@ -111,7 +115,13 @@ ROMX $52
 ROMX $53
 	"Bank 53"
 ROMX $59
-	"Bank 59"
+	"Text 1"
+ROMX $5a
+	"Text 2"
+ROMX $5b
+	"Text 3"
+ROMX $5c
+	"Text 4"
 ROMX $61
 	"Music 1"
 ROMX $62
@@ -136,6 +146,7 @@ WRAMX $1
 	"WRAM1@d587"
 WRAMX $2
 	"WRAM2"
+	"Text RAM"
 WRAMX $4
 	"WRAM4"
 WRAMX $6

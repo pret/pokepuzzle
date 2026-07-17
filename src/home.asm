@@ -559,7 +559,7 @@ Func_58d::
 	push af
 
 	ld a, c
-	ldh [$ff8c], a
+	ldh [$ff8c], a ; fill byte
 	ld a, d
 	call Func_8ef
 	push de
@@ -1813,7 +1813,7 @@ _Decompress:
 
 SECTION "Bank 0@d91", ROM0[$d91]
 
-Func_d91:
+Func_d91::
 	call Func_daf
 	di
 	ld a, $00
@@ -1880,25 +1880,28 @@ Func_daf:
 
 SECTION "Bank 0@e20", ROM0[$e20]
 
-Func_e20:
-	ldh a, [hfff0]
+; increments [hSerialTimeOutCounter] by 1
+; if value overflows, return with z set
+TickSerialTimeOutCounter:
+	ldh a, [hSerialTimeOutCounter]
 	inc a
-	ret z
-	ldh [hfff0], a
+	ret z ; overflow
+	ldh [hSerialTimeOutCounter], a
 	ret
 
-Func_e27:
-	ld a, $04
+CommunicationError:
+	ld a, BANK(_CommunicationError)
 	bankswitch
-	jp $425e
+	jp _CommunicationError
 
 Func_e31::
 	call Func_e3f
 	ldh a, [hffeb]
 	and a
 	jr z, .asm_e3e
-	call Func_e20
-	jr z, Func_e27
+	; if there's serial time out, show Communication Error
+	call TickSerialTimeOutCounter
+	jr z, CommunicationError
 .asm_e3e
 	ret
 
@@ -1941,7 +1944,7 @@ SerialHandler:
 	ld a, $01
 	ldh [hffee], a
 	xor a
-	ldh [hfff0], a
+	ldh [hSerialTimeOutCounter], a
 	ldh a, [hffeb]
 	and a
 	jr nz, .asm_eae
@@ -3431,9 +3434,9 @@ Func_1ec2::
 	add hl, hl
 	add hl, hl
 	add hl, hl ; *16
-	ld bc, FontGfx
+	ld bc, FontPdPGfx
 	add hl, bc
-	ld a, BANK(FontGfx)
+	ld a, BANK(FontPdPGfx)
 	ld bc, TILE_SIZE
 	call FarCopyHLtoDE
 	pop bc
@@ -4296,9 +4299,9 @@ Func_2c1e:
 .asm_2c43
 	call hTransferVirtualOAM
 
-	ld a, [wcf0c]
+	ld a, [wPendingTextGfxOperation]
 	and a
-	call nz, Func_347d
+	call nz, ProcessPendingTextGfxOperation
 
 	call wce4b
 	call wce48
@@ -4931,11 +4934,11 @@ Func_3397::
 	vramswitch
 	ret
 
-; gets next byte in w2dd21:w2dd1f
-Func_33f5::
+; gets next byte in wTextDataBank:wTextDataPtr
+GetNextTextByte::
 	ldh a, [hROMBank]
 	push af
-	ld hl, w2dd21
+	ld hl, wTextDataBank
 	ld a, [hld]
 	bankswitch
 	ld a, [hld]
@@ -4944,16 +4947,16 @@ Func_33f5::
 	ld a, [hli]
 	ld e, a
 	ld a, l
-	ld [w2dd1f + 0], a
+	ld [wTextDataPtr + 0], a
 	ld a, h
-	ld [w2dd1f + 1], a
+	ld [wTextDataPtr + 1], a
 	pop af
 	bankswitch
 	ld a, e
 	ret
 
 ; input:
-; - a = ?
+; - a = which line
 ; output:
 ; - de = ?
 Func_3416::
@@ -4961,7 +4964,7 @@ Func_3416::
 	inc c
 	ldh a, [hROMBank]
 	push af
-.asm_341b
+.null
 	ld hl, w2dd14
 	ld a, [hld]
 	bankswitch
@@ -4973,8 +4976,8 @@ Func_3416::
 	ld e, a
 	ld a, [hli]
 	ld d, a
-	and a
-	jr z, .asm_341b
+	and a ; NULL?
+	jr z, .null
 	dec c
 	jr nz, .loop_ptrs
 	pop af
@@ -4990,7 +4993,7 @@ Func_3438::
 	ld hl, w2dd1e
 	ld a, [hld]
 	bankswitch
-	ld a, [hld]
+	ld a, [hld] ; w2dd1c
 	ld l, [hl]
 	ld h, a
 	ld a, [hli]
@@ -5030,31 +5033,31 @@ Func_3438::
 	bankswitch
 	ret
 
-Func_347d::
-	ld a, [wcf0c]
-	dec a
-	jp z, .asm_348f
-	dec a
-	jp z, .asm_34b9
-	dec a
-	jp z, .asm_3500
+ProcessPendingTextGfxOperation::
+	ld a, [wPendingTextGfxOperation]
+	dec a ; cp PUSH_1_TEXT_TILE
+	jp z, .copy_1_tile
+	dec a ; cp PUSH_2_TEXT_TILES
+	jp z, .copy_2_tiles
+	dec a ; cp SHOW_TEXT_TILE
+	jp z, .show_tile
 	debug_loop
 	ret ; unreachable
 
-.asm_348f
+.copy_1_tile
 	; transfers 16 bytes (1 tile)
-	; from wc300 to wcf0f:wcf0d
+	; from wTextTile1 to wTextTile1DestBank:wTextTile1DestPtr
 	ldh a, [hVRAMBank]
 	push af
-	ld hl, wcf0f
+	ld hl, wTextTile1DestBank
 	ld a, [hld]
 	vramswitch
 	ld a, [hld]
 	ld l, [hl]
 	ld h, a
-	ld a, HIGH(wc300)
+	ld a, HIGH(wTextTile1)
 	ldh [rVDMA_SRC_HIGH], a
-	ld a, LOW(wc300)
+	ld a, LOW(wTextTile1)
 	ldh [rVDMA_SRC_LOW], a
 	ld a, h
 	ldh [rVDMA_DEST_HIGH], a
@@ -5063,26 +5066,26 @@ Func_347d::
 	ld a, $00
 	ldh [rVDMA_LEN], a
 	xor a
-	ld [wcf0c], a
+	ld [wPendingTextGfxOperation], a
 	pop af
 	vramswitch
 	ret
 
-.asm_34b9
+.copy_2_tiles
 	ldh a, [hVRAMBank]
 	push af
 
 	; transfers 16 bytes (1 tile)
-	; from wc300 to wcf0f:wcf0d
-	ld hl, wcf0f
+	; from wTextTile1 to wTextTile1DestBank:wTextTile1DestPtr
+	ld hl, wTextTile1DestBank
 	ld a, [hld]
 	vramswitch
 	ld a, [hld]
 	ld l, [hl]
 	ld h, a
-	ld a, HIGH(wc300)
+	ld a, HIGH(wTextTile1)
 	ldh [rVDMA_SRC_HIGH], a
-	ld a, LOW(wc300)
+	ld a, LOW(wTextTile1)
 	ldh [rVDMA_SRC_LOW], a
 	ld a, h
 	ldh [rVDMA_DEST_HIGH], a
@@ -5092,16 +5095,16 @@ Func_347d::
 	ldh [rVDMA_LEN], a
 
 	; transfers 16 bytes (1 tile)
-	; from wc310 to wcf12:wcf10
-	ld hl, wcf12
+	; from wTextTile2 to wTextTile2DestBank:wTextTile2DestPtr
+	ld hl, wTextTile2DestBank
 	ld a, [hld]
 	vramswitch
 	ld a, [hld]
 	ld l, [hl]
 	ld h, a
-	ld a, HIGH(wc310)
+	ld a, HIGH(wTextTile2)
 	ldh [rVDMA_SRC_HIGH], a
-	ld a, LOW(wc310)
+	ld a, LOW(wTextTile2)
 	ldh [rVDMA_SRC_LOW], a
 	ld a, h
 	ldh [rVDMA_DEST_HIGH], a
@@ -5110,12 +5113,12 @@ Func_347d::
 	ld a, $00
 	ldh [rVDMA_LEN], a
 	xor a
-	ld [wcf0c], a
+	ld [wPendingTextGfxOperation], a
 	pop af
 	vramswitch
 	ret
 
-.asm_3500
+.show_tile
 	ldh a, [hVRAMBank]
 	push af
 
@@ -5134,7 +5137,7 @@ Func_347d::
 	ld a, [wcf15]
 	ld [hl], a
 	xor a
-	ld [wcf0c], a
+	ld [wPendingTextGfxOperation], a
 
 	pop af
 	vramswitch

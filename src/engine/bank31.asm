@@ -2914,6 +2914,27 @@ Func_c6e7a:
 	ret
 ; 0xc6e8b
 
+SECTION "Bank 31@722e", ROMX[$722e], BANK[$31]
+
+Func_c722e:
+	push hl
+	push bc
+	push de
+	ld c, e
+	ldh a, [hSRAMBank]
+	push af
+	ld a, $00
+	sramswitch
+	ld de, $a178
+	farcall Func_100497
+	pop af
+	sramswitch
+	pop de
+	pop bc
+	pop hl
+	ret
+; 0xc724f
+
 SECTION "Bank 31@727a", ROMX[$727a], BANK[$31]
 
 GameState_LoadGBCompatibility::
@@ -2951,15 +2972,15 @@ GameState_LoadGBCompatibility::
 	ld b, BANK(v1BGMap0)
 	ld de, v1BGMap0
 	ld a, $00
-	fill_mem $0, $4, $100
+	fill_mem TILEMAP_AREA
 	ld b, BANK(v0BGMap0)
 	ld de, v0BGMap0
 	ld a, $80
-	fill_mem $0, $4, $100
+	fill_mem TILEMAP_AREA
 
 	; load font graphics
-	copy_data v0Tiles2, $00, FontGfx tile $00, BANK(FontGfx), $80 tiles
-	copy_data v0Tiles1, $00, FontGfx tile $80, BANK(FontGfx), $80 tiles
+	copy_data v0Tiles2, $00, FontPdPGfx tile $00, BANK(FontPdPGfx), $80 tiles
+	copy_data v0Tiles1, $00, FontPdPGfx tile $80, BANK(FontPdPGfx), $80 tiles
 
 	call Func_c7aa9
 
@@ -3165,17 +3186,17 @@ GameState_LoadPanelDePonMenu::
 	ldh [hVBlankTrampolinePtr + 1], a
 	ei
 
-	ld b, $01
-	ld de, v0BGMap0
+	ld b, BANK(v1BGMap0)
+	ld de, v1BGMap0
 	ld a, $00
-	fill_mem $0, $4, $100
-	ld b, $00
+	fill_mem TILEMAP_AREA
+	ld b, BANK(v0BGMap0)
 	ld de, v0BGMap0
 	ld a, $80
-	fill_mem $0, $4, $100
+	fill_mem TILEMAP_AREA
 
-	copy_data v0Tiles2, $00, FontGfx tile $00, BANK(FontGfx), $80 tiles
-	copy_data v0Tiles1, $00, FontGfx tile $80, BANK(FontGfx), $80 tiles
+	copy_data v0Tiles2, $00, FontPdPGfx tile $00, BANK(FontPdPGfx), $80 tiles
+	copy_data v0Tiles1, $00, FontPdPGfx tile $80, BANK(FontPdPGfx), $80 tiles
 
 	ld de, v0BGMap1
 	ld c, $00
@@ -4037,11 +4058,11 @@ GameState_PanelDePonMenu::
 	ret
 
 Func_c7aa9:
-	ld a, [wcf0b]
+	ld a, [wLanguage]
 	ld de, v0Tiles2
 	ld c, $00
 	decompress PtrTable_c7ac8, $6
-	ld a, [wcf0b]
+	ld a, [wLanguage]
 	ld de, v0BGMap0
 	ld c, $00
 	decompress PtrTable_c7acb, $6
