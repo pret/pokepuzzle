@@ -175,7 +175,7 @@ Func_10c169:
 	ld [w2dd34], a
 	ld [w2dd35], a
 	xor a
-	ld [w2dd32], a
+	ld [wTextSpeedingUp], a
 	ret
 
 ; outputs in de the row of pixels with color according to a
@@ -269,11 +269,11 @@ ProcessText::
 	ld a, BANK("Text RAM")
 	wramswitch
 	ld a, [wTextProcessMode]
-	and a
+	and a ; cp TXPROC_DONE
 	jp z, .no_carry
-	dec a
+	dec a ; cp TXPROC_NEXT_CHAR
 	jp z, .asm_10c2a2
-	dec a
+	dec a ; TXPROC_PUSH_CHAR
 	jp z, .asm_10c251
 
 .set_carry
@@ -347,7 +347,7 @@ ProcessText::
 	jr z, .next_char
 .asm_10c2a9
 	call .TickTextDelayTimer
-	call .Func_10c400
+	call .UpdateTextSpeedup
 	jp .set_carry
 
 .next_char
@@ -376,8 +376,8 @@ ProcessText::
 	jp z, .set_text_fill_color
 	cp TX_SET_DELAY
 	jp z, .set_delay
-	cp TX_ALLOW_SPEEDUP
-	jp z, .set_allow_speedup
+	cp TX_SPEEDUP_ENABLED
+	jp z, .set_speedup_enabled
 	cp TX_JUMP
 	jp z, .jump
 	cp TX_LANGUAGE_BRANCH
@@ -499,23 +499,26 @@ ProcessText::
 	ld [wTextDelayTimer + 0], a
 	xor a
 	ld [wTextDelayTimer + 1], a
-	ld a, [w2dd32]
+	ld a, [wTextSpeedingUp]
 	and a
-	jr z, .asm_10c3fd
-	ld a, $01
+	jr z, .not_speeding_up
+	; speeding up, set timer to 1
+	ld a, 1
 	ld [wTextDelayTimer + 0], a
-.asm_10c3fd
+.not_speeding_up
 	jp .asm_10c2a9
 
-.Func_10c400:
+; if A button is pressed and [wTextSpeedupEnabled] is TRUE
+; then set [wTextSpeedingUp] to TRUE
+.UpdateTextSpeedup:
 	ldh a, [hJoypadPressed]
 	and PAD_A
 	ret z ; no A btn
-	ld a, [w2dd11]
-	and $01
-	ret z
-	ld a, $01
-	ld [w2dd32], a
+	ld a, [wTextSpeedupEnabled]
+	and $1
+	ret z ; not enabled
+	ld a, TRUE
+	ld [wTextSpeedingUp], a
 	ret
 
 .end
@@ -594,9 +597,9 @@ ProcessText::
 	ld [wTextDelay], a
 	jp .next_char
 
-.set_allow_speedup
+.set_speedup_enabled
 	call GetNextTextByte
-	ld [w2dd11], a
+	ld [wTextSpeedupEnabled], a
 	jp .next_char
 
 .jump

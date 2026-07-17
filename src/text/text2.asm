@@ -4,7 +4,7 @@ TextSub_168000:
 	tx_set_delay 3
 	tx_unk_ef Func_10cfe8
 	tx_color 2
-	tx_allow_speedup TRUE
+	tx_speedup_enabled TRUE
 	tx_ret
 
 PtrTable_16800f:

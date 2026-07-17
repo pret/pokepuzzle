@@ -45,8 +45,8 @@ MACRO? tx_set_delay
 	db \1 ; delay amount
 ENDM
 
-MACRO? tx_allow_speedup
-	db TX_ALLOW_SPEEDUP
+MACRO? tx_speedup_enabled
+	db TX_SPEEDUP_ENABLED
 	db \1 ; TRUE or FALSE
 ENDM
 

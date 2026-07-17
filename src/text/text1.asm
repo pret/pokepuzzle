@@ -3,7 +3,7 @@ TextSub_164000:
 	tx_set_delay 3
 	tx_unk_ef Func_10cfe8
 	tx_fill_color 1
-	tx_allow_speedup TRUE
+	tx_speedup_enabled TRUE
 	tx_ret
 
 PtrTable_16400f:
@@ -1437,7 +1437,7 @@ TextSub_165c34:
 	tx_set_vram_tiles PtrTable_165c41
 	tx_set_delay 3
 	tx_unk_ef Func_10cfe8
-	tx_allow_speedup TRUE
+	tx_speedup_enabled TRUE
 	tx_ret
 
 PtrTable_165c41:
@@ -2425,7 +2425,7 @@ TextSub_1670c1:
 	tx_set_delay 3
 	tx_unk_ef Func_10cfe8
 	tx_fill_color 1
-	tx_allow_speedup TRUE
+	tx_speedup_enabled TRUE
 	tx_ret
 
 PtrTable_1670d0:

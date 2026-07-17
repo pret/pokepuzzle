@@ -1075,7 +1075,7 @@ w2dd00:: ds 2 * TILE_HEIGHT ; dd00
 
 ; TXPROC_* constant
 wTextProcessMode:: ds 1 ; dd10
-w2dd11:: ds 1 ; dd11
+wTextSpeedupEnabled:: ds 1 ; dd11
 
 w2dd12:: ds 2 ; dd12
 w2dd14:: ds 1 ; dd14
@@ -1106,7 +1106,7 @@ w2dd28:: ; dd28
 
 wCharToPrint:: ds 1 ; dd31
 
-w2dd32:: ds 1 ; dd32
+wTextSpeedingUp:: ds 1 ; dd32
 w2dd33:: ds 1 ; dd33
 w2dd34:: ds 1 ; dd34
 w2dd35:: ds 1 ; dd35

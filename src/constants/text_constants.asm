@@ -39,7 +39,7 @@ DEF TX_SET_DELAY EQU $f5
 
 ; if TRUE, allows speeding up with A btn
 ; is FALSE by default
-DEF TX_ALLOW_SPEEDUP EQU $f4
+DEF TX_SPEEDUP_ENABLED EQU $f4
 
 DEF TX_JUMP EQU $f3
 
