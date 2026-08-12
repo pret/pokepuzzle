@@ -2914,6 +2914,14 @@ Func_c6e7a:
 	ret
 ; 0xc6e8b
 
+SECTION "Bank 31@6f27", ROMX[$6f27], BANK[$31]
+Unknown_c6f27:
+	vc_hook 845_Register
+
+SECTION "Bank 31@6f51", ROMX[$6f51], BANK[$31]
+Unknown_c6f51:
+	vc_hook 845_2_Register
+
 SECTION "Bank 31@727a", ROMX[$727a], BANK[$31]
 
 GameState_LoadGBCompatibility::

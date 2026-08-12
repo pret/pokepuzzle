@@ -53,7 +53,13 @@ Func_6c05b:
 Func_6c069:
 	ld a, [hl]
 	inc [hl]
+	vc_patch fpa_044_
+IF DEF(_VC)
+	and $10
+ELSE
 	and $02
+ENDC
+	vc_patch_end
 	jr nz, .asm_6c073
 	ld hl, Data_6f3a4
 	ret

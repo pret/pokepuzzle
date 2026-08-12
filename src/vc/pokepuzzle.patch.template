@@ -1,0 +1,289 @@
+;Format Sample
+;[xxxx]			;User-defined Name (Max:31 chars)
+;Mode = 1		;1:Fixcode; 2:Fixvalue; 3:Mask; 4:Palette; 5:Double Frame Buffer
+;Type = 0		;Normal: 0:Begin 1:End; Mode2: Value Type
+;Address = x1F8000	;ROM Address
+;Fixcode = 0		;Mode1: Fixed Rom Code; Mode2: Fixed Value
+;DelayFrame = 0		;Delay Frame
+;FadeFrame = 0		;Fade Frame 0:Off
+;DarkEnable0 = 0	;0:Off, 1:On (for Normal Mode)
+;ReduceEnable0 = 0	;0:Off, 1:On (for Normal Mode)
+;MotionBEnable0 = 0	;0:Off, 1:Black Fade, 2:White Fade, 3:Frame Blend (for Normal Mode)
+;Dark0 = 10		;0~10 (for Normal Mode)
+;ReduceColorR0 = 0	;0~31 (for Normal Mode)
+;ReduceColorG0 = 0	;0~31 (for Normal Mode)
+;ReduceColorB0 = 0	;0~31 (for Normal Mode)
+;MotionBlur0 = 31	;0~31 (for Normal Mode)
+;DarkEnable1 = 0	;0:Off, 1:On (for Green Mode)
+;ReduceEnable1 = 0	;0:Off, 1:On (for Green Mode)
+;MotionBEnable1 = 0	;0:Off, 1:Black Fade, 2:White Fade, 3:Frame Blend (for Green Mode)
+;Dark1 = 10		;0~10 (for Green Mode)
+;ReduceColorR1 = 0	;0~31 (for Green Mode)
+;ReduceColorG1 = 0	;0~31 (for Green Mode)
+;ReduceColorB1 = 0	;0~31 (for Green Mode)
+;MotionBlur1 = 31	;0~31 (for Green Mode)
+;PaletteX = c31,31,31	;X:0~15, cR,G,B (0~31)
+
+
+;0002698ca                             
+;000c6f27h: E0 4B AF E0 43 3E          
+
+;ROM:C6F27                 ld      [byte_FF4B], a
+;ROM:C6F29                 xor     a             
+;ROM:C6F2A                 ld      [byte_FF43], a
+;ROM:C6F2C                 ld      a, 9          
+;ROM:C6F2E                 ld      [byte_C324], a
+;ROM:C6F31                 ld      a, $C4 ; '?   
+;
+
+[845 Register]                              
+Mode = 6                                     
+Type = 0                                     
+Index = 1                                    
+Address = {hex @}                 
+MemAddress = {hex~ hWX}                                
+Fixcode = {db_ 153}                           
+ConditionType = 0                                                       
+ConditionValueA = {dws_ v0Tiles0+0x765} 
+ConditionValueB = {dws_ ==            } 
+ConditionValueC = {dws_ 0x43          } 
+
+
+;
+;;ROM:C6F51                 ld      [byte_FF43], a
+;;ROM:C6F53                 ld      a, [byte_CE25]
+;;ROM:C6F56                 ld      [byte_FF42], a
+;;ROM:C6F58                 ld      a, [byte_FFAC]
+;;ROM:C6F5A                 ld      [byte_CE1D], a
+;;
+;;;000c6f51h: E0 43 FA 25 CE E0 42                                
+
+[845 2 Register]                   
+Mode = 6                          
+Type = 0                         
+Index = 1                        
+Address = {hex @}                                  
+MemAddress = {hex~ hWX}              
+Fixcode = {db_ 153}                 
+ConditionType = 0                
+ConditionValueA = {dws_ v0Tiles0+0x765}      
+ConditionValueB = {dws_ ==            }      
+ConditionValueC = {dws_ 0x44          }   
+
+
+;;0xffbd ddddddddddddd Mem Write: pc32 = 0x456 addr = 0xffbd value = 0x0
+;;0xffc0 000000000000000000 Mem Write: pc32 = 0x47e addr = 0xffc0 value = 0x0
+;;0xff8d dddddddddddd Mem Write: pc32 = 0x5957b addr = 0xff8d value = 0x78
+;;0xff8e eeeeeeeeeeeeeee Mem Write: pc32 = 0x59592 addr = 0xff8e value = 0x1
+;;0xffbd ddddddddddddd Mem Write: pc32 = 0x456 addr = 0xffbd value = 0x80
+;;0xffc0 000000000000000000 Mem Write: pc32 = 0x47e addr = 0xffc0 value = 0x80
+;;0xffbd ddddddddddddd Mem Write: pc32 = 0x456 addr = 0xffbd value = 0x80
+;;0xffc0 000000000000000000 Mem Write: pc32 = 0x47e addr = 0xffc0 value = 0x80
+;;0xff8d dddddddddddd Mem Write: pc32 = 0x5957b addr = 0xff8d value = 0x88
+;;0xff8e eeeeeeeeeeeeeee Mem Write: pc32 = 0x59592 addr = 0xff8e value = 0x2
+;;0xffbd ddddddddddddd Mem Write: pc32 = 0x456 addr = 0xffbd value = 0x80
+;;0xffc0 000000000000000000 Mem Write: pc32 = 0x47e addr = 0xffc0 value = 0x80
+;;
+;; 0xff8d == 0x78  , 0xff8e == 0x01 
+
+[menu 852]                                                      
+Mode = 6                                                  
+Type = 0                                                  
+Index = 2                                                 
+Address = {hex @}                                        
+MemAddress = {hex~ hJoypadPressed}                                       
+Fixcode = {db_ NO_INPUT}                                          
+ConditionType = 0                                         
+ConditionValueA = {dws_ hff8d hff8e hJoypadPressed hJoypadPressed hJoypadPressed hJoypadPressed 0xfe02 0xfe06}     
+ConditionValueB = {dws_ ==    ==    !=             !=             !=             !=             ==     ==    }      
+ConditionValueC = {dws_ 0x78  0x01  PAD_UP         PAD_DOWN       NO_INPUT       PAD_B          0x95   0xb2  }     
+
+;forbit the neighbourious line
+[menu 852 ]                                                             
+Mode = 6                                                               
+Type = 0                                                               
+Index = 2                                                              
+Address = {hex @}                                                     
+MemAddress = {hex~ hJoypadPressed}                                                    
+Fixcode = {dws_ NO_INPUT}                                                       
+ConditionType = 0                                                      
+ConditionValueA = {dws_ hff8d }
+ConditionValueB = {dws_ ==    }
+ConditionValueC = {dws_ 0x9078}
+
+  
+[menu 854]                                                   
+Mode = 6                                                 
+Type = 0                                                 
+Index = 2                                                
+Address = {hex @}                                          
+MemAddress = {hex~ hJoypadPressed}                                     
+Fixcode = {db_ NO_INPUT}                                         
+ConditionType = 0                                        
+ConditionValueA = {dws_ hff8d hff8e hJoypadPressed hJoypadPressed hJoypadPressed hJoypadPressed}     
+ConditionValueB = {dws_ ==    ==    !=             !=             !=             !=            }     
+ConditionValueC = {dws_ 0x58  0x01  PAD_UP         PAD_DOWN       NO_INPUT       PAD_B         }                  
+
+;0001a9c4h: 10 11 12 13 14 15 16 17 18 19 1A 1B 1C 1D 1E 1F ; ................                                                                             
+;0001a9d4h: 20 21 00 00 94 95 B8 02 80 14 11 22 23 24 25 26 ;  !..”•?€.."#$%&                                                                              
+;0001a9e4h: 27 28 29 2A 2B 2C 2D 2E 2F 30 31 32 33 CA 00 28 ; '()*+,-./0123?(                                                                              
+;0001a9f4h: 11 34 35 36 37 38 39 3A 3B 3C 3D 3E 3F 40 41 42 ; .456789:;<=>?@AB                                                                             
+;0001aa04h: 43 44 45 CA 00 28 11 46 47 48 49 4A 4B 4C 4D 4E ; CDE?(.FGHIJKLMN                                                                              
+;0001aa14h: 4F 50 51 52 53 54 55 56 57 CA 00 28 11 58 59 5A ; OPQRSTUVW?(.XYZ                                                                              
+;0001aa24h: 5B 5C 5D 5E 5F 60 61 62 63 64 65 66 67 68 69 CA ; [\]^_`abcdefghi?
+;0001aa34h: 00 28 11 6A 6B 6C 6D 6E 6F 70 71 72 73 74 75 76 ; .(.jklmnopqrstuv
+;0001aa44h: 77 78 79 7A 7B CA 00 28 C9 00 01 E0 0F AA C9 80 ; wxyz{?(?.?ªÉ€                                                                                
+;0001aa54h: 27                                              ; '                                                                                            
+;
+
+[NCLBTS 914 3]                                                               
+Mode = 1                                                                     
+Address = {hex @}                                                          
+Fixcode = {patch_}  
+
+[NCLBTS 914 4]                                                              
+Mode = 1                                                                    
+Address = {hex @}                                                          
+Fixcode = {patch_} 
+
+;00000469h: 28 14 21 C0                                     ; (.!?
+[fpa 041 Begin]                                                                                                                                                          
+Mode = 3                      
+Type = 0                   
+Address = {hex @}      
+;DarkEnable0 = 1           
+;Dark0 = 3
+MotionBEnable0 = 3
+MotionBlur0 = 2
+DelayFrame = 2                                              
+ConditionType = 0                                                   
+ConditionValueA = {dws_ hJoypadPressed hJoypadPressed v0BGMap0+0x20 v0BGMap0+0x21 v0BGMap0+0x22}     
+ConditionValueB = {dws_ >=             <=             ==            ==            ==           }    
+ConditionValueC = {dws_ PAD_RIGHT      PAD_LEFT       0x00          0xf0          0xfb         }  
+
+[FPA 041 End]
+Mode = 3                      
+Type = 1 
+Address = {hex @}
+DelayFrame = 9
+ConditionType = 0                                                   
+ConditionValueA = {dws_ hJoypadPressed hJoypadPressed v0BGMap0+0x20 v0BGMap0+0x21 v0BGMap0+0x22}     
+ConditionValueB = {dws_ >=             <=             ==            ==            ==           }    
+ConditionValueC = {dws_ PAD_RIGHT      PAD_LEFT       0x00          0xf0          0xfb         }  
+
+;ROM:536EF                 ld      hl, $CD96
+;ROM:536F2                 ld      a, [hl]
+;ROM:536F3                 inc     [hl]
+;ROM:536F4                 and     8     ;e6 08
+;ROM:536F6                 jr      nz, loc_3710
+;ROM:536F8                 call    loc_5EC
+;ROM:536FB                 add     a, b
+;
+;ROM:5371B                 ld      de, $DEC0
+;ROM:5371E                 ld      bc, $140
+;ROM:53721                 ld      a, 3
+;ROM:53723                 call    loc_56B
+;ROM:53726                 ld      a, [byte_CEBE]
+;ROM:53729                 cp      2
+;ROM:5372B                 jr      z, loc_3733
+;ROM:5372D                 cp      3
+;ROM:5372F                 jr      z, loc_373A
+;ROM:53731                 jr      loc_3731 
+
+[fpa 42a b]      
+Mode = 1            
+Address = {HEX @}  
+Fixcode = {patch_} 
+
+
+;ROM:4CB72                 ld      hl, $CD93   
+;ROM:4CB75                 ld      a, [hl]     
+;ROM:4CB76                 inc     [hl]        
+;ROM:4CB77                 and     8           
+;ROM:4CB79                 jr      nz, loc_CB83
+;ROM:4CB7B                 call    loc_863     
+;ROM:4CB7E                 ld      l, e        
+;ROM:4CB7F                 ld      e, h        
+;ROM:4CB80                 ld      a, [de]     
+;ROM:4CB81                 jr      loc_CB89   
+
+[fpa 43]                 
+Mode = 1                 
+Address = {HEX @}      
+Fixcode = {patch_}    
+
+
+
+;000482cdh: 00 00 29 25 B5 56 FF 7F                      
+;0004dc3bh: 00 00 29 25 B5 56 FF 7F                       
+;000e1818h: 00 00 29 25 B5 56 FF 7F                         
+     
+;[fpa 44a ]                                 
+;Mode = 1                                    
+;Address = 0x482cd                         
+;Fixcode = a8: 00 00 29 25 B5 56 00 00                
+
+;[fpa 44a ]                                     
+;Mode = 1                                       
+;Address = 0x4dc3b                          
+;Fixcode = a8: 00 00 29 25 B5 56 00 00  
+
+;[fpa 44a ]                                                  
+;Mode = 1                                  
+;Address = 0xe1818                        
+;Fixcode = a8: 00 00 29 25 B5 56 00 00     
+
+;ROM:6C0D5                 bit     4, a        
+;ROM:6C0D7                 jr      nz, loc_C0E6
+;ROM:6C0D9                 bit     2, a        
+;ROM:6C0DB                 jr      nz, loc_C0EB
+;ROM:6C0DD                 bit     7, a        
+;ROM:6C0DF                 jr      nz, loc_C0B7
+;
+
+;0xd150    555555555555555550000 Mem Write: pc32 = 0x6c06a addr = 0xd150 value = 0x30
+;0xdec0    0000 Mem Write: pc32 = 0x6c128 addr = 0xdec0 value = 0xc
+;rrrrrrrrrr             Mem Read: pc32 = 0x6c069
+;rrrrrrrrrr             Mem Read: pc32 = 0x6c06a
+;0xd150    555555555555555550000 Mem Write: pc32 = 0x6c06a addr = 0xd150 value = 0x31
+;   
+
+;[fpa 044]                   
+;Mode = 6                                  
+;Type = 1                                  
+;Address = 0x6c06b                
+;MemAddress = 0xd150            
+;Fixcode =a46: 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32             
+;ConditionType = 0                 
+;ConditionValueA = a2: 50 d1      
+;ConditionValueB = a2: 03 00       
+;ConditionValueC = a2: 10 00  
+[fpa 044 ]                                  
+Mode = 1                               
+Address = {hex @}                     
+Fixcode = {patch_}  
+
+;00000477h: E0 BF F0 C3                                     ;
+[FPA 041 Begin2]                                                                                                                                                          
+Mode = 3                      
+Type = 0                   
+Address = {hex @}       
+;DarkEnable0 = 1           
+;Dark0 = 3                 
+MotionBEnable0 = 3
+MotionBlur0 = 2
+DelayFrame = 2                                              
+ConditionType = 0                                                   
+ConditionValueA = {dws_ hPrevJoypadInput hPrevJoypadInput hJoypadPressed v0BGMap0+0x21 v0BGMap0+0x22}     
+ConditionValueB = {dws_ >=               <=               ==             ==            ==           }    
+ConditionValueC = {dws_ PAD_RIGHT        PAD_LEFT         NO_INPUT       0xf0          0xfb         }  
+
+[FPA 041 End2]
+Mode = 3                      
+Type = 1 
+Address = {hex @}
+DelayFrame = 9
+ConditionType = 0                                                   
+ConditionValueA = {dws_ hPrevJoypadInput hPrevJoypadInput hJoypadPressed v0BGMap0+0x21 v0BGMap0+0x22}     
+ConditionValueB = {dws_ >=               <=               ==             ==            ==           }    
+ConditionValueC = {dws_ PAD_RIGHT        PAD_LEFT         NO_INPUT       0xf0          0xfb         }

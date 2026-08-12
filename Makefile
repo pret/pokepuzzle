@@ -1,10 +1,15 @@
 rom := pokepuzzle.gbc
+patch := pokepuzzle.patch
+patch_rom := pokepuzzle_vc.gbc
 
 rom_obj := \
 	src/gfx.o \
 	src/home.o \
 	src/main.o \
 	src/ram.o
+
+patch_obj := $(rom_obj:.o=_vc.o)
+
 
 ### Build tools
 
@@ -32,10 +37,11 @@ RGBGFXFLAGS  ?= -Weverything
 .SECONDEXPANSION:
 .PRECIOUS:
 .SECONDARY:
-.PHONY: all puzzle clean tidy compare tools
+.PHONY: all puzzle patch clean tidy compare tools
 
-all: $(rom) compare
-puzzle: $(rom) compare
+all: compare
+puzzle: $(rom)
+patch: $(patch)
 
 clean: tidy
 	find src/gfx \
@@ -48,11 +54,17 @@ tidy:
 	$(RM) $(rom) \
 	      $(rom:.gbc=.sym) \
 	      $(rom:.gbc=.map) \
+	      $(patch) \
+	      $(patch:.patch=_vc.gbc) \
+	      $(patch:.patch=_vc.sym) \
+	      $(patch:.patch=_vc.map) \
+	      $(patch:%.patch=src/vc/%.constants.sym) \
 	      $(rom_obj) \
+	      $(patch_obj) \
 	      src/rgbdscheck.o
 	$(MAKE) clean -C tools/
 
-compare: $(rom)
+compare: $(rom) $(patch)
 	@$(SHA1) -c rom.sha1
 
 tools:
@@ -64,6 +76,9 @@ RGBASMFLAGS += -I src/ -P src/includes.asm
 ifeq ($(DEBUG),1)
 RGBASMFLAGS += -E
 endif
+
+$(rom_obj):   RGBASMFLAGS +=
+$(patch_obj): RGBASMFLAGS += -D _VC
 
 src/rgbdscheck.o: src/rgbdscheck.asm
 	$(RGBASM) -o $@ $<
@@ -84,6 +99,7 @@ endef
 
 # Dependencies for objects
 $(foreach obj, $(rom_obj), $(eval $(call DEP,$(obj),$(obj:.o=.asm))))
+$(foreach obj, $(patch_obj), $(eval $(call DEP,$(obj),$(obj:_vc.o=.asm))))
 
 endif
 
@@ -96,6 +112,12 @@ RGBFIXFLAGS += -Cjv -k 01 -l 0x33 -m MBC5+RAM+BATTERY -p 0xff -r 03 -t POKEMONPC
 $(rom): $(rom_obj) src/layout.link
 	$(RGBLINK) $(RGBLINKFLAGS) -p 0xff -m $(rom:.gbc=.map) -n $(rom:.gbc=.sym) -l src/layout.link -O baserom.gbc -o $@ $(filter %.o,$^)
 	$(RGBFIX) $(RGBFIXFLAGS) $@
+
+$(patch_rom): $(patch_obj) src/layout.link
+	$(RGBLINK) $(RGBLINKFLAGS) -p 0xff -m $(patch_rom:.gbc=.map) -n $(patch_rom:.gbc=.sym) -l src/layout.link -O baserom.gbc -o $@ $(filter %.o,$^)
+
+$(patch): $(patch_rom) $(rom) src/vc/pokepuzzle.patch.template
+	tools/make_patch $(patch_rom:.gbc=.sym) $^ $@
 
 
 ### Misc file-specific graphics rules

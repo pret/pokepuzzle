@@ -293,12 +293,17 @@ ReadJoypad::
 	xor c
 	and c
 	ldh [hJoypadPressed], a
+	vc_hook menu_852_
 	ldh [hJoypadHeld], a
+	vc_hook menu_852
 
 	; is there any input?
 	ld a, c
+	vc_hook menu_854
 	or a
+	vc_hook fpa_041_Begin
 	jr z, .reset_timer ; no
+	vc_hook FPA_041_End
 	; is it same as last joypad read?
 	ld hl, hPrevJoypadInput
 	cp [hl]
@@ -307,7 +312,9 @@ ReadJoypad::
 	ld hl, hJoypadRepeatTimer
 	dec [hl]
 	jr nz, .update_prev_joypad
+	vc_hook FPA_041_Begin2
 	ldh [hJoypadHeld], a
+	vc_hook FPA_041_End2
 	ldh a, [hJoypadRepeatInterval]
 	ldh [hJoypadRepeatTimer], a
 	jr .update_prev_joypad

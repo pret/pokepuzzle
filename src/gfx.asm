@@ -1,7 +1,6 @@
 SECTION "Bank A", ROMX
 FontGfx:: INCBIN "gfx/font.2bpp"
 
-SECTION "Bank 13", ROMX
 SECTION "Bank 13@5bac", ROMX[$5bac], BANK[$13]
 Gfx_4dbac:: INCBIN "gfx/gfx_4dbac.2bpp"
 SECTION "Bank 13@5c6c", ROMX[$5c6c], BANK[$13]

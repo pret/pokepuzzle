@@ -2989,3 +2989,13 @@ Pals_52c1c:
 	rgb 31, 31, 17
 	rgb  0,  0,  0
 ; 0x52c24
+
+SECTION "Bank 14@76f4", ROMX[$76f4], BANK[$14]
+Unknown_536f4:
+	vc_patch fpa_42a_b
+IF DEF(_VC)
+	and $10
+ELSE
+	and $08
+ENDC
+	vc_patch_end
