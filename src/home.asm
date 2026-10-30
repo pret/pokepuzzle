@@ -673,7 +673,7 @@ Func_621::
 	ld b, a
 	ldh a, [hROMBank]
 	push af
-	add sp, $f4
+	add sp, -$0c
 
 	; get 6th byte argument
 	; multiply by input a
