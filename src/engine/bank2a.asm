@@ -9,7 +9,7 @@ Func_a8971:
 	ld a, GAMESTATE_1A
 	ldh [hGameState], a
 	xor a
-	ldh [$ffbb], a
+	ldh [hVBlankTrampolinePtr + 1], a
 	ldh a, [hWRAMBank]
 	push af
 	ld a, $01
@@ -33,7 +33,7 @@ Func_a8a2e:
 	ld a, $06
 	call Func_13a1
 	xor a
-	ldh [$ffbb], a
+	ldh [hVBlankTrampolinePtr + 1], a
 	ret
 
 Func_a8a45:
@@ -42,7 +42,7 @@ Func_a8a45:
 	ld a, GAMESTATE_1A
 	ldh [hGameState], a
 	xor a
-	ldh [$ffbb], a
+	ldh [hVBlankTrampolinePtr + 1], a
 	ldh a, [hWRAMBank]
 	push af
 	ld a, $01
@@ -107,7 +107,7 @@ Func_a8b11:
 	ld a, GAMESTATE_1A
 	ldh [hGameState], a
 	xor a
-	ldh [$ffbb], a
+	ldh [hVBlankTrampolinePtr + 1], a
 	ldh a, [hWRAMBank]
 	push af
 	ld a, $01

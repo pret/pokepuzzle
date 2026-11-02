@@ -43,12 +43,12 @@ Func_7c051:
 	ld b, BANK(v0BGMap0)
 	ld de, v0BGMap0
 	ld a, $d9
-	fill_mem $14, $80c
+	fill_mem SCREEN_WIDTH, TILEMAP_WIDTH - SCREEN_WIDTH, $08
 
 	ld b, BANK(v1BGMap0)
 	ld de, v1BGMap0
 	ld a, $05
-	fill_mem $14, $80c
+	fill_mem SCREEN_WIDTH, TILEMAP_WIDTH - SCREEN_WIDTH, $08
 
 	copy_box v0BGMap0, Tilemap_14d1d3, 0, 8, SCREEN_WIDTH, 10
 	copy_box v1BGMap0, Attrmap_14d33b, 0, 8, SCREEN_WIDTH, 10
@@ -211,7 +211,7 @@ Func_7e014:
 	ld a, GAMESTATE_1A
 	ldh [hGameState], a
 	xor a
-	ldh [$ffbb], a
+	ldh [hVBlankTrampolinePtr + 1], a
 	ldh a, [hWRAMBank]
 	push af
 	ld a, $01
@@ -234,3 +234,49 @@ Func_7e014:
 	wramswitch
 	ret
 ; 0x7e055
+
+SECTION "Bank 1f@61ce", ROMX[$61ce], BANK[$1f]
+
+Func_7e1ce::
+	ld a, $ed
+	ld [wcf13], a
+	ld a, $98
+	ld [$cf14], a
+	ldh a, [hJoypadPressed]
+	and $01
+	jr nz, .asm_7e20e
+	ldh a, [hffb7]
+	and $1f
+	cp $00
+	jr z, .asm_7e1ec
+	cp $10
+	jr z, .Func_7e1fd
+	scf
+	ret
+.asm_7e1ec
+	ld a, $66 ; tile
+	ld [wcf15], a
+	ld a, 3 | BG_BANK0 ; attributes
+	ld [wcf16], a
+	ld a, SHOW_TEXT_TILE
+	ld [wPendingTextGfxOperation], a
+	scf
+	ret
+.Func_7e1fd
+	ld a, $62 ; tile
+	ld [wcf15], a
+	ld a, 3 | BG_BANK0 ; attributes
+	ld [wcf16], a
+	ld a, SHOW_TEXT_TILE
+	ld [wPendingTextGfxOperation], a
+	scf
+	ret
+.asm_7e20e
+	call .Func_7e1fd
+	ld a, LOW(1)
+	ld [wTextDelayTimer + 0], a
+	ld a, HIGH(0)
+	ld [wTextDelayTimer + 1], a
+	and a
+	ret
+; 0x7e21d
